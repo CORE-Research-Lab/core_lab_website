@@ -144,6 +144,18 @@ export const graduateStudents = [
     email: 'harryye@cs.toronto.edu',
     linkedin: 'https://www.linkedin.com/in/runlong-ye/',
   },
+  {
+    name: 'Amber Richardson',
+    slug: 'amber_richardson',
+    image: amberPhoto,
+    position: 'Incoming Ph.D. Student (McMaster)',
+    bio: 'Amber is an incoming Ph.D. student at McMaster University, with research in computing education, ML education, and first-year writing. They help explore self-regulated learning, student experiences in first year and ML courses, and student experiences using AI in writing.',
+    website: '',
+    googlescholar: 'https://scholar.google.ca/citations?user=nV2mdA0AAAAJ&hl=en',
+    semanticScholarAuthorIds: ['2346187807'],
+    email: 'amber.richardson@mail.utoronto.ca',
+    linkedin: 'https://www.linkedin.com/in/j-amber-l-richardson/',
+  },
 ]
 
 export const undergraduateStudents = [
@@ -170,18 +182,6 @@ export const undergraduateStudents = [
     semanticScholarAuthorIds: ['2337137118'],
     email: 'khushi.malik@mail.utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/khushi-malik19/',
-  },
-  {
-    name: 'Amber Richardson',
-    slug: 'amber_richardson',
-    image: amberPhoto,
-    position: 'Undergraduate Researcher (UTM)',
-    bio: 'Amber is an undergraduate student involved with research in computing education, ML education, and first-year writing. They help explore self-regulated learning, student experiences in first year and ML courses, and student experiences using AI in writing.',
-    website: '',
-    googlescholar: 'https://scholar.google.ca/citations?user=nV2mdA0AAAAJ&hl=en',
-    semanticScholarAuthorIds: ['2346187807'],
-    email: 'amber.richardson@mail.utoronto.ca',
-    linkedin: 'https://www.linkedin.com/in/j-amber-l-richardson/',
   },
 ]
 

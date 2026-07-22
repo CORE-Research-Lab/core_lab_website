@@ -1,5 +1,6 @@
 import { members, membersBySlug } from '@/data/members'
 import { hasKnownPublicationYear, publicationsByYear, posterPublications } from '@/data/publications'
+import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { FaEnvelope, FaGlobe, FaLinkedin } from 'react-icons/fa'
 import { FaGoogleScholar } from 'react-icons/fa6'
@@ -72,7 +73,7 @@ const PublicationSection = ({ title, groupedItems, emptyText, highlightAuthors }
 
   return (
     <>
-      <h2 className="mt-10 border-b border-b-slate-200 pb-3 text-xl font-semibold text-[#0b3a72]">
+      <h2 className="mt-10 border-b border-b-slate-200 pb-3 text-xl font-semibold text-brand">
         {title}
       </h2>
 
@@ -80,7 +81,7 @@ const PublicationSection = ({ title, groupedItems, emptyText, highlightAuthors }
 
       {sortedYears.map(year => (
         <div key={year} className="mt-6 scroll-mt-24">
-          <div className="border-y border-y-[#0a1588] py-2 text-[20px] font-semibold text-[#0a1588]">
+          <div className="border-y border-y-brand py-2 text-[20px] font-semibold text-brand">
             {year}
           </div>
           <ul className="pt-5 text-slate-800">
@@ -111,13 +112,7 @@ const Member = ({ member }) => {
   const person = getPersonBySlug(member)
 
   if (!person) {
-    return (
-      <section className="mx-auto max-w-5xl px-5 py-10 sm:px-8 lg:px-12">
-        <h1 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-[#0b3a72]">
-          Member not found
-        </h1>
-      </section>
-    )
+    notFound()
   }
 
   const highlightAuthors = [...new Set([slugName, person.name, ...(person.aliases || [])].filter(Boolean))]
@@ -130,7 +125,7 @@ const Member = ({ member }) => {
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-10 sm:px-8 lg:px-12">
-      <h1 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-[#0b3a72]">
+      <h1 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-brand">
         {person.name}
       </h1>
 

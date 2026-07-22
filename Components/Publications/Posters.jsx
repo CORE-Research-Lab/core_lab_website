@@ -36,14 +36,14 @@ const Posters = () => {
 
   return (
     <section id="posters" className='w-full scroll-mt-24 px-5 pb-5 pt-10 sm:px-8 lg:px-12'>
-        <h2 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-[#0b3a72]">
+        <h2 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-brand">
             {publicationsPage.postersTitle}
         </h2>
         <div className="relative flex items-center overflow-hidden pt-5">
             <button
               type="button"
               onClick={previousSlide}
-              className="cursor-pointer rounded-full p-2 text-4xl text-[#0b3a72] transition hover:bg-slate-100"
+              className="cursor-pointer rounded-full p-2 text-4xl text-brand transition hover:bg-slate-100"
               aria-label="Show previous poster"
             >
                 <BsFillArrowLeftCircleFill aria-hidden="true" />
@@ -56,14 +56,14 @@ const Posters = () => {
                 >
                 {posterSlides.map((poster, index) => (
                     <Link href={poster.link} key={index} className='flex-none w-full'>
-                        <div className="cursor-pointer rounded-lg border border-slate-200 px-4 pb-12 pt-5 transition hover:border-[#7b94b6] hover:shadow-sm sm:px-10">
+                        <div className="cursor-pointer rounded-lg border border-slate-200 px-4 pb-12 pt-5 transition hover:border-brand-muted hover:shadow-sm sm:px-10">
                         <Image
                           src={poster.image}
                           alt={`${poster.conference} poster: ${poster.title}`}
                           className="mx-auto mb-3 h-auto max-h-[32rem] w-auto"
                           sizes="(max-width: 768px) 80vw, 520px"
                         />
-                        <p className="border-t-2 border-t-[#0b3a72] pt-3 text-sm leading-6 text-[#0b3a72] hover:underline sm:text-base">
+                        <p className="border-t-2 border-t-brand pt-3 text-sm leading-6 text-brand hover:underline sm:text-base">
                             <b>{poster.conference}</b> - {poster.title}
                         </p>
                         </div>
@@ -75,7 +75,7 @@ const Posters = () => {
             <button
               type="button"
               onClick={nextSlide}
-              className="cursor-pointer rounded-full p-2 text-4xl text-[#0b3a72] transition hover:bg-slate-100"
+              className="cursor-pointer rounded-full p-2 text-4xl text-brand transition hover:bg-slate-100"
               aria-label="Show next poster"
             >
                 <BsFillArrowRightCircleFill aria-hidden="true" />

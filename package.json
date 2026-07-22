@@ -7,19 +7,18 @@
     "build": "next build",
     "start": "next start",
     "sync:publications": "node scripts/sync-publications.mjs",
-    "lint": "next lint"
+    "lint": "eslint ."
   },
   "dependencies": {
-    "next": "15.3.8",
+    "next": "^16.2.11",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.5.0"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "eslint": "^9",
-    "eslint-config-next": "15.3.3",
+    "eslint-config-next": "^16.2.11",
     "tailwindcss": "^4"
   }
 }

@@ -5,12 +5,28 @@ import whiteboardArtwork from './assets/whiteboard.png'
 import doorArtwork from './assets/door.png'
 import windowArtwork from './assets/window.png'
 
-export const aboutContent = {
+export const heroContent = {
+  eyebrow: 'Computing education research · University of Toronto Mississauga',
   title: 'CORE Lab',
+  tagline: 'CORE Lab (Computational Research and Education) studies how people learn, teach, and work with computing.',
+  actions: [
+    { label: 'Meet the team', href: '/team', variant: 'primary' },
+    { label: 'Read our research', href: '/publications', variant: 'secondary' },
+  ],
+}
+
+export const aboutContent = {
+  title: 'About the lab',
   paragraphs: [
-    'CORE Lab (Computational Research and Education) studies how people learn, teach, and work with computing.',
     'Our research spans computing education, assessment design, educational data mining, student experience, and human-centered AI tools for learning and research.',
     'The lab brings together faculty, graduate students, and undergraduate researchers from the University of Toronto and partner institutions.',
+  ],
+  focusAreas: [
+    'Computing education',
+    'Assessment design',
+    'Educational data mining',
+    'Student experience',
+    'Human-centered AI',
   ],
 }
 

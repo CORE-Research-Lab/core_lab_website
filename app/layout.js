@@ -9,7 +9,10 @@ const geistSans = Geist({
 });
 
 export const metadata = {
-  title: "Core Lab",
+  title: {
+    default: "CORE Lab",
+    template: "%s | CORE Lab",
+  },
   description: "Computing education research at the University of Toronto and partner institutions.",
 };
 

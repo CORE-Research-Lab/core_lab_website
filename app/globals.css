@@ -1,15 +1,13 @@
 @import "tailwindcss";
 
 @theme {
-  --color-lightHover: #fcf4ff;
-  --color-darkHover: #2a004a;
-  --color-darkTheme: #11001f;
-
-  --shadow-black: 4px 4px 0 #000;
-  --shadow-white: 4px 4px 0 #fff;
+  /* Brand palette — a single, cohesive navy identity */
+  --color-brand: #0b3a72;
+  --color-brand-dark: #002a5c;
+  --color-brand-muted: #7b94b6;
+  --color-brand-soft: #eef3fb;
 
   --grid-template-columns-auto: repeat(auto-fit, minmax(300px, 1fr));
-  --grid-template-columns-people: repeat(auto-fit, minmax(350px, 1fr));
 }
 
 body {
@@ -21,6 +19,6 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid #0a1588;
+  outline: 2px solid var(--color-brand);
   outline-offset: 3px;
 }

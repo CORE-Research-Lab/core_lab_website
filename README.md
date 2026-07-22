@@ -17,7 +17,7 @@ Showcases CORE research lab!
 To run the project locally:
 ```bash
 git clone <repo-url>
-cd research-lab-website
+cd core_lab_website
 npm install
 npm run dev
 ```

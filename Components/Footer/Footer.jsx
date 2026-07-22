@@ -125,7 +125,7 @@ const Footer = () => {
               ))}
             </div>
             <p className='mt-4 max-w-md text-sm leading-6 text-slate-300'>
-              We acknowledge support from NSERC, the University of Toronto (Data Sciences Institute, Learning & Education Advancement Fund (LEAF), Institute for the Study of University Pedagogy), and France's Agence Nationale de la Recherche (ANR).
+              We acknowledge support from NSERC, the University of Toronto (Data Sciences Institute, Learning & Education Advancement Fund (LEAF), Institute for the Study of University Pedagogy), and France&rsquo;s Agence Nationale de la Recherche (ANR).
             </p>
             <p className='mt-2 max-w-md text-xs leading-5 text-slate-400'>
               The CORE Lab is supported by these organizations and is not a product of any sponsor or funder.

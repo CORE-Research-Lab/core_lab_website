@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import { projectsBySlug } from '@/data/projects';
 import PublicationCitation from '@/Components/Publications/PublicationCitation';
 
@@ -17,11 +18,7 @@ const Project = ({ name }) => {
   const project = projectsBySlug[name]
 
   if (!project) {
-    return (
-      <section className='mx-auto max-w-5xl px-5 py-10 sm:px-8 lg:px-12'>
-        <h1 className='border-b border-b-slate-200 pb-3 text-2xl font-semibold text-[#0b3a72]'>Project not found</h1>
-      </section>
-    )
+    notFound()
   }
 
   const publications = project.publications
@@ -30,7 +27,7 @@ const Project = ({ name }) => {
   return (
     <section className='mx-auto max-w-6xl px-5 py-10 sm:px-8 lg:px-12'>
 
-        <h1 className='border-b border-b-slate-200 pb-3 text-2xl font-semibold text-[#0b3a72]'>{project.name}</h1>
+        <h1 className='border-b border-b-slate-200 pb-3 text-2xl font-semibold text-brand'>{project.name}</h1>
 
         <div className='grid gap-6 pt-5 md:grid-cols-[220px_1fr] md:items-start'>
             <Image
@@ -44,7 +41,7 @@ const Project = ({ name }) => {
             </div>
         </div>
 
-        <h2 className='mt-10 border-b border-b-slate-200 pb-3 text-xl font-semibold text-[#0b3a72]'>
+        <h2 className='mt-10 border-b border-b-slate-200 pb-3 text-xl font-semibold text-brand'>
             Publications
           </h2>
 
@@ -54,7 +51,7 @@ const Project = ({ name }) => {
     
           {publicationYears.map(year => (
             <div key={year} className="mt-6 scroll-mt-24">
-              <div className="border-y border-y-[#0a1588] py-2 text-[20px] font-semibold text-[#0a1588]">
+              <div className="border-y border-y-brand py-2 text-[20px] font-semibold text-brand">
                 {year}
               </div>
               <ul className="pt-5 text-slate-800">

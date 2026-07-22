@@ -103,7 +103,7 @@ const AuthorList = ({
     return (
       <React.Fragment key={`${author}-${index}`}>
         {memberLink && linkMemberAuthors ? (
-          <Link href={memberLink} className="font-semibold text-[#0b3a72] hover:underline">
+          <Link href={memberLink} className="font-semibold text-brand hover:underline">
             {authorContent}
           </Link>
         ) : (
@@ -135,7 +135,7 @@ const PublicationCitation = ({
   return (
     <div className={number ? 'grid grid-cols-[3.25rem_1fr] gap-3' : ''}>
       {number && (
-        <span className="pt-0.5 text-right font-semibold tabular-nums text-[#0b3a72]">
+        <span className="pt-0.5 text-right font-semibold tabular-nums text-brand">
           {number}.
         </span>
       )}

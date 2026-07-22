@@ -79,7 +79,7 @@ const Papers = () => {
 
   return (
     <section id="papers" className="w-full scroll-mt-24 px-5 py-8 sm:px-8 lg:px-12">
-      <h2 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-[#0b3a72]">
+      <h2 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-brand">
         {publicationsPage.papersTitle}
       </h2>
 
@@ -94,7 +94,7 @@ const Papers = () => {
       ) : (
         sortedYears.map(year => (
           <div key={year} className="scroll-mt-24">
-            <div className="border-y border-y-[#0a1588] py-2 text-[20px] font-semibold text-[#0a1588]">
+            <div className="border-y border-y-brand py-2 text-[20px] font-semibold text-brand">
               {year}
             </div>
             <ul className="pt-5 text-slate-800">
