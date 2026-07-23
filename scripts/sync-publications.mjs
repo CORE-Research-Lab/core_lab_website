@@ -118,6 +118,7 @@ const readMemberAuthors = async filePath => {
   const memberGroups = vm.runInNewContext(
     `${executableSource}
 ;({
+  directors: typeof directors === 'undefined' ? [] : directors,
   professors: typeof professors === 'undefined' ? [] : professors,
   graduateStudents: typeof graduateStudents === 'undefined' ? [] : graduateStudents,
   undergraduateStudents: typeof undergraduateStudents === 'undefined' ? [] : undergraduateStudents,

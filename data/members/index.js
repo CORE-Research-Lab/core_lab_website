@@ -12,19 +12,39 @@ import jessicaPhoto from './assets/jessica_pfp.jpg'
 import amberPhoto from './assets/amber_pfp.jpg'
 import khushiPhoto from './assets/khushi_pfp.jpg'
 
-export const professors = [
+export const directors = [
   {
     name: 'Michael Liut',
     slug: 'michael_liut',
     image: michaelPhoto,
-    position: 'Assistant Professor, Teaching Stream (UTM)',
-    bio: 'Michael Liut is an Assistant Professor, Teaching Stream at the University of Toronto Mississauga. His work sits at the intersection of computer science and education, with a focus on applied AI/ML, adaptive educational technologies, data systems, algorithmic design, and student behaviour.',
+    position: 'Associate Professor, Teaching Stream (UTM)',
+    bio: 'Michael Liut is an Associate Professor, Teaching Stream at the University of Toronto Mississauga. His work sits at the intersection of computer science and education, with a focus on applied AI/ML, adaptive educational technologies, data systems, algorithmic design, and student behaviour.',
     website: 'https://www.michaelliut.ca/',
     googlescholar: 'https://scholar.google.com/citations?user=Jf8s0dMAAAAJ&hl=en&oi=ao',
     semanticScholarAuthorIds: ['1397294204', '2403113147'],
     email: 'michael.liut@utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/mliut/',
   },
+  {
+    name: 'Angela Zavaleta Bernuy',
+    slug: 'angela_zavaleta_bernuy',
+    image: angelaPhoto,
+    position: 'Assistant Professor (McMaster)',
+    aliases: [
+      'Angela M. Zavaleta Bernuy',
+      'Angela Zavaleta-Bernuy',
+      'Angela M. Zavaleta-Bernuy',
+    ],
+    bio: 'Angela Zavaleta is an Assistant Professor at McMaster University and a PhD candidate at the University of Toronto. Her research is at the intersection of computing education and human-computer interaction, with a focus on intelligent educational technologies. She explores behavioural interventions, ethical experimentation, and interactive tools to better understand and support student learning in computing.',
+    website: 'https://angelazb.github.io/',
+    googlescholar: 'https://scholar.google.com/citations?user=Toos7YkAAAAJ&hl=en&oi=ao',
+    semanticScholarAuthorIds: ['1508784636'],
+    email: 'zavaleta@mcmaster.ca',
+    linkedin: 'https://www.linkedin.com/in/angela-zavaleta-bernuy/',
+  },
+]
+
+export const professors = [
   {
     name: 'Andrew Petersen',
     slug: 'andrew_petersen',
@@ -85,23 +105,6 @@ export const professors = [
     semanticScholarAuthorIds: ['2210504384'],
     email: 'andi.bergen@utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/anbergen/',
-  },
-  {
-    name: 'Angela Zavaleta Bernuy',
-    slug: 'angela_zavaleta_bernuy',
-    image: angelaPhoto,
-    position: 'Assistant Professor (McMaster)',
-    aliases: [
-      'Angela M. Zavaleta Bernuy',
-      'Angela Zavaleta-Bernuy',
-      'Angela M. Zavaleta-Bernuy',
-    ],
-    bio: 'Angela Zavaleta is an Assistant Professor at McMaster University and a PhD candidate at the University of Toronto. Her research is at the intersection of computing education and human-computer interaction, with a focus on intelligent educational technologies. She explores behavioural interventions, ethical experimentation, and interactive tools to better understand and support student learning in computing.',
-    website: 'https://angelazb.github.io/',
-    googlescholar: 'https://scholar.google.com/citations?user=Toos7YkAAAAJ&hl=en&oi=ao',
-    semanticScholarAuthorIds: ['1508784636'],
-    email: 'zavaleta@mcmaster.ca',
-    linkedin: 'https://www.linkedin.com/in/angela-zavaleta-bernuy/',
   },
   {
     name: 'Brian Harrington',
@@ -194,10 +197,11 @@ const withMemberLinks = people =>
   }))
 
 export const memberGroups = [
-  { id: 'professor', title: 'Professors', people: withMemberLinks(professors) },
-  { id: 'grads', title: 'Graduate Students', people: withMemberLinks(graduateStudents) },
-  { id: 'undergrads', title: 'Undergraduate Students', people: withMemberLinks(undergraduateStudents) },
-  { id: 'pastmembers', title: 'Past Members', people: withMemberLinks(pastMembers) },
+  { id: 'directors', title: 'Directors', navLabel: 'Directors', people: withMemberLinks(directors) },
+  { id: 'professor', title: 'Professors', navLabel: 'Professors', people: withMemberLinks(professors) },
+  { id: 'grads', title: 'Graduate Students', navLabel: 'Graduate Students', people: withMemberLinks(graduateStudents) },
+  { id: 'undergrads', title: 'Undergraduate Students', navLabel: 'Undergraduates', people: withMemberLinks(undergraduateStudents) },
+  { id: 'pastmembers', title: 'Past Members', navLabel: 'Past Members', people: withMemberLinks(pastMembers) },
 ]
 
 export const members = memberGroups.flatMap(group =>

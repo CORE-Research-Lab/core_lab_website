@@ -16,5 +16,6 @@ export const navigationItems = [
   { href: '/team', label: 'Team' },
   { href: '/publications', label: 'Publications' },
   { href: '/projects', label: 'Projects' },
+  { href: '/artwork', label: 'Lab Artwork' },
   { href: '#contactus', label: 'Contact' },
 ]
