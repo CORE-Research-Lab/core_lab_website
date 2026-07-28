@@ -30,6 +30,16 @@ import paulVrbikPhoto from './assets/paul_vrbik_pfp.jpg'
 import anastasiiaBirilloPhoto from './assets/anastasiia_birillo_pfp.png'
 import ruiweiXiaoPhoto from './assets/ruiwei_xiao_pfp.webp'
 import sebastianGuertlPhoto from './assets/sebastian_guertl_pfp.jpg'
+import christopherEatonPhoto from './assets/christopher_eaton_pfp.webp'
+import oscarKarnalimPhoto from './assets/oscar_karnalim_pfp.png'
+import markoChoiPhoto from './assets/marko_choi_pfp.jpg'
+import rhettAminPhoto from './assets/rhett_amin_pfp.jpg'
+import suqingLiuPhoto from './assets/suqing_liu_pfp.jpg'
+import muniyaFallahPhoto from './assets/muniya_fallah_pfp.jpg'
+import nicholasChingPhoto from './assets/nicholas_ching_pfp.jpg'
+import maksymWoychyshynPhoto from './assets/maksym_woychyshyn_pfp.jpg'
+import yuriNovielloPhoto from './assets/yuri_noviello_pfp.png'
+import yuvaanshKapilaPhoto from './assets/yuvaansh_kapila_pfp.png'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -187,10 +197,12 @@ export const facultyIndustryPartners = [
     'christopher_eaton',
     'Associate Professor, Teaching Stream; Associate Director, Research, ISUP — University of Toronto Mississauga',
     {
+      image: christopherEatonPhoto,
       bio: 'Christopher Eaton is an Associate Professor, Teaching Stream, and Associate Director, Research, at UTM’s Institute for the Study of University Pedagogy. His scholarship connects writing studies, curriculum design, multimodal assessment, and emerging educational technologies, with recent work on generative AI, small language models, and AI literacy.',
       website: 'https://www.utm.utoronto.ca/isup/people/christopher-eaton',
       googlescholar: 'https://scholar.google.com/citations?user=jQ0pKe4AAAAJ&hl=en&oi=ao',
       email: 'chris.eaton@utoronto.ca',
+      imageSource: 'https://www.utm.utoronto.ca/isup/people/christopher-eaton',
     }
   ),
   basicProfile(
@@ -213,7 +225,6 @@ export const facultyIndustryPartners = [
     {
       image: nihalHaquePhoto,
       bio: 'Nihal Haque is a geriatrician at North York General Hospital and an Adjunct Assistant Professor at the University of Toronto. His work brings human-centred AI into geriatric medicine and medical education, including tools for discharge summaries, delirium care, clinician AI literacy, and MedBot, a simulated-patient chatbot for clinical interviewing practice.',
-      website: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
       imageSource: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
     }
   ),
@@ -278,7 +289,6 @@ export const currentGraduateStudents = [
       publicationName: 'Valeria Ramirez Osorio',
       image: valeriaOsorioRamirezPhoto,
       bio: 'Valeria is a master’s student at McMaster University whose computing education research examines how students use generative AI in computing courses and how coordinated visualizations can help novice programmers connect code with underlying concepts.',
-      website: 'https://conf.researchr.org/profile/conf/valeriaramirezosorio',
       googlescholar: 'https://scholar.google.com/citations?user=hlp5djYAAAAJ&hl=en',
       linkedin: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
       imageSource: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
@@ -292,12 +302,13 @@ export const currentGraduateStudents = [
   basicProfile(
     'Zezhu (Sam) Yu',
     'zezhu_sam_yu',
-    'Graduate Researcher — CORE Lab',
+    'Master’s Student — McMaster University',
     {
       aliases: ['Zezhu Yu', 'Sam Yu'],
       publicationName: 'Zezhu Yu',
-      bio: 'Zezhu (Sam) Yu is a graduate researcher with the CORE Lab. His work investigates how small language models and retrieval-augmented generation can provide practical, resource-conscious support in computer science courses.',
-      website: 'https://sigcse2025.sigcse.org/profile/zezhuyu',
+      bio: 'Zezhu (Sam) Yu is a master’s student at McMaster University and a graduate researcher with the CORE Lab. His work investigates how small language models and retrieval-augmented generation can provide practical, resource-conscious support in computer science courses.',
+      website: 'https://www.samproduce.com/',
+      linkedin: 'https://www.linkedin.com/in/zezhuyu/',
       semanticScholarAuthorIds: ['2309663951'],
       semanticScholarUrls: [
         'https://www.semanticscholar.org/author/Zezhu-Yu/2309663951',
@@ -384,8 +395,10 @@ export const softwareDevelopers = [
     'marko_choi',
     'Software Developer — CORE Lab',
     {
+      image: markoChoiPhoto,
       bio: 'Marko is a software developer with the CORE Lab and a University of Toronto computer science alumnus. He contributed to QuickTA, an LLM-powered tutoring system for computer science courses, and has a professional background in full-stack development.',
       linkedin: 'https://hk.linkedin.com/in/markochoi',
+      imageSource: 'https://hk.linkedin.com/in/markochoi',
     }
   ),
   basicProfile(
@@ -393,8 +406,10 @@ export const softwareDevelopers = [
     'rhett_amin',
     'Software Developer — CORE Lab',
     {
+      image: rhettAminPhoto,
       bio: 'Rhett is a software developer with the CORE Lab and a technical product leader with experience in backend APIs, cloud infrastructure, and full-stack development. He studied computer science at McMaster University, where he led student technology initiatives and contributed to computing education research.',
       linkedin: 'https://ca.linkedin.com/in/rhettamin',
+      imageSource: 'https://ca.linkedin.com/in/rhettamin',
     }
   ),
   basicProfile(
@@ -404,7 +419,6 @@ export const softwareDevelopers = [
     {
       aliases: ['Joshua Barkovic'],
       bio: 'Josh is a software developer with the CORE Lab and a McMaster University software engineering alumnus. His graduate research focused on fault-aware sensor fusion and autonomous-vehicle safety, complementing his experience building production software systems.',
-      website: 'https://macsphere.mcmaster.ca/items/90ed4811-e5a7-4d69-b4ff-639cae9d7c45',
       linkedin: 'https://ca.linkedin.com/in/jbarkovic',
     }
   ),
@@ -431,9 +445,11 @@ export const formerGraduateStudents = [
     {
       currentPosition: 'Now at Meta',
       aliases: ['Suqing Richard Liu', 'Richard Liu'],
+      image: suqingLiuPhoto,
       bio: 'Suqing is a former CORE Lab M.Eng. student and is now at Meta.',
       website: 'https://suqingliu.com/',
       linkedin: 'https://www.linkedin.com/in/suqing-richard-liu-22aa05204',
+      imageSource: 'https://suqingliu.com/',
     }
   ),
 ]
@@ -444,8 +460,10 @@ export const formerUndergraduateStudents = [
     'muniya_fallah',
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
+      image: muniyaFallahPhoto,
       bio: 'Muniya is a former CORE Lab undergraduate researcher.',
       linkedin: 'https://ca.linkedin.com/in/muniya-fallah-b641632a6',
+      imageSource: 'https://www.eng.mcmaster.ca/news/scholarship-stories-empowering-students-to-pursue-their-passions-at-mcmaster-engineering/',
     }
   ),
   basicProfile(
@@ -454,9 +472,11 @@ export const formerUndergraduateStudents = [
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
       currentPosition: 'Now at Cisco — Embedded Software Engineering Intern',
+      image: nicholasChingPhoto,
       bio: 'Nicholas is a former CORE Lab undergraduate researcher and is now an Embedded Software Engineering Intern at Cisco.',
       website: 'https://www.nicholasching.ca/',
       linkedin: 'https://ca.linkedin.com/in/n-ching',
+      imageSource: 'https://www.nicholasching.ca/',
     }
   ),
   basicProfile(
@@ -467,7 +487,6 @@ export const formerUndergraduateStudents = [
       currentPosition: 'Now at Exhilarare — Machine Learning R&D Engineer',
       image: idoBenHaimPhoto,
       bio: 'Ido is a former CORE Lab undergraduate researcher and is now a Machine Learning R&D Engineer at Exhilarare.',
-      website: 'https://cssc.utm.utoronto.ca/learn-more',
       linkedin: 'https://ca.linkedin.com/in/idobenhaim',
       imageSource: 'https://cssc.utm.utoronto.ca/learn-more',
     }
@@ -509,7 +528,6 @@ export const formerUndergraduateStudents = [
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
       bio: 'Franco is a former CORE Lab undergraduate researcher.',
-      website: 'https://arxiv.org/abs/2604.27433',
       email: 'franco.ortiz@mail.utoronto.ca',
     }
   ),
@@ -518,9 +536,11 @@ export const formerUndergraduateStudents = [
     'maksym_woychyshyn',
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
+      image: maksymWoychyshynPhoto,
       bio: 'Maksym is a former CORE Lab undergraduate researcher.',
       website: 'https://maksymw.com/',
       linkedin: 'https://ca.linkedin.com/in/maksym-woychyshyn-a14836197',
+      imageSource: 'https://maksymw.com/',
     }
   ),
   basicProfile(
@@ -529,7 +549,7 @@ export const formerUndergraduateStudents = [
     'CORE Lab Alumni — Former Undergraduate Research Intern',
     {
       bio: 'Boushra is a former CORE Lab undergraduate research intern.',
-      website: 'https://datasciences.utoronto.ca/dsisuds-scholars/',
+      linkedin: 'https://sa.linkedin.com/in/boushra-al-mazroua-35473b252',
     }
   ),
 ]
@@ -552,6 +572,7 @@ export const facultyCollaborators = [
     'oscar_karnalim',
     'Vice Rector I, Academic and Research; Associate Professor — Maranatha Christian University',
     {
+      image: oscarKarnalimPhoto,
       bio: 'Oscar Karnalim is Vice Rector I for Academic and Research and an Associate Professor in Informatics Engineering at Maranatha Christian University. His research spans software engineering and learning technologies, including generative AI, programming assessment, source-code similarity, and academic integrity.',
       website: 'https://www.maranatha.edu/direktori-dosen/oscar-karnalim/',
     }
@@ -673,9 +694,11 @@ export const externalStudentsIndustryCollaborators = [
     'yuri_noviello',
     'Ph.D. Candidate — Delft University of Technology',
     {
+      image: yuriNovielloPhoto,
       bio: 'Yuri Noviello is a Ph.D. candidate at Delft University of Technology. His research investigates artificial intelligence in computer science education, including natural-language processing methods for generating and evaluating learning materials.',
       website: 'https://www.wis.ewi.tudelft.nl/noviello',
       email: 'y.noviello@tudelft.nl',
+      imageSource: 'https://www.wis.ewi.tudelft.nl/noviello',
     }
   ),
   basicProfile(
@@ -683,9 +706,11 @@ export const externalStudentsIndustryCollaborators = [
     'yuvaansh_kapila',
     'Student Developer; External Collaborator — CORE Lab',
     {
+      image: yuvaanshKapilaPhoto,
       bio: 'Yuvaansh is a student developer and external collaborator with the CORE Lab. His interests include web technologies, artificial intelligence, accessibility, and conversational tools that make digital experiences more accessible.',
       website: 'https://yuvaanshkapila.xyz/',
       linkedin: 'https://ca.linkedin.com/in/yuvaansh-kapila-3b4bab364',
+      imageSource: 'https://www.robo-geek.ca/teaching-assistants-and-student-success-stories-stem',
     }
   ),
 ]
