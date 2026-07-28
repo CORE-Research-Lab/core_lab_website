@@ -230,6 +230,7 @@ export const facultyIndustryPartners = [
     {
       image: nihalHaquePhoto,
       bio: 'Nihal Haque is a geriatrician at North York General Hospital and an Adjunct Assistant Professor at the University of Toronto. His work brings human-centred AI into geriatric medicine and medical education, including tools for discharge summaries, delirium care, clinician AI literacy, and MedBot, a simulated-patient chatbot for clinical interviewing practice.',
+      website: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
       imageSource: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
     }
   ),
@@ -388,6 +389,7 @@ export const currentUndergraduateStudents = [
     'Undergraduate Student — CORE Lab',
     {
       bio: 'Lukas is an undergraduate student working with the CORE Lab on research and development in computing and education.',
+      website: 'https://kangleelab.com/current-students',
     }
   ),
   basicProfile(
@@ -578,6 +580,7 @@ export const formerUndergraduateStudents = [
     'CORE Lab Alumni — Former Undergraduate Student',
     {
       bio: 'Yashika is a former CORE Lab undergraduate student.',
+      linkedin: 'https://ca.linkedin.com/in/yashika-jain-1705',
     }
   ),
 ]
@@ -682,9 +685,9 @@ export const facultyCollaborators = [
     {
       image: alexanderSteinmaurerPhoto,
       bio: 'Alexander Steinmaurer is a postdoctoral researcher and program coordinator at IT:U in Austria. His research spans programming education, large language models in digital education, educational data, game-based learning, and immersive technologies such as virtual and augmented reality.',
-      website: 'https://it-u.at/en/people/alexander-steinmaurer/',
+      website: 'https://it-u.at/en/persons/team/alexander-steinmaurer/',
       email: 'alexander.steinmaurer@it-u.at',
-      imageSource: 'https://it-u.at/en/people/alexander-steinmaurer/',
+      imageSource: 'https://it-u.at/en/persons/team/alexander-steinmaurer/',
     }
   ),
   basicProfile(
@@ -694,9 +697,9 @@ export const facultyCollaborators = [
     {
       image: paulVrbikPhoto,
       bio: 'Paul Vrbik is a Senior Lecturer at the University of Queensland. His research and teaching interests include computing and software engineering education, live coding and problem-solving instruction, assessment design, and academic integrity in programming courses.',
-      website: 'https://about.uq.edu.au/experts/24525',
+      website: 'https://about.uq.edu.au/experts/16776',
       email: 'p.vrbik@uq.edu.au',
-      imageSource: 'https://about.uq.edu.au/experts/24525',
+      imageSource: 'https://about.uq.edu.au/experts/16776',
     }
   ),
 ]
