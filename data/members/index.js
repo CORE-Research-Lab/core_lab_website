@@ -42,6 +42,9 @@ import maksymWoychyshynPhoto from './assets/maksym_woychyshyn_pfp.jpg'
 import yuriNovielloPhoto from './assets/yuri_noviello_pfp.png'
 import yuvaanshKapilaPhoto from './assets/yuvaansh_kapila_pfp.png'
 import carlosPhoto from './assets/carlos_suarez_pfp.png'
+import joshuaPhoto from './assets/joshua_barkovic_pfp.jpg'
+import francoPhoto from './assets/franco_ortiz_pfp.jpg'
+import nathanPhoto from './assets/nathan_taback_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -235,6 +238,7 @@ export const facultyIndustryPartners = [
     'nathan_taback',
     'Professor, Teaching Stream; Associate Chair, Undergraduate; Special Advisor to the Dean — University of Toronto',
     {
+      image: nathanPhoto,
       bio: 'Nathan Taback is a Professor, Teaching Stream, and Associate Chair, Undergraduate, in the University of Toronto’s Department of Statistical Sciences. He works in data science and statistics education and serves as a Special Advisor to the Dean of Arts & Science on computational and data science education.',
       website: 'https://www.statistics.utoronto.ca/people/directories/all-faculty/nathan-taback',
       googlescholar: 'https://scholar.google.com/citations?user=Ji_Iyg0AAAAJ&hl=en&oi=ao',
@@ -428,6 +432,7 @@ export const softwareDevelopers = [
     'josh_barkovic',
     'Software Developer — CORE Lab',
     {
+      image: joshuaPhoto,
       aliases: ['Joshua Barkovic'],
       bio: 'Josh is a software developer with the CORE Lab and a McMaster University software engineering alumnus. His graduate research focused on fault-aware sensor fusion and autonomous-vehicle safety, complementing his experience building production software systems.',
       linkedin: 'https://ca.linkedin.com/in/jbarkovic',
@@ -539,6 +544,9 @@ export const formerUndergraduateStudents = [
     'franco_ortiz',
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
+      currentPosition: 'Master Student - France',
+      aliases: ['Franco Ortiz Luna'],
+      image: francoPhoto,
       bio: 'Franco is a former CORE Lab undergraduate researcher.',
       email: 'franco.ortiz@mail.utoronto.ca',
     }
