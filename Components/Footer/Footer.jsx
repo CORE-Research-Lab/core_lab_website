@@ -89,7 +89,7 @@ const Footer = () => {
   return (
     <footer className='mt-16 bg-slate-950 text-slate-100' id='contactus'>
       <div className='mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12'>
-        <div className='grid gap-10 lg:grid-cols-[1.2fr_1fr_1.2fr]'>
+        <div className='grid gap-10 lg:grid-cols-[1.2fr_0.9fr_2fr]'>
           <section aria-labelledby='footer-lab'>
             <Link href='/' className='inline-flex items-center gap-3'>
               <Image src={siteBrand.logo} alt={`${siteBrand.name} logo`} width={52} height={52} />
@@ -112,7 +112,29 @@ const Footer = () => {
             </address>
           </section>
 
-          <div>
+          <section aria-labelledby='footer-contact'>
+            <h2 id='footer-contact' className='text-sm font-semibold text-white'>Contact</h2>
+            <ul className='mt-4 space-y-3 text-sm'>
+              {contactEmails.map((email) => (
+                <li key={email} className='flex items-center gap-2'>
+                  <FaEnvelope className='h-4 w-4 shrink-0 text-blue-200' aria-hidden='true' />
+                  <a href={`mailto:${email}`} className='break-all text-slate-300 transition hover:text-white hover:underline'>
+                    {email}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <a
+              href='https://www.utm.utoronto.ca/visitors/maps-and-directions'
+              className='mt-5 inline-flex text-sm font-medium text-blue-200 transition hover:text-white hover:underline'
+              target='_blank'
+              rel='noreferrer'
+            >
+              UTM maps and directions
+            </a>
+          </section>
+
+          <div className='grid gap-x-10 gap-y-6 sm:grid-cols-2'>
             <section aria-labelledby='footer-affiliation'>
               <h2 id='footer-affiliation' className='text-sm font-semibold text-white'>Affiliation</h2>
               <ul className='mt-5 flex flex-col items-start gap-5'>
@@ -138,43 +160,24 @@ const Footer = () => {
               </ul>
             </section>
 
-            <section aria-labelledby='footer-contact' className='mt-8 border-t border-white/10 pt-8'>
-              <h2 id='footer-contact' className='text-sm font-semibold text-white'>Contact</h2>
-              <ul className='mt-4 space-y-3 text-sm'>
-                {contactEmails.map((email) => (
-                  <li key={email} className='flex items-center gap-2'>
-                    <FaEnvelope className='h-4 w-4 shrink-0 text-blue-200' aria-hidden='true' />
-                    <a href={`mailto:${email}`} className='break-all text-slate-300 transition hover:text-white hover:underline'>
-                      {email}
-                    </a>
-                  </li>
+            <section aria-labelledby='footer-sponsor'>
+              <h2 id='footer-sponsor' className='text-sm font-semibold text-white'>Sponsors and supporters</h2>
+              <div className='mt-5 flex flex-wrap items-center gap-x-7 gap-y-5'>
+                {sponsors.map((sponsor) => (
+                  <OrganizationLogo key={sponsor.name} organization={sponsor} />
                 ))}
-              </ul>
-              <a
-                href='https://www.utm.utoronto.ca/visitors/maps-and-directions'
-                className='mt-5 inline-flex text-sm font-medium text-blue-200 transition hover:text-white hover:underline'
-                target='_blank'
-                rel='noreferrer'
-              >
-                UTM maps and directions
-              </a>
+              </div>
             </section>
-          </div>
 
-          <section aria-labelledby='footer-sponsor'>
-            <h2 id='footer-sponsor' className='text-sm font-semibold text-white'>Sponsors and supporters</h2>
-            <div className='mt-5 flex flex-wrap items-center gap-x-7 gap-y-5'>
-              {sponsors.map((sponsor) => (
-                <OrganizationLogo key={sponsor.name} organization={sponsor} />
-              ))}
+            <div className='border-t border-white/10 pt-5 sm:col-span-2'>
+              <p className='text-sm leading-6 text-slate-300'>
+                We thank the financial support from: NSERC (DG &amp; CREATE), University of Toronto (DSI, ISUP, LEAF), McMaster University, and France&apos;s ANR.
+              </p>
+              <p className='mt-2 text-xs leading-5 text-slate-400'>
+                The CORE Lab is supported by these organizations and is not a product of any sponsor or funder.
+              </p>
             </div>
-            <p className='mt-4 max-w-md text-sm leading-6 text-slate-300'>
-              We thank the financial support from: NSERC (DG &amp; CREATE), University of Toronto (DSI, ISUP, LEAF), McMaster University, and France&apos;s ANR.
-            </p>
-            <p className='mt-2 max-w-md text-xs leading-5 text-slate-400'>
-              The CORE Lab is supported by these organizations and is not a product of any sponsor or funder.
-            </p>
-          </section>
+          </div>
         </div>
 
         <div className='mt-10 border-t border-white/10 pt-6 text-sm text-slate-400 sm:flex sm:items-center sm:justify-between'>
