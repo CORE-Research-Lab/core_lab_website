@@ -2,23 +2,23 @@ import Image from 'next/image';
 import Link from 'next/link'
 import { memberGroups } from '@/data/members';
 
-const MemberCard = ({ person }) => (
+const MemberCard = ({ person, compact = false }) => (
   <Link href={person.link} className="group block">
-    <article className="rounded-lg border border-slate-200 px-5 py-5 transition duration-200 hover:border-brand-muted hover:bg-slate-50 hover:shadow-sm">
+    <article className={`rounded-lg border border-slate-200 transition duration-200 hover:border-brand-muted hover:bg-slate-50 hover:shadow-sm ${compact ? 'px-4 py-4' : 'px-5 py-5'}`}>
       <div className="flex items-center">
-        <div className="h-[96px] w-[96px] flex-shrink-0 overflow-hidden rounded-full bg-slate-100">
+        <div className={`${compact ? 'h-[72px] w-[72px]' : 'h-[96px] w-[96px]'} flex-shrink-0 overflow-hidden rounded-full bg-slate-100`}>
           <Image
             src={person.image}
             alt={person.name}
             className="h-full w-full object-cover object-center"
-            sizes="96px"
+            sizes={compact ? '72px' : '96px'}
           />
         </div>
-        <div className="ml-5 min-w-0">
-          <h3 className="m-0 font-semibold text-brand-dark group-hover:underline">{person.name}</h3>
-          <p className="m-0 text-sm leading-6 text-slate-600">{person.position}</p>
+        <div className={`${compact ? 'ml-4' : 'ml-5'} min-w-0`}>
+          <h3 className={`m-0 font-semibold text-brand-dark group-hover:underline ${compact ? 'text-sm' : ''}`}>{person.name}</h3>
+          <p className={`m-0 text-slate-600 ${compact ? 'text-xs leading-5' : 'text-sm leading-6'}`}>{person.position}</p>
           {person.currentPosition && (
-            <p className="m-0 text-sm font-medium leading-6 text-slate-700">
+            <p className={`m-0 font-medium text-slate-700 ${compact ? 'text-xs leading-5' : 'text-sm leading-6'}`}>
               {person.currentPosition}
             </p>
           )}
@@ -28,11 +28,11 @@ const MemberCard = ({ person }) => (
   </Link>
 )
 
-const MemberGrid = ({ people, emptyText = 'This section is being updated.' }) => (
+const MemberGrid = ({ people, compact = false, emptyText = 'This section is being updated.' }) => (
   people.length > 0 ? (
-    <div className="grid grid-cols-1 gap-4 pt-4 lg:grid-cols-2">
+    <div className={`grid grid-cols-1 pt-4 lg:grid-cols-2 ${compact ? 'gap-3 xl:grid-cols-3' : 'gap-4'}`}>
       {people.map((person) => (
-        <MemberCard person={person} key={person.link || person.name} />
+        <MemberCard compact={compact} person={person} key={person.link || person.name} />
       ))}
     </div>
   ) : (
@@ -50,7 +50,7 @@ const Members = () => {
             group.groups.map((subgroup) => (
               <section className="scroll-mt-24" id={subgroup.id} key={subgroup.id}>
                 <h3 className="pt-7 text-xl font-semibold text-brand-dark">{subgroup.title}</h3>
-                <MemberGrid people={subgroup.people} />
+                <MemberGrid compact={group.id === 'pastmembers'} people={subgroup.people} />
               </section>
             ))
           ) : (

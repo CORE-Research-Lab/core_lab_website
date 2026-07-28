@@ -18,6 +18,7 @@ import carolinaNobrePhoto from './assets/carolina_nobre_pfp.jpg'
 import nihalHaquePhoto from './assets/nihal_haque_pfp.png'
 import zainMustafaPhoto from './assets/zain_mustafa_pfp.webp'
 import idoBenHaimPhoto from './assets/ido_ben_haim_pfp.jpg'
+import zoeyZhangPhoto from './assets/zoey_zhang_pfp.png'
 import ilyaMusabirovPhoto from './assets/ilya_musabirov_pfp.jpg'
 import nanMessePhoto from './assets/nan_messe_pfp.jpg'
 import juhoLeinonenPhoto from './assets/juho_leinonen_pfp.jpg'
@@ -440,7 +441,7 @@ export const formerGraduateStudents = [
     'ilya_musabirov',
     'CORE Lab Alumni — Former Ph.D. Student',
     {
-      currentPosition: 'Now at UBC — Assistant Professor of Teaching',
+      currentPosition: 'Now Assistant Professor at UBC',
       image: ilyaMusabirovPhoto,
       bio: 'Ilya is a former CORE Lab Ph.D. student and is now an Assistant Professor of Teaching at UBC.',
       website: 'https://www.cs.ubc.ca/people/ilya-musabirov',
@@ -481,7 +482,7 @@ export const formerUndergraduateStudents = [
     'nicholas_ching',
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
-      currentPosition: 'Now at Cisco — Embedded Software Engineering Intern',
+      currentPosition: 'Now Embedded Software Engineering Intern at Cisco',
       image: nicholasChingPhoto,
       bio: 'Nicholas is a former CORE Lab undergraduate researcher and is now an Embedded Software Engineering Intern at Cisco.',
       website: 'https://www.nicholasching.ca/',
@@ -494,7 +495,7 @@ export const formerUndergraduateStudents = [
     'ido_ben_haim',
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
-      currentPosition: 'Now at Exhilarare — Machine Learning R&D Engineer',
+      currentPosition: 'Now Machine Learning R&D Engineer at Exhilarare',
       image: idoBenHaimPhoto,
       bio: 'Ido is a former CORE Lab undergraduate researcher and is now a Machine Learning R&D Engineer at Exhilarare.',
       linkedin: 'https://ca.linkedin.com/in/idobenhaim',
@@ -507,6 +508,8 @@ export const formerUndergraduateStudents = [
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
       aliases: ['Zeling Zhang', 'Zoey Zhang'],
+      currentPosition: 'Now M.Eng at U of T',
+      image: zoeyZhangPhoto,
       publicationName: 'Zeling Zhang',
       bio: 'Zeling is a former CORE Lab undergraduate researcher.',
       linkedin: 'https://www.linkedin.com/in/zoeyyyzhang/',
