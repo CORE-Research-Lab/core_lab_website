@@ -290,6 +290,7 @@ export const currentGraduateStudents = [
       image: valeriaOsorioRamirezPhoto,
       bio: 'Valeria is a master’s student at McMaster University whose computing education research examines how students use generative AI in computing courses and how coordinated visualizations can help novice programmers connect code with underlying concepts.',
       googlescholar: 'https://scholar.google.com/citations?user=hlp5djYAAAAJ&hl=en',
+      email: 'ramirev@mcmaster.ca',
       linkedin: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
       imageSource: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
       semanticScholarAuthorIds: ['2330617206', '2382996829'],
@@ -351,6 +352,14 @@ export const currentUndergraduateStudents = [
     email: 'khushi.malik@mail.utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/khushi-malik19/',
   },
+  basicProfile(
+    'Emmanuel Deza',
+    'emmanuel_deza',
+    'Undergraduate Student — CORE Lab',
+    {
+      bio: 'Emmanuel is an undergraduate student working with the CORE Lab.',
+    }
+  ),
   basicProfile(
     'Kelvin Leung',
     'kelvin_leung',
@@ -551,9 +560,26 @@ export const formerUndergraduateStudents = [
       linkedin: 'https://sa.linkedin.com/in/boushra-al-mazroua-35473b252',
     }
   ),
+  basicProfile(
+    'Yashika Jain',
+    'yashika_jain',
+    'CORE Lab Alumni — Former Undergraduate Student',
+    {
+      bio: 'Yashika is a former CORE Lab undergraduate student.',
+    }
+  ),
 ]
 
 export const facultyCollaborators = [
+  basicProfile(
+    'Carlos Aníbal Suárez',
+    'carlos_anibal_suarez',
+    'Professor — Escuela Superior Politécnica del Litoral (ESPOL), Ecuador',
+    {
+      bio: 'Carlos Aníbal Suárez is a professor at Escuela Superior Politécnica del Litoral (ESPOL) in Ecuador and a collaborator with the CORE Lab.',
+      googlescholar: 'https://scholar.google.com/citations?user=2KaJJDIAAAAJ&hl=en&oi=ao',
+    }
+  ),
   basicProfile(
     'Nan Messe',
     'nan_messe',
