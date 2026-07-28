@@ -2,17 +2,19 @@
 
 import { useMemo, useState } from 'react'
 import { hasKnownPublicationYear, publicationsByYear, publicationsPage } from '@/data/publications'
+import {
+  flattenPublications,
+  getPublicationAuthors,
+  groupPublicationsByYear,
+  sortPublicationYearsDescending,
+} from '@/lib/publications.mjs'
 import SearchBar from './SearchBar'
 import PublicationCitation from './PublicationCitation'
 
-const allPublications = Object.entries(publicationsByYear).flatMap(([year, pubs]) =>
-  pubs.map(pub => ({ ...pub, year })).filter(hasKnownPublicationYear)
-)
+const allPublications = flattenPublications(publicationsByYear).filter(hasKnownPublicationYear)
 
 const getSearchText = (publication) => {
-  const authors = Array.isArray(publication.author)
-    ? publication.author.join(' ')
-    : publication.author || ''
+  const authors = getPublicationAuthors(publication).join(' ')
 
   return [
     publication.title,
@@ -22,16 +24,6 @@ const getSearchText = (publication) => {
     publication.journal,
     publication.series,
   ].filter(Boolean).join(' ').toLowerCase()
-}
-
-const sortYearsDescending = (a, b) => {
-  const aNum = parseInt(a)
-  const bNum = parseInt(b)
-
-  if (isNaN(aNum)) return 1
-  if (isNaN(bNum)) return -1
-
-  return bNum - aNum
 }
 
 const withReverseNumbersByYear = (groupedItems, sortedYears) => {
@@ -58,17 +50,13 @@ const Papers = () => {
     return allPublications.filter(pub => getSearchText(pub).includes(normalizedQuery))
   }, [query])
 
-  const groupedFiltered = useMemo(() => (
-    filtered.reduce((acc, pub) => {
-      const year = pub.year || 'Unknown'
-      if (!acc[year]) acc[year] = []
-      acc[year].push(pub)
-      return acc
-    }, {})
-  ), [filtered])
+  const groupedFiltered = useMemo(
+    () => groupPublicationsByYear(filtered),
+    [filtered]
+  )
 
   const sortedYears = useMemo(
-    () => Object.keys(groupedFiltered).sort(sortYearsDescending),
+    () => Object.keys(groupedFiltered).sort(sortPublicationYearsDescending),
     [groupedFiltered]
   )
 

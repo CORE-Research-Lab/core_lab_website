@@ -4,25 +4,39 @@ import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
 import { navigationItems, siteBrand } from '@/data/navigation'
 import anrLogo from '@/data/navigation/assets/anr-logo.jpg'
 import dsiLogo from '@/data/navigation/assets/dsi-logo.png'
+import mcmasterUniversityLogo from '@/data/navigation/assets/mcmaster-university-logo.png'
 import nsercSymbol from '@/data/navigation/assets/nserc-symbol-color.png'
-import uoftLogo from '@/data/navigation/assets/uoft-logo.svg'
+import universityOfTorontoLogo from '@/data/navigation/assets/university-of-toronto-logo-white.png'
 
 const contactEmails = [
-  'learningcs.utm@utoronto.ca',
+  'corelab.utm@utoronto.ca',
   'michael.liut@utoronto.ca',
 ]
 
 const footerLinks = navigationItems.filter((item) => item.href !== '#contactus')
 
-const sponsors = [
+const affiliations = [
   {
     name: 'University of Toronto',
-    href: 'https://www.viceprovostundergrad.utoronto.ca/teaching-awards-grants/learning-education-advancement-fund-leaf/',
-    logo: uoftLogo,
+    href: 'https://www.utoronto.ca/',
+    logo: universityOfTorontoLogo,
     alt: 'University of Toronto logo',
-    width: 122,
-    height: 45,
+    width: 435,
+    height: 177,
+    className: 'h-12',
   },
+  {
+    name: 'McMaster University',
+    href: 'https://www.mcmaster.ca/',
+    logo: mcmasterUniversityLogo,
+    alt: 'McMaster University logo',
+    width: 316,
+    height: 168,
+    className: 'h-12',
+  },
+]
+
+const sponsors = [
   {
     name: 'Data Sciences Institute',
     href: 'https://datasciences.utoronto.ca/',
@@ -50,6 +64,24 @@ const sponsors = [
     className: 'rounded-sm bg-white',
   },
 ]
+
+const OrganizationLogo = ({ organization }) => (
+  <a
+    href={organization.href}
+    className='flex h-12 items-center justify-center transition hover:opacity-80'
+    target='_blank'
+    rel='noreferrer'
+    aria-label={`Visit ${organization.name}`}
+  >
+    <Image
+      src={organization.logo}
+      alt={organization.alt}
+      width={organization.width}
+      height={organization.height}
+      className={`h-11 w-auto object-contain ${organization.className || ''}`}
+    />
+  </a>
+)
 
 const Footer = () => {
   const currentYear = new Date().getFullYear()
@@ -80,52 +112,64 @@ const Footer = () => {
             </address>
           </section>
 
-          <section aria-labelledby='footer-contact'>
-            <h2 id='footer-contact' className='text-sm font-semibold text-white'>Contact</h2>
-            <ul className='mt-4 space-y-3 text-sm'>
-              {contactEmails.map((email) => (
-                <li key={email} className='flex items-center gap-2'>
-                  <FaEnvelope className='h-4 w-4 shrink-0 text-blue-200' aria-hidden='true' />
-                  <a href={`mailto:${email}`} className='break-all text-slate-300 transition hover:text-white hover:underline'>
-                    {email}
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <a
-              href='https://www.utm.utoronto.ca/visitors/maps-and-directions'
-              className='mt-5 inline-flex text-sm font-medium text-blue-200 transition hover:text-white hover:underline'
-              target='_blank'
-              rel='noreferrer'
-            >
-              UTM maps and directions
-            </a>
-          </section>
+          <div>
+            <section aria-labelledby='footer-affiliation'>
+              <h2 id='footer-affiliation' className='text-sm font-semibold text-white'>Affiliation</h2>
+              <ul className='mt-5 flex flex-col items-start gap-5'>
+                {affiliations.map((affiliation) => (
+                  <li key={affiliation.name}>
+                    <a
+                      href={affiliation.href}
+                      className='inline-flex transition hover:opacity-80'
+                      target='_blank'
+                      rel='noreferrer'
+                      aria-label={`Visit ${affiliation.name}`}
+                    >
+                      <Image
+                        src={affiliation.logo}
+                        alt={affiliation.alt}
+                        width={affiliation.width}
+                        height={affiliation.height}
+                        className={`w-auto object-contain ${affiliation.className}`}
+                      />
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </section>
+
+            <section aria-labelledby='footer-contact' className='mt-8 border-t border-white/10 pt-8'>
+              <h2 id='footer-contact' className='text-sm font-semibold text-white'>Contact</h2>
+              <ul className='mt-4 space-y-3 text-sm'>
+                {contactEmails.map((email) => (
+                  <li key={email} className='flex items-center gap-2'>
+                    <FaEnvelope className='h-4 w-4 shrink-0 text-blue-200' aria-hidden='true' />
+                    <a href={`mailto:${email}`} className='break-all text-slate-300 transition hover:text-white hover:underline'>
+                      {email}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+              <a
+                href='https://www.utm.utoronto.ca/visitors/maps-and-directions'
+                className='mt-5 inline-flex text-sm font-medium text-blue-200 transition hover:text-white hover:underline'
+                target='_blank'
+                rel='noreferrer'
+              >
+                UTM maps and directions
+              </a>
+            </section>
+          </div>
 
           <section aria-labelledby='footer-sponsor'>
             <h2 id='footer-sponsor' className='text-sm font-semibold text-white'>Sponsors and supporters</h2>
             <div className='mt-5 flex flex-wrap items-center gap-x-7 gap-y-5'>
               {sponsors.map((sponsor) => (
-                <a
-                  key={sponsor.name}
-                  href={sponsor.href}
-                  className='flex h-12 items-center transition hover:opacity-80'
-                  target='_blank'
-                  rel='noreferrer'
-                  aria-label={`Visit ${sponsor.name}`}
-                >
-                  <Image
-                    src={sponsor.logo}
-                    alt={sponsor.alt}
-                    width={sponsor.width}
-                    height={sponsor.height}
-                    className={`h-11 w-auto object-contain ${sponsor.className || ''}`}
-                  />
-                </a>
+                <OrganizationLogo key={sponsor.name} organization={sponsor} />
               ))}
             </div>
             <p className='mt-4 max-w-md text-sm leading-6 text-slate-300'>
-              We acknowledge support from NSERC, the University of Toronto (Data Sciences Institute, Learning & Education Advancement Fund (LEAF), Institute for the Study of University Pedagogy), and France&rsquo;s Agence Nationale de la Recherche (ANR).
+              We thank the financial support from: NSERC (DG &amp; CREATE), University of Toronto (DSI, ISUP, LEAF), McMaster University, and France&apos;s ANR.
             </p>
             <p className='mt-2 max-w-md text-xs leading-5 text-slate-400'>
               The CORE Lab is supported by these organizations and is not a product of any sponsor or funder.

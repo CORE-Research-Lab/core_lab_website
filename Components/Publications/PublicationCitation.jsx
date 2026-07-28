@@ -2,30 +2,22 @@
 
 import React, { useRef, useState } from 'react'
 import Link from 'next/link'
-import { members } from '@/data/members'
+import { getMemberAuthorNames, members, normalizeMemberName } from '@/data/members'
+import { getPublicationAuthors } from '@/lib/publications.mjs'
 
-const normalizeName = (name) => String(name || '').trim().toLowerCase()
-
-const memberAuthorLinks = new Map(
+const memberAuthors = new Map(
   members.flatMap(member =>
-    [member.name, ...(member.aliases || [])]
-      .filter(Boolean)
-      .map(name => [normalizeName(name), member.link])
+    getMemberAuthorNames(member)
+      .map(name => [
+        normalizeMemberName(name),
+        {
+          link: member.link,
+          publicationName: member.publicationName || member.name,
+          publicationSource: member.publicationSource,
+        },
+      ])
   )
 )
-
-const memberPublicationNames = new Map(
-  members.flatMap(member =>
-    [member.name, ...(member.aliases || [])]
-      .filter(Boolean)
-      .map(name => [normalizeName(name), member.publicationName || member.name])
-  )
-)
-
-const getAuthors = (publication) => {
-  if (!publication?.author) return []
-  return Array.isArray(publication.author) ? publication.author : [publication.author]
-}
 
 const getVenue = (publication) =>
   publication?.booktitle || publication?.journal || publication?.series || ''
@@ -88,22 +80,27 @@ const AuthorList = ({
   highlightCoreMembers = true,
   linkMemberAuthors = true,
 }) => {
-  const highlightedNames = highlightAuthors.map(normalizeName)
+  const highlightedNames = highlightAuthors.map(normalizeMemberName)
 
   if (authors.length === 0) return 'Unknown author'
 
   return authors.map((author, index) => {
-    const normalizedAuthor = normalizeName(author)
-    const memberLink = memberAuthorLinks.get(normalizedAuthor)
-    const displayAuthor = memberPublicationNames.get(normalizedAuthor) || author
+    const normalizedAuthor = normalizeMemberName(author)
+    const member = memberAuthors.get(normalizedAuthor)
+    const displayAuthor = member?.publicationName || author
     const isHighlighted = highlightedNames.includes(normalizedAuthor)
-      || (highlightCoreMembers && Boolean(memberLink))
+      || (highlightCoreMembers && member?.publicationSource)
     const authorContent = isHighlighted ? <strong>{displayAuthor}</strong> : displayAuthor
 
     return (
       <React.Fragment key={`${author}-${index}`}>
-        {memberLink && linkMemberAuthors ? (
-          <Link href={memberLink} className="font-semibold text-brand hover:underline">
+        {member && linkMemberAuthors ? (
+          <Link
+            href={member.link}
+            className={member.publicationSource
+              ? 'font-semibold text-brand hover:underline'
+              : 'text-brand underline underline-offset-2'}
+          >
             {authorContent}
           </Link>
         ) : (
@@ -126,7 +123,7 @@ const PublicationCitation = ({
     return <span className="text-slate-600">Publication details unavailable.</span>
   }
 
-  const authors = getAuthors(publication)
+  const authors = getPublicationAuthors(publication)
   const venue = getVenue(publication)
   const title = publication.title || 'Untitled publication'
   const doi = publication.doi ? String(publication.doi).trim() : ''

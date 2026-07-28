@@ -1,53 +1,30 @@
-import { members, membersBySlug } from '@/data/members'
+import {
+  getMemberAuthorNames,
+  members,
+  membersBySlug,
+  normalizeMemberName,
+} from '@/data/members'
 import { hasKnownPublicationYear, publicationsByYear, posterPublications } from '@/data/publications'
+import {
+  flattenPublications,
+  getPublicationAuthors,
+  groupPublicationsByYear,
+  sortPublicationYearsDescending,
+} from '@/lib/publications.mjs'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { FaEnvelope, FaGlobe, FaLinkedin } from 'react-icons/fa'
 import { FaGoogleScholar } from 'react-icons/fa6'
 import PublicationCitation from '@/Components/Publications/PublicationCitation'
 
-const titleCaseSlug = (slug = '') =>
-  slug
-    .split('_')
-    .filter(Boolean)
-    .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
-    .join(' ')
+const mainMemberAuthorNames = new Set(
+  members
+    .filter(person => person.publicationSource)
+    .flatMap(getMemberAuthorNames)
+    .map(normalizeMemberName)
+)
 
-const normalizeName = (name) => String(name || '').trim().toLowerCase()
-
-const getAuthors = (publication) => {
-  if (!publication?.author) return []
-  return Array.isArray(publication.author) ? publication.author : [publication.author]
-}
-
-const sortYearsDescending = (a, b) => {
-  const aNum = parseInt(a)
-  const bNum = parseInt(b)
-
-  if (isNaN(aNum)) return 1
-  if (isNaN(bNum)) return -1
-
-  return bNum - aNum
-}
-
-const groupByYear = (items) =>
-  items.reduce((acc, item) => {
-    const year = item.year || 'Unknown'
-    if (!acc[year]) acc[year] = []
-    acc[year].push(item)
-    return acc
-  }, {})
-
-const allPapers = Object.entries(publicationsByYear).flatMap(([year, items]) =>
-  items.map(item => ({ ...item, year: item.year || year }))
-).filter(hasKnownPublicationYear)
-
-const getPersonBySlug = (member) => {
-  const slugName = titleCaseSlug(member)
-
-  return membersBySlug[member]
-    || members.find(person => normalizeName(person.name) === normalizeName(slugName))
-}
+const allPapers = flattenPublications(publicationsByYear).filter(hasKnownPublicationYear)
 
 const ContactLink = ({ icon: Icon, label, href, children }) => {
   if (!href) return null
@@ -68,7 +45,7 @@ const ContactLink = ({ icon: Icon, label, href, children }) => {
 }
 
 const PublicationSection = ({ title, groupedItems, emptyText, highlightAuthors }) => {
-  const sortedYears = Object.keys(groupedItems).sort(sortYearsDescending)
+  const sortedYears = Object.keys(groupedItems).sort(sortPublicationYearsDescending)
   let publicationNumber = sortedYears.reduce((total, year) => total + groupedItems[year].length, 0)
 
   return (
@@ -108,34 +85,62 @@ const PublicationSection = ({ title, groupedItems, emptyText, highlightAuthors }
 }
 
 const Member = ({ member }) => {
-  const slugName = titleCaseSlug(member)
-  const person = getPersonBySlug(member)
+  const person = membersBySlug[member]
 
   if (!person) {
     notFound()
   }
 
-  const highlightAuthors = [...new Set([slugName, person.name, ...(person.aliases || [])].filter(Boolean))]
-  const normalizedAuthorNames = highlightAuthors.map(normalizeName)
+  const isMainMember = Boolean(person.publicationSource)
+  const highlightAuthors = getMemberAuthorNames(person)
+  const normalizedAuthorNames = new Set(highlightAuthors.map(normalizeMemberName))
   const matchesMember = (publication) =>
-    getAuthors(publication).some(author => normalizedAuthorNames.includes(normalizeName(author)))
+    getPublicationAuthors(publication)
+      .some(author => normalizedAuthorNames.has(normalizeMemberName(author)))
+  const hasMainMemberCoauthor = (publication) =>
+    getPublicationAuthors(publication)
+      .some(author => mainMemberAuthorNames.has(normalizeMemberName(author)))
 
-  const filteredPapersByYear = groupByYear(allPapers.filter(matchesMember))
-  const filteredPostersByYear = groupByYear(posterPublications.filter(matchesMember))
+  const filteredPapersByYear = groupPublicationsByYear(
+    allPapers.filter(publication =>
+      matchesMember(publication) && (isMainMember || hasMainMemberCoauthor(publication))
+    )
+  )
+  const filteredPostersByYear = groupPublicationsByYear(
+    posterPublications.filter(matchesMember)
+  )
 
   return (
     <section className="mx-auto max-w-6xl px-5 py-10 sm:px-8 lg:px-12">
       <h1 className="border-b border-b-slate-200 pb-3 text-2xl font-semibold text-brand">
         {person.name}
       </h1>
+      <div className="pt-3 text-sm leading-6">
+        <p className="font-medium text-slate-700">{person.position}</p>
+        {person.currentPosition && (
+          <p className="text-slate-600">{person.currentPosition}</p>
+        )}
+      </div>
 
       <div className="grid gap-6 pt-5 md:grid-cols-[220px_1fr] md:items-start">
-        <Image
-          src={person.image}
-          alt={person.name}
-          className="h-auto w-full rounded-lg border border-slate-200"
-          sizes="(max-width: 768px) 100vw, 220px"
-        />
+        <div>
+          <Image
+            src={person.image}
+            alt={person.name}
+            className="aspect-square w-full rounded-lg border border-slate-200 object-cover object-center"
+            sizes="(max-width: 768px) 100vw, 220px"
+          />
+          {person.imageSource && (
+            <a
+              href={person.imageSource}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-2 block text-xs text-slate-500 hover:text-blue-700 hover:underline"
+            >
+              Photo source
+            </a>
+          )}
+        </div>
         <div className="text-slate-700">
           {person.bio ? (
             <p className="leading-7">{person.bio}</p>
@@ -160,9 +165,11 @@ const Member = ({ member }) => {
       </div>
 
       <PublicationSection
-        title="Papers"
+        title={isMainMember ? 'Papers' : 'Collaborated Papers'}
         groupedItems={filteredPapersByYear}
-        emptyText="Papers will appear here as the archive grows."
+        emptyText={isMainMember
+          ? 'Papers will appear here as the archive grows.'
+          : 'Collaborated papers will appear here as the archive grows.'}
         highlightAuthors={highlightAuthors}
       />
 

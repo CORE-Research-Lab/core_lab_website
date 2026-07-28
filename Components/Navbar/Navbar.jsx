@@ -41,22 +41,7 @@ const Navbar = () => {
   return (
     <nav className={`sticky top-0 z-30 border-b border-slate-200 transition-colors duration-300 ease-in-out ${isScroll ? "bg-white/95 shadow-sm backdrop-blur" : "bg-white"}`}>
       <div className='mx-auto flex max-w-7xl items-center justify-between px-5 py-3 sm:px-8 lg:px-12'>
-            <div className='flex items-center gap-3'>
-              <a
-                href={siteBrand.affiliation.href}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center transition hover:opacity-80'
-                aria-label={siteBrand.affiliation.name}
-              >
-                <Image
-                  src={siteBrand.affiliation.logo}
-                  alt={siteBrand.affiliation.name}
-                  className='h-9 w-auto'
-                  priority
-                />
-              </a>
-              <span aria-hidden='true' className='h-8 w-px bg-slate-300' />
+            <div className='flex items-center'>
               <Link href="/" className='flex items-center gap-2'>
                 <Image src={siteBrand.logo} alt={`${siteBrand.name} logo`} width={44} height={44} priority/>
                 <span className='hidden text-lg font-semibold text-brand-dark sm:inline'>{siteBrand.name}</span>

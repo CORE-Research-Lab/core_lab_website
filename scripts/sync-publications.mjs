@@ -3,6 +3,11 @@
 import fs from 'node:fs/promises'
 import path from 'node:path'
 import vm from 'node:vm'
+import {
+  flattenPublications,
+  groupPublicationsByYear,
+  sortPublicationYearsDescending,
+} from '../lib/publications.mjs'
 
 const ROOT = process.cwd()
 const DEFAULT_CONFIG_PATH = 'Papers/semantic-scholar.config.json'
@@ -115,24 +120,16 @@ const readMemberAuthors = async filePath => {
     .replace(/^import\s+(\w+)\s+from\s+['"][^'"]+['"];?$/gm, 'const $1 = ""')
     .replace(/\bexport\s+const\s+/g, 'const ')
 
-  const memberGroups = vm.runInNewContext(
+  const publicationSources = vm.runInNewContext(
     `${executableSource}
-;({
-  directors: typeof directors === 'undefined' ? [] : directors,
-  professors: typeof professors === 'undefined' ? [] : professors,
-  graduateStudents: typeof graduateStudents === 'undefined' ? [] : graduateStudents,
-  undergraduateStudents: typeof undergraduateStudents === 'undefined' ? [] : undergraduateStudents,
-  pastMembers: typeof pastMembers === 'undefined' ? [] : pastMembers,
-})`,
+;members.filter(person => person.publicationSource)`,
     {},
     { timeout: 1000 }
   )
 
-  return Object.values(memberGroups)
-    .flat()
+  return publicationSources
     .map(person => ({
       name: cleanString(person.name),
-      aliases: (person.aliases || []).map(cleanString).filter(Boolean),
       semanticScholarAuthorIds: getAuthorIds(person),
       enabled: person.semanticScholarSyncEnabled,
     }))
@@ -218,6 +215,14 @@ const publicationKeys = publication => {
   return keys
 }
 
+const findAddedPublications = (previousPublications, nextPublications) => {
+  const previousKeys = new Set(previousPublications.flatMap(publicationKeys))
+
+  return nextPublications.filter(publication =>
+    !publicationKeys(publication).some(key => previousKeys.has(key))
+  )
+}
+
 const yearFromPublicationDate = publicationDate => {
   const match = cleanString(publicationDate).match(/^(\d{4})/)
   return match?.[1] || ''
@@ -289,21 +294,6 @@ const normalizeSemanticScholarPaper = paper => {
   return publication
 }
 
-const flattenPublications = data => {
-  if (Array.isArray(data)) {
-    return data
-  }
-
-  return Object.entries(data || {}).flatMap(([year, publications]) =>
-    (publications || []).map(publication =>
-      ({
-        ...publication,
-        year: publication.year || year,
-      })
-    )
-  )
-}
-
 const mergePublication = (existing, incoming) => {
   const merged = { ...existing }
 
@@ -346,16 +336,6 @@ const mergePublicationLists = (...publicationLists) => {
   return Array.from(new Set(publicationMap.values()))
 }
 
-const sortYearsDescending = (a, b) => {
-  const aNum = parseInt(a, 10)
-  const bNum = parseInt(b, 10)
-
-  if (Number.isNaN(aNum)) return 1
-  if (Number.isNaN(bNum)) return -1
-
-  return bNum - aNum
-}
-
 const sortPublications = publications =>
   [...publications].sort((a, b) => {
     const aYear = parseInt(a.year, 10)
@@ -374,20 +354,11 @@ const sortPublications = publications =>
     return cleanString(a.title).localeCompare(cleanString(b.title))
   })
 
-const groupByYear = publications => {
-  const grouped = {}
-
-  for (const publication of sortPublications(publications)) {
-    const year = publication.year || 'Unknown'
-    if (!grouped[year]) grouped[year] = []
-    grouped[year].push(publication)
-  }
-
-  return grouped
-}
+const groupByYear = publications =>
+  groupPublicationsByYear(sortPublications(publications))
 
 const stringifyGroupedPublications = grouped => {
-  const years = Object.keys(grouped).sort(sortYearsDescending)
+  const years = Object.keys(grouped).sort(sortPublicationYearsDescending)
   const chunks = years.map(year => {
     const items = JSON.stringify(grouped[year], null, 4)
       .split('\n')
@@ -513,36 +484,10 @@ const fetchAuthorPapers = async ({ author, pageLimit, requestDelayMs, apiKey }) 
   return papers
 }
 
-const paperSelectorRef = selector => {
-  if (selector.paperId) return cleanString(selector.paperId)
-  if (selector.doi) return `DOI:${normalizeDoi(selector.doi)}`
-  return ''
-}
-
-const fetchIncludedPapers = async ({ selectors = [], apiKey, requestDelayMs }) => {
-  const publications = []
-
-  for (const selector of selectors) {
-    const ref = paperSelectorRef(selector)
-    if (!ref) continue
-
-    const url = new URL(`${SEMANTIC_SCHOLAR_BASE_URL}/paper/${encodeURIComponent(ref)}`)
-    url.searchParams.set('fields', PAPER_FIELDS)
-
-    const paper = await fetchJsonWithRetry(url, apiKey)
-    publications.push(normalizeSemanticScholarPaper(paper))
-
-    if (requestDelayMs > 0) await sleep(requestDelayMs)
-  }
-
-  return publications
-}
-
 const fetchSemanticScholarPublications = async ({ config, authors }) => {
   const apiKey = process.env.SEMANTIC_SCHOLAR_KEY || ''
   const pageLimit = config.sync?.pageLimit || 100
   const requestDelayMs = config.sync?.requestDelayMs ?? 1000
-  const includedPaperSelectors = config.include?.papers || []
   const sourceAuthors = (authors || [])
     .filter(author => author.enabled !== false)
     .flatMap(author =>
@@ -565,20 +510,17 @@ const fetchSemanticScholarPublications = async ({ config, authors }) => {
     publications.push(...papers.map(paper => normalizeSemanticScholarPaper(paper)))
   }
 
-  if (includedPaperSelectors.length > 0) {
-    const includedPapers = await fetchIncludedPapers({
-      selectors: includedPaperSelectors,
-      apiKey,
-      requestDelayMs,
-    })
-    stats.push({ name: 'explicitly included papers', count: includedPapers.length })
-    publications.push(...includedPapers)
-  }
-
   return { publications, stats }
 }
 
-const summarizeOutput = ({ allPublications, posterPublications, projectPublications, changedFiles, dryRun }) => {
+const summarizeOutput = ({
+  allPublications,
+  addedPublications,
+  posterPublications,
+  projectPublications,
+  changedFiles,
+  dryRun,
+}) => {
   console.log(`${dryRun ? 'Prepared' : 'Synced'} ${allPublications.length} total publications.`)
   console.log(`${dryRun ? 'Prepared' : 'Synced'} ${posterPublications.length} poster publications.`)
 
@@ -593,6 +535,17 @@ const summarizeOutput = ({ allPublications, posterPublications, projectPublicati
   } else {
     console.log(`Updated ${changedFiles.length} file(s):`)
     for (const filePath of changedFiles) console.log(`- ${filePath}`)
+  }
+
+  const action = dryRun ? 'WOULD BE ADDED' : 'ADDED'
+  console.log(`\n=== NEW PAPERS ${action}: ${addedPublications.length} ===`)
+
+  if (addedPublications.length === 0) {
+    console.log('No new papers.')
+  } else {
+    for (const publication of addedPublications) {
+      console.log(`- ${publication.title || 'Untitled paper'}`)
+    }
   }
 }
 
@@ -609,6 +562,7 @@ const main = async () => {
   const memberAuthors = await readMemberAuthors(config.memberData || DEFAULT_MEMBER_DATA_PATH)
   const configuredAuthors = [...memberAuthors, ...(config.authors || [])]
   const allOutputPath = config.outputs?.allPublications || 'Papers/papers.json'
+  const previousPublications = flattenPublications(await readJson(allOutputPath, {}))
 
   let fetchedPublications = []
   let fetchStats = []
@@ -630,6 +584,7 @@ const main = async () => {
     mergePublicationLists(fetchedPublications)
       .filter(publication => !isExcluded(publication, config.exclude))
   )
+  const addedPublications = findAddedPublications(previousPublications, allPublications)
 
   const changedFiles = []
   const writeGroupedOutput = async (filePath, publications) => {
@@ -691,6 +646,7 @@ const main = async () => {
 
   summarizeOutput({
     allPublications,
+    addedPublications,
     posterPublications: posterResult.selected,
     projectPublications,
     changedFiles,

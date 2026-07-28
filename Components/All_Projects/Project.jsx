@@ -2,16 +2,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { projectsBySlug } from '@/data/projects';
 import PublicationCitation from '@/Components/Publications/PublicationCitation';
-
-const sortYearsDescending = (a, b) => {
-  const aNum = parseInt(a)
-  const bNum = parseInt(b)
-
-  if (isNaN(aNum)) return 1
-  if (isNaN(bNum)) return -1
-
-  return bNum - aNum
-}
+import { sortPublicationYearsDescending } from '@/lib/publications.mjs';
 
 const Project = ({ name }) => {
 
@@ -22,7 +13,7 @@ const Project = ({ name }) => {
   }
 
   const publications = project.publications
-  const publicationYears = Object.keys(publications || {}).sort(sortYearsDescending)
+  const publicationYears = Object.keys(publications || {}).sort(sortPublicationYearsDescending)
 
   return (
     <section className='mx-auto max-w-6xl px-5 py-10 sm:px-8 lg:px-12'>

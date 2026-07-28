@@ -1,6 +1,12 @@
 import Link from 'next/link'
 import { heroContent } from '@/data/home'
 
+const acronymInitialLengths = {
+  Computational: 2,
+  Research: 1,
+  Education: 1,
+}
+
 const Hero = () => {
   return (
     <section className="border-b border-slate-200 bg-brand-soft">
@@ -12,7 +18,24 @@ const Hero = () => {
           {heroContent.title}
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
-          {heroContent.tagline}
+          {heroContent.tagline
+            .split(/(Computational|Research|Education)/)
+            .map((part, index) => {
+              const initialLength = acronymInitialLengths[part]
+
+              if (!initialLength) {
+                return part
+              }
+
+              return (
+                <span key={`${part}-${index}`}>
+                  <span className="underline underline-offset-2">
+                    {part.slice(0, initialLength)}
+                  </span>
+                  {part.slice(initialLength)}
+                </span>
+              )
+            })}
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           {heroContent.actions.map((action) => (

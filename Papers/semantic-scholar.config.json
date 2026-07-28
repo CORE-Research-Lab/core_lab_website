@@ -9,16 +9,6 @@
         "dois": [],
         "titles": []
     },
-    "include": {
-        "papers": [
-            {
-                "paperId": "5598d98b5a8be386a0328427df3c251f32a580d2"
-            },
-            {
-                "paperId": "eea0ce56d621ba6de3993266def6147898837ba5"
-            }
-        ]
-    },
     "outputs": {
         "allPublications": "Papers/papers.json"
     },
