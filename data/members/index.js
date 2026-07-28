@@ -10,6 +10,7 @@ import naazPhoto from './assets/naaz_pfp.jpg'
 import harryPhoto from './assets/harry_pfp.jpg'
 import jessicaPhoto from './assets/jessica_pfp.jpg'
 import amberPhoto from './assets/amber_pfp.jpg'
+import adamKolodziejczakPhoto from './assets/adam_kolodziejczak_pfp.jpg'
 import khushiPhoto from './assets/khushi_pfp.jpg'
 import valeriaOsorioRamirezPhoto from './assets/valeria_osorio_ramirez_pfp.jpg'
 import defaultPhoto from './assets/default_pfp.svg'
@@ -290,12 +291,12 @@ export const currentGraduateStudents = [
   basicProfile(
     'Valeria Osorio Ramirez',
     'valeria_osorio_ramirez',
-    'M.Sc. Student — McMaster University',
+    'M.Eng. Student — McMaster University',
     {
       aliases: ['Valeria Ramirez Osorio'],
       publicationName: 'Valeria Ramirez Osorio',
       image: valeriaOsorioRamirezPhoto,
-      bio: 'Valeria is a master’s student at McMaster University whose computing education research examines how students use generative AI in computing courses and how coordinated visualizations can help novice programmers connect code with underlying concepts.',
+      bio: 'Valeria is an M.Eng. student at McMaster University whose computing education research examines how students use generative AI in computing courses and how coordinated visualizations can help novice programmers connect code with underlying concepts.',
       googlescholar: 'https://scholar.google.com/citations?user=hlp5djYAAAAJ&hl=en',
       email: 'ramirev@mcmaster.ca',
       linkedin: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
@@ -310,11 +311,11 @@ export const currentGraduateStudents = [
   basicProfile(
     'Zezhu (Sam) Yu',
     'zezhu_sam_yu',
-    'Master’s Student — McMaster University',
+    'M.Eng. Student — McMaster University',
     {
       aliases: ['Zezhu Yu', 'Sam Yu'],
       publicationName: 'Zezhu Yu',
-      bio: 'Zezhu (Sam) Yu is a master’s student at McMaster University and a graduate researcher with the CORE Lab. His work investigates how small language models and retrieval-augmented generation can provide practical, resource-conscious support in computer science courses.',
+      bio: 'Zezhu (Sam) Yu is an M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His work investigates how small language models and retrieval-augmented generation can provide practical, resource-conscious support in computer science courses.',
       website: 'https://www.samproduce.com/',
       linkedin: 'https://www.linkedin.com/in/zezhuyu/',
       semanticScholarAuthorIds: ['2309663951'],
@@ -326,10 +327,21 @@ export const currentGraduateStudents = [
   basicProfile(
     'Deluckshan Murugesu',
     'deluckshan_murugesu',
-    'Incoming Graduate Student — CORE Lab',
+    'Incoming M.Eng. Student — McMaster University',
     {
-      bio: 'Deluckshan is an incoming graduate student with the CORE Lab and has a background in computer science from McMaster University. His project experience includes full-stack and AI development, including an AI-powered patient-education chatbot designed to help people prepare for ENT surgery.',
+      bio: 'Deluckshan is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His project experience includes full-stack and AI development, including an AI-powered patient-education chatbot designed to help people prepare for ENT surgery.',
       linkedin: 'https://ca.linkedin.com/in/deluckshanmurugesu',
+    }
+  ),
+  basicProfile(
+    'Adam Kolodziejczak',
+    'adam_kolodziejczak',
+    'Incoming M.Eng. Student — McMaster University',
+    {
+      image: adamKolodziejczakPhoto,
+      bio: 'Adam is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab.',
+      linkedin: 'https://ca.linkedin.com/in/adam-kolodziejczak-a8b1762b0',
+      imageSource: 'https://www.sqrlab.ca/people/',
     }
   ),
 ]
