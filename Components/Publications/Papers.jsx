@@ -71,6 +71,21 @@ const Papers = () => {
         {publicationsPage.papersTitle}
       </h2>
 
+      <aside
+        aria-label="Publication author formatting legend"
+        className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-lg border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700"
+      >
+        <strong className="font-semibold text-slate-800">Author legend:</strong>
+        <span>
+          <strong className="text-brand">Bold name</strong>
+          {' '}— current CORE Lab member
+        </span>
+        <span>
+          <span className="text-brand underline underline-offset-2">Underlined name</span>
+          {' '}— CORE Lab alumni or collaborator
+        </span>
+      </aside>
+
       <SearchBar
         query={query}
         setQuery={setQuery}

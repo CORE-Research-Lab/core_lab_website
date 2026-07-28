@@ -11,6 +11,7 @@ import universityOfTorontoLogo from '@/data/navigation/assets/university-of-toro
 const contactEmails = [
   'corelab.utm@utoronto.ca',
   'michael.liut@utoronto.ca',
+  'zavaleta@mcmaster.ca',
 ]
 
 const footerLinks = navigationItems.filter((item) => item.href !== '#contactus')
@@ -108,6 +109,18 @@ const Footer = () => {
                 3359 Mississauga Road
                 <br />
                 Mississauga, ON L5L 1C6
+              </span>
+            </address>
+            <address className='mt-5 flex gap-3 not-italic text-sm leading-6 text-slate-300'>
+              <FaMapMarkerAlt className='mt-1 h-4 w-4 shrink-0 text-blue-200' aria-hidden='true' />
+              <span>
+                Information Technology Building
+                <br />
+                McMaster University
+                <br />
+                1280 Main Street West
+                <br />
+                Hamilton, ON L8S 4L8
               </span>
             </address>
           </section>

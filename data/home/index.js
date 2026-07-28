@@ -21,11 +21,15 @@ export const aboutContent = {
     'The lab brings together faculty, graduate students, and undergraduate researchers from the University of Toronto and partner institutions.',
   ],
   focusAreas: [
-    'Computing education',
-    'Assessment design',
-    'Educational data mining',
-    'Student experience',
-    'Human-centered AI',
+    'Adaptive Systems',
+    'Artificial Intelligence',
+    'Computing Education',
+    'Educational Technology',
+    'Human-Centered AI',
+    'Human-Computer Interaction',
+    'Learning Science & Analytics',
+    'Machine Learning',
+    'Student Experience',
   ],
 }
 
