@@ -11,10 +11,7 @@ const Hero = () => {
   return (
     <section className="border-b border-slate-200 bg-brand-soft">
       <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
-        <p className="text-sm font-medium uppercase tracking-wide text-brand">
-          {heroContent.eyebrow}
-        </p>
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-brand-dark sm:text-5xl">
+        <h1 className="text-4xl font-bold tracking-tight text-brand-dark sm:text-5xl">
           {heroContent.title}
         </h1>
         <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">

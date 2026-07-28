@@ -6,7 +6,6 @@ import doorArtwork from './assets/door.png'
 import windowArtwork from './assets/window.png'
 
 export const heroContent = {
-  eyebrow: 'Computing education research · University of Toronto Mississauga',
   title: 'CORE Lab',
   tagline: 'CORE Lab (Computational Research and Education) studies how people learn, teach, and work in computationally-driven fields.',
   actions: [
