@@ -2,7 +2,6 @@ import selfExplanationPoster from './assets/ITiCSE_p1.png'
 import timingPoster from './assets/ITiCSE_p2.png'
 import publicationsByYear from '@/Papers/papers.json'
 import posterPublications from '@/Papers/Posters/poster_papers.json'
-import { hasKnownPublicationYear } from '@/lib/publications.mjs'
 
 export const publicationsPage = {
   postersTitle: 'Poster Showcase',
@@ -11,7 +10,7 @@ export const publicationsPage = {
   noPapersText: 'No matching papers yet - try a broader search.',
 }
 
-export { hasKnownPublicationYear, publicationsByYear, posterPublications }
+export { publicationsByYear, posterPublications }
 
 export const posterItems = [
   {

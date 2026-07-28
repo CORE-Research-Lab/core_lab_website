@@ -1,14 +1,18 @@
-.nav-links a::after{
+/* Desktop nav underline: grows from the centre on hover/focus, and stays put
+   for the route that is currently open. */
+.nav-links a::after {
     content: '';
+    display: block;
     width: 0;
     height: 2px;
+    margin: 3px auto 0;
+    border-radius: 999px;
     background: var(--color-brand);
-    display: block;
-    margin: auto;
-    transition: width 160ms ease;
+    transition: width 180ms ease;
 }
 
 .nav-links a:hover::after,
-.nav-links a:focus-visible::after{
+.nav-links a:focus-visible::after,
+.nav-links a[data-active]::after {
     width: 100%;
 }

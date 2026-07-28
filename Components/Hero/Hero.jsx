@@ -7,14 +7,30 @@ const acronymInitialLengths = {
   Education: 1,
 }
 
+const actionClasses = {
+  primary:
+    'bg-brand text-white shadow-sm hover:bg-brand-dark',
+  secondary:
+    'border border-brand/25 bg-white text-brand hover:border-brand hover:bg-brand-soft',
+}
+
 const Hero = () => {
+  // No bottom border here: the gradient already fades into the page
+  // background, so a rule on top of it just reads as a seam.
   return (
-    <section className="border-b border-slate-200 bg-brand-soft">
-      <div className="mx-auto max-w-5xl px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
-        <h1 className="text-4xl font-bold tracking-tight text-brand-dark sm:text-5xl">
+    <section className='relative isolate overflow-hidden bg-linear-to-b from-brand-soft to-white'>
+      <div
+        aria-hidden='true'
+        className='pointer-events-none absolute -right-24 -top-32 -z-10 size-[28rem] rounded-full bg-brand/5 blur-3xl'
+      />
+      <div className='page-shell py-16 sm:py-20 lg:py-28'>
+        <p className='text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted'>
+          University of Toronto - McMaster University
+        </p>
+        <h1 className='mt-4 text-display font-bold text-brand-dark'>
           {heroContent.title}
         </h1>
-        <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-700">
+        <p className='mt-6 text-lg leading-8 text-slate-700 sm:text-xl sm:leading-9'>
           {heroContent.tagline
             .split(/(Computational|Research|Education)/)
             .map((part, index) => {
@@ -26,7 +42,7 @@ const Hero = () => {
 
               return (
                 <span key={`${part}-${index}`}>
-                  <span className="underline underline-offset-2">
+                  <span className='underline decoration-brand-muted decoration-2 underline-offset-4'>
                     {part.slice(0, initialLength)}
                   </span>
                   {part.slice(initialLength)}
@@ -34,16 +50,14 @@ const Hero = () => {
               )
             })}
         </p>
-        <div className="mt-8 flex flex-wrap gap-3">
+        <div className='mt-9 flex flex-wrap gap-3'>
           {heroContent.actions.map((action) => (
             <Link
               key={action.href}
               href={action.href}
-              className={
-                action.variant === 'primary'
-                  ? 'inline-flex items-center rounded-md bg-brand px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition hover:bg-brand-dark'
-                  : 'inline-flex items-center rounded-md border border-brand/30 bg-white px-5 py-2.5 text-sm font-semibold text-brand transition hover:border-brand hover:bg-white'
-              }
+              className={`inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition ${
+                actionClasses[action.variant] || actionClasses.secondary
+              }`}
             >
               {action.label}
             </Link>

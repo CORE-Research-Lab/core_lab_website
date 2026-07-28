@@ -22,6 +22,31 @@ const memberAuthors = new Map(
 const getVenue = (publication) =>
   publication?.booktitle || publication?.journal || publication?.series || ''
 
+const escapeRegExp = (value) => value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+
+/**
+ * Marks occurrences of the active search term. `text-inherit` matters here:
+ * the browser's default <mark> styling forces black text, which would drop the
+ * link colour on titles and the bold weight cues on author names.
+ */
+const Highlight = ({ text, query }) => {
+  const value = String(text ?? '')
+
+  if (!query) return value
+
+  const parts = value.split(new RegExp(`(${escapeRegExp(query)})`, 'ig'))
+
+  return parts.map((part, index) =>
+    part.toLowerCase() === query.toLowerCase() ? (
+      <mark key={index} className='rounded-xs bg-amber-200/70 text-inherit'>
+        {part}
+      </mark>
+    ) : (
+      <React.Fragment key={index}>{part}</React.Fragment>
+    )
+  )
+}
+
 const copyTextToClipboard = async (text) => {
   if (typeof navigator !== 'undefined' && navigator.clipboard?.writeText) {
     try {
@@ -79,6 +104,7 @@ const AuthorList = ({
   highlightAuthors = [],
   highlightCoreMembers = true,
   linkMemberAuthors = true,
+  highlightQuery = '',
 }) => {
   const highlightedNames = highlightAuthors.map(normalizeMemberName)
 
@@ -90,7 +116,8 @@ const AuthorList = ({
     const displayAuthor = member?.publicationName || author
     const isHighlighted = highlightedNames.includes(normalizedAuthor)
       || (highlightCoreMembers && member?.publicationSource)
-    const authorContent = isHighlighted ? <strong>{displayAuthor}</strong> : displayAuthor
+    const authorText = <Highlight text={displayAuthor} query={highlightQuery} />
+    const authorContent = isHighlighted ? <strong>{authorText}</strong> : authorText
 
     return (
       <React.Fragment key={`${author}-${index}`}>
@@ -118,6 +145,7 @@ const PublicationCitation = ({
   number,
   highlightCoreMembers = true,
   linkMemberAuthors = true,
+  highlightQuery = '',
 }) => {
   if (!publication) {
     return <span className="text-slate-600">Publication details unavailable.</span>
@@ -130,9 +158,9 @@ const PublicationCitation = ({
   const bibtex = publication.bibtex ? String(publication.bibtex).trim() : ''
 
   return (
-    <div className={number ? 'grid grid-cols-[3.25rem_1fr] gap-3' : ''}>
+    <div className={number ? 'grid grid-cols-[2.5rem_minmax(0,1fr)] gap-2 sm:grid-cols-[3.25rem_minmax(0,1fr)] sm:gap-3' : ''}>
       {number && (
-        <span className="pt-0.5 text-right font-semibold tabular-nums text-brand">
+        <span className="pt-0.5 text-right text-sm font-semibold tabular-nums text-brand-muted sm:text-base">
           {number}.
         </span>
       )}
@@ -143,6 +171,7 @@ const PublicationCitation = ({
             highlightAuthors={highlightAuthors}
             highlightCoreMembers={highlightCoreMembers}
             linkMemberAuthors={linkMemberAuthors}
+            highlightQuery={highlightQuery}
           />.
         </span>
         <span className="ml-1">
@@ -153,13 +182,17 @@ const PublicationCitation = ({
               target="_blank"
               rel="noopener noreferrer"
             >
-              &quot;{title}&quot;
+              &quot;<Highlight text={title} query={highlightQuery} />&quot;
             </a>
           ) : (
-            <span>&quot;{title}&quot;</span>
+            <span>&quot;<Highlight text={title} query={highlightQuery} />&quot;</span>
           )}
-          {venue && <span className="italic"> {venue}.</span>}
-          {publication.year && <span> ({publication.year}).</span>}
+          {venue && (
+            <span className="italic"> <Highlight text={venue} query={highlightQuery} />.</span>
+          )}
+          {publication.year && (
+            <span> (<Highlight text={publication.year} query={highlightQuery} />).</span>
+          )}
           {doi && (
             <span className="ml-1">
               [

@@ -88,9 +88,9 @@ const Footer = () => {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className='mt-16 bg-slate-950 text-slate-100' id='contactus'>
-      <div className='mx-auto max-w-7xl px-5 py-12 sm:px-8 lg:px-12'>
-        <div className='grid gap-10 lg:grid-cols-[1.2fr_0.9fr_2fr]'>
+    <footer className='scroll-anchor bg-slate-950 text-slate-100' id='contactus'>
+      <div className='page-shell py-14'>
+        <div className='grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.2fr_0.9fr_2fr]'>
           <section aria-labelledby='footer-lab'>
             <Link href='/' className='inline-flex items-center gap-3'>
               <Image src={siteBrand.logo} alt={`${siteBrand.name} logo`} width={52} height={52} />
@@ -147,7 +147,7 @@ const Footer = () => {
             </a>
           </section>
 
-          <div className='grid gap-x-10 gap-y-6 sm:grid-cols-2'>
+          <div className='grid gap-x-10 gap-y-6 sm:col-span-2 sm:grid-cols-2 lg:col-span-1'>
             <section aria-labelledby='footer-affiliation'>
               <h2 id='footer-affiliation' className='text-sm font-semibold text-white'>Affiliation</h2>
               <ul className='mt-5 flex flex-col items-start gap-5'>

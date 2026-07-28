@@ -6,12 +6,42 @@
   --color-brand-dark: #002a5c;
   --color-brand-muted: #7b94b6;
   --color-brand-soft: #eef3fb;
+  --color-brand-line: #d8e3f4;
 
-  --grid-template-columns-auto: repeat(auto-fit, minmax(300px, 1fr));
+  /* Card grids: never demand more width than the viewport can give. */
+  --grid-template-columns-auto: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+
+  /* Fluid headings, so type scales with the viewport instead of jumping
+     between a handful of breakpoints. */
+  --text-display: clamp(2.25rem, 1.55rem + 2.8vw, 3.25rem);
+  --text-display--line-height: 1.08;
+  --text-display--letter-spacing: -0.022em;
+
+  --text-title: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
+  --text-title--line-height: 1.15;
+  --text-title--letter-spacing: -0.018em;
+
+  --text-section: clamp(1.375rem, 1.25rem + 0.5vw, 1.625rem);
+  --text-section--line-height: 1.25;
+  --text-section--letter-spacing: -0.012em;
+
+  --text-subsection: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
+  --text-subsection--line-height: 1.35;
+
+  /* Height of the sticky navbar; drives scroll-margin and sticky offsets. */
+  --spacing-header: 4.25rem;
 }
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  /* Keep long-form copy from ending a paragraph on a lone word. */
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
 }
 
 ::selection {
@@ -21,4 +51,42 @@ body {
 :focus-visible {
   outline: 2px solid var(--color-brand);
   outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* The one horizontal rhythm every page shares: same max width, same gutters.
+   Previously each route picked its own max-w-5xl/6xl/7xl and padding, so
+   content shifted sideways when navigating between them. */
+@utility page-shell {
+  margin-inline: auto;
+  width: 100%;
+  max-width: var(--container-7xl);
+  padding-inline: --spacing(5);
+
+  @media (width >= 40rem) {
+    padding-inline: --spacing(8);
+  }
+
+  @media (width >= 64rem) {
+    padding-inline: --spacing(12);
+  }
+}
+
+/* Anchor targets need to clear the sticky header when scrolled to. */
+@utility scroll-anchor {
+  scroll-margin-top: calc(var(--spacing-header) + --spacing(6));
 }
