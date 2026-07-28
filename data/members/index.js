@@ -499,7 +499,6 @@ export const formerUndergraduateStudents = [
       aliases: ['Zeling Zhang', 'Zoey Zhang'],
       publicationName: 'Zeling Zhang',
       bio: 'Zeling is a former CORE Lab undergraduate researcher.',
-      website: 'https://openreview.net/profile?id=~Zeling_Zhang2',
       linkedin: 'https://www.linkedin.com/in/zoeyyyzhang/',
     }
   ),
