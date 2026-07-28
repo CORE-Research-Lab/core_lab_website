@@ -40,6 +40,7 @@ import nicholasChingPhoto from './assets/nicholas_ching_pfp.jpg'
 import maksymWoychyshynPhoto from './assets/maksym_woychyshyn_pfp.jpg'
 import yuriNovielloPhoto from './assets/yuri_noviello_pfp.png'
 import yuvaanshKapilaPhoto from './assets/yuvaansh_kapila_pfp.png'
+import carlosPhoto from './assets/carlos_suarez_pfp.png'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -576,6 +577,7 @@ export const facultyCollaborators = [
     'carlos_anibal_suarez',
     'Professor — Escuela Superior Politécnica del Litoral (ESPOL), Ecuador',
     {
+      image: carlosPhoto,
       bio: 'Carlos Aníbal Suárez is a professor at Escuela Superior Politécnica del Litoral (ESPOL) in Ecuador and a collaborator with the CORE Lab.',
       googlescholar: 'https://scholar.google.com/citations?user=2KaJJDIAAAAJ&hl=en&oi=ao',
     }
