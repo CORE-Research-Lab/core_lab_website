@@ -37,6 +37,7 @@ import oscarKarnalimPhoto from './assets/oscar_karnalim_pfp.png'
 import markoChoiPhoto from './assets/marko_choi_pfp.jpg'
 import rhettAminPhoto from './assets/rhett_amin_pfp.jpg'
 import suqingLiuPhoto from './assets/suqing_liu_pfp.jpg'
+import stephenClarkPhoto from './assets/stephen_clark_pfp.png'
 import muniyaFallahPhoto from './assets/muniya_fallah_pfp.jpg'
 import nicholasChingPhoto from './assets/nicholas_ching_pfp.jpg'
 import maksymWoychyshynPhoto from './assets/maksym_woychyshyn_pfp.jpg'
@@ -575,6 +576,18 @@ export const formerUndergraduateStudents = [
       website: 'https://maksymw.com/',
       linkedin: 'https://ca.linkedin.com/in/maksym-woychyshyn-a14836197',
       imageSource: 'https://maksymw.com/',
+    }
+  ),
+  basicProfile(
+    'Stephen Clark',
+    'stephen_clark',
+    'CORE Lab Alumni — Former Undergraduate Researcher',
+    {
+      aliases: ['S. Clark'],
+      image: stephenClarkPhoto,
+      bio: 'Stephen is a former CORE Lab undergraduate researcher and University of Toronto Mississauga computer science alumnus. He contributed to SSDVis, a web-based visualization tool for teaching modern operating systems concepts.',
+      linkedin: 'https://www.linkedin.com/in/stephenclark25/',
+      imageSource: 'https://www.linkedin.com/in/stephenclark25/',
     }
   ),
   basicProfile(
