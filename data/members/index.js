@@ -631,7 +631,7 @@ export const facultyCollaborators = [
     'carlos_anibal_suarez',
     'Professor — Escuela Superior Politécnica del Litoral (ESPOL), Ecuador',
     {
-      aliases: ['Carlos Aníbal Suárez', 'C. Suárez', 'Aníbal Suárez', 'CA Suárez', 'Carlos Aníbal Suárez Hernandez', 'Carlos Suárez Hernandez', 'Carlos Hernandez', 'CA Suárez Hernandez', 'C. Suárez Hernandez'],
+      aliases: ['Carlos Aníbal Suárez', 'Carlos Anibal Suarez', 'C. Suárez', 'C. Suarez', 'Aníbal Suárez', 'Anibal Suarez', 'CA Suárez', 'CA Suarez', 'Carlos Aníbal Suárez Hernandez', 'Carlos Anibal Suarez Hernandez', 'Carlos Suárez Hernandez', 'Carlos Suarez Hernandez', 'Carlos Hernandez', 'CA Suárez Hernandez', 'CA Suarez Hernandez', 'C. Suárez Hernandez', 'C. Suarez Hernandez', 'Carlos Suarez Hernandez'],
       image: carlosPhoto,
       bio: 'Carlos Aníbal Suárez is a professor at Escuela Superior Politécnica del Litoral (ESPOL) in Ecuador and a collaborator with the CORE Lab.',
       googlescholar: 'https://scholar.google.com/citations?user=2KaJJDIAAAAJ&hl=en&oi=ao',
