@@ -47,6 +47,9 @@ import carlosPhoto from './assets/carlos_suarez_pfp.png'
 import joshuaPhoto from './assets/joshua_barkovic_pfp.jpg'
 import francoPhoto from './assets/franco_ortiz_pfp.jpg'
 import nathanPhoto from './assets/nathan_taback_pfp.jpg'
+import zezhuYu from './assets/zezhu_yu_pfp.jpg'
+import deluckshanMurugesu from './assets/deluckshan_murugesu_pfp.jpg'
+import yousefBulbulia from './assets/yousef_bulbulia_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -316,6 +319,7 @@ export const currentGraduateStudents = [
     {
       aliases: ['Zezhu Yu', 'Sam Yu'],
       publicationName: 'Zezhu Yu',
+      image: zezhuYu,
       bio: 'Zezhu (Sam) Yu is an M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His work investigates how small language models and retrieval-augmented generation can provide practical, resource-conscious support in computer science courses.',
       website: 'https://www.samproduce.com/',
       linkedin: 'https://www.linkedin.com/in/zezhuyu/',
@@ -331,6 +335,7 @@ export const currentGraduateStudents = [
     'Incoming M.Eng. Student — McMaster University',
     {
       bio: 'Deluckshan is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His project experience includes full-stack and AI development, including an AI-powered patient-education chatbot designed to help people prepare for ENT surgery.',
+      image: deluckshanMurugesu,
       linkedin: 'https://ca.linkedin.com/in/deluckshanmurugesu',
     }
   ),
@@ -559,7 +564,7 @@ export const formerUndergraduateStudents = [
     'franco_ortiz',
     'CORE Lab Alumni — Former Undergraduate Researcher',
     {
-      currentPosition: 'Master Student - France',
+      currentPosition: 'Now a Master Student in France',
       aliases: ['Franco Ortiz Luna'],
       image: francoPhoto,
       bio: 'Franco is a former CORE Lab undergraduate researcher.',
@@ -606,6 +611,16 @@ export const formerUndergraduateStudents = [
     {
       bio: 'Yashika is a former CORE Lab undergraduate student.',
       linkedin: 'https://ca.linkedin.com/in/yashika-jain-1705',
+    }
+  ),
+  basicProfile(
+    'Yousef Bulbulia',
+    'yousef_bulbulia',
+    'CORE Lab Alumni — Former Undergraduate Student',
+    {
+      bio: 'Yousef is a former CORE Lab undergraduate student.',
+      image: yousefBulbulia,
+      linkedin: 'https://ca.linkedin.com/in/yousef-bulbulia',
     }
   ),
 ]
