@@ -30,6 +30,7 @@ export const aboutContent = {
     'Learning Science & Analytics',
     'Machine Learning',
     'Student Experience',
+    'UI/UX'
   ],
 }
 
