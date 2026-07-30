@@ -40,7 +40,7 @@ const PublicationHighlight = () => (
             {publicationCount.toLocaleString('en-CA')}
           </p>
           <p className='mt-7 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/55'>
-            Research outputs
+            Publications
           </p>
         </div>
         <p className='max-w-4xl font-editorial text-[clamp(1.75rem,1.2rem+1.8vw,3.25rem)] leading-[1.08] tracking-[-0.025em] text-white/90'>
@@ -54,8 +54,7 @@ const PublicationHighlight = () => (
             Where our research appears
           </h2>
           <p className='text-sm text-white/45'>
-            Tile area is each venue&rsquo;s share of all {venueTotal} research outputs, across{' '}
-            {venueCount} venues
+            Tile area is each venue&rsquo;s share of all {venueTotal} publications, across {venueCount} venues
           </p>
         </div>
         <div className='mt-3'>
