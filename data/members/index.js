@@ -739,7 +739,10 @@ export const facultyCollaborators = [
     {
       image: alexanderSteinmaurerPhoto,
       bio: 'Alexander Steinmaurer is a postdoctoral researcher and program coordinator at IT:U in Austria. His research spans programming education, large language models in digital education, educational data, game-based learning, and immersive technologies such as virtual and augmented reality.',
-      website: 'https://it-u.at/en/persons/team/alexander-steinmaurer/',
+      websites: [
+        'https://it-u.at/en/persons/team/alexander-steinmaurer/',
+        'https://xstone93.github.io/',
+      ],
       email: 'alexander.steinmaurer@it-u.at',
       imageSource: 'https://it-u.at/en/persons/team/alexander-steinmaurer/',
     }

@@ -127,9 +127,11 @@ export default async function MemberPage({ params }) {
               {person.bio || 'Profile details will be added soon.'}
             </p>
             <ul className='mt-6 flex flex-col items-start gap-2 border-t border-slate-200 pt-5 text-sm'>
-              <ContactLink icon={FaGlobe} href={person.website} label='Website'>
-                {person.website}
-              </ContactLink>
+              {(person.websites || (person.website ? [person.website] : [])).map((site) => (
+                <ContactLink key={site} icon={FaGlobe} href={site} label='Website'>
+                  {site}
+                </ContactLink>
+              ))}
               <ContactLink icon={FaEnvelope} href={person.email ? `mailto:${person.email}` : ''} label='Email'>
                 {person.email}
               </ContactLink>
