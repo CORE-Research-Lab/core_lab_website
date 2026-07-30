@@ -560,7 +560,7 @@
         {
             "paperId": "3d78fd2e3f092f5d12ba65c4ff246d11b7fe60b2",
             "year": "2026",
-            "title": "Reflexis: Supporting Reflexivity and Rigor in Collaborative Qualitative Analysis though Design for Deliberation",
+            "title": "Reflexis: Supporting Reflexivity and Rigor in Collaborative Qualitative Analysis through Design for Deliberation",
             "author": [
                 "Runlong Ye",
                 "Oliver Huang",
@@ -577,7 +577,7 @@
             "abstract": "Reflexive Thematic Analysis (RTA) is a critical method for generating deep interpretive insights. Yet its core tenets, including researcher reflexivity, tangible analytical evolution, and productive disagreement, are often poorly supported by software tools that prioritize speed and consensus over interpretive depth. To address this gap, we introduce Reflexis, a collaborative workspace that centers these practices. It supports reflexivity by integrating in-situ reflection prompts, makes code evolution transparent and tangible, and scaffolds collaborative interpretation by turning differences into productive, positionality-aware dialogue. Results from our paired-analyst study (N = 12) indicate that Reflexis encouraged participants toward more granular reflection and reframed disagreements as productive conversations. The evaluation also surfaced key design tensions, including a desire for higher-level, networked memos and more user control over the timing of proactive alerts. Reflexis contributes a design framework for tools that prioritize rigor and transparency to support deep, collaborative interpretation in an age of automation.",
             "publicationDate": "2026-01-21",
             "openAccessPdfUrl": "https://doi.org/10.1145/3772318.3791275",
-            "bibtex": "@Article{Ye2026ReflexisSR,\n author = {Runlong Ye and Oliver Huang and Patrick Lee and Michael Liut and Carolina Nobre and Ha-Kyung Kong},\n booktitle = {International Conference on Human Factors in Computing Systems},\n journal = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},\n title = {Reflexis: Supporting Reflexivity and Rigor in Collaborative Qualitative Analysis though Design for Deliberation},\n year = {2026}\n}",
+            "bibtex": "@Article{Ye2026ReflexisSR,\n author = {Runlong Ye and Oliver Huang and Patrick Lee and Michael Liut and Carolina Nobre and Ha-Kyung Kong},\n booktitle = {International Conference on Human Factors in Computing Systems},\n journal = {Proceedings of the 2026 CHI Conference on Human Factors in Computing Systems},\n title = {Reflexis: Supporting Reflexivity and Rigor in Collaborative Qualitative Analysis through Design for Deliberation},\n year = {2026}\n}",
             "publicationTypes": [
                 "JournalArticle",
                 "Book",
