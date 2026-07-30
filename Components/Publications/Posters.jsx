@@ -21,7 +21,7 @@ const ControlButton = ({ label, onClick, children }) => (
     type='button'
     onClick={onClick}
     aria-label={label}
-    className='flex size-9 items-center justify-center rounded-full border border-slate-200 bg-white text-brand hover:border-brand-muted hover:bg-brand-soft'
+    className='flex size-10 items-center justify-center border border-black/20 text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white'
   >
     {children}
   </button>
@@ -58,11 +58,11 @@ const Posters = () => {
 
   return (
     <section
-      className='pt-8'
+      className='mt-24 border-t border-black/15 pt-7 sm:mt-32 sm:pt-8'
       aria-roledescription='carousel'
       aria-label={publicationsPage.postersTitle}
     >
-      <div className='flex items-end justify-between gap-4 border-b border-slate-200 pb-3'>
+      <div className='flex items-end justify-between gap-4'>
         <SectionHeading id='posters' bordered={false}>
           {publicationsPage.postersTitle}
         </SectionHeading>
@@ -78,38 +78,43 @@ const Posters = () => {
         </div>
       </div>
 
-      <div className='mt-5 overflow-hidden' ref={emblaRef}>
-        <div className='-ml-4 flex touch-pan-y'>
+      <div className='mt-12 overflow-hidden' ref={emblaRef}>
+        <div className='flex touch-pan-y'>
           {posterSlides.map((poster, index) => (
             <div
               key={poster.link}
-              className='min-w-0 flex-[0_0_100%] pl-4'
+              className='min-w-0 flex-[0_0_100%]'
               role='group'
               aria-roledescription='slide'
               aria-label={`${index + 1} of ${posterSlides.length}`}
             >
               <Link
                 href={poster.link}
-                className='group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white hover:border-brand-muted'
+                className='group flex h-full flex-col'
               >
-                <div className='flex min-h-0 flex-1 items-center justify-center bg-slate-50 p-4 sm:p-6'>
+                <div className='flex min-h-0 flex-1 items-center justify-center'>
                   <Image
                     src={poster.image}
                     alt={`${poster.conference} poster: ${poster.title}`}
-                    className='max-h-[clamp(12rem,55vh,28rem)] w-auto max-w-full object-contain'
-                    sizes='(max-width: 1024px) 88vw, 720px'
+                    className='mx-auto h-auto max-h-[min(58svh,38rem)] w-auto max-w-full object-contain'
+                    sizes='(max-width: 768px) 92vw, 768px'
                   />
                 </div>
-                <p className='border-t border-slate-200 px-4 py-3 text-sm leading-6 text-brand group-hover:underline sm:px-6 sm:text-base'>
-                  <b>{poster.conference}</b> — {poster.title}
-                </p>
+                <div className='mt-5 grid gap-2 sm:grid-cols-[minmax(0,0.3fr)_minmax(0,1fr)] sm:gap-8'>
+                  <p className='text-[0.68rem] font-semibold uppercase tracking-[0.16em] text-brand'>
+                    {poster.conference}
+                  </p>
+                  <p className='font-editorial text-2xl leading-tight text-brand-dark transition-colors group-hover:text-brand sm:text-3xl'>
+                    {poster.title}
+                  </p>
+                </div>
               </Link>
             </div>
           ))}
         </div>
       </div>
 
-      <div className='mt-4 flex items-center justify-center gap-2'>
+      <div className='mt-8 flex items-center justify-center gap-2'>
         {posterSlides.map((poster, index) => (
           <button
             type='button'
@@ -117,7 +122,7 @@ const Posters = () => {
             onClick={() => scrollTo(index)}
             aria-label={`Show poster ${index + 1}`}
             aria-current={index === current ? 'true' : undefined}
-            className={`size-2.5 rounded-full ${
+            className={`h-0.5 w-8 ${
               index === current ? 'bg-brand' : 'bg-slate-300 hover:bg-slate-400'
             }`}
           />

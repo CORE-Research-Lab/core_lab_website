@@ -1,71 +1,52 @@
 import Link from 'next/link'
+import { HiArrowRight } from 'react-icons/hi'
 import { heroContent } from '@/data/home'
 
-const acronymInitialLengths = {
-  Computational: 2,
-  Research: 1,
-  Education: 1,
-}
+const renderTagline = (tagline) => {
+  const expansion = 'Computational Research and Education'
+  const expansionStart = tagline.indexOf(expansion)
 
-const actionClasses = {
-  primary:
-    'bg-brand text-white shadow-sm hover:bg-brand-dark',
-  secondary:
-    'border border-brand/25 bg-white text-brand hover:border-brand hover:bg-brand-soft',
+  if (expansionStart === -1) return tagline
+
+  const underlineClass =
+    'underline decoration-[0.07em] underline-offset-[0.12em]'
+
+  return (
+    <>
+      {tagline.slice(0, expansionStart)}
+      <span className={underlineClass}>Co</span>mputational{' '}
+      <span className={underlineClass}>R</span>esearch and{' '}
+      <span className={underlineClass}>E</span>ducation
+      {tagline.slice(expansionStart + expansion.length)}
+    </>
+  )
 }
 
 const Hero = () => {
-  // No bottom border here: the gradient already fades into the page
-  // background, so a rule on top of it just reads as a seam.
   return (
-    <section className='bg-linear-to-b from-brand-soft to-white'>
-      <div className='page-shell py-10 sm:py-12 lg:py-14'>
-        <p className='text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted sm:text-sm'>
+    <section className='min-h-[calc(100svh-var(--spacing-header))]'>
+      <div className='page-shell flex min-h-[calc(100svh-var(--spacing-header))] flex-col py-10 sm:py-14'>
+        <p className='text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-brand-muted'>
           {heroContent.eyebrow}
         </p>
-        {/* Title left, copy right: the wide shell would otherwise leave the
-            right half empty and push the fold far down the page. */}
-        <div className='mt-4 grid gap-6 lg:mt-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-center lg:gap-12'>
-          {/* -ml-px cancels the left side bearing of the display "C", which is
-              ~2px at this size and otherwise indents the title relative to the
-              eyebrow above it. */}
-          <h1 className='-ml-px text-display font-bold text-brand-dark'>
-            {heroContent.title}
-          </h1>
-          <div className='lg:border-l lg:border-brand-line lg:pl-12'>
-            <p className='max-w-2xl text-lg leading-8 text-slate-700'>
-              {heroContent.tagline
-                .split(/(Computational|Research|Education)/)
-                .map((part, index) => {
-                  const initialLength = acronymInitialLengths[part]
-
-                  if (!initialLength) {
-                    return part
-                  }
-
-                  return (
-                    <span key={`${part}-${index}`}>
-                      <span className='underline decoration-brand-muted decoration-2 underline-offset-4'>
-                        {part.slice(0, initialLength)}
-                      </span>
-                      {part.slice(initialLength)}
-                    </span>
-                  )
-                })}
-            </p>
-            <div className='mt-6 flex flex-wrap gap-3'>
-              {heroContent.actions.map((action) => (
-                <Link
-                  key={action.href}
-                  href={action.href}
-                  className={`inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors ${
-                    actionClasses[action.variant] || actionClasses.secondary
-                  }`}
-                >
-                  {action.label}
-                </Link>
-              ))}
-            </div>
+        <h1 className='mt-16 text-display font-editorial text-brand-dark sm:mt-20 lg:mt-24'>
+          {heroContent.title}
+        </h1>
+        <div className='mt-auto grid gap-10 pt-20 lg:grid-cols-[minmax(0,1fr)_minmax(18rem,0.32fr)] lg:items-end lg:gap-16'>
+          <p className='max-w-[30ch] font-editorial text-[clamp(1.75rem,1.05rem+2.4vw,3.7rem)] leading-[1.03] tracking-[-0.035em] text-brand-dark'>
+            {renderTagline(heroContent.tagline)}
+          </p>
+          <div className='flex flex-col border-t border-black/20'>
+            {heroContent.actions.map((action) => (
+              <Link
+                key={action.href}
+                href={action.href}
+                className='group flex items-center justify-between border-b border-black/20 py-4 text-xs font-semibold uppercase tracking-[0.14em] text-brand-dark transition-colors hover:text-brand'
+              >
+                {action.label}
+                <HiArrowRight className='size-4' aria-hidden='true' />
+              </Link>
+            ))}
           </div>
         </div>
       </div>

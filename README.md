@@ -3,7 +3,7 @@
 Showcases CORE research lab!
 
 ## Structure
-- **/app** – Routes for the website (`/projects`, `/publications`, `/team`)
+- **/app** – Routes for the website (`/research`, `/research/project/<slug>`, `/team`, `/artwork`)
 - **/Components** – Reusable components used across `/app`
 - **/data** – Curated site content and local image assets
 - **/Papers** – Generated publication JSON plus Semantic Scholar sync configuration
@@ -21,6 +21,17 @@ cd core_lab_website
 npm install
 npm run dev
 ```
+
+## Adding a Project
+
+Projects live on the research page: a looping rail of project cards above the posters and papers, each linking to `/research/project/<slug>`. Adding one takes two files.
+
+1. Add an entry to `projectEntries` in `data/projects/index.js`. Alongside the copy and the image, it carries:
+   - `people` – team **slugs**, not names. Each slug is looked up in `data/members/index.js`, so a project page links straight to the member page and can never disagree with it. An unknown slug fails the build rather than dropping someone silently. The page splits them itself: everyone outside the *Frequent Collaborators* group is listed under CORE Lab, and collaborators are listed with their institution.
+   - `publications` – imported from `Papers/Projects/<slug>_papers.json`.
+2. Add a `projects.<slug>` block to `Papers/semantic-scholar.config.json` naming that output file and selecting the project's papers by DOI, Semantic Scholar paper ID, or exact title. The next sync writes the JSON.
+
+A member's institution comes from the end of their `position` ("role — Institution"). Set `institution` explicitly on the few whose position names none.
 
 ## Updating Publications
 Publication metadata can be synced from Semantic Scholar:

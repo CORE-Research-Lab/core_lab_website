@@ -32,28 +32,28 @@ const venues = buckets.map(bucket => ({
 }))
 
 const PublicationHighlight = () => (
-  <section className='page-shell pb-14 sm:pb-16' aria-label='Research overview'>
-    <div className='rounded-2xl border border-brand/15 bg-brand-soft/45 p-5 shadow-sm sm:p-6'>
-      <div className='grid gap-5 sm:grid-cols-[9rem_1fr] sm:items-center'>
-        <div className='sm:border-r sm:border-brand-line sm:pr-6'>
-          <p className='text-4xl font-bold tracking-tight text-brand-dark'>
+  <section className='bg-[#101413] text-white' aria-label='Research overview'>
+    <div className='page-shell py-20 sm:py-28 lg:py-36'>
+      <div className='grid gap-12 lg:grid-cols-[minmax(15rem,0.38fr)_minmax(0,1fr)] lg:items-end lg:gap-20'>
+        <div>
+          <p className='font-editorial text-[clamp(6rem,4rem+8vw,12rem)] leading-[0.75] tracking-[-0.06em]'>
             {publicationCount.toLocaleString('en-CA')}
           </p>
-          <p className='mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-brand-muted'>
+          <p className='mt-7 text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/55'>
             Research outputs
           </p>
         </div>
-        <p className='max-w-2xl text-base leading-7 text-slate-700'>
+        <p className='max-w-4xl font-editorial text-[clamp(1.75rem,1.2rem+1.8vw,3.25rem)] leading-[1.08] tracking-[-0.025em] text-white/90'>
           {heroContent.publicationBlurb}
         </p>
       </div>
 
-      <div className='mt-6 border-t border-brand-line pt-5'>
+      <div className='mt-20 border-t border-white/20 pt-6'>
         <div className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1'>
-          <h2 className='text-sm font-semibold uppercase tracking-[0.12em] text-brand-muted'>
+          <h2 className='text-[0.68rem] font-semibold uppercase tracking-[0.2em] text-white/65'>
             Where our research appears
           </h2>
-          <p className='text-sm text-slate-500'>
+          <p className='text-sm text-white/45'>
             Tile area is each venue&rsquo;s share of all {venueTotal} research outputs, across{' '}
             {venueCount} venues
           </p>

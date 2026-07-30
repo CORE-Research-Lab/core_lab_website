@@ -33,21 +33,27 @@ export default async function PosterPage({ params }) {
 
   return (
     <>
-      <PageHeader title={poster.title} description={poster.conference} />
+      <PageHeader
+        eyebrow='CORE Lab / Poster'
+        title={poster.title}
+        description={poster.conference}
+      />
 
-      <div className='page-shell grid gap-8 pb-16 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-start lg:gap-12'>
-        <Image
-          src={poster.image}
-          alt={`${poster.conference} poster: ${poster.title}`}
-          className='w-full rounded-xl border border-slate-200 bg-slate-50'
-          sizes='(max-width: 1024px) 100vw, 560px'
-        />
-        <section className='min-w-0'>
-          <SectionHeading id='research'>Research</SectionHeading>
-          <div className='mt-5 leading-7 text-slate-800'>
-            <PublicationCitation publication={poster.publication} />
-          </div>
-        </section>
+      <div className='page-shell pb-24'>
+        <div className='mx-auto grid max-w-7xl gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(20rem,0.9fr)] lg:items-start lg:gap-20'>
+          <Image
+            src={poster.image}
+            alt={`${poster.conference} poster: ${poster.title}`}
+            className='w-full bg-white'
+            sizes='(max-width: 1024px) 100vw, 680px'
+          />
+          <section className='min-w-0 lg:sticky lg:top-[calc(var(--spacing-header)+2rem)]'>
+            <SectionHeading id='research'>Research</SectionHeading>
+            <div className='mt-8 text-lg leading-8 text-slate-800'>
+              <PublicationCitation publication={poster.publication} />
+            </div>
+          </section>
+        </div>
       </div>
     </>
   );

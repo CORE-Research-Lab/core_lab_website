@@ -1,7 +1,24 @@
 import selfExplanationPoster from './assets/ITiCSE_p1.png'
 import timingPoster from './assets/ITiCSE_p2.png'
-import publicationsByYear from '@/Papers/papers.json'
+import rawPublicationsByYear from '@/Papers/papers.json'
 import posterPublications from '@/Papers/Posters/poster_papers.json'
+
+const coFirstAuthorsByDoi = {
+  '10.1007/978-3-032-29760-0_57': ['Suqing Liu', 'Runlong Ye'],
+  '10.1145/3803400.3809330': ['Franco Ortiz', 'Runlong Ye'],
+}
+
+// Authorship notes live outside the synced paper archive so a publication
+// refresh cannot erase manually verified contribution information.
+export const publicationsByYear = Object.fromEntries(
+  Object.entries(rawPublicationsByYear).map(([year, publications]) => [
+    year,
+    publications.map(publication => ({
+      ...publication,
+      coFirstAuthors: coFirstAuthorsByDoi[publication.doi] || [],
+    })),
+  ])
+)
 
 export const publicationsPage = {
   postersTitle: 'Poster Showcase',
@@ -10,7 +27,7 @@ export const publicationsPage = {
   noPapersText: 'No matching papers yet - try a broader search.',
 }
 
-export { publicationsByYear, posterPublications }
+export { posterPublications }
 
 export const posterItems = [
   {

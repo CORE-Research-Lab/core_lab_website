@@ -22,18 +22,18 @@ const layouts = [
  * adding a step means re-stepping the whole ramp rather than appending one.
  */
 const venueRamp = [
-  { fill: '#00172f', ink: '#ffffff' },
-  { fill: '#002a5c', ink: '#ffffff' },
-  { fill: '#0d3d77', ink: '#ffffff' },
-  { fill: '#1a5292', ink: '#ffffff' },
-  { fill: '#2d6aa9', ink: '#ffffff' },
-  { fill: '#4a85bd', ink: '#0f172a' },
-  { fill: '#6b9fcf', ink: '#0f172a' },
-  { fill: '#96b3d6', ink: '#0f172a' },
+  { fill: '#174bd6', ink: '#ffffff' },
+  { fill: '#2e5cdb', ink: '#ffffff' },
+  { fill: '#4770e0', ink: '#ffffff' },
+  { fill: '#6183e4', ink: '#101413' },
+  { fill: '#7b96e8', ink: '#101413' },
+  { fill: '#96aaec', ink: '#101413' },
+  { fill: '#b0bdf0', ink: '#101413' },
+  { fill: '#cad1f2', ink: '#101413' },
 ]
 
 // The tail is an aggregate rather than a venue, so it sits outside the ramp.
-const tailStep = { fill: '#94a3b8', ink: '#0f172a' }
+const tailStep = { fill: '#737978', ink: '#ffffff' }
 
 // Under this share a tile is too short for a second line, so its name and count
 // share one. Under `labelShare` it holds no text at all and the list below plus
@@ -94,7 +94,7 @@ const VenueTreemap = ({ venues, total }) => (
                 <div
                   // The one-line tiles are the tightest fit on the board, so
                   // they trade padding for the few pixels their label needs.
-                  className={`flex size-full overflow-hidden rounded-sm text-[11px] leading-tight sm:text-xs ${
+                  className={`flex size-full overflow-hidden text-[11px] leading-tight sm:text-xs ${
                     share >= stackedLabelShare
                       ? 'flex-col px-2 py-1.5'
                       : 'items-baseline gap-x-1 px-1.5 py-1'

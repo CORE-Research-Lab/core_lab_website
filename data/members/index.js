@@ -57,6 +57,25 @@ export const normalizeMemberName = (name) => String(name || '').trim().toLowerCa
 export const getMemberAuthorNames = (person) =>
   [person.name, ...(person.aliases || [])].filter(Boolean)
 
+/**
+ * Everyone nested under this team group is external to the lab. Project pages
+ * split their people on it, so the split follows the team page rather than
+ * being maintained a second time alongside it.
+ */
+export const COLLABORATOR_GROUP_ID = 'frequent-collaborators'
+
+export const isCollaborator = (person) =>
+  person.groupId === COLLABORATOR_GROUP_ID ||
+  person.parentGroupId === COLLABORATOR_GROUP_ID
+
+/**
+ * A `position` reads "role — Institution", so the institution is already in the
+ * member record and does not need restating. Set `institution` explicitly on
+ * the few people whose position names no institution at all.
+ */
+export const getMemberInstitution = (person) =>
+  person.institution || person.position?.split('—').at(-1).trim() || ''
+
 const basicProfile = (name, slug, position, details = {}) => ({
   name,
   slug,
@@ -108,6 +127,7 @@ export const facultyIndustryPartners = [
     slug: 'andrew_petersen',
     image: andrewPhoto,
     position: 'Professor, Teaching Stream',
+    institution: 'University of Toronto Mississauga',
     aliases: ['A. Peterson'],
     bio: 'Andrew Petersen is a Professor, Teaching Stream at the University of Toronto Mississauga. His research focuses on introductory computer science education, educational data mining, assessment, classroom interventions, and learning tools such as PCRS.',
     website: 'https://utmandrew.bitbucket.io/',

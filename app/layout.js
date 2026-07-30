@@ -18,7 +18,7 @@ export const metadata = {
 };
 
 export const viewport = {
-  themeColor: "#0b3a72",
+  themeColor: "#f3f3f0",
 };
 
 export default function RootLayout({ children }) {
@@ -26,11 +26,11 @@ export default function RootLayout({ children }) {
     <html lang="en" className="scroll-smooth" data-scroll-behavior="smooth">
       <body
         suppressHydrationWarning
-        className={`${geistSans.variable} flex min-h-screen flex-col bg-white text-slate-900 antialiased`}
+        className={`${geistSans.variable} flex min-h-screen flex-col bg-[#f3f3f0] text-[#101413] antialiased`}
       >
         <a
           href="#main"
-          className="sr-only rounded-lg bg-brand px-4 py-2 font-medium text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
+          className="sr-only bg-brand px-4 py-2 font-medium text-white focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50"
         >
           Skip to content
         </a>

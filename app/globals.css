@@ -1,41 +1,50 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand palette — a single, cohesive navy identity */
-  --color-brand: #0b3a72;
-  --color-brand-dark: #002a5c;
-  --color-brand-muted: #7b94b6;
-  --color-brand-soft: #eef3fb;
-  --color-brand-line: #d8e3f4;
+  /* A quiet, high-contrast research palette: warm paper, near-black ink,
+     and one precise electric-blue signal colour. */
+  --color-brand: #174bd6;
+  --color-brand-dark: #101413;
+  --color-brand-muted: #68717a;
+  --color-brand-soft: #e9edf7;
+  --color-brand-line: #cdd2d5;
 
   /* Card grids: never demand more width than the viewport can give. */
-  --grid-template-columns-auto: repeat(auto-fill, minmax(min(100%, 18rem), 1fr));
+  --grid-template-columns-auto: repeat(auto-fill, minmax(min(100%, 22rem), 1fr));
 
-  /* Fluid headings, so type scales with the viewport instead of jumping
-     between a handful of breakpoints. */
-  --text-display: clamp(2.25rem, 1.55rem + 2.8vw, 3.25rem);
-  --text-display--line-height: 1.08;
-  --text-display--letter-spacing: -0.022em;
+  /* Editorial type is deliberately oversized. It gives every route the same
+     exhibition-like rhythm without relying on decorative containers. */
+  --text-display: clamp(4.5rem, 2.2rem + 9vw, 10rem);
+  --text-display--line-height: 0.88;
+  --text-display--letter-spacing: -0.055em;
 
-  --text-title: clamp(1.75rem, 1.5rem + 1vw, 2.25rem);
-  --text-title--line-height: 1.15;
-  --text-title--letter-spacing: -0.018em;
+  --text-title: clamp(3.5rem, 2rem + 6vw, 7.75rem);
+  --text-title--line-height: 0.94;
+  --text-title--letter-spacing: -0.045em;
 
-  --text-section: clamp(1.375rem, 1.25rem + 0.5vw, 1.625rem);
-  --text-section--line-height: 1.25;
-  --text-section--letter-spacing: -0.012em;
+  --text-section: clamp(1.9rem, 1.55rem + 1.2vw, 3rem);
+  --text-section--line-height: 1;
+  --text-section--letter-spacing: -0.028em;
 
-  --text-subsection: clamp(1.125rem, 1.05rem + 0.3vw, 1.25rem);
-  --text-subsection--line-height: 1.35;
+  --text-subsection: clamp(1.5rem, 1.3rem + 0.8vw, 2.15rem);
+  --text-subsection--line-height: 1.1;
 
   /* Height of the sticky navbar; drives scroll-margin and sticky offsets. */
-  --spacing-header: 4.25rem;
+  --spacing-header: 5rem;
 }
 
 body {
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background: #f3f3f0;
+  color: #101413;
   /* Keep long-form copy from ending a paragraph on a lone word. */
   text-wrap: pretty;
+}
+
+@utility font-editorial {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino,
+    "Times New Roman", serif;
+  font-weight: 400;
 }
 
 h1,
@@ -45,7 +54,7 @@ h3 {
 }
 
 ::selection {
-  background: #dbeafe;
+  background: #b9c9f9;
 }
 
 :focus-visible {
@@ -68,21 +77,20 @@ h3 {
   }
 }
 
-/* The one horizontal rhythm every page shares: same max width, same gutters.
-   Previously each route picked its own max-w-5xl/6xl/7xl and padding, so
-   content shifted sideways when navigating between them. */
+/* The site is a showcase, so its shared shell is intentionally broad enough
+   for research diagrams and portrait grids to feel architectural. */
 @utility page-shell {
   margin-inline: auto;
   width: 100%;
-  max-width: var(--container-7xl);
-  padding-inline: --spacing(5);
+  max-width: 100rem;
+  padding-inline: --spacing(6);
 
   @media (width >= 40rem) {
-    padding-inline: --spacing(8);
+    padding-inline: --spacing(10);
   }
 
   @media (width >= 64rem) {
-    padding-inline: --spacing(12);
+    padding-inline: --spacing(16);
   }
 }
 

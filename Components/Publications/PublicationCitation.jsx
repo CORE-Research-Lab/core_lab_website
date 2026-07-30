@@ -87,7 +87,7 @@ const BibCopyButton = ({ bibtex, title }) => {
   return (
     <button
       type="button"
-      className={`inline-block text-blue-700 transition duration-150 active:scale-95 ${
+      className={`inline-block text-brand transition-colors duration-150 ${
         copied ? 'text-emerald-700' : 'hover:underline'
       }`}
       aria-label={`Copy BibTeX for ${title}`}
@@ -101,12 +101,14 @@ const BibCopyButton = ({ bibtex, title }) => {
 
 const AuthorList = ({
   authors,
+  coFirstAuthors = [],
   highlightAuthors = [],
   highlightCoreMembers = true,
   linkMemberAuthors = true,
   highlightQuery = '',
 }) => {
   const highlightedNames = highlightAuthors.map(normalizeMemberName)
+  const coFirstAuthorNames = new Set(coFirstAuthors.map(normalizeMemberName))
 
   if (authors.length === 0) return 'Unknown author'
 
@@ -116,6 +118,7 @@ const AuthorList = ({
     const displayAuthor = member?.publicationName || author
     const isHighlighted = highlightedNames.includes(normalizedAuthor)
       || (highlightCoreMembers && member?.publicationSource)
+    const isCoFirstAuthor = coFirstAuthorNames.has(normalizedAuthor)
     const authorText = <Highlight text={displayAuthor} query={highlightQuery} />
     const authorContent = isHighlighted ? <strong>{authorText}</strong> : authorText
 
@@ -132,6 +135,15 @@ const AuthorList = ({
           </Link>
         ) : (
           authorContent
+        )}
+        {isCoFirstAuthor && (
+          <sup
+            className='ml-px text-[0.72em] font-semibold text-brand'
+            aria-label=' co-first author'
+            title='Co-first author'
+          >
+            *
+          </sup>
         )}
         {index < authors.length - 1 && ', '}
       </React.Fragment>
@@ -168,6 +180,7 @@ const PublicationCitation = ({
         <span>
           <AuthorList
             authors={authors}
+            coFirstAuthors={publication.coFirstAuthors}
             highlightAuthors={highlightAuthors}
             highlightCoreMembers={highlightCoreMembers}
             linkMemberAuthors={linkMemberAuthors}

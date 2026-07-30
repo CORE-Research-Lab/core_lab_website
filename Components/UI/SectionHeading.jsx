@@ -5,8 +5,8 @@
 export const SectionHeading = ({ id, children, bordered = true, className = '' }) => (
   <h2
     id={id}
-    className={`scroll-anchor text-section font-semibold text-brand ${
-      bordered ? 'border-b border-slate-200 pb-3' : ''
+    className={`scroll-anchor text-section font-editorial text-brand-dark ${
+      bordered ? 'border-t border-black/15 pt-5' : ''
     } ${className}`}
   >
     {children}
@@ -16,7 +16,7 @@ export const SectionHeading = ({ id, children, bordered = true, className = '' }
 export const SubsectionHeading = ({ id, children, className = '' }) => (
   <h3
     id={id}
-    className={`scroll-anchor text-subsection font-semibold text-brand-dark ${className}`}
+    className={`scroll-anchor text-subsection font-editorial text-brand-dark ${className}`}
   >
     {children}
   </h3>
