@@ -51,14 +51,14 @@ export const institutionalSupportContent = {
       href: 'https://www.utm.utoronto.ca/',
       logo: universityOfTorontoLogo,
       alt: 'University of Toronto logo',
-      logoClassName: 'h-16',
+      logoClassName: 'h-20',
     },
     {
       name: 'McMaster University',
       href: 'https://www.mcmaster.ca/',
       logo: mcmasterUniversityLogo,
       alt: 'McMaster University logo',
-      logoClassName: 'h-16',
+      logoClassName: 'h-20',
     },
   ],
   sponsors: [
@@ -68,7 +68,7 @@ export const institutionalSupportContent = {
       href: 'https://nserc-crsng.canada.ca/en',
       logo: nsercSymbol,
       alt: 'Natural Sciences and Engineering Research Council of Canada logo',
-      logoClassName: 'h-14',
+      logoClassName: 'h-20',
     },
     {
       name: 'Learning Engineering Tools Competition',
@@ -76,7 +76,7 @@ export const institutionalSupportContent = {
       href: 'https://tools-competition.org/winner/quickta/',
       logo: toolsCompetitionLogo,
       alt: 'Tools Competition logo',
-      logoClassName: 'h-10',
+      logoClassName: 'h-14',
     },
     {
       name: 'ANR',
@@ -84,7 +84,7 @@ export const institutionalSupportContent = {
       href: 'https://anr.fr/en/',
       logo: anrLogo,
       alt: 'Agence Nationale de la Recherche logo',
-      logoClassName: 'h-11',
+      logoClassName: 'h-16',
     },
     {
       name: 'Data Sciences Institute',
@@ -92,7 +92,7 @@ export const institutionalSupportContent = {
       href: 'https://datasciences.utoronto.ca/',
       logo: dsiLogo,
       alt: 'University of Toronto Data Sciences Institute logo',
-      logoClassName: 'h-16',
+      logoClassName: 'h-20',
     },
   ],
   sponsorNote: 'Our support spans national, international, and institutional programs: Canada’s NSERC Discovery Grants and Collaborative Research and Training Experience program (CREATE); the Learning Engineering Tools Competition; France’s ANR; and the University of Toronto’s Data Sciences Institute (DSI), Institute for the Study of University Pedagogy (ISUP), and Learning & Education Advancement Fund (LEAF), with additional support from McMaster University.',

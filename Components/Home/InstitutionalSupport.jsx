@@ -11,7 +11,7 @@ const OrganizationCard = ({ organization }) => (
       rel='noreferrer'
       aria-label={`Visit ${organization.name}`}
     >
-      <span className='flex min-h-24 w-full items-center justify-start'>
+      <span className='flex min-h-28 w-full items-center justify-start'>
         {/* Each logo is pinned to a height that optically balances it against
             the others, so the width has to stay `auto` to hold the source
             aspect ratio — and saying so explicitly is also what stops Next
@@ -20,7 +20,7 @@ const OrganizationCard = ({ organization }) => (
           src={organization.logo}
           alt={organization.alt}
           className={`w-auto max-w-full object-contain ${organization.logoClassName}`}
-          sizes='(max-width: 640px) 12rem, 16rem'
+          sizes='(max-width: 640px) 15rem, 20rem'
         />
       </span>
       <span className='mt-5 text-xs font-semibold uppercase tracking-[0.1em] text-[#303534] transition-colors group-hover:text-brand'>
