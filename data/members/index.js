@@ -12,6 +12,7 @@ import jessicaPhoto from './assets/jessica_pfp.jpg'
 import amberPhoto from './assets/amber_pfp.jpg'
 import adamKolodziejczakPhoto from './assets/adam_kolodziejczak_pfp.jpg'
 import khushiPhoto from './assets/khushi_pfp.jpg'
+import uzimaMalikPhoto from './assets/uzima_malik_pfp.jpg'
 import valeriaOsorioRamirezPhoto from './assets/valeria_osorio_ramirez_pfp.jpg'
 import defaultPhoto from './assets/default_pfp.svg'
 import philipOreopoulosPhoto from './assets/philip_oreopoulos_pfp.png'
@@ -78,7 +79,7 @@ export const directors = [
     bio: 'Michael Liut is a CORE Lab Co-Director, Associate Professor, Teaching Stream, and Computer Science Community Advisor at the University of Toronto Mississauga. His research focuses on computing education, applied AI and machine learning, adaptive educational technologies, data systems, algorithms, and student behaviour.',
     website: 'https://www.michaelliut.ca/',
     googlescholar: 'https://scholar.google.com/citations?user=Jf8s0dMAAAAJ&hl=en&oi=ao',
-    semanticScholarAuthorIds: ['1397294204', '2403113147'],
+    semanticScholarAuthorIds: ['1397294204', '2403113147', '2326232751'],
     email: 'michael.liut@utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/mliut/',
   },
@@ -377,6 +378,18 @@ export const currentUndergraduateStudents = [
     email: 'khushi.malik@mail.utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/khushi-malik19/',
   },
+  basicProfile(
+    'Uzima Malik',
+    'uzima_malik',
+    'Undergraduate Student — University of Toronto Mississauga',
+    {
+      image: uzimaMalikPhoto,
+      bio: 'Uzima is a fourth-year computer science specialist at the University of Toronto Mississauga, with minors in business and mathematics. Uzima’s interests include software development, artificial intelligence, cloud computing, and machine learning.',
+      website: 'https://www.uzimamalik.com/',
+      linkedin: 'https://www.linkedin.com/in/uzima-m/',
+      imageSource: 'https://www.uzimamalik.com/',
+    }
+  ),
   basicProfile(
     'Emmanuel Deza',
     'emmanuel_deza',

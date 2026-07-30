@@ -256,6 +256,33 @@
             "bibtex": "@Inproceedings{Sibia2026CodeAA,\n author = {Naaz Sibia and Jessica Wen and Amber Richardson and Yashika Jain and Khushi Malik and Bogdan Simion and Carolina Nobre and Angela M. Zavaleta Bernuy and Andrew Petersen and Michael Liut},\n title = {Code as Anchor, Memory and Metaphor as Support: Learner Experiences with Multi-View Visualizations},\n year = {2026}\n}"
         },
         {
+            "paperId": "01e7d9e766b4c847915c70d353a1b89959147b14",
+            "year": "2026",
+            "title": "AI-Generated Traces for Novice Programmers: Learning Effects and Learner Differences in a Multi-Institutional Study",
+            "author": [
+                "Yuri Noviello",
+                "Naaz Sibia",
+                "Anastasiia Birillo",
+                "Thomas Overklift Vaupel Klein",
+                "Michael Liut",
+                "Gosia Migut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3803400.3809346",
+            "doi": "10.1145/3803400.3809346",
+            "url": "https://doi.org/10.1145/3803400.3809346",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/01e7d9e766b4c847915c70d353a1b89959147b14",
+            "abstract": "Introductory programming (CS1) courses often struggle to support students' understanding of program execution. While visualizations can make execution processes explicit, their effectiveness depends on design and context, and empirical evidence for AI-generated visualizations remains limited. We propose Generated Animated Traces (GATs), AI-generated, analogy-based, narrated animations that coordinate source code, execution state, and conceptual analogies. We conduct a study at two institutions in CS1 courses (Python N=961; Java N=151) comparing GATs to textual explanations. We measure immediate learning performance and experience, end-of-course engagement and exam performance. Results show that GATs can yield selective benefits for immediate learning, but benefits are context-dependent and short-term. We observe that GATs' influence on performance is moderated by learner engagement profiles. This finding underscores the importance of personalized approaches.",
+            "publicationDate": "2026-06-02",
+            "openAccessPdfUrl": "https://doi.org/10.1145/3803400.3809346",
+            "bibtex": "@Book{Noviello2026AIGeneratedTF,\n author = {Yuri Noviello and Naaz Sibia and Anastasiia Birillo and Thomas Overklift Vaupel Klein and Michael Liut and Gosia Migut},\n booktitle = {Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1},\n journal = {Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1},\n title = {AI-Generated Traces for Novice Programmers: Learning Effects and Learner Differences in a Multi-Institutional Study},\n year = {2026}\n}",
+            "publicationTypes": [
+                "Book",
+                "Conference"
+            ],
+            "journal": "Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1"
+        },
+        {
             "paperId": "cbe1fb98a7144b9c61ec919b01ee97cdd1fd0417",
             "year": "2026",
             "title": "Beyond One-Size-Fits-All Exercises: Personalizing Computer Science Worksheets with Large Language Models",
@@ -280,6 +307,31 @@
                 "Review"
             ],
             "journal": "Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1"
+        },
+        {
+            "paperId": "7199e58f712ac98b4157baddf0aea6b3b6bd321e",
+            "year": "2026",
+            "title": "Generative Experiences for Digital Mental Health Interventions: Evidence from a Randomized Study",
+            "author": [
+                "Ananya Bhattacharjee",
+                "Michael Liut",
+                "Matthew Jörke",
+                "Diyi Yang",
+                "E. Brunskill"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.48550/arxiv.2604.07558",
+            "doi": "10.48550/arxiv.2604.07558",
+            "url": "https://doi.org/10.48550/arxiv.2604.07558",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/7199e58f712ac98b4157baddf0aea6b3b6bd321e",
+            "abstract": "Digital mental health (DMH) tools have extensively explored personalization of interventions to users'needs and contexts. However, this personalization often targets what support is provided, not how it is experienced. Even well-matched content can fail when the interaction format misaligns with how someone can engage. We introduce generative experience as a paradigm for DMH support, where the intervention experience is composed at runtime. We instantiate this in GUIDE, a system that generates personalized intervention content and multimodal interaction structure through rubric-guided generation of modular components. In a preregistered study with N = 237 participants, GUIDE significantly reduced stress (p = .02) and improved the user experience (p = .04) compared to an LLM-based cognitive restructuring control. GUIDE also supported diverse forms of reflection and action through varied interaction flows, while revealing tensions around personalization across the interaction sequence. This work lays the foundation for interventions that dynamically shape how support is experienced and enacted in digital settings.",
+            "publicationDate": "2026-04-08",
+            "bibtex": "@Article{Bhattacharjee2026GenerativeEF,\n author = {Ananya Bhattacharjee and Michael Liut and Matthew Jörke and Diyi Yang and E. Brunskill},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Generative Experiences for Digital Mental Health Interventions: Evidence from a Randomized Study},\n volume = {abs/2604.07558},\n year = {2026}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "ArXiv",
+            "volume": "abs/2604.07558"
         },
         {
             "paperId": "143173946186677ab559dc0b83b51883556da6f3",
@@ -770,6 +822,33 @@
             "volume": "abs/2509.26466"
         },
         {
+            "paperId": "7867a878ca6aa8a2f485865210cdb9e099824415",
+            "year": "2025",
+            "title": "Humanizing Automated Programming Feedback: Fine-Tuning Generative Models with Student-Written Feedback",
+            "author": [
+                "Victor-Alexandru Pădurean",
+                "Tung Phung",
+                "Nachiket Kotalwar",
+                "Michael Liut",
+                "Juho Leinonen",
+                "Paul Denny",
+                "A. Singla"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.48550/arxiv.2509.10647",
+            "doi": "10.48550/arxiv.2509.10647",
+            "url": "https://doi.org/10.48550/arxiv.2509.10647",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/7867a878ca6aa8a2f485865210cdb9e099824415",
+            "abstract": "The growing need for automated and personalized feedback in programming education has led to recent interest in leveraging generative AI for feedback generation. However, current approaches tend to rely on prompt engineering techniques in which predefined prompts guide the AI to generate feedback. This can result in rigid and constrained responses that fail to accommodate the diverse needs of students and do not reflect the style of human-written feedback from tutors or peers. In this study, we explore learnersourcing as a means to fine-tune language models for generating feedback that is more similar to that written by humans, particularly peer students. Specifically, we asked students to act in the flipped role of a tutor and write feedback on programs containing bugs. We collected approximately 1,900 instances of student-written feedback on multiple programming problems and buggy programs. To establish a baseline for comparison, we analyzed a sample of 300 instances based on correctness, length, and how the bugs are described. Using this data, we fine-tuned open-access generative models, specifically Llama3 and Phi3. Our findings indicate that fine-tuning models on learnersourced data not only produces feedback that better matches the style of feedback written by students, but also improves accuracy compared to feedback generated through prompt engineering alone, even though some student-written feedback is incorrect. This surprising finding highlights the potential of student-centered fine-tuning to improve automated feedback systems in programming education.",
+            "publicationDate": "2025-09-12",
+            "bibtex": "@Article{Pădurean2025HumanizingAP,\n author = {Victor-Alexandru Pădurean and Tung Phung and Nachiket Kotalwar and Michael Liut and Juho Leinonen and Paul Denny and A. Singla},\n booktitle = {Educational Data Mining},\n journal = {ArXiv},\n title = {Humanizing Automated Programming Feedback: Fine-Tuning Generative Models with Student-Written Feedback},\n volume = {abs/2509.10647},\n year = {2025}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "ArXiv",
+            "volume": "abs/2509.10647"
+        },
+        {
             "paperId": "81ed5e89b7ce532a22aea0cc3e986de9e055b6d2",
             "year": "2025",
             "title": "A Crowdsourced Megastudy of 12 Digital Single-Session Interventions for Depression in American Adults",
@@ -860,6 +939,31 @@
                 "JournalArticle"
             ],
             "journal": "Proceedings of the 2025 ACM Conference on International Computing Education Research V.1"
+        },
+        {
+            "paperId": "8e207f8c37992fb1256c3fc16293a5a0a04bf771",
+            "year": "2025",
+            "title": "Automated Feedback on Student-Generated UML and ER Diagrams Using Large Language Models",
+            "author": [
+                "Sebastian Gürtl",
+                "Gloria Schimetta",
+                "David Kerschbaumer",
+                "Michael Liut",
+                "Alexander Steinmaurer"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.48550/arxiv.2507.23470",
+            "doi": "10.48550/arxiv.2507.23470",
+            "url": "https://doi.org/10.48550/arxiv.2507.23470",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/8e207f8c37992fb1256c3fc16293a5a0a04bf771",
+            "abstract": "UML and ER diagrams are foundational in computer science education but come with challenges for learners due to the need for abstract thinking, contextual understanding, and mastery of both syntax and semantics. These complexities are difficult to address through traditional teaching methods, which often struggle to provide scalable, personalized feedback, especially in large classes. We introduce DUET (Diagrammatic UML&ER Tutor), a prototype of an LLM-based tool, which converts a reference diagram and a student-submitted diagram into a textual representation and provides structured feedback based on the differences. It uses a multi-stage LLM pipeline to compare diagrams and generate reflective feedback. Furthermore, the tool enables analytical insights for educators, aiming to foster self-directed learning and inform instructional strategies. We evaluated DUET through semi-structured interviews with six participants, including two educators and four teaching assistants. They identified strengths such as accessibility, scalability, and learning support alongside limitations, including reliability and potential misuse. Participants also suggested potential improvements, such as bulk upload functionality and interactive clarification features. DUET presents a promising direction for integrating LLMs into modeling education and offers a foundation for future classroom integration and empirical evaluation.",
+            "publicationDate": "2025-07-31",
+            "bibtex": "@Article{Gürtl2025AutomatedFO,\n author = {Sebastian Gürtl and Gloria Schimetta and David Kerschbaumer and Michael Liut and Alexander Steinmaurer},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Automated Feedback on Student-Generated UML and ER Diagrams Using Large Language Models},\n volume = {abs/2507.23470},\n year = {2025}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "ArXiv",
+            "volume": "abs/2507.23470"
         },
         {
             "paperId": "2d8ada27cac5fe543679458fb62556816a08194a",
