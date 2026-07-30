@@ -22,6 +22,11 @@ const OrganizationCard = ({ organization }) => (
       <span className='mt-3 text-sm font-semibold text-slate-700 transition-colors group-hover:text-brand'>
         {organization.name}
       </span>
+      {organization.description && (
+        <span className='mt-1 text-xs text-slate-500'>
+          {organization.description}
+        </span>
+      )}
     </a>
   </li>
 )
@@ -50,9 +55,9 @@ const InstitutionalSupport = () => (
 
         <section className='rounded-2xl border border-brand/10 bg-white/65 p-5 sm:p-6' aria-labelledby='institutional-sponsors'>
           <h3 id='institutional-sponsors' className='text-subsection font-semibold text-brand-dark'>
-            Sponsors
+            Sponsors & funders
           </h3>
-          <ul className='mt-5 grid gap-4 sm:grid-cols-3'>
+          <ul className='mt-5 grid gap-4 sm:grid-cols-2'>
             {institutionalSupportContent.sponsors.map((sponsor) => (
               <OrganizationCard key={sponsor.name} organization={sponsor} />
             ))}

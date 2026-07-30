@@ -8,6 +8,7 @@ import anrLogo from '../navigation/assets/anr-logo.jpg'
 import dsiLogo from '../navigation/assets/dsi-logo.png'
 import mcmasterUniversityLogo from '../navigation/assets/mcmaster-university-logo-grey.png'
 import nsercSymbol from '../navigation/assets/nserc-symbol-color.png'
+import toolsCompetitionLogo from '../navigation/assets/tools-competition-logo.png'
 import universityOfTorontoLogo from '../navigation/assets/uoft-logo-dark.svg'
 
 export const heroContent = {
@@ -62,28 +63,39 @@ export const institutionalSupportContent = {
   ],
   sponsors: [
     {
-      name: 'Data Sciences Institute',
-      href: 'https://datasciences.utoronto.ca/',
-      logo: dsiLogo,
-      alt: 'University of Toronto Data Sciences Institute logo',
-      logoClassName: 'h-16',
-    },
-    {
       name: 'NSERC',
+      description: 'Canada',
       href: 'https://nserc-crsng.canada.ca/en',
       logo: nsercSymbol,
       alt: 'Natural Sciences and Engineering Research Council of Canada logo',
       logoClassName: 'h-14',
     },
     {
+      name: 'Learning Engineering Tools Competition',
+      description: 'International innovation prize',
+      href: 'https://tools-competition.org/winner/quickta/',
+      logo: toolsCompetitionLogo,
+      alt: 'Tools Competition logo',
+      logoClassName: 'h-10',
+    },
+    {
       name: 'ANR',
+      description: 'France',
       href: 'https://anr.fr/en/',
       logo: anrLogo,
       alt: 'Agence Nationale de la Recherche logo',
       logoClassName: 'h-11',
     },
+    {
+      name: 'Data Sciences Institute',
+      description: 'University of Toronto',
+      href: 'https://datasciences.utoronto.ca/',
+      logo: dsiLogo,
+      alt: 'University of Toronto Data Sciences Institute logo',
+      logoClassName: 'h-16',
+    },
   ],
-  sponsorNote: 'We gratefully acknowledge support from NSERC Discovery Grants and Collaborative Research and Training Experience program (CREATE), the University of Toronto Data Sciences Institute, ISUP and LEAF, McMaster University, and France’s ANR.',
+  sponsorNote: 'Our support spans national, international, and institutional programs: Canada’s NSERC Discovery Grants and Collaborative Research and Training Experience program (CREATE); the Learning Engineering Tools Competition; France’s ANR; and the University of Toronto’s Data Sciences Institute (DSI), Institute for the Study of University Pedagogy (ISUP), and Learning & Education Advancement Fund (LEAF), with additional support from McMaster University.',
 }
 
 export const artworkSection = {
