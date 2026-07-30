@@ -1,6 +1,30 @@
 {
     "2026": [
         {
+            "paperId": "af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "year": "2026",
+            "title": "A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics",
+            "author": [
+                "Suqing Liu",
+                "Runlong Ye",
+                "Christopher Eaton",
+                "Bogdan Simion",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.1007/978-3-032-29760-0_57",
+            "doi": "10.1007/978-3-032-29760-0_57",
+            "url": "https://doi.org/10.1007/978-3-032-29760-0_57",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "publicationDate": "2026-06-28",
+            "openAccessPdfUrl": "https://arxiv.org/pdf/2601.11541",
+            "bibtex": "@Inproceedings{Liu2026ACS,\n author = {Suqing Liu and Runlong Ye and Christopher Eaton and Bogdan Simion and Michael Liut},\n title = {A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics},\n booktitle = {International Conference on Artificial Intelligence in Education},\n pages = {577--592},\n publisher = {Springer Nature Switzerland},\n address = {Cham},\n year = {2026}\n}",
+            "booktitle": "International Conference on Artificial Intelligence in Education",
+            "pages": "577-592",
+            "publisher": "Springer Nature Switzerland",
+            "address": "Cham"
+        },
+        {
             "paperId": "c9c97c2d8434305f6352aeb377e009ccf5b72057",
             "year": "2026",
             "title": "'If You Don't Know, Just Ask': How New Graduates Demonstrate Non-Technical Skills and Behaviours in the Workplace",
@@ -500,7 +524,8 @@
             "semanticScholarUrl": "https://www.semanticscholar.org/paper/966dd097053ed736bdf8a908605ff310f39b14bc",
             "abstract": "Generative AI blurs the lines of authorship in computing education, creating uncertainty around how students should attribute AI assistance. To examine these emerging norms, we conducted a factorial vignette study with 94 computer science students across 102 unique scenarios, systematically manipulating assessment type, AI autonomy, student activity, prior knowledge, and human refinement effort. This paper details how these factors influence students'perceptions of ownership and disclosure preferences. Our findings indicate that attribution judgments are primarily driven by different levels of AI assistance and human refinement. We also found that students'perception of authorship significantly predicts their policy expectations. We conclude by proposing a shift from statement-style policies to process-oriented attribution, transforming disclosure into a pedagogical mechanism for fostering critical engagement with AI-generated content.",
             "publicationDate": "2026-02-03",
-            "bibtex": "@Inproceedings{Ye2026ExploringEN,\n author = {Runlong Ye and Oliver Huang and Jessica He and Michael Liut},\n title = {Exploring Emerging Norms of AI Attribution and Disclosure in Programming Education},\n year = {2026}\n}"
+            "bibtex": "@Inproceedings{Ye2026ExploringEN,\n author = {Runlong Ye and Oliver Huang and Jessica He and Michael Liut},\n title = {Exploring Emerging Norms of AI Attribution and Disclosure in Programming Education},\n year = {2026}\n}",
+            "journal": "ArXiv"
         },
         {
             "paperId": "a93754df3ced3cc7a02dd330732778d2d012e9c4",
@@ -617,27 +642,6 @@
         }
     ],
     "2025": [
-        {
-            "paperId": "af4e9f97be5102722e9a9d6b751b5751036c895b",
-            "year": "2025",
-            "title": "A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics",
-            "author": [
-                "Suqing Liu",
-                "Runlong Ye",
-                "Christopher Eaton",
-                "Bogdan Simion",
-                "Michael Liut"
-            ],
-            "ENTRYTYPE": "misc",
-            "ID": "10.1007/978-3-032-29760-0_57",
-            "doi": "10.1007/978-3-032-29760-0_57",
-            "url": "https://doi.org/10.1007/978-3-032-29760-0_57",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/af4e9f97be5102722e9a9d6b751b5751036c895b",
-            "abstract": "To address the scalability of feedback in computer science while mitigating the privacy and cost limitations of commercial Large Language Models (LLMs), this study evaluates a locally hosted Small Language Model (SLM). We deployed a quantized Llama-3.1, GPT-4, and human instructors across introductory programming (N=176), operating systems (N=80), and a writing seminar (N=7). Mixed-methods analysis of student perceptions reveals that while the local SLM matched commercial LLMs and was rated higher by students for readability and actionability in technical courses, human feedback remained more favoured for highly specialized writing tasks. We demonstrate that local SLMs offer a privacy-preserving, zero-marginal-cost alternative for foundational feedback, supporting a tiered pedagogical framework where AI handles structural guidance while instructors focus on high-level conceptual scaffolding.",
-            "publicationDate": "2025-12-01",
-            "openAccessPdfUrl": "https://arxiv.org/pdf/2601.11541",
-            "bibtex": "@Inproceedings{Liu2025ACS,\n author = {Suqing Liu and Runlong Ye and Christopher Eaton and Bogdan Simion and Michael Liut},\n title = {A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics},\n year = {2025}\n}"
-        },
         {
             "paperId": "916811154153e49a341506123458d516e0c51cc9",
             "year": "2025",

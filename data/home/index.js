@@ -15,10 +15,10 @@ export const heroContent = {
   title: 'CORE Lab',
   eyebrow: 'University of Toronto · McMaster University',
   tagline: 'CORE Lab (Computational Research and Education) studies how people learn, teach, and work in computationally-driven fields.',
-  publicationBlurb: 'We publish across leading computing education venues, including SIGCSE TS, ITiCSE, ICER, and Koli Calling, and leading human-computer interaction (HCI) venues like CHI and IUI.',
+  publicationBlurb: 'Our research appears across leading computing education and human-computer interaction (HCI) venues, spanning full papers, working-group reports, and posters.',
   actions: [
     { label: 'Meet the team', href: '/team', variant: 'primary' },
-    { label: 'Read our research', href: '/publications', variant: 'secondary' },
+    { label: 'Read our research', href: '/research', variant: 'secondary' },
   ],
 }
 

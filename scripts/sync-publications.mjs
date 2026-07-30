@@ -158,6 +158,7 @@ const parseArgs = argv => {
     config: DEFAULT_CONFIG_PATH,
     dryRun: false,
     fromFile: '',
+    refresh: false,
     help: false,
   }
 
@@ -169,6 +170,8 @@ const parseArgs = argv => {
       index += 1
     } else if (arg === '--dry-run') {
       options.dryRun = true
+    } else if (arg === '--refresh') {
+      options.refresh = true
     } else if (arg === '--from-file') {
       options.fromFile = argv[index + 1]
       index += 1
@@ -186,8 +189,13 @@ const printHelp = () => {
   console.log(`
 Usage: npm run sync:publications -- [options]
 
+By default a paper already in the output file is left exactly as it is — matched
+on DOI, Semantic Scholar id, or title — so local corrections are never
+overwritten. Only new papers get appended.
+
 Options:
   --dry-run             Fetch and summarize without writing JSON files.
+  --refresh             Overwrite existing records with the API's version, losing local edits.
   --from-file <path>    Use an existing publication JSON file instead of the Semantic Scholar API.
   --config <path>       Use a custom config file. Defaults to ${DEFAULT_CONFIG_PATH}.
 
@@ -221,6 +229,61 @@ const findAddedPublications = (previousPublications, nextPublications) => {
   return nextPublications.filter(publication =>
     !publicationKeys(publication).some(key => previousKeys.has(key))
   )
+}
+
+/**
+ * Records already in the file win over what the API returns, so hand-corrected
+ * venues, years, and titles survive a re-sync — only genuinely new papers are
+ * appended. Pass --refresh to take the API's version instead.
+ *
+ * Matching ignores the year that `publicationKeys` folds into its title key: a
+ * paper that moves from preprint to proceedings changes year upstream, and
+ * without this it would come back as a second copy of itself.
+ */
+const matchKeys = publication => {
+  const keys = []
+  const doi = getPublicationDoi(publication)
+  if (doi) keys.push(`doi:${doi}`)
+
+  const paperId = cleanString(publication.paperId)
+  if (paperId) keys.push(`paper:${paperId}`)
+
+  const title = normalizeTitle(publication.title)
+  if (title) keys.push(`title:${title}`)
+
+  return keys
+}
+
+const keepExistingPublications = (previousPublications, fetchedPublications) => {
+  const previousKeys = new Set(previousPublications.flatMap(matchKeys))
+
+  const added = fetchedPublications.filter(
+    publication => !matchKeys(publication).some(key => previousKeys.has(key))
+  )
+
+  return { publications: [...previousPublications, ...added], added }
+}
+
+/** Fields where a stale local copy is worth telling the user about. */
+const upstreamFields = ['year', 'journal', 'booktitle', 'doi', 'title']
+
+const findUpstreamChanges = (previousPublications, fetchedPublications) => {
+  const byKey = new Map()
+  for (const publication of previousPublications) {
+    for (const key of matchKeys(publication)) byKey.set(key, publication)
+  }
+
+  return fetchedPublications.flatMap(incoming => {
+    const key = matchKeys(incoming).find(candidate => byKey.has(candidate))
+    if (!key) return []
+
+    const existing = byKey.get(key)
+    const differences = upstreamFields
+      .filter(field => !isBlank(incoming[field]) && cleanString(incoming[field]) !== cleanString(existing[field]))
+      .map(field => `${field}: ${cleanString(existing[field]) || '(none)'} -> ${cleanString(incoming[field])}`)
+
+    return differences.length > 0 ? [{ title: existing.title, differences }] : []
+  })
 }
 
 const yearFromPublicationDate = publicationDate => {
@@ -516,6 +579,7 @@ const fetchSemanticScholarPublications = async ({ config, authors }) => {
 const summarizeOutput = ({
   allPublications,
   addedPublications,
+  upstreamChanges,
   posterPublications,
   projectPublications,
   changedFiles,
@@ -545,6 +609,15 @@ const summarizeOutput = ({
   } else {
     for (const publication of addedPublications) {
       console.log(`- ${publication.title || 'Untitled paper'}`)
+    }
+  }
+
+  if (upstreamChanges.length > 0) {
+    console.log(`\n=== KEPT LOCAL VERSION, UPSTREAM DIFFERS: ${upstreamChanges.length} ===`)
+    console.log('Re-run with --refresh to take these (it discards local edits on every record).')
+    for (const change of upstreamChanges) {
+      console.log(`- ${change.title || 'Untitled paper'}`)
+      for (const difference of change.differences) console.log(`    ${difference}`)
     }
   }
 }
@@ -580,8 +653,20 @@ const main = async () => {
     console.log(`Fetched ${stat.count} papers for ${stat.name}.`)
   }
 
+  const dedupedFetched = mergePublicationLists(fetchedPublications)
+
+  // Local records win unless --refresh is passed, so a hand-fixed venue or year
+  // is not silently reverted by the next sync.
+  const { publications: keptPublications } = args.refresh
+    ? { publications: dedupedFetched }
+    : keepExistingPublications(previousPublications, dedupedFetched)
+
+  const upstreamChanges = args.refresh
+    ? []
+    : findUpstreamChanges(previousPublications, dedupedFetched)
+
   const allPublications = sortPublications(
-    mergePublicationLists(fetchedPublications)
+    mergePublicationLists(keptPublications)
       .filter(publication => !isExcluded(publication, config.exclude))
   )
   const addedPublications = findAddedPublications(previousPublications, allPublications)
@@ -647,6 +732,7 @@ const main = async () => {
   summarizeOutput({
     allPublications,
     addedPublications,
+    upstreamChanges,
     posterPublications: posterResult.selected,
     projectPublications,
     changedFiles,

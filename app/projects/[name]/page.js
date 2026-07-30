@@ -50,10 +50,10 @@ export default async function ProjectPage({ params }) {
         </div>
 
         <section className='mt-14'>
-          <SectionHeading id='publications'>Publications</SectionHeading>
+          <SectionHeading id='research'>Research</SectionHeading>
           <PublicationList
             groupedItems={project.publications || {}}
-            emptyText='No publications listed yet.'
+            emptyText='No research listed yet.'
           />
         </section>
       </div>

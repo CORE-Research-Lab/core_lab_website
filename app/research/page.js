@@ -5,7 +5,7 @@ import SectionNav from '@/Components/UI/SectionNav';
 import { publicationsPage } from '@/data/publications';
 
 export const metadata = {
-  title: 'Publications',
+  title: 'Research',
   description: 'Papers and posters from the CORE Lab and its collaborators.',
 };
 
@@ -14,11 +14,11 @@ const navSections = [
   { id: 'papers', label: publicationsPage.papersTitle },
 ];
 
-export default function Publications() {
+export default function Research() {
   return (
     <>
       <PageHeader
-        title='Publications'
+        title='Research'
         description='Papers and poster presentations from the lab and its collaborators.'
       />
       <div className='page-shell grid items-start gap-x-12 pb-16 lg:grid-cols-[14rem_minmax(0,1fr)]'>

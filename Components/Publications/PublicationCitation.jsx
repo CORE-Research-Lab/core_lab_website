@@ -148,12 +148,12 @@ const PublicationCitation = ({
   highlightQuery = '',
 }) => {
   if (!publication) {
-    return <span className="text-slate-600">Publication details unavailable.</span>
+    return <span className="text-slate-600">Research details unavailable.</span>
   }
 
   const authors = getPublicationAuthors(publication)
   const venue = getVenue(publication)
-  const title = publication.title || 'Untitled publication'
+  const title = publication.title || 'Untitled research item'
   const doi = publication.doi ? String(publication.doi).trim() : ''
   const bibtex = publication.bibtex ? String(publication.bibtex).trim() : ''
 

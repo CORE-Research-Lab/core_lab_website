@@ -43,7 +43,7 @@ export default async function PosterPage({ params }) {
           sizes='(max-width: 1024px) 100vw, 560px'
         />
         <section className='min-w-0'>
-          <SectionHeading id='publication'>Publication</SectionHeading>
+          <SectionHeading id='research'>Research</SectionHeading>
           <div className='mt-5 leading-7 text-slate-800'>
             <PublicationCitation publication={poster.publication} />
           </div>

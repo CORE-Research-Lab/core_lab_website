@@ -30,7 +30,7 @@ export const posterItems = [
 ].map(poster => ({
   ...poster,
   publication: posterPublications.find(publication => publication.doi === poster.doi),
-  link: `/publications/${poster.slug}`,
+  link: `/research/${poster.slug}`,
 }))
 
 export const postersBySlug = Object.fromEntries(

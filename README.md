@@ -30,8 +30,23 @@ npm run sync:publications
 ```
 
 Before running the sync, add `semanticScholarAuthorIds` to each director or current student who should act as a publication source in `data/members/index.js`. The team-group configuration marks those members with `publicationSource`; collaborator papers enter the archive only when they are coauthored with one of these source members.
-The publication JSON is regenerated from those Semantic Scholar author IDs, so legacy local bibliography records are not preserved automatically.
 Set `SEMANTIC_SCHOLAR_KEY` in your local environment if you have an API key; the script will still run without one, but Semantic Scholar may rate-limit unauthenticated requests.
+
+### Local edits win
+
+A paper already in `Papers/papers.json` is left exactly as it is. The sync only appends papers it has never seen, so corrections made by hand are safe to make directly in the JSON and survive every later run. Records are matched on DOI, then Semantic Scholar paper ID, then title — the title comparison ignores the year, so a paper that moves from preprint to proceedings is recognised as the same paper instead of returning as a duplicate.
+
+When the API disagrees with a record we kept, the run prints a `KEPT LOCAL VERSION, UPSTREAM DIFFERS` section listing the fields. Take those changes with `--refresh`, which replaces every record with the API's version and discards all local edits — there is no per-paper override, so prefer editing the JSON by hand.
+
+### Correcting a record
+
+Semantic Scholar often has no venue for recent papers, which leaves them uncategorised on the homepage. Fix them on the record itself:
+
+- **Published at a venue** – set `booktitle` (conferences) or `journal` (journals) to the venue name, and `ENTRYTYPE` to `inproceedings` or `article`. Do this for accepted papers too, as soon as the venue is known.
+- **Preprint** – set `journal` to `ArXiv` (or another preprint server). It is counted under *To submit*.
+- **Neither** – a record with no venue at all is counted under *Unlisted*, which is the signal that it still needs one of the above.
+
+Venue names are matched to their acronyms by the rule list in `lib/publications.mjs`. A venue with no rule keeps its full proceedings title, so add a pattern there when a new conference shows up — otherwise a long title can reach the homepage treemap.
 
 The sync keeps the website's existing JSON data contract:
 - `Papers/papers.json` powers the publications list, search, filtering, and team pages.
@@ -46,3 +61,12 @@ Useful checks:
 npm run sync:publications -- --dry-run
 npm run sync:publications -- --from-file Papers/papers.json --dry-run
 ```
+
+## Homepage Venue Treemap
+
+The "Where we publish" treemap on the homepage is derived from `Papers/papers.json` at build time, so it updates on its own whenever publications are synced — tile areas, ranking, colours, and the totals beside it all come from the same list as the headline publication count.
+
+Two constants set how much it shows:
+
+- `venueRamp` in `Components/Home/VenueTreemap.jsx` caps how many venues can be named; everything else pools into *Other venues*. Its steps are a validated ordinal ramp (monotone lightness, a visible step between neighbours, and a label colour clearing 4.5:1 on each fill), and the light end already sits at the edge of what the card surface allows — adding a step means re-stepping the whole ramp, not appending one.
+- `layouts` in the same file holds one squarified solve per breakpoint. A treemap is solved for a single aspect ratio and tile count, so phones name six venues and wider screens name eight; at phone width a 2.5% tile is about 44px across, too small to hold a label.
