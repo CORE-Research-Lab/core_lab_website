@@ -4,10 +4,17 @@ import lisaNameCard from './assets/lz_name.png'
 import whiteboardArtwork from './assets/whiteboard.png'
 import doorArtwork from './assets/door.png'
 import windowArtwork from './assets/window.png'
+import anrLogo from '../navigation/assets/anr-logo.jpg'
+import dsiLogo from '../navigation/assets/dsi-logo.png'
+import mcmasterUniversityLogo from '../navigation/assets/mcmaster-university-logo-grey.png'
+import nsercSymbol from '../navigation/assets/nserc-symbol-color.png'
+import universityOfTorontoLogo from '../navigation/assets/uoft-logo-dark.svg'
 
 export const heroContent = {
   title: 'CORE Lab',
+  eyebrow: 'University of Toronto · McMaster University',
   tagline: 'CORE Lab (Computational Research and Education) studies how people learn, teach, and work in computationally-driven fields.',
+  publicationBlurb: 'We publish across leading computing education venues, including SIGCSE TS, ITiCSE, ICER, and Koli Calling, and leading human-computer interaction (HCI) venues like CHI and IUI.',
   actions: [
     { label: 'Meet the team', href: '/team', variant: 'primary' },
     { label: 'Read our research', href: '/publications', variant: 'secondary' },
@@ -18,7 +25,7 @@ export const aboutContent = {
   title: 'About the lab',
   paragraphs: [
     'Our research spans computing education, assessment design, educational data mining, student experience, and human-centered AI tools for learning and research.',
-    'The lab brings together faculty, graduate students, and undergraduate researchers from the University of Toronto and partner institutions.',
+    'The lab brings together faculty, graduate students, and undergraduate researchers from the University of Toronto, McMaster University, and partner institutions.',
   ],
   focusAreas: [
     'Adaptive Systems',
@@ -32,6 +39,51 @@ export const aboutContent = {
     'Student Experience',
     'UI/UX'
   ],
+}
+
+export const institutionalSupportContent = {
+  title: 'Affiliations & grant support',
+  description: 'CORE Lab brings together researchers at the University of Toronto and McMaster University, with support from Canadian and international research organizations.',
+  affiliations: [
+    {
+      name: 'University of Toronto',
+      href: 'https://www.utm.utoronto.ca/',
+      logo: universityOfTorontoLogo,
+      alt: 'University of Toronto logo',
+      logoClassName: 'h-16',
+    },
+    {
+      name: 'McMaster University',
+      href: 'https://www.mcmaster.ca/',
+      logo: mcmasterUniversityLogo,
+      alt: 'McMaster University logo',
+      logoClassName: 'h-16',
+    },
+  ],
+  sponsors: [
+    {
+      name: 'Data Sciences Institute',
+      href: 'https://datasciences.utoronto.ca/',
+      logo: dsiLogo,
+      alt: 'University of Toronto Data Sciences Institute logo',
+      logoClassName: 'h-16',
+    },
+    {
+      name: 'NSERC',
+      href: 'https://nserc-crsng.canada.ca/en',
+      logo: nsercSymbol,
+      alt: 'Natural Sciences and Engineering Research Council of Canada logo',
+      logoClassName: 'h-14',
+    },
+    {
+      name: 'ANR',
+      href: 'https://anr.fr/en/',
+      logo: anrLogo,
+      alt: 'Agence Nationale de la Recherche logo',
+      logoClassName: 'h-11',
+    },
+  ],
+  sponsorNote: 'We gratefully acknowledge support from NSERC Discovery Grants and Collaborative Research and Training Experience program (CREATE), the University of Toronto Data Sciences Institute, ISUP and LEAF, McMaster University, and France’s ANR.',
 }
 
 export const artworkSection = {

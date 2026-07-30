@@ -25,7 +25,7 @@ const Hero = () => {
       />
       <div className='page-shell py-16 sm:py-20 lg:py-28'>
         <p className='text-sm font-semibold uppercase tracking-[0.18em] text-brand-muted'>
-          University of Toronto - McMaster University
+          {heroContent.eyebrow}
         </p>
         <h1 className='mt-4 text-display font-bold text-brand-dark'>
           {heroContent.title}
