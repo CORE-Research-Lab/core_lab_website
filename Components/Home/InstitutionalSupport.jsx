@@ -12,10 +12,14 @@ const OrganizationCard = ({ organization }) => (
       aria-label={`Visit ${organization.name}`}
     >
       <span className='flex min-h-20 w-full items-center justify-center'>
+        {/* Each logo is pinned to a height that optically balances it against
+            the others, so the width has to stay `auto` to hold the source
+            aspect ratio — and saying so explicitly is also what stops Next
+            warning that only one axis was set. */}
         <Image
           src={organization.logo}
           alt={organization.alt}
-          className={`max-w-full object-contain ${organization.logoClassName}`}
+          className={`w-auto max-w-full object-contain ${organization.logoClassName}`}
           sizes='(max-width: 640px) 10rem, 12rem'
         />
       </span>
