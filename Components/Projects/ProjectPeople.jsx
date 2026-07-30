@@ -13,22 +13,22 @@ const PeopleGroup = ({ id, title, people, showInstitution = false }) => {
   return (
     <section>
       <SubsectionHeading id={id}>{title}</SubsectionHeading>
-      <ul className='mt-6 grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'>
+      <ul className='mt-5 grid gap-4 sm:grid-cols-2 xl:grid-cols-3'>
         {people.map((person) => (
           <li key={person.slug}>
             <Link
               href={person.link}
-              className='group block h-full'
+              className='group flex h-full items-center gap-4 rounded-xl border border-slate-200 bg-white p-4 hover:border-brand-muted hover:bg-slate-50 sm:gap-5 sm:p-5'
             >
               <Image
                 src={person.image}
                 alt=''
                 aria-hidden='true'
-                className='aspect-4/5 w-full bg-[#e8e8e3] object-cover object-center grayscale transition-[filter] group-hover:grayscale-0'
-                sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 380px'
+                className='size-20 shrink-0 rounded-full bg-slate-100 object-cover object-center sm:size-24'
+                sizes='96px'
               />
-              <span className='mt-4 block min-w-0 border-t border-black/20 pt-3'>
-                <span className='block text-lg font-semibold text-brand-dark transition-colors group-hover:text-brand'>
+              <span className='block min-w-0'>
+                <span className='block text-base font-semibold text-brand-dark group-hover:underline'>
                   {person.name}
                 </span>
                 {/* Positions run long enough to clip mid-title, so they wrap
@@ -46,7 +46,7 @@ const PeopleGroup = ({ id, title, people, showInstitution = false }) => {
 }
 
 const ProjectPeople = ({ people }) => (
-  <div className='mt-6 space-y-8'>
+  <div className='mt-6 space-y-10'>
     <PeopleGroup id='core-lab' title='CORE Lab' people={people.core} />
     <PeopleGroup
       id='collaborators'

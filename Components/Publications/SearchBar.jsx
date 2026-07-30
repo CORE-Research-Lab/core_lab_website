@@ -8,7 +8,7 @@ const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount }) => 
       </label>
       <div className='relative'>
         <HiOutlineSearch
-          className='pointer-events-none absolute left-0 top-1/2 size-5 -translate-y-1/2 text-slate-400'
+          className='pointer-events-none absolute left-3.5 top-1/2 size-5 -translate-y-1/2 text-slate-400'
           aria-hidden='true'
         />
         <input
@@ -17,14 +17,14 @@ const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount }) => 
           placeholder={placeholder}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          className='w-full border-x-0 border-b border-t-0 border-black/30 bg-transparent py-4 pl-8 pr-11 text-lg text-slate-800 transition-colors placeholder:text-slate-400 hover:border-black/60 focus:border-brand focus:outline-none [&::-webkit-search-cancel-button]:hidden'
+          className='w-full rounded-lg border border-slate-300 bg-white py-2.5 pl-11 pr-11 text-slate-800 shadow-sm transition placeholder:text-slate-400 hover:border-slate-400 focus:border-brand focus:outline-none focus:ring-2 focus:ring-brand/20 [&::-webkit-search-cancel-button]:hidden'
         />
         {query && (
           <button
             type='button'
             onClick={() => setQuery('')}
             aria-label='Clear search'
-            className='absolute right-0 top-1/2 -translate-y-1/2 p-2 text-slate-500 transition-colors hover:text-brand'
+            className='absolute right-2 top-1/2 -translate-y-1/2 rounded-md p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-700'
           >
             <HiOutlineX className='size-4' aria-hidden='true' />
           </button>

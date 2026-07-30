@@ -20,7 +20,7 @@ const ControlButton = ({ label, onClick, children }) => (
     type='button'
     onClick={onClick}
     aria-label={label}
-    className='flex size-10 items-center justify-center border border-black/20 text-brand transition-colors hover:border-brand hover:bg-brand hover:text-white'
+    className='flex size-9 items-center justify-center rounded-full border border-slate-200 bg-white text-brand hover:border-brand-muted hover:bg-brand-soft'
   >
     {children}
   </button>
@@ -66,11 +66,11 @@ const ProjectShowcase = () => {
 
   return (
     <section
-      className='pt-10 sm:pt-16'
+      className='pt-8'
       aria-roledescription='carousel'
       aria-label={projectsSection.title}
     >
-      <div className='flex items-end justify-between gap-4'>
+      <div className='flex items-end justify-between gap-4 border-b border-slate-200 pb-3'>
         <SectionHeading id='projects' bordered={false}>
           {projectsSection.title}
         </SectionHeading>
@@ -86,24 +86,24 @@ const ProjectShowcase = () => {
         )}
       </div>
 
-      <p className='mt-7 max-w-4xl text-lg leading-8 text-slate-600 sm:text-xl'>
+      <p className='mt-5 max-w-4xl text-lg leading-8 text-slate-600'>
         {projectsSection.description}
       </p>
 
-      <div className='mt-8 overflow-hidden' ref={emblaRef}>
-        <div className='flex touch-pan-y'>
+      <div className='mt-5 overflow-hidden' ref={emblaRef}>
+        <div className='-ml-4 flex touch-pan-y'>
           {projects.map((project, index) => (
             <div
               key={project.slug}
-              className='min-w-0 flex-[0_0_100%]'
+              className='min-w-0 flex-[0_0_100%] pl-4'
               role='group'
               aria-roledescription='slide'
               aria-label={`${index + 1} of ${projects.length}`}
             >
-              <div className='flex h-full flex-col'>
+              <div className='flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white'>
                 <Link
                   href={project.link}
-                  className='flex min-h-0 flex-1 items-center justify-center'
+                  className='flex min-h-0 flex-1 items-center justify-center bg-slate-50 p-4 sm:p-6'
                 >
                   <Image
                     src={project.image}
@@ -111,27 +111,27 @@ const ProjectShowcase = () => {
                     aria-hidden='true'
                     priority={index === 0}
                     className={`mx-auto h-auto w-auto max-w-full object-contain ${
-                      project.showcaseImageClassName || 'max-h-[min(40svh,24rem)]'
+                      project.showcaseImageClassName || 'max-h-[clamp(12rem,45vh,24rem)]'
                     }`}
-                    sizes='(max-width: 768px) 92vw, 600px'
+                    sizes='(max-width: 1024px) 88vw, 720px'
                   />
                 </Link>
-                <div className='mt-4'>
+                <div className='border-t border-slate-200 p-4 sm:p-6'>
                   <Link
                     href={project.link}
-                    className='group grid gap-2 sm:grid-cols-[minmax(0,0.3fr)_minmax(0,1fr)] sm:gap-8'
+                    className='group block'
                   >
                     <span className='flex items-start gap-2'>
-                      <span className='font-editorial text-subsection text-brand-dark transition-colors group-hover:text-brand'>
+                      <span className='text-subsection font-semibold text-brand-dark group-hover:underline'>
                         {project.name}
                       </span>
                       {project.status === 'past' && (
-                        <span className='mt-1 text-[0.65rem] font-semibold uppercase tracking-[0.12em] text-slate-500'>
+                        <span className='mt-0.5 rounded-full bg-brand-soft px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-brand-muted'>
                           Past
                         </span>
                       )}
                     </span>
-                    <span className='block max-w-3xl text-base leading-7 text-slate-600 sm:text-lg sm:leading-8'>
+                    <span className='mt-2 block max-w-3xl text-base leading-7 text-slate-600'>
                       {project.summary}
                     </span>
                   </Link>
@@ -151,7 +151,7 @@ const ProjectShowcase = () => {
               onClick={() => scrollTo(index)}
               aria-label={`Show ${project.name}`}
               aria-current={index === current ? 'true' : undefined}
-              className={`h-0.5 w-8 ${
+            className={`size-2.5 rounded-full ${
                 index === current ? 'bg-brand' : 'bg-slate-300 hover:bg-slate-400'
               }`}
             />

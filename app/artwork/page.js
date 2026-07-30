@@ -10,26 +10,22 @@ export const metadata = {
 export default function ArtworkPage() {
   return (
     <>
-      <PageHeader
-        eyebrow='CORE Lab / Archive'
-        title={artworkSection.title}
-        description={artworkSection.description}
-      />
-      <div className='page-shell grid gap-x-8 gap-y-20 pb-24 md:grid-cols-2 xl:grid-cols-3'>
+      <PageHeader title={artworkSection.title} description={artworkSection.description} />
+      <div className='page-shell grid grid-cols-auto gap-6 pb-16'>
         {artworkSection.items.map((artwork, index) => (
           <figure
-            className='flex flex-col'
+            className='flex flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm'
             key={`${artwork.artist}-${index}`}
           >
             <Image
               src={artwork.image}
               alt={`Artwork by ${artwork.artist}`}
-              className='aspect-4/3 w-full bg-[#e8e8e3] object-cover'
-              sizes='(max-width: 768px) 100vw, 50vw'
+              className='aspect-4/3 w-full bg-slate-50 object-cover'
+              sizes='(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 380px'
             />
-            <figcaption className='mt-5 grid flex-1 gap-3 border-t border-black/20 pt-4 sm:grid-cols-[0.3fr_1fr]'>
-              <h2 className='text-xs font-semibold uppercase tracking-[0.12em] text-brand'>Artist: {artwork.artist}</h2>
-              <p className='text-base leading-7 text-slate-600'>{artwork.description}</p>
+            <figcaption className='flex flex-1 flex-col p-5'>
+              <h2 className='text-base font-semibold text-brand'>Artist: {artwork.artist}</h2>
+              <p className='mt-2 text-sm leading-6 text-slate-600'>{artwork.description}</p>
             </figcaption>
           </figure>
         ))}

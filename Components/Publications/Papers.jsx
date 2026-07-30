@@ -48,14 +48,12 @@ const Papers = () => {
   )
 
   return (
-    <section className='mt-20 border-t border-black/15 pt-7 sm:mt-24 sm:pt-8'>
-      <SectionHeading id='papers' bordered={false}>
-        {publicationsPage.papersTitle}
-      </SectionHeading>
+    <section className='pt-12'>
+      <SectionHeading id='papers'>{publicationsPage.papersTitle}</SectionHeading>
 
       <aside
         aria-label='Research author formatting legend'
-        className='mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 border-y border-black/15 py-3 text-sm text-slate-700'
+        className='mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700'
       >
         <strong className='font-semibold text-slate-800'>Author legend:</strong>
         <span>

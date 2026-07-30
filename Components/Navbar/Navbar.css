@@ -1,10 +1,12 @@
-/* A one-pixel signal is enough feedback for the restrained navigation. */
+/* Desktop nav underline: grows from the centre on hover/focus, and stays put
+   for the route that is currently open. */
 .nav-links a::after {
     content: '';
     display: block;
     width: 0;
-    height: 1px;
-    margin: 4px 0 0;
+    height: 2px;
+    margin: 3px auto 0;
+    border-radius: 999px;
     background: var(--color-brand);
     transition: width 180ms ease;
 }

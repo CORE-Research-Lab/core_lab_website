@@ -56,8 +56,8 @@ const Navbar = () => {
       <nav
         className={`sticky top-0 z-40 border-b transition-colors duration-200 ${
           isScrolled
-            ? 'border-black/10 bg-[#f3f3f0]/90 backdrop-blur-md'
-            : 'border-transparent bg-[#f3f3f0]'
+            ? 'border-slate-200 bg-white/85 shadow-sm backdrop-blur-md'
+            : 'border-transparent bg-white'
         }`}
       >
         <div className='page-shell flex h-header items-center justify-between gap-4'>
@@ -65,17 +65,17 @@ const Navbar = () => {
             <Image
               src={siteBrand.logo}
               alt={`${siteBrand.name} logo`}
-              width={36}
-              height={36}
-              className='size-9'
+              width={40}
+              height={40}
+              className='size-10'
               priority
             />
-            <span className='text-base font-semibold tracking-[-0.03em] text-brand-dark'>
+            <span className='text-lg font-semibold tracking-tight text-brand-dark'>
               {siteBrand.name}
             </span>
           </Link>
 
-          <ul className='nav-links hidden items-center gap-9 text-[0.72rem] font-semibold uppercase tracking-[0.12em] md:flex'>
+          <ul className='nav-links hidden items-center gap-8 text-sm font-medium md:flex'>
             {navigationItems.map((item) => {
               const active = isRouteActive(pathname, item.href)
 
@@ -85,7 +85,7 @@ const Navbar = () => {
                     href={item.href}
                     aria-current={active ? 'page' : undefined}
                     data-active={active || undefined}
-                    className={`transition-colors ${active ? 'text-brand' : 'text-[#303534] hover:text-brand'}`}
+                    className={`transition-colors ${active ? 'text-brand' : 'text-slate-600 hover:text-brand'}`}
                   >
                     {item.label}
                   </Link>
@@ -96,7 +96,7 @@ const Navbar = () => {
 
           <button
             type='button'
-            className='-mr-2 p-2 text-slate-700 transition-colors hover:text-brand md:hidden'
+            className='-mr-2 rounded-lg p-2 text-slate-700 transition hover:bg-slate-100 md:hidden'
             onClick={() => setIsMenuOpen(true)}
             aria-label='Open navigation menu'
             aria-expanded={isMenuOpen}
@@ -123,15 +123,15 @@ const Navbar = () => {
         id='mobile-menu'
         inert={!isMenuOpen}
         aria-hidden={!isMenuOpen}
-        className={`fixed inset-y-0 right-0 z-50 flex w-72 max-w-[85vw] flex-col bg-[#f3f3f0] shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed inset-y-0 right-0 z-50 flex w-72 max-w-[85vw] flex-col bg-white shadow-2xl transition-transform duration-300 ease-out md:hidden ${
           isMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
-        <div className='flex h-header shrink-0 items-center justify-between border-b border-black/10 pl-6 pr-4'>
+        <div className='flex h-header shrink-0 items-center justify-between border-b border-slate-200 pl-6 pr-4'>
           <span className='text-base font-semibold text-brand-dark'>{siteBrand.name}</span>
           <button
             type='button'
-            className='p-2 text-slate-700 transition-colors hover:text-brand'
+            className='rounded-lg p-2 text-slate-700 transition hover:bg-slate-100'
             onClick={() => setIsMenuOpen(false)}
             aria-label='Close navigation menu'
           >
@@ -147,8 +147,8 @@ const Navbar = () => {
                 <Link
                   href={item.href}
                   aria-current={active ? 'page' : undefined}
-                  className={`block border-b border-black/10 px-1 py-4 text-sm font-semibold uppercase tracking-[0.1em] transition-colors ${
-                    active ? 'text-brand' : 'text-slate-700 hover:text-brand'
+                  className={`block rounded-lg px-3 py-2.5 font-medium transition-colors ${
+                    active ? 'bg-brand-soft text-brand' : 'text-slate-700 hover:bg-slate-50 hover:text-brand'
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >

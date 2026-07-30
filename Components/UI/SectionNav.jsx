@@ -66,10 +66,10 @@ const SectionNav = ({ sections }) => {
 
   const chipClass = (id) =>
     [
-      'whitespace-nowrap border-b py-2 text-xs font-semibold uppercase tracking-[0.1em]',
+      'whitespace-nowrap rounded-full border px-3 py-1.5 text-sm font-medium',
       activeId === id
-        ? 'border-brand text-brand'
-        : 'border-transparent text-slate-600 hover:border-brand-muted hover:text-brand',
+        ? 'border-brand bg-brand text-white'
+        : 'border-slate-200 bg-white text-slate-600 hover:border-brand-muted hover:text-brand',
     ].join(' ')
 
   const flatSections = sections.flatMap((section) => [
@@ -87,8 +87,8 @@ const SectionNav = ({ sections }) => {
     >
       {/* Compact chip row for phones and tablets. The negative margins let it
           bleed to the screen edges while the page keeps its gutters. */}
-      <div className='-mx-6 border-b border-black/10 bg-[#f3f3f0]/90 backdrop-blur sm:-mx-10 lg:hidden'>
-        <ul className='flex gap-6 overflow-x-auto px-6 py-3 [scrollbar-width:none] sm:px-10 [&::-webkit-scrollbar]:hidden'>
+      <div className='-mx-5 border-b border-slate-200 bg-white/90 backdrop-blur sm:-mx-8 lg:hidden'>
+        <ul className='flex gap-2 overflow-x-auto px-5 py-3 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden'>
           {flatSections.map((section) => (
             <li key={section.id}>
               <a
@@ -104,7 +104,7 @@ const SectionNav = ({ sections }) => {
       </div>
 
       {/* Left rail from lg up. */}
-      <ul className='hidden max-h-[calc(100vh-var(--spacing-header)-3rem)] overflow-y-auto border-l border-black/15 lg:block'>
+      <ul className='hidden max-h-[calc(100vh-var(--spacing-header)-3rem)] overflow-y-auto border-l border-slate-200 lg:block'>
         {sections.map((section) => (
           <li key={section.id}>
             <a

@@ -24,26 +24,22 @@ const navSections = memberGroups.map((group) => ({
 const MemberCard = ({ person, compact = false, featured = false }) => (
   <Link
     href={person.link}
-    className='group block'
+    className={`group flex items-center rounded-xl border border-slate-200 bg-white hover:border-brand-muted hover:bg-slate-50 ${
+      featured ? 'gap-6 p-5 sm:gap-8 sm:p-8' : 'gap-4 p-4 sm:gap-5 sm:p-5'
+    }`}
   >
     <Image
       src={person.image}
       alt=''
       aria-hidden='true'
-      className={`w-full bg-[#e8e8e3] object-cover object-center grayscale transition-[filter] group-hover:grayscale-0 ${
-        featured ? 'aspect-[4/5]' : compact ? 'aspect-square' : 'aspect-[4/5]'
-      }`}
-      sizes={
-        featured
-          ? '(max-width: 1024px) 100vw, 620px'
-          : compact
-            ? '(max-width: 640px) 50vw, (max-width: 1280px) 33vw, 280px'
-            : '(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 380px'
-      }
+      className={`${
+        featured ? 'size-24 sm:size-36' : compact ? 'size-16' : 'size-20 sm:size-24'
+      } shrink-0 rounded-full bg-slate-100 object-cover object-center`}
+      sizes={featured ? '(max-width: 640px) 96px, 144px' : compact ? '64px' : '96px'}
     />
-    <div className='mt-4 min-w-0 border-t border-black/20 pt-3'>
-      <h3 className={`font-semibold text-brand-dark transition-colors group-hover:text-brand ${
-        featured ? 'font-editorial text-2xl sm:text-3xl' : compact ? 'text-sm' : 'text-lg'
+    <div className='min-w-0'>
+      <h3 className={`font-semibold text-brand-dark group-hover:underline ${
+        featured ? 'text-xl sm:text-2xl' : compact ? 'text-sm' : 'text-base'
       }`}>
         {person.name}
       </h3>
@@ -70,13 +66,7 @@ const MemberGrid = ({
   emptyText = 'This section is being updated.',
 }) => (
   people.length > 0 ? (
-    <div className={`mt-8 grid gap-x-6 gap-y-12 ${
-      featured
-        ? 'sm:grid-cols-2 xl:grid-cols-3'
-        : compact
-          ? 'grid-cols-2 md:grid-cols-3 xl:grid-cols-4'
-          : 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4'
-    }`}>
+    <div className={`mt-5 grid ${featured ? 'grid-cols-1 gap-5' : `gap-4 ${compact ? 'sm:grid-cols-2 xl:grid-cols-3' : 'xl:grid-cols-2'}`}`}>
       {people.map((person) => (
         <MemberCard
           compact={compact}
@@ -95,21 +85,20 @@ export default function TeamPage() {
   return (
     <>
       <PageHeader
-        eyebrow='CORE Lab / People'
         title='Our Team'
         description='Directors, current students, and frequent collaborators from the University of Toronto and partner institutions.'
       />
-      <div className='page-shell grid items-start gap-x-12 pb-24 lg:grid-cols-[10rem_minmax(0,1fr)] lg:gap-x-20'>
+      <div className='page-shell grid items-start gap-x-12 pb-16 lg:grid-cols-[14rem_minmax(0,1fr)]'>
         <SectionNav sections={navSections} />
-        <div className='min-w-0 space-y-24 pt-12 lg:pt-0'>
+        <div className='min-w-0 space-y-12 pt-8 lg:pt-0'>
           {memberGroups.map((group) => (
             <section key={group.id}>
               <SectionHeading id={group.id}>{group.title}</SectionHeading>
               {group.groups ? (
-                <div className='space-y-20'>
+                <div className='space-y-8'>
                   {group.groups.map((subgroup) => (
                     <section key={subgroup.id}>
-                      <SubsectionHeading id={subgroup.id} className='border-t border-black/15 pt-5'>
+                      <SubsectionHeading id={subgroup.id} className='pt-6'>
                         {subgroup.title}
                       </SubsectionHeading>
                       <MemberGrid compact={group.id === 'pastmembers'} people={subgroup.people} />

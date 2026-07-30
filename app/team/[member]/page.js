@@ -93,7 +93,7 @@ export default async function MemberPage({ params }) {
 
   return (
     <>
-      <PageHeader eyebrow='CORE Lab / People' title={person.name}>
+      <PageHeader title={person.name}>
         <div className='mt-3 text-base leading-7'>
           <p className='font-medium text-slate-700'>{person.position}</p>
           {person.currentPosition && (
@@ -102,14 +102,14 @@ export default async function MemberPage({ params }) {
         </div>
       </PageHeader>
 
-      <div className='page-shell pb-24'>
-        <div className='grid gap-12 md:grid-cols-[minmax(0,30rem)_minmax(0,1fr)] md:items-start lg:gap-24'>
+      <div className='page-shell pb-16'>
+        <div className='grid gap-8 md:grid-cols-[minmax(0,14rem)_minmax(0,1fr)] md:items-start'>
           <div>
             <Image
               src={person.image}
               alt={person.name}
-              className='aspect-[4/5] w-full max-w-2xl bg-[#e8e8e3] object-cover object-center md:max-w-none'
-              sizes='(max-width: 768px) 100vw, 45vw'
+              className='aspect-square w-full max-w-xs rounded-xl border border-slate-200 bg-slate-50 object-cover object-center md:max-w-none'
+              sizes='(max-width: 768px) 20rem, 224px'
             />
             {person.imageSource && (
               <a
@@ -122,11 +122,11 @@ export default async function MemberPage({ params }) {
               </a>
             )}
           </div>
-          <div className='min-w-0 border-t border-black/20 pt-6 text-slate-700'>
-            <p className='font-editorial text-[clamp(1.65rem,1.2rem+1.35vw,2.75rem)] leading-[1.15] tracking-[-0.02em]'>
+          <div className='min-w-0 text-slate-700'>
+            <p className='text-lg leading-8'>
               {person.bio || 'Profile details will be added soon.'}
             </p>
-            <ul className='mt-12 flex flex-col items-start gap-3 border-t border-black/15 pt-5 text-sm'>
+            <ul className='mt-6 flex flex-col items-start gap-2 border-t border-slate-200 pt-5 text-sm'>
               {(person.websites || (person.website ? [person.website] : [])).map((site) => (
                 <ContactLink key={site} icon={FaGlobe} href={site} label='Website'>
                   {site}
@@ -145,7 +145,7 @@ export default async function MemberPage({ params }) {
           </div>
         </div>
 
-        <section className='mt-28'>
+        <section className='mt-14'>
           <SectionHeading id='papers'>
             {isMainMember ? 'Papers' : 'Collaborated Papers'}
           </SectionHeading>
@@ -161,7 +161,7 @@ export default async function MemberPage({ params }) {
           />
         </section>
 
-        <section className='mt-28'>
+        <section className='mt-14'>
           <SectionHeading id='posters'>Posters</SectionHeading>
           <PublicationList
             groupedItems={filteredPostersByYear}

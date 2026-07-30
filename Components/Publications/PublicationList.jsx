@@ -2,7 +2,7 @@ import { sortPublicationYearsDescending } from '@/lib/publications.mjs'
 import PublicationCitation from './PublicationCitation'
 
 const YearDivider = ({ children }) => (
-  <div className='border-t border-black/20 pt-3 font-editorial text-3xl tracking-[-0.025em] text-brand-dark'>
+  <div className='border-y border-y-brand-line bg-brand-soft/60 px-3 py-2 text-base font-semibold tracking-wide text-brand'>
     {children}
   </div>
 )
@@ -32,15 +32,15 @@ const PublicationList = ({
     : 0
 
   return (
-    <div className='mt-8 space-y-12'>
+    <div className='mt-6 space-y-8'>
       {years.map(year => (
         <section key={year} className='scroll-anchor'>
           <YearDivider>{year}</YearDivider>
-          <ul className='mt-5 space-y-5 text-slate-800'>
+          <ul className='mt-2 divide-y divide-slate-100 text-slate-800'>
             {groupedItems[year].map((publication, index) => (
               <li
                 key={publication.doi || `${publication.title}-${index}`}
-                className='leading-7'
+                className='py-4 leading-7'
               >
                 <PublicationCitation
                   publication={publication}

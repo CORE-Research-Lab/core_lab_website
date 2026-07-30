@@ -87,7 +87,7 @@ const BibCopyButton = ({ bibtex, title }) => {
   return (
     <button
       type="button"
-      className={`inline-block text-brand transition-colors duration-150 ${
+      className={`inline-block text-blue-700 transition-colors duration-150 ${
         copied ? 'text-emerald-700' : 'hover:underline'
       }`}
       aria-label={`Copy BibTeX for ${title}`}
