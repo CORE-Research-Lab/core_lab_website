@@ -11,6 +11,7 @@ import {
   groupPublicationsByYear,
   hasKnownPublicationYear,
 } from '@/lib/publications.mjs'
+import { Fragment } from 'react'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { FaEnvelope, FaGlobe, FaLinkedin } from 'react-icons/fa'
@@ -123,9 +124,20 @@ export default async function MemberPage({ params }) {
             )}
           </div>
           <div className='min-w-0 text-slate-700'>
-            <p className='text-lg leading-8'>
-              {person.bio || 'Profile details will be added soon.'}
-            </p>
+            {person.bio ? (
+              person.bio.split(/\n{2,}/).map((paragraph, index) => (
+                <p key={index} className='text-lg leading-8 [&:not(:first-child)]:mt-4'>
+                  {paragraph.split('\n').map((line, lineIndex, lines) => (
+                    <Fragment key={lineIndex}>
+                      {line}
+                      {lineIndex < lines.length - 1 && <br />}
+                    </Fragment>
+                  ))}
+                </p>
+              ))
+            ) : (
+              <p className='text-lg leading-8'>Profile details will be added soon.</p>
+            )}
             <ul className='mt-6 flex flex-col items-start gap-2 border-t border-slate-200 pt-5 text-sm'>
               {(person.websites || (person.website ? [person.website] : [])).map((site) => (
                 <ContactLink key={site} icon={FaGlobe} href={site} label='Website'>
