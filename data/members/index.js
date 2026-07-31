@@ -51,6 +51,7 @@ import nathanPhoto from './assets/nathan_taback_pfp.jpg'
 import zezhuYu from './assets/zezhu_yu_pfp.jpg'
 import deluckshanMurugesu from './assets/deluckshan_murugesu_pfp.jpg'
 import yousefBulbulia from './assets/yousef_bulbulia_pfp.jpg'
+import franyaFranek from '.assets/frantisek_franek_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -270,6 +271,24 @@ export const facultyIndustryPartners = [
       website: 'https://www.statistics.utoronto.ca/people/directories/all-faculty/nathan-taback',
       googlescholar: 'https://scholar.google.com/citations?user=Ji_Iyg0AAAAJ&hl=en&oi=ao',
       email: 'nathan.taback@utoronto.ca',
+    }
+  ),
+  basicProfile(
+    'Frantisek Franek',
+    'franya_franek',
+    ' Professor Emeritus — McMaster University',
+    {
+      image: franyaFranek,
+      bio: "Dr. Frantisek (Franya) Franek\n" +
+              "Professor Emeritus, Department of Computing and Software, McMaster University\n\n" +
+              "Frantisek \"Franya\" Franek is Professor Emeritus in the Department of Computing and Software at McMaster University, where he served as Professor of Computer Science and Mathematics from 1986 until his retirement in 2025. He holds two doctorates: an RNDr. in Cybernetics from Charles University in Prague (1976) and a Ph.D. in Mathematics from the University of Toronto (1983).\n\n" +
+              "Dr. Franek's research centres on algorithms and combinatorics on words, with particular emphasis on string algorithms and the periodic and repetitive structures of strings. His broader research interests span computer science (string algorithms, compilers, databases), combinatorics (design theory and graph theory), and set theory (Boolean algebras and dynamical systems) — the latter reflected in the Balcar–Franek theorem, a foundational result on Boolean algebras that bears his name. He is a member of McMaster's Advanced Optimization Laboratory (AdvOL), and his work falls within the department's Theory of Computation specialization and the Digital & Smart Systems research cluster.\n\n" +
+              "Alongside his research, Dr. Franek has been deeply committed to improving education in programming — both software engineering and computer science — as well as in database systems and in compilers and interpreters. His graduate teaching includes CAS 721: Combinatorics and Computing, covering graph theory and algorithms, combinatorial optimization, design theory, and coding theory, and CAS 758: Advanced Compiler Design and Optimization.",
+      aliases: ['F. Franek', 'Franya Franek', "Frantisek Franek"],
+      websites: ['https://www.cas.mcmaster.ca/~franek/index.html',
+                 'https://www.eng.mcmaster.ca/cas/faculty/dr-frantisek-franya-franek/'
+                ],
+      email: 'franek@mcmaster.ca',
     }
   ),
 ]
