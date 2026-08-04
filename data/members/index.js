@@ -52,6 +52,8 @@ import zezhuYu from './assets/zezhu_yu_pfp.jpg'
 import deluckshanMurugesu from './assets/deluckshan_murugesu_pfp.jpg'
 import yousefBulbulia from './assets/yousef_bulbulia_pfp.jpg'
 import franyaFranek from './assets/frantisek_franek_pfp.jpg'
+import chenheWuPhoto from './assets/chenhe_wu_pfp.jpg'
+import jaidenBaynesPhoto from './assets/jaiden_baynes_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -472,6 +474,28 @@ export const currentUndergraduateStudents = [
       website: 'https://www.utm.utoronto.ca/ramsey-lab/people/zain-mustafa',
       linkedin: 'https://ca.linkedin.com/in/cszainmustafa',
       imageSource: 'https://www.utm.utoronto.ca/ramsey-lab/people/zain-mustafa',
+    }
+  ),
+  basicProfile(
+    'Chenhe Wu',
+    'chenhe_wu',
+    'Undergraduate Researcher — McMaster University',
+    {
+      image: chenheWuPhoto,
+      bio: 'Chenhe is an undergraduate researcher at McMaster University working with the CORE Lab.',
+      linkedin: 'https://www.linkedin.com/in/chenhewu/',
+      imageSource: 'https://www.linkedin.com/in/chenhewu/',
+    }
+  ),
+  basicProfile(
+    'Jaiden Baynes',
+    'jaiden_baynes',
+    'Undergraduate Researcher — McMaster University',
+    {
+      image: jaidenBaynesPhoto,
+      bio: 'Jaiden is an undergraduate researcher at McMaster University working with the CORE Lab.',
+      linkedin: 'https://www.linkedin.com/in/jaidenbaynes/',
+      imageSource: 'https://www.linkedin.com/in/jaidenbaynes/',
     }
   ),
 ]

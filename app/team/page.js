@@ -7,7 +7,7 @@ import { SectionHeading, SubsectionHeading } from '@/Components/UI/SectionHeadin
 
 export const metadata = {
   title: 'Team',
-  description: 'Directors, current students, frequent collaborators, and past members of the CORE Lab.',
+  description: 'Directors, graduate and undergraduate students, frequent collaborators and alumni.',
 };
 
 // Keep the client-side nav payload to ids and labels rather than shipping the
@@ -86,7 +86,7 @@ export default function TeamPage() {
     <>
       <PageHeader
         title='Our Team'
-        description='Directors, current students, and frequent collaborators from the University of Toronto and partner institutions.'
+        description='Directors, graduate and undergraduate students, frequent collaborators and alumni.'
       />
       <div className='page-shell grid items-start gap-x-12 pb-16 lg:grid-cols-[14rem_minmax(0,1fr)]'>
         <SectionNav sections={navSections} />
