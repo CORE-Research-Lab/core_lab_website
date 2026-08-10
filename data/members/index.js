@@ -432,6 +432,14 @@ export const currentUndergraduateStudents = [
     }
   ),
   basicProfile(
+    'Caroline Pechenik',
+    'caroline_pechenik',
+    'Undergraduate Student — University of Toronto Mississauga',
+    {
+      bio: 'Caroline is an undergraduate student working with the CORE Lab.',
+    }
+  ),
+  basicProfile(
     'Emmanuel Deza',
     'emmanuel_deza',
     'Undergraduate Student — CORE Lab',
