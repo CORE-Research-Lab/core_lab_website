@@ -17,7 +17,7 @@ const publicationCount = publications.length
 
 // `summarisePublicationVenues` names buckets after what the records say; this is
 // where the lab's own wording for one wins.
-const bucketLabels = { [PREPRINT_VENUE]: 'To submit' }
+const bucketLabels = { [PREPRINT_VENUE]: 'Pre-print' }
 
 const buckets = summarisePublicationVenues(publications)
 const venueTotal = buckets.reduce((total, bucket) => total + bucket.count, 0)

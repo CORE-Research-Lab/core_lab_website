@@ -54,6 +54,7 @@ import yousefBulbulia from './assets/yousef_bulbulia_pfp.jpg'
 import franyaFranek from './assets/frantisek_franek_pfp.jpg'
 import chenheWuPhoto from './assets/chenhe_wu_pfp.jpg'
 import jaidenBaynesPhoto from './assets/jaiden_baynes_pfp.jpg'
+import matiasPinaAguileraPhoto from './assets/matias_pina_aguilera_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -546,6 +547,14 @@ export const softwareDevelopers = [
 
 export const formerGraduateStudents = [
   basicProfile(
+    'Xiaojun Ling',
+    'xiaojun_ling',
+    'CORE Lab Alumni — Former M.Sc. Student (External Thesis Advisor)',
+    {
+      bio: 'Xiaojun was an M.Sc. student advised externally by the CORE Lab for their thesis, under the primary supervision of Efthimia Aivaloglou at TU Delft.',
+    }
+  ),
+  basicProfile(
     'Ilya Musabirov',
     'ilya_musabirov',
     'CORE Lab Alumni — Former Ph.D. Student',
@@ -574,7 +583,42 @@ export const formerGraduateStudents = [
   ),
 ]
 
+export const formerVisitingResearchers = [
+  basicProfile(
+    'Matías Piña Aguilera',
+    'matias_pina_aguilera',
+    'CORE Lab Alumni — Former Visiting Researcher (ELAP Scholar)',
+    {
+      currentPosition: 'Now Creative Technologist at Google',
+      image: matiasPinaAguileraPhoto,
+      bio: 'Matías was an Emerging Leaders in the Americas Program (ELAP) scholar who conducted research with the CORE Lab at the University of Toronto. He is now a Creative Technologist at Google, working at the intersection of technology, design, and creative practice.',
+      website: 'https://matiaspina.com/',
+      linkedin: 'https://www.linkedin.com/in/matipina/',
+      imageSource: 'https://devpost.com/pinam447',
+    }
+  ),
+  basicProfile(
+    'Boushra Almazroua',
+    'boushra_almazroua',
+    'CORE Lab Alumni — Former Visiting Researcher (DSI SUDS Scholar)',
+    {
+      currentPosition: "Incoming Ph.D. Student at King's College London",
+      bio: 'Boushra was a visiting researcher with the CORE Lab and a DSI SUDS Scholar from King Abdullah University of Science and Technology (KAUST). She is an incoming Ph.D. student at King\'s College London.',
+      linkedin: 'https://sa.linkedin.com/in/boushra-al-mazroua-35473b252',
+    }
+  ),
+]
+
 export const formerUndergraduateStudents = [
+  basicProfile(
+    'Ali Syed Raza',
+    'ali_syed_raza',
+    'CORE Lab Alumni — Former Undergraduate Researcher (NSERC USRA)',
+    {
+      currentPosition: 'Now Senior Software Engineer (CV & AI/ML) at AMD',
+      bio: 'Ali was an NSERC Undergraduate Student Research Award (USRA) researcher with the CORE Lab. He is now a Senior Software Engineer specializing in computer vision and AI/ML at AMD.',
+    }
+  ),
   basicProfile(
     'Muniya Fallah',
     'muniya_fallah',
@@ -677,15 +721,6 @@ export const formerUndergraduateStudents = [
       bio: 'Stephen is a former CORE Lab undergraduate researcher and University of Toronto Mississauga computer science alumnus. He contributed to SSDVis, a web-based visualization tool for teaching modern operating systems concepts.',
       linkedin: 'https://www.linkedin.com/in/stephenclark25/',
       imageSource: 'https://www.linkedin.com/in/stephenclark25/',
-    }
-  ),
-  basicProfile(
-    'Boushra Almazroua',
-    'boushra_almazroua',
-    'CORE Lab Alumni — Former Undergraduate Research Intern',
-    {
-      bio: 'Boushra is a former CORE Lab undergraduate research intern.',
-      linkedin: 'https://sa.linkedin.com/in/boushra-al-mazroua-35473b252',
     }
   ),
   basicProfile(
@@ -940,6 +975,11 @@ export const memberGroups = [
         id: 'former-graduate-students',
         title: 'Graduate Alumni',
         people: withMemberLinks(formerGraduateStudents),
+      },
+      {
+        id: 'former-visiting-researchers',
+        title: 'Visiting Research Alumni',
+        people: withMemberLinks(formerVisitingResearchers),
       },
       {
         id: 'former-undergraduate-students',
