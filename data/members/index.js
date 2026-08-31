@@ -459,9 +459,10 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Jingcheng Liang',
     'jingcheng_liang',
-    'Undergraduate Student — CORE Lab',
+    'Undergraduate Student — University of Toronto Mississauga',
     {
-      bio: 'Jingcheng is an undergraduate student working with the CORE Lab on research and development in computing and education.',
+      bio: 'Jingcheng is an undergraduate student studying Computer Science and Statistics at the University of Toronto Mississauga. His interests include artificial intelligence, machine learning, large language models, and software systems, particularly the development and evaluation of AI systems.',
+      linkedin: 'https://www.linkedin.com/in/jingcheng-liang-701736341/',
     }
   ),
   basicProfile(
