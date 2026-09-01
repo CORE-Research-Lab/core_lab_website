@@ -477,6 +477,16 @@ export const currentUndergraduateStudents = [
     }
   ),
   basicProfile(
+    'Aayush Patel',
+    'aayush_patel',
+    'Undergraduate Student — University of Toronto Mississauga',
+    {
+      bio: 'Aayush is an upper-year Computer Science student at the University of Toronto Mississauga. His interests include improving students\' use of generative AI in classrooms and designing instructional materials to elevate student outcomes.',
+      email: 'aayush.patel@mail.utoronto.ca',
+      linkedin: 'https://www.linkedin.com/in/aayush-patel05/',
+    }
+  ),
+  basicProfile(
     'Lukas Oreopoulos',
     'lukas_oreopoulos',
     'Undergraduate Student — CORE Lab',
