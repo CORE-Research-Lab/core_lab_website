@@ -55,6 +55,7 @@ import franyaFranek from './assets/frantisek_franek_pfp.jpg'
 import chenheWuPhoto from './assets/chenhe_wu_pfp.jpg'
 import jaidenBaynesPhoto from './assets/jaiden_baynes_pfp.jpg'
 import matiasPinaAguileraPhoto from './assets/matias_pina_aguilera_pfp.jpg'
+import jingchengLiangPhoto from './assets/jingcheng_liang_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -461,8 +462,18 @@ export const currentUndergraduateStudents = [
     'jingcheng_liang',
     'Undergraduate Student — University of Toronto Mississauga',
     {
+      image: jingchengLiangPhoto,
       bio: 'Jingcheng is an undergraduate student studying Computer Science and Statistics at the University of Toronto Mississauga. His interests include artificial intelligence, machine learning, large language models, and software systems, particularly the development and evaluation of AI systems.',
       linkedin: 'https://www.linkedin.com/in/jingcheng-liang-701736341/',
+    }
+  ),
+  basicProfile(
+    'Najwa Ibrahimi',
+    'najwa_ibrahimi',
+    'Undergraduate Student — University of Toronto Mississauga',
+    {
+      bio: 'Najwa is a fifth-year Computer Science Specialist at the University of Toronto Mississauga. Her interests include artificial intelligence, machine learning, responsible AI, and computing education.',
+      email: 'najwa.ibrahimi@utoronto.ca',
     }
   ),
   basicProfile(
