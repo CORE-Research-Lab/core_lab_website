@@ -112,16 +112,6 @@ export default async function MemberPage({ params }) {
               className='aspect-square w-full max-w-xs rounded-xl border border-slate-200 bg-slate-50 object-cover object-center md:max-w-none'
               sizes='(max-width: 768px) 20rem, 224px'
             />
-            {person.imageSource && (
-              <a
-                href={person.imageSource}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='mt-2 block text-xs text-slate-500 hover:text-brand hover:underline'
-              >
-                Photo source
-              </a>
-            )}
           </div>
           <div className='min-w-0 text-slate-700'>
             {person.bio ? (

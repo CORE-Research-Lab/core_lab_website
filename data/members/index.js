@@ -210,7 +210,6 @@ export const facultyIndustryPartners = [
       image: anastasiiaBirilloPhoto,
       bio: 'Anastasiia Birillo leads education research at JetBrains. Her work focuses on AI-supported programming education, including intelligent hints, in-IDE learning experiences, debugging support, automated feedback, and tools that help learners improve code quality.',
       website: 'https://nbirillo.github.io/',
-      imageSource: 'https://nbirillo.github.io/',
     }
   ),
   basicProfile(
@@ -225,7 +224,6 @@ export const facultyIndustryPartners = [
       googlescholar: 'https://scholar.google.com/citations?user=U9eJA3wAAAAJ&hl=en&oi=ao',
       email: 'oreo@economics.utoronto.ca',
       linkedin: 'https://ca.linkedin.com/in/philip-oreopoulos-7321678',
-      imageSource: 'https://www.rotman.utoronto.ca/faculty-and-research/research-centres/behavioural-economics-in-action-at-rotman/people/',
     }
   ),
   basicProfile(
@@ -238,7 +236,6 @@ export const facultyIndustryPartners = [
       website: 'https://www.utm.utoronto.ca/isup/people/christopher-eaton',
       googlescholar: 'https://scholar.google.com/citations?user=jQ0pKe4AAAAJ&hl=en&oi=ao',
       email: 'chris.eaton@utoronto.ca',
-      imageSource: 'https://www.utm.utoronto.ca/isup/people/christopher-eaton',
     }
   ),
   basicProfile(
@@ -251,7 +248,6 @@ export const facultyIndustryPartners = [
       website: 'https://carolinanobre.com/',
       googlescholar: 'https://scholar.google.com/citations?user=EPqQgk0AAAAJ&hl=en',
       email: 'cnobre@cs.toronto.edu',
-      imageSource: 'https://carolinanobre.com/',
     }
   ),
   basicProfile(
@@ -262,7 +258,6 @@ export const facultyIndustryPartners = [
       image: nihalHaquePhoto,
       bio: 'Nihal Haque is a geriatrician at North York General Hospital and an Adjunct Assistant Professor at the University of Toronto. His work brings human-centred AI into geriatric medicine and medical education, including tools for discharge summaries, delirium care, clinician AI literacy, and MedBot, a simulated-patient chatbot for clinical interviewing practice.',
       website: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
-      imageSource: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
     }
   ),
   basicProfile(
@@ -348,7 +343,6 @@ export const currentGraduateStudents = [
       googlescholar: 'https://scholar.google.com/citations?user=hlp5djYAAAAJ&hl=en',
       email: 'ramirev@mcmaster.ca',
       linkedin: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
-      imageSource: 'https://www.linkedin.com/in/valeria-ramirez-osorio/',
       semanticScholarAuthorIds: ['2330617206', '2382996829'],
       semanticScholarUrls: [
         'https://www.semanticscholar.org/author/Valeria-Ramirez-Osorio/2330617206',
@@ -391,7 +385,6 @@ export const currentGraduateStudents = [
       image: adamKolodziejczakPhoto,
       bio: 'Adam is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab.',
       linkedin: 'https://ca.linkedin.com/in/adam-kolodziejczak-a8b1762b0',
-      imageSource: 'https://www.sqrlab.ca/people/',
     }
   ),
 ]
@@ -430,7 +423,6 @@ export const currentUndergraduateStudents = [
       bio: 'Uzima is a fourth-year computer science specialist at the University of Toronto Mississauga, with minors in business and mathematics. Uzima’s interests include software development, artificial intelligence, cloud computing, and machine learning.',
       website: 'https://www.uzimamalik.com/',
       linkedin: 'https://www.linkedin.com/in/uzima-m/',
-      imageSource: 'https://www.uzimamalik.com/',
     }
   ),
   basicProfile(
@@ -504,7 +496,6 @@ export const currentUndergraduateStudents = [
       bio: 'Zain is an undergraduate researcher at the University of Toronto Mississauga. His work spans machine learning, computer vision, efficient model design, learning theory, and interdisciplinary applications of machine learning.',
       website: 'https://www.utm.utoronto.ca/ramsey-lab/people/zain-mustafa',
       linkedin: 'https://ca.linkedin.com/in/cszainmustafa',
-      imageSource: 'https://www.utm.utoronto.ca/ramsey-lab/people/zain-mustafa',
     }
   ),
   basicProfile(
@@ -515,7 +506,6 @@ export const currentUndergraduateStudents = [
       image: chenheWuPhoto,
       bio: 'Chenhe is an undergraduate researcher at McMaster University working with the CORE Lab.',
       linkedin: 'https://www.linkedin.com/in/chenhewu/',
-      imageSource: 'https://www.linkedin.com/in/chenhewu/',
     }
   ),
   basicProfile(
@@ -526,7 +516,6 @@ export const currentUndergraduateStudents = [
       image: jaidenBaynesPhoto,
       bio: 'Jaiden is an undergraduate researcher at McMaster University working with the CORE Lab.',
       linkedin: 'https://www.linkedin.com/in/jaidenbaynes/',
-      imageSource: 'https://www.linkedin.com/in/jaidenbaynes/',
     }
   ),
 ]
@@ -540,7 +529,6 @@ export const softwareDevelopers = [
       image: markoChoiPhoto,
       bio: 'Marko is a software developer with the CORE Lab and a University of Toronto computer science alumnus. He contributed to QuickTA, an LLM-powered tutoring system for computer science courses, and has a professional background in full-stack development.',
       linkedin: 'https://hk.linkedin.com/in/markochoi',
-      imageSource: 'https://hk.linkedin.com/in/markochoi',
     }
   ),
   basicProfile(
@@ -551,7 +539,6 @@ export const softwareDevelopers = [
       image: rhettAminPhoto,
       bio: 'Rhett is a software developer with the CORE Lab and a technical product leader with experience in backend APIs, cloud infrastructure, and full-stack development. He studied computer science at McMaster University, where he led student technology initiatives and contributed to computing education research.',
       linkedin: 'https://ca.linkedin.com/in/rhettamin',
-      imageSource: 'https://ca.linkedin.com/in/rhettamin',
     }
   ),
   basicProfile(
@@ -586,7 +573,6 @@ export const formerGraduateStudents = [
       bio: 'Ilya is a former CORE Lab Ph.D. student and is now an Assistant Professor of Teaching at UBC.',
       website: 'https://www.cs.ubc.ca/people/ilya-musabirov',
       email: 'ilya@musabirov.info',
-      imageSource: 'https://www.cs.ubc.ca/people/ilya-musabirov',
     }
   ),
   basicProfile(
@@ -600,7 +586,6 @@ export const formerGraduateStudents = [
       bio: 'Suqing is a former CORE Lab M.Eng. student and is now at Meta.',
       website: 'https://suqingliu.com/',
       linkedin: 'https://www.linkedin.com/in/suqing-richard-liu-22aa05204',
-      imageSource: 'https://suqingliu.com/',
     }
   ),
 ]
@@ -616,7 +601,6 @@ export const formerVisitingResearchers = [
       bio: 'Matías was an Emerging Leaders in the Americas Program (ELAP) scholar who conducted research with the CORE Lab at the University of Toronto. He is now a Creative Technologist at Google, working at the intersection of technology, design, and creative practice.',
       website: 'https://matiaspina.com/',
       linkedin: 'https://www.linkedin.com/in/matipina/',
-      imageSource: 'https://devpost.com/pinam447',
     }
   ),
   basicProfile(
@@ -649,7 +633,6 @@ export const formerUndergraduateStudents = [
       image: muniyaFallahPhoto,
       bio: 'Muniya is a former CORE Lab undergraduate researcher.',
       linkedin: 'https://ca.linkedin.com/in/muniya-fallah-b641632a6',
-      imageSource: 'https://www.eng.mcmaster.ca/news/scholarship-stories-empowering-students-to-pursue-their-passions-at-mcmaster-engineering/',
     }
   ),
   basicProfile(
@@ -662,7 +645,6 @@ export const formerUndergraduateStudents = [
       bio: 'Nicholas is a former CORE Lab undergraduate researcher and is now an Embedded Software Engineering Intern at Cisco.',
       website: 'https://www.nicholasching.ca/',
       linkedin: 'https://ca.linkedin.com/in/n-ching',
-      imageSource: 'https://www.nicholasching.ca/',
     }
   ),
   basicProfile(
@@ -674,7 +656,6 @@ export const formerUndergraduateStudents = [
       image: idoBenHaimPhoto,
       bio: 'Ido is a former CORE Lab undergraduate researcher and is now a Machine Learning R&D Engineer at Exhilarare.',
       linkedin: 'https://ca.linkedin.com/in/idobenhaim',
-      imageSource: 'https://cssc.utm.utoronto.ca/learn-more',
     }
   ),
   basicProfile(
@@ -730,7 +711,6 @@ export const formerUndergraduateStudents = [
       bio: 'Maksym is a former CORE Lab undergraduate researcher.',
       website: 'https://maksymw.com/',
       linkedin: 'https://ca.linkedin.com/in/maksym-woychyshyn-a14836197',
-      imageSource: 'https://maksymw.com/',
     }
   ),
   basicProfile(
@@ -742,7 +722,6 @@ export const formerUndergraduateStudents = [
       image: stephenClarkPhoto,
       bio: 'Stephen is a former CORE Lab undergraduate researcher and University of Toronto Mississauga computer science alumnus. He contributed to SSDVis, a web-based visualization tool for teaching modern operating systems concepts.',
       linkedin: 'https://www.linkedin.com/in/stephenclark25/',
-      imageSource: 'https://www.linkedin.com/in/stephenclark25/',
     }
   ),
   basicProfile(
@@ -787,7 +766,6 @@ export const facultyCollaborators = [
       bio: 'Nan Messe is an Assistant Professor at Université Toulouse–Jean Jaurès and a researcher at IRIT. Her work spans software and systems engineering, security-by-design, model-driven engineering, and methods for integrating threat and risk analysis into the development of complex systems.',
       website: 'https://nanzhangmesse.github.io/',
       email: 'nan.messe@irit.fr',
-      imageSource: 'https://nanzhangmesse.github.io/',
     }
   ),
   basicProfile(
@@ -809,7 +787,6 @@ export const facultyCollaborators = [
       bio: 'Juho Leinonen is an Assistant Professor at Aalto University. His research combines educational technology, artificial intelligence, and learning analytics, with a focus on large language models for learning, automated support for programming students, and learnersourcing approaches that turn student activity into reusable learning resources.',
       website: 'https://www.aalto.fi/en/people/juho-leinonen',
       email: 'juho.2.leinonen@aalto.fi',
-      imageSource: 'https://www.aalto.fi/en/people/juho-leinonen',
     }
   ),
   basicProfile(
@@ -821,7 +798,6 @@ export const facultyCollaborators = [
       bio: 'Paul Denny is a Professor of Computer Science at the University of Auckland. His research explores collaborative learning, student-generated resources, programming education, and large language models in teaching and assessment, and he is a co-creator of the PeerWise learning platform.',
       website: 'https://www.cs.auckland.ac.nz/~paul/',
       email: 'paul@cs.auckland.ac.nz',
-      imageSource: 'https://www.cs.auckland.ac.nz/~paul/',
     }
   ),
   basicProfile(
@@ -833,7 +809,6 @@ export const facultyCollaborators = [
       bio: 'Viktoria Pammer-Schindler is an Associate Professor and Deputy Head of the Institute of Human-Centred Computing at Graz University of Technology. She studies digital and AI-based interactive systems from socio-technical and learning perspectives, with an emphasis on human agency, co-design, and mixed-methods research.',
       website: 'https://www.staff.tugraz.at/viktoria.pammer-schindler/',
       email: 'viktoria.pammer-schindler@tugraz.at',
-      imageSource: 'https://www.staff.tugraz.at/viktoria.pammer-schindler/',
     }
   ),
   basicProfile(
@@ -845,7 +820,6 @@ export const facultyCollaborators = [
       bio: 'Rita Garcia is an Adjunct Research Fellow at Victoria University of Wellington. Her computing education research includes replication studies, collaborative learning, and the development of professional and teamwork dispositions in software engineering and computer science students.',
       website: 'https://ecs.wgtn.ac.nz/Main/RitaGarcia',
       email: 'rita.garcia@vuw.ac.nz',
-      imageSource: 'https://ecs.wgtn.ac.nz/Main/RitaGarcia',
     }
   ),
   basicProfile(
@@ -857,7 +831,6 @@ export const facultyCollaborators = [
       bio: 'John Stamper is an Associate Professor in Carnegie Mellon University’s Human-Computer Interaction Institute and Director of the METALS program. His research focuses on educational data mining, intelligent tutoring systems, and data-driven learning technologies, and includes leadership of the PSLC DataShop educational data repository.',
       website: 'https://hcii.cmu.edu/people/john-stamper',
       email: 'john@stamper.org',
-      imageSource: 'https://hcii.cmu.edu/people/john-stamper',
     }
   ),
   basicProfile(
@@ -872,7 +845,6 @@ export const facultyCollaborators = [
         'https://xstone93.github.io/',
       ],
       email: 'alexander.steinmaurer@it-u.at',
-      imageSource: 'https://it-u.at/en/persons/team/alexander-steinmaurer/',
     }
   ),
   basicProfile(
@@ -884,7 +856,6 @@ export const facultyCollaborators = [
       bio: 'Paul Vrbik is a Senior Lecturer at the University of Queensland. His research and teaching interests include computing and software engineering education, live coding and problem-solving instruction, assessment design, and academic integrity in programming courses.',
       website: 'https://about.uq.edu.au/experts/16776',
       email: 'p.vrbik@uq.edu.au',
-      imageSource: 'https://about.uq.edu.au/experts/16776',
     }
   ),
 ]
@@ -899,7 +870,6 @@ export const externalStudentsIndustryCollaborators = [
       bio: 'Ruiwei Xiao is a Ph.D. student in Carnegie Mellon University’s Human-Computer Interaction Institute. Her research combines intelligent tutoring systems, computing education, AI literacy, and the design of productive learner–AI collaboration.',
       website: 'https://hcii.cmu.edu/people/ruiwei-xiao',
       email: 'ruiweix@andrew.cmu.edu',
-      imageSource: 'https://hcii.cmu.edu/people/ruiwei-xiao',
     }
   ),
   basicProfile(
@@ -912,7 +882,6 @@ export const externalStudentsIndustryCollaborators = [
       bio: 'Sebastian Gürtl is a researcher at Graz University of Technology. His work connects information retrieval, human-computer interaction, natural-language and multimodal models, and the use of large language models to provide feedback and support learning in computing education.',
       website: 'https://ima.or.at/en/biografie/sebastian_guertl/',
       email: 'sebastian.guertl@tugraz.at',
-      imageSource: 'https://ima.or.at/en/biografie/sebastian_guertl/',
     }
   ),
   basicProfile(
@@ -924,7 +893,6 @@ export const externalStudentsIndustryCollaborators = [
       bio: 'Yuri Noviello is a Ph.D. candidate at Delft University of Technology. His research investigates artificial intelligence in computer science education, including natural-language processing methods for generating and evaluating learning materials.',
       website: 'https://www.wis.ewi.tudelft.nl/noviello',
       email: 'y.noviello@tudelft.nl',
-      imageSource: 'https://www.wis.ewi.tudelft.nl/noviello',
     }
   ),
   basicProfile(
@@ -936,7 +904,6 @@ export const externalStudentsIndustryCollaborators = [
       bio: 'Yuvaansh is a student developer and external collaborator with the CORE Lab. His interests include web technologies, artificial intelligence, accessibility, and conversational tools that make digital experiences more accessible.',
       website: 'https://yuvaanshkapila.xyz/',
       linkedin: 'https://ca.linkedin.com/in/yuvaansh-kapila-3b4bab364',
-      imageSource: 'https://www.robo-geek.ca/teaching-assistants-and-student-success-stories-stem',
     }
   ),
 ]
