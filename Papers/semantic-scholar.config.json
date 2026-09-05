@@ -6,7 +6,10 @@
     "memberData": "data/members/index.js",
     "exclude": {
         "paperIds": [],
-        "dois": [],
+        "dois": [
+            "10.1038/s44360-026-00112-2",
+            "10.1016/j.oor.2024.100563"
+        ],
         "titles": []
     },
     "outputs": {

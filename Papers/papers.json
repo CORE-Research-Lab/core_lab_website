@@ -1,28 +1,55 @@
 {
     "2026": [
         {
-            "paperId": "af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "paperId": "1fdf3841dd765607c9079d7d8708afbd52537651",
             "year": "2026",
-            "title": "A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics",
+            "title": "Who Bears the Cost of Honesty? A FAccT Workshop Synthesis and Research Agenda for Equitable AI Disclosure",
             "author": [
-                "Suqing Liu",
                 "Runlong Ye",
-                "Christopher Eaton",
-                "Bogdan Simion",
-                "Michael Liut"
+                "Jessica He",
+                "Finola Finn",
+                "Angel Hsing-Chi Hwang",
+                "Donal Khosrowi",
+                "Seyun Kim",
+                "M. Scheuerman"
             ],
-            "ENTRYTYPE": "inproceedings",
-            "ID": "10.1007/978-3-032-29760-0_57",
-            "doi": "10.1007/978-3-032-29760-0_57",
-            "url": "https://doi.org/10.1007/978-3-032-29760-0_57",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/af4e9f97be5102722e9a9d6b751b5751036c895b",
-            "publicationDate": "2026-06-28",
-            "openAccessPdfUrl": "https://arxiv.org/pdf/2601.11541",
-            "bibtex": "@Inproceedings{Liu2026ACS,\n author = {Suqing Liu and Runlong Ye and Christopher Eaton and Bogdan Simion and Michael Liut},\n title = {A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics},\n booktitle = {International Conference on Artificial Intelligence in Education},\n pages = {577--592},\n publisher = {Springer Nature Switzerland},\n address = {Cham},\n year = {2026}\n}",
-            "booktitle": "International Conference on Artificial Intelligence in Education",
-            "pages": "577-592",
-            "publisher": "Springer Nature Switzerland",
-            "address": "Cham"
+            "ENTRYTYPE": "misc",
+            "ID": "10.48550/arxiv.2608.21671",
+            "url": "https://doi.org/10.48550/arxiv.2608.21671",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/1fdf3841dd765607c9079d7d8708afbd52537651",
+            "abstract": "AI disclosure is increasingly promoted and sometimes required as a route to transparency, accountability, provenance, and trust. Yet disclosure can also expose AI users to suspicion, stigma (e.g., competence penalties), and surveillance, affecting minoritized groups in particular. This paper reports on Who Bears the Cost of Honesty?, a CRAFT workshop at the 2026 ACM Conference on Fairness, Accountability, and Transparency that used scenario-anchored power mapping and design fiction to explore the benefits, harms, tensions, and power asymmetries that emerge under AI disclosure norms and mandates. We document the workshop design and analyze the disclosure approaches participants co-created, comprising four completed power maps, three context cards, and one interface prototype. These artifacts span education, workplace, politics/journalism, and interpersonal contexts. They depict disclosure as a multi-actor accountability process, surface concerns that the use of accessibility-related AI could be held against workers in performance evaluations, and explore how context-specific, bottom-up disclosures may support transparency while mitigating some risks of stigma and misinterpretation. We contribute (1) a documented two-stage workshop method; (2) an artifact-grounded thematic synthesis; and (3) a diagnostic framework, the Cost-of-Honesty Stack, with provisional design suggestions and research directions.",
+            "publicationDate": "2026-08-21",
+            "bibtex": "@Inproceedings{Ye2026WhoBT,\n author = {Runlong Ye and Jessica He and Finola Finn and Angel Hsing-Chi Hwang and Donal Khosrowi and Seyun Kim and M. Scheuerman},\n journal = {ArXiv},\n title = {Who Bears the Cost of Honesty? A FAccT Workshop Synthesis and Research Agenda for Equitable AI Disclosure},\n volume = {abs/2608.21671},\n year = {2026}\n}",
+            "doi": "10.48550/arxiv.2608.21671",
+            "openAccessPdfUrl": "https://arxiv.org/pdf/2608.21671",
+            "journal": "ArXiv",
+            "volume": "abs/2608.21671"
+        },
+        {
+            "paperId": "736ee324d4dec914c4e9a7ed63aa4c9bf47e0591",
+            "year": "2026",
+            "title": "Academically Included, Professionally Excluded: The Illusion of Inclusion in Computing Education",
+            "author": [
+                "B. Alshaigy",
+                "Jana-Sophie Effert",
+                "Rita Garcia",
+                "Julia Hermann",
+                "Natalie Kiesler",
+                "Ellie Lovellette",
+                "Angela Zavaleta Bernuy"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3834864",
+            "doi": "10.1145/3834864",
+            "url": "https://doi.org/10.1145/3834864",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/736ee324d4dec914c4e9a7ed63aa4c9bf47e0591",
+            "abstract": "Current practices in computing education for accommodating neurodivergent students, while well-intentioned, often remove students from the very collaborative activities they will encounter in the profession. By doing so, these practices disadvantage both neurodivergent students, who graduate without practicing collaborative experiences the profession expects, and their neurotypical peers, who lose the opportunity to learn how to work across neurotypes. This results in students being academically included while remaining professionally excluded. In this opinion piece, we argue that this gap reflects accommodation defaulting to the path of least administrative resistance, rather than to design choices that scaffold participation. Treating neurodiversity as a design challenge for inclusion, rather than as a compliance problem, would change what students experience in our classrooms; and, in time, what they encounter in the profession.",
+            "publicationDate": "2026-08-01",
+            "bibtex": "@Article{Alshaigy2026AcademicallyIP,\n author = {B. Alshaigy and Jana-Sophie Effert and Rita Garcia and Julia Hermann and Natalie Kiesler and Ellie Lovellette and Angela Zavaleta Bernuy},\n booktitle = {ACM Transactions on Computing Education},\n journal = {ACM Transactions on Computing Education},\n title = {Academically Included, Professionally Excluded: The Illusion of Inclusion in Computing Education},\n year = {2026}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "ACM Transactions on Computing Education"
         },
         {
             "paperId": "c9c97c2d8434305f6352aeb377e009ccf5b72057",
@@ -255,6 +282,30 @@
             "journal": "Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 2"
         },
         {
+            "paperId": "af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "year": "2026",
+            "title": "A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics",
+            "author": [
+                "Suqing Liu",
+                "Runlong Ye",
+                "Christopher Eaton",
+                "Bogdan Simion",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.1007/978-3-032-29760-0_57",
+            "doi": "10.1007/978-3-032-29760-0_57",
+            "url": "https://doi.org/10.1007/978-3-032-29760-0_57",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "publicationDate": "2026-06-28",
+            "openAccessPdfUrl": "https://arxiv.org/pdf/2601.11541",
+            "bibtex": "@Inproceedings{Liu2026ACS,\n author = {Suqing Liu and Runlong Ye and Christopher Eaton and Bogdan Simion and Michael Liut},\n title = {A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics},\n booktitle = {International Conference on Artificial Intelligence in Education},\n pages = {577--592},\n publisher = {Springer Nature Switzerland},\n address = {Cham},\n year = {2026}\n}",
+            "booktitle": "International Conference on Artificial Intelligence in Education",
+            "pages": "577-592",
+            "publisher": "Springer Nature Switzerland",
+            "address": "Cham"
+        },
+        {
             "paperId": "19e6b61c1adda35ba7d5ef6d4f987191641462d0",
             "year": "2026",
             "title": "Code as Anchor, Memory and Metaphor as Support: Learner Experiences with Multi-View Visualizations",
@@ -270,14 +321,15 @@
                 "Andrew Petersen",
                 "Michael Liut"
             ],
-            "ENTRYTYPE": "misc",
+            "ENTRYTYPE": "inproceedings",
             "ID": "10.1145/3765964.3811662",
             "doi": "10.1145/3765964.3811662",
             "url": "https://doi.org/10.1145/3765964.3811662",
             "semanticScholarUrl": "https://www.semanticscholar.org/paper/19e6b61c1adda35ba7d5ef6d4f987191641462d0",
             "abstract": "Program visualizations are widely used to support novice programmers, yet students often ignore or resist well-designed visual scaffolds. Research on multiple external representations (MERs) offers cognitive design principles for coordinating views, but less is known about what shapes learners'engagement with available representations. We conducted a within-subjects study with 19 undergraduates who had completed CS1 and CS2. Students completed think-aloud tasks, reflective interviews, and webcam-based gaze tracking while using a multi-representational probe with synchronized code, memory, and metaphor views, and Python Tutor, across scope, while loops, and linked lists. Gaze analysis showed that students spent nearly half their time focused on code despite available visual scaffolds. Students without prior experience anchored even more heavily in code and engaged minimally with metaphor views. Interviews identified three factors shaping selective engagement: agency, as students sought control over cognitive effort rather than simply having it reduced; representational fit, as identical designs differed in whether they felt helpful or overwhelming; and legitimacy, as some students avoided metaphorical scaffolds they perceived as childish or insufficiently rigorous for university-level work. These findings suggest that multi-representational tools in computing education require attention to affective and social factors alongside cognitive design. Practical considerations include positioning visualizations as verification instruments, offering toggleable abstraction levels, and framing tools to signal disciplinary legitimacy. More broadly, the themes help explain why cognitively sound visualization tools may fail to engage the students they are designed to help.",
             "publicationDate": "2026-06-17",
-            "bibtex": "@Inproceedings{Sibia2026CodeAA,\n author = {Naaz Sibia and Jessica Wen and Amber Richardson and Yashika Jain and Khushi Malik and Bogdan Simion and Carolina Nobre and Angela M. Zavaleta Bernuy and Andrew Petersen and Michael Liut},\n title = {Code as Anchor, Memory and Metaphor as Support: Learner Experiences with Multi-View Visualizations},\n year = {2026}\n}"
+            "bibtex": "@Inproceedings{Sibia2026CodeAA,\n author = {Naaz Sibia and Jessica Wen and Amber Richardson and Yashika Jain and Khushi Malik and Bogdan Simion and Carolina Nobre and Angela M. Zavaleta Bernuy and Andrew Petersen and Michael Liut},\n title = {Code as Anchor, Memory and Metaphor as Support: Learner Experiences with Multi-View Visualizations},\n year = {2026}\n}",
+            "journal": "Proceedings of the 2026 ACM Conference on International Computing Education Research Vol. 1"
         },
         {
             "paperId": "01e7d9e766b4c847915c70d353a1b89959147b14",
@@ -643,38 +695,6 @@
     ],
     "2025": [
         {
-            "paperId": "916811154153e49a341506123458d516e0c51cc9",
-            "year": "2025",
-            "title": "Multi-agent Self-triage System with Medical Flowcharts",
-            "author": [
-                "Yujia Liu",
-                "Sophia T. Yu",
-                "Hongyu Jin",
-                "Jessica Wen",
-                "Alexander Qian",
-                "Terrence Lee",
-                "M. Ramsis",
-                "Gi Won Choi",
-                "Lianhui Qin",
-                "Xin Liu",
-                "E. Wang"
-            ],
-            "ENTRYTYPE": "article",
-            "ID": "10.1038/s44360-026-00112-2",
-            "doi": "10.1038/s44360-026-00112-2",
-            "url": "https://doi.org/10.1038/s44360-026-00112-2",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/916811154153e49a341506123458d516e0c51cc9",
-            "abstract": "Online health resources and large language models (LLMs) are increasingly used as a first point of contact for medical decision-making, yet their reliability in healthcare remains limited by low accuracy, lack of transparency, and susceptibility to unverified information. We introduce a proof-of-concept conversational self-triage system that guides LLMs with 100 clinically validated flowcharts from the American Medical Association, providing a structured and auditable framework for patient decision support. The system leverages a multi-agent framework consisting of a retrieval agent, a decision agent, and a chat agent to identify the most relevant flowchart, interpret patient responses, and deliver personalized, patient-friendly recommendations, respectively. Performance was evaluated at scale using synthetic datasets of simulated conversations. The system achieved 95.29% top-3 accuracy in flowchart retrieval (N=2,000) and 99.10% accuracy in flowchart navigation across varied conversational styles and conditions (N=37,200). By combining the flexibility of free-text interaction with the rigor of standardized clinical protocols, this approach demonstrates the feasibility of transparent, accurate, and generalizable AI-assisted self-triage, with potential to support informed patient decision-making while improving healthcare resource utilization.",
-            "publicationDate": "2025-11-16",
-            "openAccessPdfUrl": "https://arxiv.org/pdf/2511.12439",
-            "bibtex": "@Article{Liu2025MultiagentSS,\n author = {Yujia Liu and Sophia T. Yu and Hongyu Jin and Jessica Wen and Alexander Qian and Terrence Lee and M. Ramsis and Gi Won Choi and Lianhui Qin and Xin Liu and E. Wang},\n booktitle = {Nature Health},\n journal = {ArXiv},\n title = {Multi-agent Self-triage System with Medical Flowcharts},\n volume = {abs/2511.12439},\n year = {2025}\n}",
-            "publicationTypes": [
-                "JournalArticle"
-            ],
-            "journal": "ArXiv",
-            "volume": "abs/2511.12439"
-        },
-        {
             "paperId": "01badb11729ad0a56b0d3f3e0ba6eba50a6f0efb",
             "year": "2025",
             "title": "From State to Structure: Towards Abstraction Support in CS2",
@@ -1021,6 +1041,41 @@
             ],
             "journal": "2025 IEEE 49th Annual Computers, Software, and Applications Conference (COMPSAC)",
             "pages": "159-164"
+        },
+        {
+            "paperId": "b1c909d995cdf06ec850109df35abf4d7d2a49ec",
+            "year": "2025",
+            "title": "Perfectly to a Tee: Understanding User Perceptions of Personalized LLM-Enhanced Narrative Interventions",
+            "author": [
+                "Ananya Bhattacharjee",
+                "S. Xu",
+                "Pranav Rao",
+                "Yuchen Zeng",
+                "J. Meyerhoff",
+                "Syed Ishtiaque Ahmed",
+                "David C. Mohr",
+                "Michael Liut",
+                "A. Mariakakis",
+                "Rachel Kornfield",
+                "Joseph Jay Williams"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.1145/3715336.3735810",
+            "doi": "10.1145/3715336.3735810",
+            "url": "https://doi.org/10.1145/3715336.3735810",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/b1c909d995cdf06ec850109df35abf4d7d2a49ec",
+            "abstract": "Stories about overcoming personal struggles can effectively illustrate the application of psychological theories in real life, yet they may fail to resonate with individuals’ experiences. In this work, we employ large language models (LLMs) to create tailored narratives that acknowledge and address unique challenging thoughts and situations faced by individuals. Our study, involving 346 young adults across two settings, demonstrates that personalized LLM-enhanced stories were perceived to be better than human-written ones in conveying key takeaways, promoting reflection, and reducing belief in negative thoughts. These stories were not only seen as more relatable but also similarly authentic to human-written ones, highlighting the potential of LLMs in helping young adults manage their struggles. The findings of this work provide crucial design considerations for future narrative-based digital mental health interventions, such as the need to maintain relatability without veering into implausibility and refining the wording and tone of AI-enhanced content.",
+            "publicationDate": "2025-07-04",
+            "bibtex": "@Inproceedings{Bhattacharjee2025PerfectlyTA,\n author = {Ananya Bhattacharjee and S. Xu and Pranav Rao and Yuchen Zeng and J. Meyerhoff and Syed Ishtiaque Ahmed and David C. Mohr and Michael Liut and A. Mariakakis and Rachel Kornfield and Joseph Jay Williams},\n booktitle = {Proceedings of the 2025 ACM Designing Interactive Systems Conference},\n journal = {Proceedings of the 2025 ACM Designing Interactive Systems Conference},\n pages = {1387 - 1416},\n title = {Perfectly to a Tee: Understanding User Perceptions of Personalized LLM-Enhanced Narrative Interventions},\n volume = {2025},\n year = {2025}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Book",
+                "Conference"
+            ],
+            "journal": "Proceedings of the 2025 ACM Designing Interactive Systems Conference",
+            "volume": "2025",
+            "pages": "1387 - 1416",
+            "booktitle": "Proceedings of the 2025 ACM Designing Interactive Systems Conference"
         },
         {
             "paperId": "2b3b5b2d4519f8eda97d0235b5331b8d3481300c",
@@ -1620,6 +1675,27 @@
                 "Book"
             ],
             "journal": "2024 Working Group Reports on Innovation and Technology in Computer Science Education"
+        },
+        {
+            "paperId": "f6e1510fad295fc0e23078c4fded402b4b598814",
+            "year": "2025",
+            "title": "Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review",
+            "author": [
+                "Naaz Sibia",
+                "Michael Liut",
+                "Carolina Nobre"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.2312/eved.20251027",
+            "url": "https://doi.org/10.2312/eved.20251027",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/f6e1510fad295fc0e23078c4fded402b4b598814",
+            "bibtex": "@Inproceedings{Sibia2025ExploringTR,\n author = {Naaz Sibia and Michael Liut and Carolina Nobre},\n booktitle = {EuroVis 2025 - Education Papers},\n publisher = {The Eurographics Association},\n title = {Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review},\n year = {2025}\n}",
+            "publicationTypes": [
+                "Conference"
+            ],
+            "doi": "10.2312/eved.20251027",
+            "booktitle": "EuroVis 2025 - Education Papers",
+            "publisher": "The Eurographics Association"
         }
     ],
     "2024": [
@@ -1723,40 +1799,6 @@
                 "Conference"
             ],
             "journal": "Proceedings of the AAAI Conference on Human Computation and Crowdsourcing"
-        },
-        {
-            "paperId": "b1c909d995cdf06ec850109df35abf4d7d2a49ec",
-            "year": "2024",
-            "title": "Perfectly to a Tee: Understanding User Perceptions of Personalized LLM-Enhanced Narrative Interventions",
-            "author": [
-                "Ananya Bhattacharjee",
-                "S. Xu",
-                "Pranav Rao",
-                "Yuchen Zeng",
-                "J. Meyerhoff",
-                "Syed Ishtiaque Ahmed",
-                "David C. Mohr",
-                "Michael Liut",
-                "A. Mariakakis",
-                "Rachel Kornfield",
-                "Joseph Jay Williams"
-            ],
-            "ENTRYTYPE": "article",
-            "ID": "10.1145/3715336.3735810",
-            "doi": "10.1145/3715336.3735810",
-            "url": "https://doi.org/10.1145/3715336.3735810",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/b1c909d995cdf06ec850109df35abf4d7d2a49ec",
-            "abstract": "Stories about overcoming personal struggles can effectively illustrate the application of psychological theories in real life, yet they may fail to resonate with individuals’ experiences. In this work, we employ large language models (LLMs) to create tailored narratives that acknowledge and address unique challenging thoughts and situations faced by individuals. Our study, involving 346 young adults across two settings, demonstrates that personalized LLM-enhanced stories were perceived to be better than human-written ones in conveying key takeaways, promoting reflection, and reducing belief in negative thoughts. These stories were not only seen as more relatable but also similarly authentic to human-written ones, highlighting the potential of LLMs in helping young adults manage their struggles. The findings of this work provide crucial design considerations for future narrative-based digital mental health interventions, such as the need to maintain relatability without veering into implausibility and refining the wording and tone of AI-enhanced content.",
-            "publicationDate": "2024-09-25",
-            "bibtex": "@Article{Bhattacharjee2024PerfectlyTA,\n author = {Ananya Bhattacharjee and S. Xu and Pranav Rao and Yuchen Zeng and J. Meyerhoff and Syed Ishtiaque Ahmed and David C. Mohr and Michael Liut and A. Mariakakis and Rachel Kornfield and Joseph Jay Williams},\n booktitle = {Conference on Designing Interactive Systems},\n journal = {DIS. Designing Interactive Systems (Conference)},\n pages = {1387 - 1416},\n title = {Perfectly to a Tee: Understanding User Perceptions of Personalized LLM-Enhanced Narrative Interventions},\n volume = {2025},\n year = {2024}\n}",
-            "publicationTypes": [
-                "JournalArticle",
-                "Book",
-                "Conference"
-            ],
-            "journal": "DIS. Designing Interactive Systems (Conference)",
-            "volume": "2025",
-            "pages": "1387 - 1416"
         },
         {
             "paperId": "8a1c32d33f455bb066a2ba7096e86ceb866d7980",
@@ -2047,30 +2089,6 @@
             "journal": "Companion of the 2024 International Conference on Management of Data"
         },
         {
-            "paperId": "21730a0b5dc5125a31e5670c6ba1733f115689c5",
-            "year": "2024",
-            "title": "Association of sexual performance and intimacy with satisfaction in life in head and neck cancer patients: A review",
-            "author": [
-                "Ananya Arora",
-                "Ravindra Singh",
-                "Khushi Malik",
-                "Unnati Kestwal"
-            ],
-            "ENTRYTYPE": "article",
-            "ID": "10.1016/j.oor.2024.100563",
-            "doi": "10.1016/j.oor.2024.100563",
-            "url": "https://doi.org/10.1016/j.oor.2024.100563",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/21730a0b5dc5125a31e5670c6ba1733f115689c5",
-            "publicationDate": "2024-06-01",
-            "openAccessPdfUrl": "https://doi.org/10.1016/j.oor.2024.100563",
-            "bibtex": "@Article{Arora2024AssociationOS,\n author = {Ananya Arora and Ravindra Singh and Khushi Malik and Unnati Kestwal},\n booktitle = {Oral Oncology Reports},\n journal = {Oral Oncology Reports},\n title = {Association of sexual performance and intimacy with satisfaction in life in head and neck cancer patients: A review},\n year = {2024}\n}",
-            "publicationTypes": [
-                "JournalArticle",
-                "Review"
-            ],
-            "journal": "Oral Oncology Reports"
-        },
-        {
             "paperId": "4e24f909f0767072379d1726e3de072989b8ee23",
             "year": "2024",
             "title": "Supporting Self-Reflection at Scale with Large Language Models: Insights from Randomized Field Experiments in Classrooms",
@@ -2346,15 +2364,17 @@
                 "John C. Stamper",
                 "Michael Liut"
             ],
-            "ENTRYTYPE": "article",
+            "ENTRYTYPE": "inproceedings",
             "ID": "23c0345dccfd723cb7c7c54d593777847b6d1825",
-            "url": "https://www.semanticscholar.org/paper/23c0345dccfd723cb7c7c54d593777847b6d1825",
+            "url": "https://ceur-ws.org/Vol-3796/CSEDM-24_paper_0046.pdf",
             "semanticScholarUrl": "https://www.semanticscholar.org/paper/23c0345dccfd723cb7c7c54d593777847b6d1825",
-            "bibtex": "@Article{Xiao2024APA,\n author = {Ruiwei Xiao and Xinying Hou and Harsh Kumar and Steven Moore and John C. Stamper and Michael Liut},\n booktitle = {CSEDM@EDM},\n title = {A Preliminary Analysis of Students' Help Requests with an LLM-powered Chatbot when Completing CS1 Assignments},\n year = {2024}\n}",
+            "bibtex": "@Inproceedings{Xiao2024APA,\n author = {Ruiwei Xiao and Xinying Hou and Harsh Kumar and Steven Moore and John C. Stamper and Michael Liut},\n booktitle = {Proceedings of the 8th Educational Data Mining in Computer Science Education Workshop (CSEDM 2024)},\n publisher = {CEUR-WS.org},\n title = {A Preliminary Analysis of Students' Help Requests with an LLM-powered Chatbot when Completing CS1 Assignments},\n volume = {3796},\n year = {2024}\n}",
             "publicationTypes": [
-                "JournalArticle"
+                "Conference"
             ],
-            "booktitle": "CSEDM@EDM"
+            "booktitle": "Proceedings of the 8th Educational Data Mining in Computer Science Education Workshop (CSEDM 2024)",
+            "volume": "3796",
+            "publisher": "CEUR-WS.org"
         }
     ],
     "2023": [
@@ -3472,26 +3492,6 @@
                 "Conference"
             ],
             "journal": "Proceedings of the 2020 ACM Conference on Innovation and Technology in Computer Science Education"
-        }
-    ],
-    "Unknown": [
-        {
-            "paperId": "f6e1510fad295fc0e23078c4fded402b4b598814",
-            "year": "Unknown",
-            "title": "Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review",
-            "author": [
-                "Naaz Sibia",
-                "Michael Liut",
-                "Carolina Nobre"
-            ],
-            "ENTRYTYPE": "misc",
-            "ID": "f6e1510fad295fc0e23078c4fded402b4b598814",
-            "url": "https://www.semanticscholar.org/paper/f6e1510fad295fc0e23078c4fded402b4b598814",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/f6e1510fad295fc0e23078c4fded402b4b598814",
-            "bibtex": "@Misc{None,\n author = {Naaz Sibia and Michael Liut and Carolina Nobre},\n title = {Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review}\n}",
-            "publicationTypes": [
-                "Review"
-            ]
         }
     ]
 }

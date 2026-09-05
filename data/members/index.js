@@ -56,6 +56,7 @@ import chenheWuPhoto from './assets/chenhe_wu_pfp.jpg'
 import jaidenBaynesPhoto from './assets/jaiden_baynes_pfp.jpg'
 import matiasPinaAguileraPhoto from './assets/matias_pina_aguilera_pfp.jpg'
 import jingchengLiangPhoto from './assets/jingcheng_liang_pfp.jpg'
+import khaylaSalimPhoto from './assets/khayla_salim_pfp.png'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -516,6 +517,16 @@ export const currentUndergraduateStudents = [
       image: jaidenBaynesPhoto,
       bio: 'Jaiden is an undergraduate researcher at McMaster University working with the CORE Lab.',
       linkedin: 'https://www.linkedin.com/in/jaidenbaynes/',
+    }
+  ),
+  basicProfile(
+    'Khayla Salim',
+    'khayla_salim',
+    'Undergraduate Student, Computer Science — McMaster University',
+    {
+      image: khaylaSalimPhoto,
+      bio: 'Khayla is a Computer Science student at McMaster University interested in artificial intelligence, software development, and exploring how AI can be used in education and learning.',
+      linkedin: 'https://www.linkedin.com/in/khayla-salim-7b0b1a271/',
     }
   ),
 ]
