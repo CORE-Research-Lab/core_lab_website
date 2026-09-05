@@ -66,7 +66,7 @@ const Papers = () => {
         </span>
         <span>
           <sup className='font-semibold text-brand'>*</sup>
-          {' '}— co-first author
+          {' '}— equal contribution
         </span>
       </aside>
 

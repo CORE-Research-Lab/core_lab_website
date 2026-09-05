@@ -139,8 +139,8 @@ const AuthorList = ({
         {isCoFirstAuthor && (
           <sup
             className='ml-px text-[0.72em] font-semibold text-brand'
-            aria-label=' co-first author'
-            title='Co-first author'
+            aria-label=' Equal contribution'
+            title='Equal contribution'
           >
             *
           </sup>
