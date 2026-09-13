@@ -3,9 +3,10 @@
 Showcases CORE research lab!
 
 ## Structure
-- **/app** – Routes for the website (`/projects`, `/projects/<slug>`, `/research`, `/research/<slug>`, `/team`, `/artwork`)
+- **/app** – Routes for the website (`/projects`, `/projects/<slug>`, `/publications`, `/publications/<slug>`, `/team`, `/artwork`)
 - **/Components** – Reusable components used across `/app`
 - **/data** – Curated site content and local image assets
+- **/public/photos** – Drop-in folder for the homepage photo carousel
 - **/Papers** – Generated publication JSON plus Semantic Scholar sync configuration
 
 ## Tech Stack
@@ -35,7 +36,7 @@ A member's institution comes from the end of their `position` ("role — Institu
 
 ## Adding a Poster
 
-Posters live in the *Poster Showcase* on the research page, each with its own page at `/research/<slug>` showing the poster, its abstract, and its citation. The venue is a free-text label on each poster, so a poster from any conference is added the same way.
+Posters live in the *Poster Showcase* on the publications page, each with its own page at `/publications/<slug>` showing the poster, its abstract, and its citation. The venue is a free-text label on each poster, so a poster from any conference is added the same way.
 
 1. Save the poster image (PNG or JPG, the full-resolution export is fine) in `data/publications/assets/`.
 2. Add an entry to `posterItems` in `data/publications/index.js`: a `slug` for the URL, the `conference` label to show (for example `SIGCSE TS 2026`), the `title`, the imported `image`, and the `doi` if the paper has one (or an `eventUrl` for the venue's page if it has none).
@@ -44,6 +45,16 @@ Posters live in the *Poster Showcase* on the research page, each with its own pa
    - **It is not indexed yet** – add the record to `Papers/Posters/poster_papers.json` by hand and select it by `title` in the config. For a published paper, `title`, `author`, `year`, `booktitle`, and `abstract` are enough. For a poster that is not published, give only `title`, `author`, and `year` — no venue and no `bibtex` — and its page lists the authors instead of a citation. The sync keeps a selected record it cannot find upstream, so the hand-written entry survives later runs; it prints a `Used existing poster publication` warning each time as a reminder. Once the paper is indexed, switch the selector to its DOI and the next sync replaces the record.
 
 The website matches a poster to its citation by DOI, falling back to the exact title, so a poster without a DOI still gets its abstract and citation.
+
+## Adding Photos
+
+The homepage ends with a photo carousel fed straight from `public/photos/`. Drop JPG, PNG, WebP, or AVIF files in that folder and they appear on the next build (in `npm run dev`, on the next refresh). There is no data file to edit; the folder is read at build time in `lib/photos.mjs`. An empty folder hides the section.
+
+- Photos show in filename order, so number them to set the order (`01-retreat.jpg`, `02-sigcse.jpg`).
+- The filename becomes the alt text, with a leading number and any dashes or underscores dropped, so name files descriptively rather than `IMG_4821.jpg`.
+- Full-size originals are fine: Next resizes them on demand. iPhone HEIC files are skipped with a warning during the build, so export those as JPG first.
+
+The carousel shows one photo at a time in a frame sized by the screen width alone, with each photo fitted inside rather than cropped, so the page does not shift as the photos change.
 
 ## Updating Publications
 Publication metadata can be synced from Semantic Scholar:

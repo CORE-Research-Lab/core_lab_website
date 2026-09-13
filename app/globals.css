@@ -30,6 +30,9 @@
 
   /* Height of the sticky navbar; drives scroll-margin and sticky offsets. */
   --spacing-header: 4.25rem;
+  /* Height of the sticky section-nav chip row shown below `lg`, so anything
+     else that sticks on those screens can stack under it. */
+  --spacing-section-nav: 3.5rem;
 }
 
 body {
@@ -100,6 +103,35 @@ h3 {
 @utility poster-paper {
   filter: drop-shadow(0 1px 1px rgb(15 23 42 / 0.12))
     drop-shadow(0 20px 28px rgb(11 58 114 / 0.22));
+}
+
+/* Sticky stack. The navbar is always pinned; below `lg` the section chip row
+   pins under it. A publication list pins each year heading under whatever is
+   above it, at --sticky-year-top. Pages with nothing else pinned get the
+   default; the publications page raises it to clear its author legend, whose
+   height is measured at runtime into --legend-height because the legend wraps
+   differently at every width. */
+:root {
+  --sticky-year-top: calc(var(--spacing-header) + 0.75rem);
+}
+
+@utility sticky-legend {
+  position: sticky;
+  top: calc(var(--spacing-header) + var(--spacing-section-nav));
+
+  @media (width >= 64rem) {
+    top: calc(var(--spacing-header) + 0.75rem);
+  }
+}
+
+@utility sticky-below-legend {
+  --sticky-year-top: calc(
+    var(--spacing-header) + var(--spacing-section-nav) + var(--legend-height, 0px) + 0.5rem
+  );
+
+  @media (width >= 64rem) {
+    --sticky-year-top: calc(var(--spacing-header) + 0.75rem + var(--legend-height, 0px) + 0.5rem);
+  }
 }
 
 /* Anchor targets need to clear the sticky header when scrolled to. */

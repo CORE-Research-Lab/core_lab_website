@@ -164,7 +164,7 @@ const PublicationCitation = ({
   highlightQuery = '',
 }) => {
   if (!publication) {
-    return <span className="text-slate-600">Research details unavailable.</span>
+    return <span className="text-slate-600">Citation details unavailable.</span>
   }
 
   const authors = getPublicationAuthors(publication)

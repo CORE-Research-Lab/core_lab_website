@@ -18,7 +18,7 @@ export const heroContent = {
   publicationBlurb: 'Our research appears across leading computing education and human-computer interaction (HCI) venues, spanning full papers, working-group reports, and posters.',
   actions: [
     { label: 'Meet the team', href: '/team', variant: 'primary' },
-    { label: 'Read our research', href: '/research', variant: 'secondary' },
+    { label: 'See our publications', href: '/publications', variant: 'secondary' },
   ],
 }
 
@@ -96,6 +96,12 @@ export const institutionalSupportContent = {
     },
   ],
   sponsorNote: 'Our support spans national, international, and institutional programs: Canada’s NSERC Discovery Grants and Collaborative Research and Training Experience program (CREATE); the Learning Engineering Tools Competition; France’s ANR; and the University of Toronto’s Data Sciences Institute (DSI), Institute for the Study of University Pedagogy (ISUP), and Learning & Education Advancement Fund (LEAF), with additional support from McMaster University.',
+}
+
+// The photos themselves come from `public/photos/`; see the README there.
+export const photoCarouselContent = {
+  title: 'Around the lab',
+  description: 'Snapshots from lab events, conferences, and everyday life in the office.',
 }
 
 export const artworkSection = {

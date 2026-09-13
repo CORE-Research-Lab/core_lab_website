@@ -79,7 +79,7 @@ export const posterItems = [
 ].map(poster => ({
   ...poster,
   publication: findPosterPublication(poster),
-  link: `/research/${poster.slug}`,
+  link: `/publications/${poster.slug}`,
 }))
 
 export const postersBySlug = Object.fromEntries(

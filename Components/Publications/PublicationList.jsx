@@ -1,8 +1,13 @@
 import { sortPublicationYearsDescending } from '@/lib/publications.mjs'
 import PublicationCitation from './PublicationCitation'
 
+/**
+ * Pinned at --sticky-year-top while its year scrolls past, then pushed away by
+ * the next year's heading. The offset comes from the page (see globals.css),
+ * so the heading clears whatever the page keeps pinned above the list.
+ */
 const YearDivider = ({ children }) => (
-  <div className='border-y border-y-brand-line bg-brand-soft/60 px-3 py-2 text-base font-semibold tracking-wide text-brand'>
+  <div className='sticky top-(--sticky-year-top) z-5 border-y border-y-brand-line bg-brand-soft px-3 py-2 text-base font-semibold tracking-wide text-brand'>
     {children}
   </div>
 )

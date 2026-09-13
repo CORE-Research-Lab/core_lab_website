@@ -88,7 +88,7 @@ const SectionNav = ({ sections }) => {
       {/* Compact chip row for phones and tablets. The negative margins let it
           bleed to the screen edges while the page keeps its gutters. */}
       <div className='-mx-5 border-b border-slate-200 bg-white/90 backdrop-blur sm:-mx-8 lg:hidden'>
-        <ul className='flex gap-2 overflow-x-auto px-5 py-3 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden'>
+        <ul className='flex h-section-nav items-center gap-2 overflow-x-auto px-5 [scrollbar-width:none] sm:px-8 [&::-webkit-scrollbar]:hidden'>
           {flatSections.map((section) => (
             <li key={section.id}>
               <a

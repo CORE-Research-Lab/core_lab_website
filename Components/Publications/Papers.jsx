@@ -1,6 +1,6 @@
 "use client"
 
-import { useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { publicationsByYear, publicationsPage } from '@/data/publications'
 import {
   flattenPublications,
@@ -32,6 +32,23 @@ const searchIndex = new Map(
 
 const Papers = () => {
   const [query, setQuery] = useState('')
+  const legendRef = useRef(null)
+  const [legendHeight, setLegendHeight] = useState(0)
+
+  // The year headings pin just below the legend, so the list needs to know
+  // how tall the legend is at the current width.
+  useEffect(() => {
+    const legend = legendRef.current
+    if (!legend) return
+
+    const update = () => setLegendHeight(legend.offsetHeight)
+    update()
+
+    const observer = new ResizeObserver(update)
+    observer.observe(legend)
+
+    return () => observer.disconnect()
+  }, [])
 
   const groupedFiltered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -48,14 +65,23 @@ const Papers = () => {
   )
 
   return (
-    <section className='pt-12'>
+    <section
+      className='sticky-below-legend pt-12'
+      style={{ '--legend-height': `${legendHeight}px` }}
+    >
       <SectionHeading id='papers'>{publicationsPage.papersTitle}</SectionHeading>
 
+      {/* Sticky, so the key stays in view for the whole list. It stacks under
+          the section chip row on small screens and under the navbar from `lg`,
+          where the section nav is a side rail instead. */}
       <aside
-        aria-label='Research author formatting legend'
-        className='mt-5 flex flex-wrap items-center gap-x-6 gap-y-2 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm text-slate-700'
+        ref={legendRef}
+        aria-label='Author formatting legend'
+        className='sticky-legend z-10 mt-5 flex flex-wrap items-center gap-x-6 gap-y-1.5 rounded-xl border border-slate-200 bg-slate-50 px-4 py-2.5 text-xs text-slate-700 shadow-sm sm:text-sm'
       >
-        <strong className='font-semibold text-slate-800'>Author legend:</strong>
+        {/* The aside is already named for assistive tech; on phones the
+            label only costs a line of sticky space. */}
+        <strong className='hidden font-semibold text-slate-800 sm:inline'>Author legend:</strong>
         <span>
           <strong className='text-brand'>Bold name</strong>
           {' '}— current CORE Lab member

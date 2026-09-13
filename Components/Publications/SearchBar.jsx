@@ -4,7 +4,7 @@ const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount }) => 
   return (
     <div className='mt-5'>
       <label htmlFor='publication-search' className='sr-only'>
-        Search research
+        Search publications
       </label>
       <div className='relative'>
         <HiOutlineSearch
@@ -33,7 +33,7 @@ const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount }) => 
       <p className='mt-2 text-sm text-slate-500' aria-live='polite'>
         {query
           ? `${resultCount} ${resultCount === 1 ? 'result' : 'results'} for “${query}”`
-          : `${resultCount} research ${resultCount === 1 ? 'item' : 'items'}`}
+          : `${resultCount} ${resultCount === 1 ? 'publication' : 'publications'}`}
       </p>
     </div>
   )

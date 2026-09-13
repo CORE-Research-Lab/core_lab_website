@@ -32,7 +32,7 @@ const venues = buckets.map(bucket => ({
 }))
 
 const PublicationHighlight = () => (
-  <section className='page-shell pb-14 sm:pb-16' aria-label='Research overview'>
+  <section className='page-shell pb-14 sm:pb-16' aria-label='Publications overview'>
     <div className='rounded-2xl border border-brand/15 bg-brand-soft/45 p-5 shadow-sm sm:p-6'>
       <div className='grid gap-5 sm:grid-cols-[9rem_1fr] sm:items-center'>
         <div className='sm:border-r sm:border-brand-line sm:pr-6'>

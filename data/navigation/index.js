@@ -9,7 +9,7 @@ export const navigationItems = [
   { href: '/', label: 'Home' },
   { href: '/team', label: 'Team' },
   { href: '/projects', label: 'Projects' },
-  { href: '/research', label: 'Research' },
+  { href: '/publications', label: 'Publications' },
   { href: '/artwork', label: 'Lab Artwork' },
   { href: '#contactus', label: 'Contact' },
 ]

@@ -87,7 +87,7 @@ export default async function PosterPage({ params }) {
 
         <div className='mt-4 flex flex-wrap items-center justify-between gap-3'>
           <Link
-            href='/research#posters'
+            href='/publications#posters'
             className='inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:underline'
           >
             <HiArrowLeft className='size-4' aria-hidden='true' />
