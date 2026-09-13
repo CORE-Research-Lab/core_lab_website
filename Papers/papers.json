@@ -52,6 +52,28 @@
             "journal": "ACM Transactions on Computing Education"
         },
         {
+            "paperId": "5a14477377177fe6e3cf1df7cacf2e1f74f62e36",
+            "year": "2026",
+            "title": "Making AI Tutoring Productive: Evidence from a Mastery-Based Math Practice Experiment",
+            "author": [
+                "Philip Oreopoulos",
+                "Michael Liut",
+                "Alp Sungu",
+                "Nina Low"
+            ],
+            "ENTRYTYPE": "misc",
+            "ID": "10.3386/w35621",
+            "doi": "10.3386/w35621",
+            "url": "https://doi.org/10.3386/w35621",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/5a14477377177fe6e3cf1df7cacf2e1f74f62e36",
+            "publicationDate": "2026-08-01",
+            "openAccessPdfUrl": "https://doi.org/10.3386/w35621",
+            "bibtex": "@Inproceedings{Oreopoulos2026MakingAT,\n author = {Philip Oreopoulos and Michael Liut and Alp Sungu and Nina Low},\n title = {Making AI Tutoring Productive: Evidence from a Mastery-Based Math Practice Experiment},\n year = {2026}\n}",
+            "publicationTypes": [
+                "CaseReport"
+            ]
+        },
+        {
             "paperId": "c9c97c2d8434305f6352aeb377e009ccf5b72057",
             "year": "2026",
             "title": "'If You Don't Know, Just Ask': How New Graduates Demonstrate Non-Technical Skills and Behaviours in the Workplace",
@@ -691,6 +713,31 @@
             ],
             "journal": "Discover Computing",
             "volume": "29"
+        },
+        {
+            "paperId": "64df6bb488b388687c1dd5b6850206db8070cc16",
+            "year": "2026",
+            "title": "Transforming Hospitals with Artificial Intelligence: Applications in Clinical Education and Patient Care",
+            "author": [
+                "Nihal Haque",
+                "Ervin Sejdic",
+                "Michael Liut",
+                "Roland Mollanji",
+                "Philkyung Shin",
+                "Duska Kennedy",
+                "Ghadir Ali"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1007/978-3-032-30813-9_19",
+            "doi": "10.1007/978-3-032-30813-9_19",
+            "url": "https://doi.org/10.1007/978-3-032-30813-9_19",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/64df6bb488b388687c1dd5b6850206db8070cc16",
+            "bibtex": "@Article{Haque2026TransformingHW,\n author = {Nihal Haque and Ervin Sejdic and Michael Liut and Roland Mollanji and Philkyung Shin and Duska Kennedy and Ghadir Ali},\n booktitle = {Conference on Artificial Intelligence in Medicine in Europe},\n pages = {101-105},\n title = {Transforming Hospitals with Artificial Intelligence: Applications in Clinical Education and Patient Care},\n year = {2026}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "booktitle": "Conference on Artificial Intelligence in Medicine in Europe",
+            "pages": "101-105"
         }
     ],
     "2025": [
@@ -3274,6 +3321,32 @@
             "journal": "Proceedings of the 54th ACM Technical Symposium on Computer Science Education V. 2"
         },
         {
+            "paperId": "5b43e53d428c93b2fc9a656235f7d1a20c3a713c",
+            "year": "2022",
+            "title": "Deep Camera Pose Regression Using Pseudo-LiDAR",
+            "author": [
+                "A. Raza",
+                "Lazar Lolic",
+                "Shahmir Akhter",
+                "Alfonso Dela Cruz",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.48550/arxiv.2203.00080",
+            "doi": "10.48550/arxiv.2203.00080",
+            "url": "https://doi.org/10.48550/arxiv.2203.00080",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/5b43e53d428c93b2fc9a656235f7d1a20c3a713c",
+            "abstract": "An accurate and robust large-scale localization system is an integral component for active areas of research such as autonomous vehicles and augmented reality. To this end, many learning algorithms have been proposed that predict 6DOF camera pose from RGB or RGB-D images. However, previous methods that incorporate depth typically treat the data the same way as RGB images, often adding depth maps as additional channels to RGB images and passing them through convolutional neural networks (CNNs). In this paper, we show that converting depth maps into pseudo-LiDAR signals, previously shown to be useful for 3D object detection, is a better representation for camera localization tasks by projecting point clouds that can accurately determine 6DOF camera pose. This is demonstrated by first comparing localization accuracies of a network operating exclusively on pseudo-LiDAR representations, with networks operating exclusively on depth maps. We then propose FusionLoc, a novel architecture that uses pseudo-LiDAR to regress a 6DOF camera pose. FusionLoc is a dual stream neural network, which aims to remedy common issues with typical 2D CNNs operating on RGB-D images. The results from this architecture are compared against various other state-of-the-art deep pose regression implementations using the 7 Scenes dataset. The findings are that FusionLoc performs better than a number of other camera localization methods, with a notable improvement being, on average, 0.33m and 4.35{\\deg} more accurate than RGB-D PoseNet. By proving the validity of using pseudo-LiDAR signals over depth maps for localization, there are new considerations when implementing large-scale localization systems.",
+            "publicationDate": "2022-02-28",
+            "openAccessPdfUrl": "http://arxiv.org/pdf/2203.00080",
+            "bibtex": "@Article{Raza2022DeepCP,\n author = {A. Raza and Lazar Lolic and Shahmir Akhter and Alfonso Dela Cruz and Michael Liut},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {Deep Camera Pose Regression Using Pseudo-LiDAR},\n volume = {abs/2203.00080},\n year = {2022}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "ArXiv",
+            "volume": "abs/2203.00080"
+        },
+        {
             "paperId": "f5625994eea97795bf55610a73e44c154db2242d",
             "year": "2022",
             "title": "Additional Evidence for the Prevalence of the Impostor Phenomenon in Computing",
@@ -3303,6 +3376,31 @@
         }
     ],
     "2021": [
+        {
+            "paperId": "0e6a54c0a2455faaa586c8afd72b6573886b36d2",
+            "year": "2021",
+            "title": "Comparing and Evaluating Indoor Positioning Techniques",
+            "author": [
+                "A. Raza",
+                "Lazar Lolic",
+                "Shahmir Akhter",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1109/ipin51156.2021.9662632",
+            "doi": "10.1109/ipin51156.2021.9662632",
+            "url": "https://doi.org/10.1109/ipin51156.2021.9662632",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/0e6a54c0a2455faaa586c8afd72b6573886b36d2",
+            "abstract": "Accurate indoor positioning has been the subject of investigation for many years. Modern smartphones have a wide suite of internal sensors that allow us to measure different signals. However, traditional positioning methods, such as GPS, typically fail when measurements are taken indoors. Many different solutions have been proposed that rely on various data inputs, including Wi-Fi and camera input. Some proposed methods have used auxiliary data inputs such as BLE Beacons. However, any auxiliary input would require additional infrastructure to purchase and maintain, increasing expenses. This paper explores a variety of indoor positioning techniques that do not require any additional infrastructure beyond what is typically found in a commercial environment. This research explores, implements, and measures, through standardized tests, Wi-Fi RSSI, RTT, and marker-based trilateration, as well as, fingerprinting with two separate machine learning models, and also tests an implementation of PoseNet. It compares and contrasts the various methods, categorizing them according to a proposed set of criteria for evaluating a commercially deployable indoor positioning solution. The paper closes with a brief summary of the techniques that were studied and proposes investigation into various related topics and improvements, as well as future directions.",
+            "publicationDate": "2021-11-29",
+            "bibtex": "@Article{Raza2021ComparingAE,\n author = {A. Raza and Lazar Lolic and Shahmir Akhter and Michael Liut},\n booktitle = {International Conference on Indoor Positioning and Indoor Navigation},\n journal = {2021 International Conference on Indoor Positioning and Indoor Navigation (IPIN)},\n pages = {1-8},\n title = {Comparing and Evaluating Indoor Positioning Techniques},\n year = {2021}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Conference"
+            ],
+            "journal": "2021 International Conference on Indoor Positioning and Indoor Navigation (IPIN)",
+            "pages": "1-8"
+        },
         {
             "paperId": "52375c734a5f956422cf64026c6f9a38c74a23ea",
             "year": "2021",
@@ -3432,9 +3530,53 @@
                 "Conference"
             ],
             "journal": "Proceedings of the 52nd ACM Technical Symposium on Computer Science Education"
+        },
+        {
+            "paperId": "ef26b0df63d364d969b0d8cb53a7e0dd0393e2f6",
+            "year": "2021",
+            "title": "Computational Substantiation of the d-step Conjecture for Distinct Squares Revisited",
+            "author": [
+                "Frantisek Franek",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "ef26b0df63d364d969b0d8cb53a7e0dd0393e2f6",
+            "url": "https://www.semanticscholar.org/paper/ef26b0df63d364d969b0d8cb53a7e0dd0393e2f6",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/ef26b0df63d364d969b0d8cb53a7e0dd0393e2f6",
+            "bibtex": "@Article{Franek2021ComputationalSO,\n author = {Frantisek Franek and Michael Liut},\n booktitle = {Prague Stringology Conference},\n pages = {41-52},\n title = {Computational Substantiation of the d-step Conjecture for Distinct Squares Revisited},\n year = {2021}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "booktitle": "Prague Stringology Conference",
+            "pages": "41-52"
         }
     ],
     "2020": [
+        {
+            "paperId": "fa41e3eb514179e2d769e9e01e24e583db2cace3",
+            "year": "2020",
+            "title": "Computing Maximal Lyndon Substrings of a String",
+            "author": [
+                "F. Franek",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.20944/preprints202009.0557.v1",
+            "doi": "10.20944/preprints202009.0557.v1",
+            "url": "https://doi.org/10.20944/preprints202009.0557.v1",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/fa41e3eb514179e2d769e9e01e24e583db2cace3",
+            "abstract": "There are two reasons to have an efficient algorithm for identifying all right-maximal Lyndon substrings of a string: firstly, Bannai et al. introduced in 2015 a linear algorithm to compute all runs of a string that relies on knowing all right-maximal Lyndon substrings of the input string, and secondly, Franek et al. showed in 2017 a linear equivalence of sorting suffixes and sorting right-maximal Lyndon substrings of a string, inspired by a novel suffix sorting algorithm of Baier. In 2016, Franek et al. presented a brief overview of algorithms for computing the Lyndon array that encodes the knowledge of right-maximal Lyndon substrings of the input string. Among those presented were two well-known algorithms for computing the Lyndon array: a quadratic in-place algorithm based on the iterated Duval algorithm for Lyndon factorization and a linear algorithmic scheme based on linear suffix sorting, computing the inverse suffix array, and applying to it the next smaller value algorithm. Duval’s algorithm works for strings over any ordered alphabet, while for linear suffix sorting, a constant or an integer alphabet is required. The authors at that time were not aware of Baier’s algorithm. In 2017, our research group proposed a novel algorithm for the Lyndon array. Though the proposed algorithm is linear in the average case and has O(nlog(n)) worst-case complexity, it is interesting as it emulates the fast Fourier algorithm’s recursive approach and introduces τ-reduction, which might be of independent interest. In 2018, we presented a linear algorithm to compute the Lyndon array of a string inspired by Phase I of Baier’s algorithm for suffix sorting. This paper presents the theoretical analysis of these two algorithms and provides empirical comparisons of both of their C++ implementations with respect to the iterated Duval algorithm.",
+            "publicationDate": "2020-09-24",
+            "openAccessPdfUrl": "https://www.preprints.org/manuscript/202009.0557/v1/download",
+            "bibtex": "@Article{Franek2020ComputingML,\n author = {F. Franek and Michael Liut},\n booktitle = {Algorithms},\n journal = {Algorithms},\n pages = {294},\n title = {Computing Maximal Lyndon Substrings of a String},\n volume = {13},\n year = {2020}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Review"
+            ],
+            "journal": "Algorithms",
+            "volume": "13",
+            "pages": "294"
+        },
         {
             "paperId": "624112eaf9ebc66b6c508debd8e64a1cbae61f77",
             "year": "2020",
@@ -3492,6 +3634,66 @@
                 "Conference"
             ],
             "journal": "Proceedings of the 2020 ACM Conference on Innovation and Technology in Computer Science Education"
+        }
+    ],
+    "2019": [
+        {
+            "paperId": "f9fbf58c32b2f3001511a0904d6d2430a7c05623",
+            "year": "2019",
+            "title": "Algorithms to Compute the Lyndon Array Revisited",
+            "author": [
+                "F. Franek",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "f9fbf58c32b2f3001511a0904d6d2430a7c05623",
+            "url": "https://www.semanticscholar.org/paper/f9fbf58c32b2f3001511a0904d6d2430a7c05623",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/f9fbf58c32b2f3001511a0904d6d2430a7c05623",
+            "bibtex": "@Article{Franek2019AlgorithmsTC,\n author = {F. Franek and Michael Liut},\n booktitle = {Prague Stringology Conference},\n pages = {16-28},\n title = {Algorithms to Compute the Lyndon Array Revisited},\n year = {2019}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Review"
+            ],
+            "booktitle": "Prague Stringology Conference",
+            "pages": "16-28"
+        },
+        {
+            "paperId": "c15c77ec831e2b109c80f3bd126c6b4ccffed34f",
+            "year": "2019",
+            "title": "Computing Lyndon Arrays",
+            "author": [
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "misc",
+            "ID": "c15c77ec831e2b109c80f3bd126c6b4ccffed34f",
+            "url": "https://www.semanticscholar.org/paper/c15c77ec831e2b109c80f3bd126c6b4ccffed34f",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/c15c77ec831e2b109c80f3bd126c6b4ccffed34f",
+            "bibtex": "@Inproceedings{Liut2019ComputingLA,\n author = {Michael Liut},\n title = {Computing Lyndon Arrays},\n year = {2019}\n}",
+            "publicationTypes": [
+                "Review"
+            ]
+        }
+    ],
+    "2018": [
+        {
+            "paperId": "8a6b268bbdf7ba55d1ec0a6b698a3a4625e37afe",
+            "year": "2018",
+            "title": "On Baier's Sort of Maximal Lyndon Substrings",
+            "author": [
+                "F. Franek",
+                "Michael Liut",
+                "W. F. Smyth"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "8a6b268bbdf7ba55d1ec0a6b698a3a4625e37afe",
+            "url": "https://www.semanticscholar.org/paper/8a6b268bbdf7ba55d1ec0a6b698a3a4625e37afe",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/8a6b268bbdf7ba55d1ec0a6b698a3a4625e37afe",
+            "bibtex": "@Article{Franek2018OnBS,\n author = {F. Franek and Michael Liut and W. F. Smyth},\n booktitle = {Prague Stringology Conference},\n pages = {63-78},\n title = {On Baier's Sort of Maximal Lyndon Substrings},\n year = {2018}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "booktitle": "Prague Stringology Conference",
+            "pages": "63-78"
         }
     ]
 }
