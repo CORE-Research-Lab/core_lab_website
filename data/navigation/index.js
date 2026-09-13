@@ -8,6 +8,7 @@ export const siteBrand = {
 export const navigationItems = [
   { href: '/', label: 'Home' },
   { href: '/team', label: 'Team' },
+  { href: '/projects', label: 'Projects' },
   { href: '/research', label: 'Research' },
   { href: '/artwork', label: 'Lab Artwork' },
   { href: '#contactus', label: 'Contact' },

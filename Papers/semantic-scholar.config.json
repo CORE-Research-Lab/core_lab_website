@@ -19,6 +19,9 @@
         "output": "Papers/Posters/poster_papers.json",
         "selectors": [
             {
+                "title": "What Do Students Still Ask? Discussion Board Questions in Computer Science Courses Before and After AI"
+            },
+            {
                 "doi": "10.1145/3724389.3730790"
             },
             {

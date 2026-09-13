@@ -62,7 +62,6 @@ const projectEntries = [
       'The research behind VoiceEx compares voice and text as reflection media. Across field studies and interviews, students initially tended to prefer text, while voice responses were often longer and contained more topic-related language. Preference for voice increased with experience, revealing how social presence, confidence, cognitive load, and performance anxiety should shape the design of mixed-modality learning tools.',
     ],
     image: voiceexImage,
-    showcaseImageClassName: 'max-h-[min(48svh,28rem)]',
     imageAlt:
       'VoiceEx reflection interface with an audio prompt, voice recording controls, audio upload, and follow-up reflection questions.',
     links: [
@@ -118,7 +117,7 @@ const resolvePeople = (project) => {
 export const projects = projectEntries.map(project => ({
   ...project,
   people: resolvePeople(project),
-  link: `/research/project/${project.slug}`,
+  link: `/projects/${project.slug}`,
 }))
 
 export const projectsBySlug = Object.fromEntries(

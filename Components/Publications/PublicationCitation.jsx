@@ -99,7 +99,11 @@ const BibCopyButton = ({ bibtex, title }) => {
   )
 }
 
-const AuthorList = ({
+/**
+ * Exported so the poster showcase can name authors the same way the papers
+ * list does: lab members bold and linked, collaborators underlined.
+ */
+export const AuthorList = ({
   authors,
   coFirstAuthors = [],
   highlightAuthors = [],

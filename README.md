@@ -3,7 +3,7 @@
 Showcases CORE research lab!
 
 ## Structure
-- **/app** – Routes for the website (`/research`, `/research/project/<slug>`, `/team`, `/artwork`)
+- **/app** – Routes for the website (`/projects`, `/projects/<slug>`, `/research`, `/research/<slug>`, `/team`, `/artwork`)
 - **/Components** – Reusable components used across `/app`
 - **/data** – Curated site content and local image assets
 - **/Papers** – Generated publication JSON plus Semantic Scholar sync configuration
@@ -24,7 +24,7 @@ npm run dev
 
 ## Adding a Project
 
-Projects live on the research page: a looping rail of project cards above the posters and papers, each linking to `/research/project/<slug>`. Adding one takes two files.
+Projects have their own page at `/projects`, listed top to bottom in the order they appear in the data, each linking to `/projects/<slug>`. Adding one takes two files.
 
 1. Add an entry to `projectEntries` in `data/projects/index.js`. Alongside the copy and the image, it carries:
    - `people` – team **slugs**, not names. Each slug is looked up in `data/members/index.js`, so a project page links straight to the member page and can never disagree with it. An unknown slug fails the build rather than dropping someone silently. The page splits them itself: everyone outside the *Frequent Collaborators* group is listed under CORE Lab, and collaborators are listed with their institution.
@@ -32,6 +32,18 @@ Projects live on the research page: a looping rail of project cards above the po
 2. Add a `projects.<slug>` block to `Papers/semantic-scholar.config.json` naming that output file and selecting the project's papers by DOI, Semantic Scholar paper ID, or exact title. The next sync writes the JSON.
 
 A member's institution comes from the end of their `position` ("role — Institution"). Set `institution` explicitly on the few whose position names none.
+
+## Adding a Poster
+
+Posters live in the *Poster Showcase* on the research page, each with its own page at `/research/<slug>` showing the poster, its abstract, and its citation. The venue is a free-text label on each poster, so a poster from any conference is added the same way.
+
+1. Save the poster image (PNG or JPG, the full-resolution export is fine) in `data/publications/assets/`.
+2. Add an entry to `posterItems` in `data/publications/index.js`: a `slug` for the URL, the `conference` label to show (for example `SIGCSE TS 2026`), the `title`, the imported `image`, and the `doi` if the paper has one (or an `eventUrl` for the venue's page if it has none).
+3. Give it a citation. Add a selector for the paper to `posters.selectors` in `Papers/semantic-scholar.config.json`, then run `npm run sync:publications` to write it into `Papers/Posters/poster_papers.json`.
+   - **The paper is on Semantic Scholar** – select it by `doi` (or `paperId`). The sync fills in authors, venue, year, abstract, and BibTeX.
+   - **It is not indexed yet** – add the record to `Papers/Posters/poster_papers.json` by hand and select it by `title` in the config. For a published paper, `title`, `author`, `year`, `booktitle`, and `abstract` are enough. For a poster that is not published, give only `title`, `author`, and `year` — no venue and no `bibtex` — and its page lists the authors instead of a citation. The sync keeps a selected record it cannot find upstream, so the hand-written entry survives later runs; it prints a `Used existing poster publication` warning each time as a reminder. Once the paper is indexed, switch the selector to its DOI and the next sync replaces the record.
+
+The website matches a poster to its citation by DOI, falling back to the exact title, so a poster without a DOI still gets its abstract and citation.
 
 ## Updating Publications
 Publication metadata can be synced from Semantic Scholar:

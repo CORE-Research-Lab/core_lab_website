@@ -86,6 +86,22 @@ h3 {
   }
 }
 
+/* Posters hang on a "wall": a faint dot grid over the soft brand tint, so a
+   sheet reads as paper pinned up rather than an image dropped in a grey box. */
+@utility poster-wall {
+  background-color: color-mix(in srgb, var(--color-brand-soft) 55%, white);
+  background-image: radial-gradient(var(--color-brand-line) 1px, transparent 1.5px);
+  background-size: 18px 18px;
+}
+
+/* drop-shadow follows the sheet's own edges. A box-shadow would outline the
+   letterboxed frame instead, which shows up as soon as a portrait poster sits
+   in a landscape stage. */
+@utility poster-paper {
+  filter: drop-shadow(0 1px 1px rgb(15 23 42 / 0.12))
+    drop-shadow(0 20px 28px rgb(11 58 114 / 0.22));
+}
+
 /* Anchor targets need to clear the sticky header when scrolled to. */
 @utility scroll-anchor {
   scroll-margin-top: calc(var(--spacing-header) + --spacing(6));
