@@ -39,7 +39,7 @@ const PublicationHighlight = () => (
           <p className='text-4xl font-bold tracking-tight text-brand-dark'>
             {publicationCount.toLocaleString('en-CA')}
           </p>
-          <p className='mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-brand-muted'>
+          <p className='mt-1 text-base font-medium text-slate-600'>
             Publications
           </p>
         </div>
@@ -50,7 +50,7 @@ const PublicationHighlight = () => (
 
       <div className='mt-6 border-t border-brand-line pt-5'>
         <div className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1'>
-          <h2 className='text-sm font-semibold uppercase tracking-[0.12em] text-brand-muted'>
+          <h2 className='text-base font-semibold text-brand-dark'>
             Where our research appears
           </h2>
           <p className='text-sm text-slate-500'>

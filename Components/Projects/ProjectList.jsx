@@ -39,15 +39,15 @@ const ProjectList = () => (
           </Link>
 
           <div className='flex min-w-0 flex-col p-5 sm:p-6'>
-            <div className='flex flex-wrap items-center gap-x-3 gap-y-1'>
+            <div className='flex flex-wrap items-baseline gap-x-3 gap-y-1'>
               <h2 className='text-subsection font-semibold text-brand-dark'>
                 <Link href={project.link} className='hover:underline'>
                   {project.name}
                 </Link>
               </h2>
               {project.status === 'past' && (
-                <span className='rounded-full bg-brand-soft px-2 py-0.5 text-[0.65rem] font-semibold uppercase tracking-[0.1em] text-brand-muted'>
-                  Past
+                <span className='text-sm text-slate-500'>
+                  Past project
                 </span>
               )}
             </div>
@@ -60,9 +60,9 @@ const ProjectList = () => (
             </p>
 
             <div className='mt-5 flex flex-wrap items-center justify-between gap-x-6 gap-y-3 border-t border-slate-200 pt-4'>
-              <p className='text-xs font-semibold uppercase tracking-[0.12em] text-brand-muted'>
+              <p className='text-sm text-slate-500'>
                 {plural(countPeople(project), 'person').replace('persons', 'people')}
-                {' · '}
+                {', '}
                 {plural(countPapers(project), 'paper')}
               </p>
               <Link

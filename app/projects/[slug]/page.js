@@ -65,7 +65,7 @@ export default async function ProjectPage({ params }) {
 
           {project.links?.length > 0 && (
             <aside className='rounded-xl border border-slate-200 bg-slate-50 p-5'>
-              <h2 className='text-sm font-semibold uppercase tracking-[0.14em] text-brand-muted'>
+              <h2 className='text-base font-semibold text-brand-dark'>
                 Links
               </h2>
               <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>

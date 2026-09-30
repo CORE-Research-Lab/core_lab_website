@@ -37,14 +37,9 @@ const PosterPanel = ({ poster, onStage }) => {
 
   return (
     <div className={`col-start-1 row-start-1 p-5 sm:p-6 ${onStage ? '' : 'invisible'}`}>
-      <div className='flex flex-wrap items-center gap-x-3 gap-y-2'>
-        <span className='rounded-full bg-brand-soft px-2.5 py-1 text-[0.7rem] font-semibold uppercase tracking-[0.12em] text-brand'>
-          {poster.conference}
-        </span>
-        <span className='text-xs font-medium uppercase tracking-[0.12em] text-slate-500'>
-          Poster
-        </span>
-      </div>
+      <p className='text-sm font-medium text-slate-600'>
+        {poster.conference} poster
+      </p>
 
       <h3 className='mt-3 text-subsection font-semibold text-brand-dark'>
         <Link href={poster.link} className='hover:underline'>

@@ -12,7 +12,7 @@ const About = () => {
       </div>
       {aboutContent.focusAreas?.length > 0 && (
         <div className='mt-8'>
-          <h3 className='text-sm font-semibold uppercase tracking-[0.14em] text-slate-500'>
+          <h3 className='text-base font-semibold text-brand-dark'>
             Research areas
           </h3>
           <ul className='mt-4 flex flex-wrap gap-2'>

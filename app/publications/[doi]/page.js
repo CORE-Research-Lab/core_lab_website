@@ -39,7 +39,7 @@ export async function generateMetadata({ params }) {
   };
 }
 
-const eyebrowClass = 'text-sm font-semibold uppercase tracking-[0.14em] text-brand-muted';
+const asideHeadingClass = 'text-base font-semibold text-brand-dark';
 
 const linkClass =
   'flex items-center justify-between gap-2 py-3 text-sm font-semibold text-brand hover:underline';
@@ -138,7 +138,7 @@ export default async function PosterPage({ params }) {
           </div>
 
           <aside className='rounded-xl border border-slate-200 bg-slate-50 p-5'>
-            <h2 className={eyebrowClass}>Details</h2>
+            <h2 className={asideHeadingClass}>Details</h2>
             <dl className='mt-3 divide-y divide-slate-200 border-y border-slate-200 text-sm'>
               <div className='py-3'>
                 <dt className='font-semibold text-slate-800'>Presented at</dt>
@@ -158,7 +158,7 @@ export default async function PosterPage({ params }) {
               )}
             </dl>
 
-            <h2 className={`${eyebrowClass} mt-6`}>Links</h2>
+            <h2 className={`${asideHeadingClass} mt-6`}>Links</h2>
             <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>
               {links.map((link) => (
                 <li key={link.href}>

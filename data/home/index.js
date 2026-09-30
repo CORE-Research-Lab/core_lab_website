@@ -13,7 +13,7 @@ import universityOfTorontoLogo from '../navigation/assets/uoft-logo-dark.svg'
 
 export const heroContent = {
   title: 'CORE Lab',
-  eyebrow: 'University of Toronto · McMaster University',
+  institutions: 'University of Toronto and McMaster University',
   tagline: 'CORE Lab (Computational Research and Education) studies how people learn, teach, and work in computationally-driven fields.',
   publicationBlurb: 'Our research appears across leading computing education and human-computer interaction (HCI) venues, spanning full papers, working-group reports, and posters.',
   actions: [

@@ -20,18 +20,20 @@ const Hero = () => {
   return (
     <section className='bg-linear-to-b from-brand-soft to-white'>
       <div className='page-shell py-10 sm:py-12 lg:py-14'>
-        <p className='text-xs font-semibold uppercase tracking-[0.2em] text-brand-muted sm:text-sm'>
-          {heroContent.eyebrow}
-        </p>
         {/* Title left, copy right: the wide shell would otherwise leave the
             right half empty and push the fold far down the page. */}
-        <div className='mt-4 grid gap-6 lg:mt-5 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-center lg:gap-12'>
-          {/* -ml-px cancels the left side bearing of the display "C", which is
-              ~2px at this size and otherwise indents the title relative to the
-              eyebrow above it. */}
-          <h1 className='-ml-px text-display font-bold text-brand-dark'>
-            {heroContent.title}
-          </h1>
+        <div className='grid gap-6 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:items-center lg:gap-12'>
+          <div>
+            {/* -ml-px cancels the left side bearing of the display "C", which
+                is ~2px at this size and otherwise indents the title relative
+                to the line below it. */}
+            <h1 className='-ml-px text-display font-bold text-brand-dark'>
+              {heroContent.title}
+            </h1>
+            <p className='mt-3 text-lg leading-7 text-slate-600'>
+              {heroContent.institutions}
+            </p>
+          </div>
           <div className='lg:border-l lg:border-brand-line lg:pl-12'>
             <p className='max-w-2xl text-lg leading-8 text-slate-700'>
               {heroContent.tagline
