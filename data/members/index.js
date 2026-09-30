@@ -74,19 +74,12 @@ export const isCollaborator = (person) =>
   person.groupId === COLLABORATOR_GROUP_ID ||
   person.parentGroupId === COLLABORATOR_GROUP_ID
 
-/**
- * A `position` reads "role — Institution", so the institution is already in the
- * member record and does not need restating. Set `institution` explicitly on
- * the few people whose position names no institution at all.
- */
-export const getMemberInstitution = (person) =>
-  person.institution || person.position?.split('—').at(-1).trim() || ''
-
-const basicProfile = (name, slug, position, details = {}) => ({
+const basicProfile = (name, slug, role, institution, details = {}) => ({
   name,
   slug,
   image: defaultPhoto,
-  position,
+  role,
+  institution,
   bio: '',
   website: '',
   googlescholar: '',
@@ -100,7 +93,8 @@ export const directors = [
     name: 'Michael Liut',
     slug: 'michael_liut',
     image: michaelPhoto,
-    position: 'Co-Director, CORE Lab; Associate Professor, Teaching Stream — University of Toronto Mississauga',
+    role: 'Co-Director, CORE Lab; Associate Professor, Teaching Stream',
+    institution: 'University of Toronto Mississauga',
     bio: 'Michael Liut is a CORE Lab Co-Director, Associate Professor, Teaching Stream, and Computer Science Community Advisor at the University of Toronto Mississauga. His research focuses on computing education, applied AI and machine learning, adaptive educational technologies, data systems, algorithms, and student behaviour.',
     website: 'https://www.michaelliut.ca/',
     googlescholar: 'https://scholar.google.com/citations?user=Jf8s0dMAAAAJ&hl=en&oi=ao',
@@ -119,7 +113,8 @@ export const directors = [
     name: 'Angela Zavaleta Bernuy',
     slug: 'angela_zavaleta_bernuy',
     image: angelaPhoto,
-    position: 'Co-Director, CORE Lab; Assistant Professor, Computing and Software — McMaster University',
+    role: 'Co-Director, CORE Lab; Assistant Professor, Computing and Software',
+    institution: 'McMaster University',
     aliases: [
       'Angela M. Zavaleta Bernuy',
       'Angela Zavaleta-Bernuy',
@@ -139,7 +134,7 @@ export const facultyIndustryPartners = [
     name: 'Andrew Petersen',
     slug: 'andrew_petersen',
     image: andrewPhoto,
-    position: 'Professor, Teaching Stream',
+    role: 'Professor, Teaching Stream',
     institution: 'University of Toronto Mississauga',
     aliases: ['A. Peterson'],
     bio: 'Andrew Petersen is a Professor, Teaching Stream at the University of Toronto Mississauga. His research focuses on introductory computer science education, educational data mining, assessment, classroom interventions, and learning tools such as PCRS.',
@@ -153,7 +148,8 @@ export const facultyIndustryPartners = [
     name: 'Lisa Zhang',
     slug: 'lisa_zhang',
     image: lisaPhoto,
-    position: 'Associate Professor, Teaching Stream, Computer Science — University of Toronto Mississauga',
+    role: 'Associate Professor, Teaching Stream, Computer Science',
+    institution: 'University of Toronto Mississauga',
     bio: 'Lisa Zhang is an Associate Professor, Teaching Stream, in Computer Science at the University of Toronto Mississauga, with cross-appointments at the Institute for the Study of University Pedagogy and the Institute for Management and Innovation. Her work focuses on machine learning and computing education, including AI education, writing instruction, and undergraduate research mentorship.',
     website: 'https://www.cs.toronto.edu/~lczhang/',
     googlescholar: 'https://scholar.google.com/citations?user=xSTQSikAAAAJ&hl=en&oi=ao',
@@ -165,7 +161,8 @@ export const facultyIndustryPartners = [
     name: 'Bogdan Simion',
     slug: 'bogdan_simion',
     image: bogdanPhoto,
-    position: 'Associate Professor, Teaching Stream; Associate Chair, Computer Science — University of Toronto Mississauga',
+    role: 'Associate Professor, Teaching Stream; Associate Chair, Computer Science',
+    institution: 'University of Toronto Mississauga',
     bio: 'Bogdan Simion is an Associate Professor, Teaching Stream, and Associate Chair of Computer Science at the University of Toronto Mississauga. His research examines active learning, group work, help-seeking, problem solving, writing instruction, productive failure, and language models in computer science education.',
     website: 'https://www.cs.toronto.edu/~bogdan/',
     googlescholar: 'https://scholar.google.com/citations?user=-ObySCYAAAAJ&hl=en&oi=ao',
@@ -177,7 +174,8 @@ export const facultyIndustryPartners = [
     name: 'Tingting Zhu',
     slug: 'tingting_zhu',
     image: tingtingPhoto,
-    position: 'Assistant Professor, Teaching Stream; Geospatial Data Science Program Director & Advisor — University of Toronto Mississauga',
+    role: 'Assistant Professor, Teaching Stream; Geospatial Data Science Program Director & Advisor',
+    institution: 'University of Toronto Mississauga',
     bio: 'Tingting Zhu is an Assistant Professor, Teaching Stream, and Geospatial Data Science Program Director & Advisor at the University of Toronto Mississauga, with appointments in Computer Science and Geographic Information Science. Her research explores storytelling, generative AI, competency-based curricula, and experiential learning in computing and geography education.',
     website: 'https://sites.utm.utoronto.ca/tzhu/',
     googlescholar: 'https://scholar.google.com/citations?user=_mv3818AAAAJ&hl=en',
@@ -189,7 +187,8 @@ export const facultyIndustryPartners = [
     name: 'Andi Bergen',
     slug: 'andi_bergen',
     image: andiPhoto,
-    position: 'Assistant Professor, Teaching Stream, Computer Science — University of Toronto Mississauga',
+    role: 'Assistant Professor, Teaching Stream, Computer Science',
+    institution: 'University of Toronto Mississauga',
     aliases: ['Andreas Bergen'],
     bio: 'Andi Bergen is an Assistant Professor, Teaching Stream, in Computer Science at the University of Toronto Mississauga. His computing education work includes embedding writing instruction across the computer science curriculum and investigating how small language models and retrieval-augmented generation can support student learning.',
     website: '',
@@ -202,7 +201,8 @@ export const facultyIndustryPartners = [
     name: 'Brian Harrington',
     slug: 'brian_harrington',
     image: brianPhoto,
-    position: 'Professor, Teaching Stream — University of Toronto Scarborough',
+    role: 'Professor, Teaching Stream',
+    institution: 'University of Toronto Scarborough',
     bio: 'Brian Harrington is a Professor, Teaching Stream at the University of Toronto Scarborough. His research focuses on CS pedagogy and undergraduate education, including the non-technical skills that help students succeed in academia and industry.',
     website: 'https://www.brianharrington.net/',
     googlescholar: 'https://scholar.google.com/citations?user=uYCeHkcAAAAJ&hl=en&oi=ao',
@@ -213,7 +213,8 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Anastasiia Birillo',
     'anastasiia_birillo',
-    'Head of Education Research — JetBrains',
+    'Head of Education Research',
+    'JetBrains',
     {
       image: anastasiiaBirilloPhoto,
       bio: 'Anastasiia Birillo leads education research at JetBrains. Her work focuses on AI-supported programming education, including intelligent hints, in-IDE learning experiences, debugging support, automated feedback, and tools that help learners improve code quality.',
@@ -223,7 +224,8 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Philip Oreopoulos',
     'philip_oreopoulos',
-    'Professor, Economics and Public Policy — University of Toronto',
+    'Professor, Economics and Public Policy',
+    'University of Toronto',
     {
       aliases: ['Philip Oreopolos'],
       image: philipOreopoulosPhoto,
@@ -237,7 +239,8 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Christopher Eaton',
     'christopher_eaton',
-    'Associate Professor, Teaching Stream; Associate Director, Research, ISUP — University of Toronto Mississauga',
+    'Associate Professor, Teaching Stream; Associate Director, Research, ISUP',
+    'University of Toronto Mississauga',
     {
       image: christopherEatonPhoto,
       bio: 'Christopher Eaton is an Associate Professor, Teaching Stream, and Associate Director, Research, at UTM’s Institute for the Study of University Pedagogy. His scholarship connects writing studies, curriculum design, multimodal assessment, and emerging educational technologies, with recent work on generative AI, small language models, and AI literacy.',
@@ -249,7 +252,8 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Carolina Nobre',
     'carolina_nobre',
-    'Assistant Professor, Computer Science — University of Toronto',
+    'Assistant Professor, Computer Science',
+    'University of Toronto',
     {
       image: carolinaNobrePhoto,
       bio: 'Carolina Nobre is an Assistant Professor in Computer Science at the University of Toronto. Her research focuses on data visualization, particularly user-adaptive interactive visualizations, multivariate networks, visual literacy, and the design of tools that help people explore and trust complex data.',
@@ -261,7 +265,8 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Nihal Haque',
     'nihal_haque',
-    'Geriatrician — North York General Hospital; Adjunct Assistant Professor — University of Toronto',
+    'Geriatrician, North York General Hospital; Adjunct Assistant Professor',
+    'University of Toronto',
     {
       image: nihalHaquePhoto,
       bio: 'Nihal Haque is a geriatrician at North York General Hospital and an Adjunct Assistant Professor at the University of Toronto. His work brings human-centred AI into geriatric medicine and medical education, including tools for discharge summaries, delirium care, clinician AI literacy, and MedBot, a simulated-patient chatbot for clinical interviewing practice.',
@@ -271,7 +276,8 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Nathan Taback',
     'nathan_taback',
-    'Professor, Teaching Stream; Associate Chair, Undergraduate; Special Advisor to the Dean — University of Toronto',
+    'Professor, Teaching Stream; Associate Chair, Undergraduate; Special Advisor to the Dean',
+    'University of Toronto',
     {
       image: nathanPhoto,
       bio: 'Nathan Taback is a Professor, Teaching Stream, and Associate Chair, Undergraduate, in the University of Toronto’s Department of Statistical Sciences. He works in data science and statistics education and serves as a Special Advisor to the Dean of Arts & Science on computational and data science education.',
@@ -283,14 +289,15 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Frantisek Franek',
     'franya_franek',
-    ' Professor Emeritus — McMaster University',
+    'Professor Emeritus',
+    'McMaster University',
     {
       image: franyaFranek,
       bio: 'Dr. Frantisek (Franya) Franek\n' +
               'Professor Emeritus, Department of Computing and Software, McMaster University\n\n' +
               'Frantisek \"Franya\" Franek is Professor Emeritus in the Department of Computing and Software at McMaster University, where he served as Professor of Computer Science and Mathematics from 1986 until his retirement in 2025. He holds two doctorates: an RNDr. in Cybernetics from Charles University in Prague (1976) and a Ph.D. in Mathematics from the University of Toronto (1983).\n\n' +
-              'Dr. Franek\'s research centres on algorithms and combinatorics on words, with particular emphasis on string algorithms and the periodic and repetitive structures of strings. His broader research interests span computer science (string algorithms, compilers, databases), combinatorics (design theory and graph theory), and set theory (Boolean algebras and dynamical systems) — the latter reflected in the Balcar–Franek theorem, a foundational result on Boolean algebras that bears his name. He is a member of McMaster\'s Advanced Optimization Laboratory (AdvOL), and his work falls within the department\'s Theory of Computation specialization and the Digital & Smart Systems research cluster.\n\n' +
-              'Alongside his research, Dr. Franek has been deeply committed to improving education in programming — both software engineering and computer science — as well as in database systems and in compilers and interpreters. His graduate teaching includes CAS 721: Combinatorics and Computing, covering graph theory and algorithms, combinatorial optimization, design theory, and coding theory, and CAS 758: Advanced Compiler Design and Optimization.',
+              'Dr. Franek\'s research centres on algorithms and combinatorics on words, with particular emphasis on string algorithms and the periodic and repetitive structures of strings. His broader research interests span computer science (string algorithms, compilers, databases), combinatorics (design theory and graph theory), and set theory (Boolean algebras and dynamical systems). The latter is reflected in the Balcar–Franek theorem, a foundational result on Boolean algebras that bears his name. He is a member of McMaster\'s Advanced Optimization Laboratory (AdvOL), and his work falls within the department\'s Theory of Computation specialization and the Digital & Smart Systems research cluster.\n\n' +
+              'Alongside his research, Dr. Franek has been deeply committed to improving education in programming (both software engineering and computer science), as well as in database systems and in compilers and interpreters. His graduate teaching includes CAS 721: Combinatorics and Computing, covering graph theory and algorithms, combinatorial optimization, design theory, and coding theory, and CAS 758: Advanced Compiler Design and Optimization.',
       aliases: ['F. Franek', 'Franya Franek', "Frantisek Franek"],
       websites: ['https://www.cas.mcmaster.ca/~franek/index.html',
                  'https://www.eng.mcmaster.ca/cas/faculty/dr-frantisek-franya-franek/'
@@ -305,7 +312,8 @@ export const currentGraduateStudents = [
     name: 'Naaz Sibia',
     slug: 'naaz_sibia',
     image: naazPhoto,
-    position: 'Ph.D. Candidate, Computer Science — University of Toronto',
+    role: 'Ph.D. Candidate, Computer Science',
+    institution: 'University of Toronto',
     bio: 'Naaz is a Ph.D. student in computer science at the University of Toronto. Her research spans data visualization and computing education, including tools that help learners build stronger mental models of programming, databases, and computer systems.',
     website: 'https://www.naazsibia.com/',
     googlescholar: 'https://scholar.google.ca/citations?user=r60zG3UAAAAJ&hl=en',
@@ -317,7 +325,8 @@ export const currentGraduateStudents = [
     name: 'Harry (Runlong) Ye',
     slug: 'harry_ye',
     image: harryPhoto,
-    position: 'Ph.D. Student, Computer Science — University of Toronto',
+    role: 'Ph.D. Student, Computer Science',
+    institution: 'University of Toronto',
     aliases: ['Harry Ye', 'Runlong Ye'],
     publicationName: 'Runlong Ye',
     bio: 'Harry is a Ph.D. student in computer science with the University of Toronto’s Dynamic Graphics Project. His research focuses on transparent, controllable AI systems that augment education, research, and other knowledge work.',
@@ -331,7 +340,8 @@ export const currentGraduateStudents = [
     name: 'Amber Richardson',
     slug: 'amber_richardson',
     image: amberPhoto,
-    position: 'Incoming Ph.D. Student, Computing and Software — McMaster University',
+    role: 'Incoming Ph.D. Student, Computing and Software',
+    institution: 'McMaster University',
     bio: 'Amber is an incoming Ph.D. student in Computing and Software at McMaster University. Their research examines computing and machine-learning education, first-year writing, self-regulated learning, and student experiences with AI.',
     website: '',
     googlescholar: 'https://scholar.google.ca/citations?user=nV2mdA0AAAAJ&hl=en',
@@ -342,7 +352,8 @@ export const currentGraduateStudents = [
   basicProfile(
     'Valeria Osorio Ramirez',
     'valeria_osorio_ramirez',
-    'M.Eng. Student — McMaster University',
+    'M.Eng. Student',
+    'McMaster University',
     {
       aliases: ['Valeria Ramirez Osorio'],
       publicationName: 'Valeria Ramirez Osorio',
@@ -361,7 +372,8 @@ export const currentGraduateStudents = [
   basicProfile(
     'Zezhu (Sam) Yu',
     'zezhu_sam_yu',
-    'M.Eng. Student — McMaster University',
+    'M.Eng. Student',
+    'McMaster University',
     {
       aliases: ['Zezhu Yu', 'Sam Yu'],
       publicationName: 'Zezhu Yu',
@@ -378,7 +390,8 @@ export const currentGraduateStudents = [
   basicProfile(
     'Deluckshan Murugesu',
     'deluckshan_murugesu',
-    'Incoming M.Eng. Student — McMaster University',
+    'Incoming M.Eng. Student',
+    'McMaster University',
     {
       bio: 'Deluckshan is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His project experience includes full-stack and AI development, including an AI-powered patient-education chatbot designed to help people prepare for ENT surgery.',
       image: deluckshanMurugesu,
@@ -388,7 +401,8 @@ export const currentGraduateStudents = [
   basicProfile(
     'Adam Kolodziejczak',
     'adam_kolodziejczak',
-    'Incoming M.Eng. Student — McMaster University',
+    'Incoming M.Eng. Student',
+    'McMaster University',
     {
       image: adamKolodziejczakPhoto,
       bio: 'Adam is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab.',
@@ -402,7 +416,8 @@ export const currentUndergraduateStudents = [
     name: 'Jessica Wen',
     slug: 'jessica_wen',
     image: jessicaPhoto,
-    position: 'Undergraduate Researcher — University of Toronto Mississauga',
+    role: 'Undergraduate Researcher',
+    institution: 'University of Toronto Mississauga',
     bio: 'Jessica is an undergraduate researcher at the University of Toronto Mississauga. Her work explores how generative AI can enhance learning experiences and instructional tools in computing education.',
     website: '',
     googlescholar: 'https://scholar.google.ca/citations?user=-mvmx-IAAAAJ&hl=en&oi=sra',
@@ -414,7 +429,8 @@ export const currentUndergraduateStudents = [
     name: 'Khushi Malik',
     slug: 'khushi_malik',
     image: khushiPhoto,
-    position: 'Undergraduate Researcher — University of Toronto Mississauga',
+    role: 'Undergraduate Researcher',
+    institution: 'University of Toronto Mississauga',
     bio: 'Khushi is an undergraduate researcher at the University of Toronto Mississauga. Her work spans machine learning and computing education, including self-regulated learning, regression analysis, and interdisciplinary applications of machine-learning models.',
     website: '',
     googlescholar: 'https://scholar.google.com/citations?user=o8zvj34AAAAJ&hl=en',
@@ -425,7 +441,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Uzima Malik',
     'uzima_malik',
-    'Undergraduate Student — University of Toronto Mississauga',
+    'Undergraduate Student',
+    'University of Toronto Mississauga',
     {
       image: uzimaMalikPhoto,
       bio: 'Uzima is a fourth-year computer science specialist at the University of Toronto Mississauga, with minors in business and mathematics. Uzima’s interests include software development, artificial intelligence, cloud computing, and machine learning.',
@@ -436,7 +453,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Caroline Pechenik',
     'caroline_pechenik',
-    'Undergraduate Student — University of Toronto Mississauga',
+    'Undergraduate Student',
+    'University of Toronto Mississauga',
     {
       bio: 'Caroline is an undergraduate student working with the CORE Lab.',
     }
@@ -444,7 +462,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Emmanuel Deza',
     'emmanuel_deza',
-    'Undergraduate Student — CORE Lab',
+    'Undergraduate Student',
+    'CORE Lab',
     {
       bio: 'Emmanuel is an undergraduate student working with the CORE Lab.',
     }
@@ -452,7 +471,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Kelvin Leung',
     'kelvin_leung',
-    'Undergraduate Student — CORE Lab',
+    'Undergraduate Student',
+    'CORE Lab',
     {
       bio: 'Kelvin is an undergraduate student working with the CORE Lab on research and development in computing and education.',
     }
@@ -460,7 +480,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Jingcheng Liang',
     'jingcheng_liang',
-    'Undergraduate Student — University of Toronto Mississauga',
+    'Undergraduate Student',
+    'University of Toronto Mississauga',
     {
       image: jingchengLiangPhoto,
       bio: 'Jingcheng is an undergraduate student studying Computer Science and Statistics at the University of Toronto Mississauga. His interests include artificial intelligence, machine learning, large language models, and software systems, particularly the development and evaluation of AI systems.',
@@ -470,7 +491,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Najwa Ibrahimi',
     'najwa_ibrahimi',
-    'Undergraduate Student — University of Toronto Mississauga',
+    'Undergraduate Student',
+    'University of Toronto Mississauga',
     {
       bio: 'Najwa is a fifth-year Computer Science Specialist at the University of Toronto Mississauga. Her interests include artificial intelligence, machine learning, responsible AI, and computing education.',
       email: 'najwa.ibrahimi@utoronto.ca',
@@ -479,7 +501,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Aayush Patel',
     'aayush_patel',
-    'Undergraduate Student — University of Toronto Mississauga',
+    'Undergraduate Student',
+    'University of Toronto Mississauga',
     {
       bio: 'Aayush is an upper-year Computer Science student at the University of Toronto Mississauga. His interests include improving students\' use of generative AI in classrooms and designing instructional materials to elevate student outcomes.',
       email: 'aayush.patel@mail.utoronto.ca',
@@ -489,7 +512,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Lukas Oreopoulos',
     'lukas_oreopoulos',
-    'Undergraduate Student — CORE Lab',
+    'Undergraduate Student',
+    'CORE Lab',
     {
       bio: 'Lukas is an undergraduate student working with the CORE Lab on research and development in computing and education.',
       website: 'https://kangleelab.com/current-students',
@@ -498,7 +522,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Zain Mustafa',
     'zain_mustafa',
-    'Undergraduate Researcher — University of Toronto Mississauga',
+    'Undergraduate Researcher',
+    'University of Toronto Mississauga',
     {
       image: zainMustafaPhoto,
       bio: 'Zain is an undergraduate researcher at the University of Toronto Mississauga. His work spans machine learning, computer vision, efficient model design, learning theory, and interdisciplinary applications of machine learning.',
@@ -509,7 +534,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Chenhe Wu',
     'chenhe_wu',
-    'Undergraduate Researcher — McMaster University',
+    'Undergraduate Researcher',
+    'McMaster University',
     {
       image: chenheWuPhoto,
       bio: 'Chenhe is an undergraduate researcher at McMaster University working with the CORE Lab.',
@@ -519,7 +545,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Jaiden Baynes',
     'jaiden_baynes',
-    'Undergraduate Researcher — McMaster University',
+    'Undergraduate Researcher',
+    'McMaster University',
     {
       image: jaidenBaynesPhoto,
       bio: 'Jaiden is an undergraduate researcher at McMaster University working with the CORE Lab.',
@@ -529,7 +556,8 @@ export const currentUndergraduateStudents = [
   basicProfile(
     'Khayla Salim',
     'khayla_salim',
-    'Undergraduate Student, Computer Science — McMaster University',
+    'Undergraduate Student, Computer Science',
+    'McMaster University',
     {
       image: khaylaSalimPhoto,
       bio: 'Khayla is a Computer Science student at McMaster University interested in artificial intelligence, software development, and exploring how AI can be used in education and learning.',
@@ -542,7 +570,8 @@ export const softwareDevelopers = [
   basicProfile(
     'Marko Choi',
     'marko_choi',
-    'Software Developer — CORE Lab',
+    'Software Developer',
+    'CORE Lab',
     {
       image: markoChoiPhoto,
       bio: 'Marko is a software developer with the CORE Lab and a University of Toronto computer science alumnus. He contributed to QuickTA, an LLM-powered tutoring system for computer science courses, and has a professional background in full-stack development.',
@@ -552,7 +581,8 @@ export const softwareDevelopers = [
   basicProfile(
     'Rhett Amin',
     'rhett_amin',
-    'Software Developer — CORE Lab',
+    'Software Developer',
+    'CORE Lab',
     {
       image: rhettAminPhoto,
       bio: 'Rhett is a software developer with the CORE Lab and a technical product leader with experience in backend APIs, cloud infrastructure, and full-stack development. He studied computer science at McMaster University, where he led student technology initiatives and contributed to computing education research.',
@@ -562,7 +592,8 @@ export const softwareDevelopers = [
   basicProfile(
     'Josh Barkovic',
     'josh_barkovic',
-    'Software Developer — CORE Lab',
+    'Software Developer',
+    'CORE Lab',
     {
       image: joshuaPhoto,
       aliases: ['Joshua Barkovic'],
@@ -576,7 +607,8 @@ export const formerGraduateStudents = [
   basicProfile(
     'Xiaojun Ling',
     'xiaojun_ling',
-    'CORE Lab Alumni — Former M.Sc. Student (External Thesis Advisor)',
+    'Former M.Sc. Student (External Thesis Advisor)',
+    'CORE Lab',
     {
       bio: 'Xiaojun was an M.Sc. student advised externally by the CORE Lab for their thesis, under the primary supervision of Efthimia Aivaloglou at TU Delft.',
     }
@@ -584,7 +616,8 @@ export const formerGraduateStudents = [
   basicProfile(
     'Ilya Musabirov',
     'ilya_musabirov',
-    'CORE Lab Alumni — Former Ph.D. Student',
+    'Former Ph.D. Student',
+    'CORE Lab',
     {
       currentPosition: 'Now Assistant Professor at UBC',
       image: ilyaMusabirovPhoto,
@@ -596,7 +629,8 @@ export const formerGraduateStudents = [
   basicProfile(
     'Suqing Liu',
     'suqing_liu',
-    'CORE Lab Alumni — Former M.Eng. Student',
+    'Former M.Eng. Student',
+    'CORE Lab',
     {
       currentPosition: 'Now at Meta',
       aliases: ['Suqing Richard Liu', 'Richard Liu'],
@@ -612,7 +646,8 @@ export const formerVisitingResearchers = [
   basicProfile(
     'Matías Piña Aguilera',
     'matias_pina_aguilera',
-    'CORE Lab Alumni — Former Visiting Researcher (ELAP Scholar)',
+    'Former Visiting Researcher (ELAP Scholar)',
+    'CORE Lab',
     {
       currentPosition: 'Now Creative Technologist at Google',
       image: matiasPinaAguileraPhoto,
@@ -624,7 +659,8 @@ export const formerVisitingResearchers = [
   basicProfile(
     'Boushra Almazroua',
     'boushra_almazroua',
-    'CORE Lab Alumni — Former Visiting Researcher (DSI SUDS Scholar)',
+    'Former Visiting Researcher (DSI SUDS Scholar)',
+    'CORE Lab',
     {
       currentPosition: "Incoming Ph.D. Student at King's College London",
       bio: 'Boushra was a visiting researcher with the CORE Lab and a DSI SUDS Scholar from King Abdullah University of Science and Technology (KAUST). She is an incoming Ph.D. student at King\'s College London.',
@@ -637,7 +673,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Ali Syed Raza',
     'ali_syed_raza',
-    'CORE Lab Alumni — Former Undergraduate Researcher (NSERC USRA)',
+    'Former Undergraduate Researcher (NSERC USRA)',
+    'CORE Lab',
     {
       currentPosition: 'Now Senior Software Engineer (CV & AI/ML) at AMD',
       bio: 'Ali was an NSERC Undergraduate Student Research Award (USRA) researcher with the CORE Lab. He is now a Senior Software Engineer specializing in computer vision and AI/ML at AMD.',
@@ -646,7 +683,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Muniya Fallah',
     'muniya_fallah',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       image: muniyaFallahPhoto,
       bio: 'Muniya is a former CORE Lab undergraduate researcher.',
@@ -656,7 +694,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Nicholas Ching',
     'nicholas_ching',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       currentPosition: 'Now Embedded Software Engineering Intern at Cisco',
       image: nicholasChingPhoto,
@@ -668,7 +707,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Ido Ben Haim',
     'ido_ben_haim',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       currentPosition: 'Now Machine Learning R&D Engineer at Exhilarare',
       image: idoBenHaimPhoto,
@@ -679,7 +719,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Zeling (Zoey) Zhang',
     'zeling_zoey_zhang',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       aliases: ['Zeling Zhang', 'Zoey Zhang'],
       currentPosition: 'Now M.Eng at U of T',
@@ -692,9 +733,10 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Aaditya Dhingra',
     'aaditya_dhingra',
-    'CORE Lab Alumni — Former Undergraduate Student',
+    'Former Undergraduate Student',
+    'CORE Lab',
     {
-      currentPosition: 'Now at Mozilla — Software Engineer',
+      currentPosition: 'Now Software Engineer at Mozilla',
       bio: 'Aaditya is a former CORE Lab undergraduate student and is now a Software Engineer at Mozilla.',
       linkedin: 'https://ca.linkedin.com/in/aaditya-dhingra',
     }
@@ -702,7 +744,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Akhil Choraria',
     'akhil_choraria',
-    'CORE Lab Alumni — Former Undergraduate Student',
+    'Former Undergraduate Student',
+    'CORE Lab',
     {
       bio: 'Akhil is a former CORE Lab undergraduate student.',
       linkedin: 'https://ca.linkedin.com/in/akhilchoraria',
@@ -711,7 +754,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Franco Ortiz',
     'franco_ortiz',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       currentPosition: 'Now a Master Student in France',
       aliases: ['Franco Ortiz Luna'],
@@ -723,7 +767,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Maksym Woychyshyn',
     'maksym_woychyshyn',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       image: maksymWoychyshynPhoto,
       bio: 'Maksym is a former CORE Lab undergraduate researcher.',
@@ -734,7 +779,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Stephen Clark',
     'stephen_clark',
-    'CORE Lab Alumni — Former Undergraduate Researcher',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
     {
       aliases: ['S. Clark'],
       image: stephenClarkPhoto,
@@ -745,7 +791,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Yashika Jain',
     'yashika_jain',
-    'CORE Lab Alumni — Former Undergraduate Student',
+    'Former Undergraduate Student',
+    'CORE Lab',
     {
       bio: 'Yashika is a former CORE Lab undergraduate student.',
       linkedin: 'https://ca.linkedin.com/in/yashika-jain-1705',
@@ -754,7 +801,8 @@ export const formerUndergraduateStudents = [
   basicProfile(
     'Yousef Bulbulia',
     'yousef_bulbulia',
-    'CORE Lab Alumni — Former Undergraduate Student',
+    'Former Undergraduate Student',
+    'CORE Lab',
     {
       bio: 'Yousef is a former CORE Lab undergraduate student.',
       image: yousefBulbulia,
@@ -767,7 +815,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Carlos Aníbal Suárez',
     'carlos_anibal_suarez',
-    'Professor — Escuela Superior Politécnica del Litoral (ESPOL), Ecuador',
+    'Professor',
+    'Escuela Superior Politécnica del Litoral (ESPOL), Ecuador',
     {
       aliases: ['Carlos Aníbal Suárez', 'Carlos Anibal Suarez', 'C. Suárez', 'C. Suarez', 'Aníbal Suárez', 'Anibal Suarez', 'CA Suárez', 'CA Suarez', 'Carlos Aníbal Suárez Hernandez', 'Carlos Anibal Suarez Hernandez', 'Carlos Suárez Hernandez', 'Carlos Suarez Hernandez', 'Carlos Hernandez', 'CA Suárez Hernandez', 'CA Suarez Hernandez', 'C. Suárez Hernandez', 'C. Suarez Hernandez', 'Carlos Suarez Hernandez'],
       image: carlosPhoto,
@@ -778,7 +827,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Nan Messe',
     'nan_messe',
-    'Assistant Professor — Université Toulouse–Jean Jaurès; Researcher — IRIT',
+    'Assistant Professor, Université Toulouse–Jean Jaurès; Researcher',
+    'IRIT',
     {
       image: nanMessePhoto,
       bio: 'Nan Messe is an Assistant Professor at Université Toulouse–Jean Jaurès and a researcher at IRIT. Her work spans software and systems engineering, security-by-design, model-driven engineering, and methods for integrating threat and risk analysis into the development of complex systems.',
@@ -789,7 +839,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Oscar Karnalim',
     'oscar_karnalim',
-    'Vice Rector I, Academic and Research; Associate Professor — Maranatha Christian University',
+    'Vice Rector I, Academic and Research; Associate Professor',
+    'Maranatha Christian University',
     {
       image: oscarKarnalimPhoto,
       bio: 'Oscar Karnalim is Vice Rector I for Academic and Research and an Associate Professor in Informatics Engineering at Maranatha Christian University. His research spans software engineering and learning technologies, including generative AI, programming assessment, source-code similarity, and academic integrity.',
@@ -799,7 +850,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Juho Leinonen',
     'juho_leinonen',
-    'Assistant Professor — Aalto University',
+    'Assistant Professor',
+    'Aalto University',
     {
       image: juhoLeinonenPhoto,
       bio: 'Juho Leinonen is an Assistant Professor at Aalto University. His research combines educational technology, artificial intelligence, and learning analytics, with a focus on large language models for learning, automated support for programming students, and learnersourcing approaches that turn student activity into reusable learning resources.',
@@ -810,7 +862,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Paul Denny',
     'paul_denny',
-    'Professor, Computer Science — University of Auckland',
+    'Professor, Computer Science',
+    'University of Auckland',
     {
       image: paulDennyPhoto,
       bio: 'Paul Denny is a Professor of Computer Science at the University of Auckland. His research explores collaborative learning, student-generated resources, programming education, and large language models in teaching and assessment, and he is a co-creator of the PeerWise learning platform.',
@@ -821,7 +874,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Viktoria Pammer-Schindler',
     'viktoria_pammer_schindler',
-    'Associate Professor; Deputy Head, Human-Centred Computing — Graz University of Technology',
+    'Associate Professor; Deputy Head, Human-Centred Computing',
+    'Graz University of Technology',
     {
       image: viktoriaPammerSchindlerPhoto,
       bio: 'Viktoria Pammer-Schindler is an Associate Professor and Deputy Head of the Institute of Human-Centred Computing at Graz University of Technology. She studies digital and AI-based interactive systems from socio-technical and learning perspectives, with an emphasis on human agency, co-design, and mixed-methods research.',
@@ -832,7 +886,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Rita Garcia',
     'rita_garcia',
-    'Adjunct Research Fellow — Victoria University of Wellington',
+    'Adjunct Research Fellow',
+    'Victoria University of Wellington',
     {
       image: ritaGarciaPhoto,
       bio: 'Rita Garcia is an Adjunct Research Fellow at Victoria University of Wellington. Her computing education research includes replication studies, collaborative learning, and the development of professional and teamwork dispositions in software engineering and computer science students.',
@@ -843,7 +898,8 @@ export const facultyCollaborators = [
   basicProfile(
     'John Stamper',
     'john_stamper',
-    'Associate Professor; Director, METALS — Carnegie Mellon University',
+    'Associate Professor; Director, METALS',
+    'Carnegie Mellon University',
     {
       image: johnStamperPhoto,
       bio: 'John Stamper is an Associate Professor in Carnegie Mellon University’s Human-Computer Interaction Institute and Director of the METALS program. His research focuses on educational data mining, intelligent tutoring systems, and data-driven learning technologies, and includes leadership of the PSLC DataShop educational data repository.',
@@ -854,7 +910,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Alexander Steinmaurer',
     'alexander_steinmaurer',
-    'Postdoctoral Researcher; Program Coordinator — IT:U',
+    'Postdoctoral Researcher; Program Coordinator',
+    'IT:U',
     {
       image: alexanderSteinmaurerPhoto,
       bio: 'Alexander Steinmaurer is a postdoctoral researcher and program coordinator at IT:U in Austria. His research spans programming education, large language models in digital education, educational data, game-based learning, and immersive technologies such as virtual and augmented reality.',
@@ -868,7 +925,8 @@ export const facultyCollaborators = [
   basicProfile(
     'Paul Vrbik',
     'paul_vrbik',
-    'Senior Lecturer — University of Queensland',
+    'Senior Lecturer',
+    'University of Queensland',
     {
       image: paulVrbikPhoto,
       bio: 'Paul Vrbik is a Senior Lecturer at the University of Queensland. His research and teaching interests include computing and software engineering education, live coding and problem-solving instruction, assessment design, and academic integrity in programming courses.',
@@ -882,7 +940,8 @@ export const externalStudentsIndustryCollaborators = [
   basicProfile(
     'Ruiwei Xiao',
     'ruiwei_xiao',
-    'Ph.D. Student, Human-Computer Interaction — Carnegie Mellon University',
+    'Ph.D. Student, Human-Computer Interaction',
+    'Carnegie Mellon University',
     {
       image: ruiweiXiaoPhoto,
       bio: 'Ruiwei Xiao is a Ph.D. student in Carnegie Mellon University’s Human-Computer Interaction Institute. Her research combines intelligent tutoring systems, computing education, AI literacy, and the design of productive learner–AI collaboration.',
@@ -893,7 +952,8 @@ export const externalStudentsIndustryCollaborators = [
   basicProfile(
     'Sebastian Gürtl',
     'sebastian_gurtl',
-    'Researcher — Graz University of Technology',
+    'Researcher',
+    'Graz University of Technology',
     {
       aliases: ['Sebastian Gurtl'],
       image: sebastianGuertlPhoto,
@@ -905,7 +965,8 @@ export const externalStudentsIndustryCollaborators = [
   basicProfile(
     'Yuri Noviello',
     'yuri_noviello',
-    'Ph.D. Candidate — Delft University of Technology',
+    'Ph.D. Candidate',
+    'Delft University of Technology',
     {
       image: yuriNovielloPhoto,
       bio: 'Yuri Noviello is a Ph.D. candidate at Delft University of Technology. His research investigates artificial intelligence in computer science education, including natural-language processing methods for generating and evaluating learning materials.',
@@ -916,7 +977,8 @@ export const externalStudentsIndustryCollaborators = [
   basicProfile(
     'Yuvaansh Kapila',
     'yuvaansh_kapila',
-    'Student Developer; External Collaborator — CORE Lab',
+    'Student Developer; External Collaborator',
+    'CORE Lab',
     {
       image: yuvaanshKapilaPhoto,
       bio: 'Yuvaansh is a student developer and external collaborator with the CORE Lab. His interests include web technologies, artificial intelligence, accessibility, and conversational tools that make digital experiences more accessible.',
@@ -926,9 +988,14 @@ export const externalStudentsIndustryCollaborators = [
   ),
 ]
 
+/**
+ * `role` and `institution` are stored apart so a project page can name a
+ * collaborator's institution on its own; everywhere else shows them joined.
+ */
 const withMemberLinks = (people, { publicationSource = false } = {}) =>
   people.map(person => ({
     ...person,
+    position: [person.role, person.institution].filter(Boolean).join(', '),
     link: `/team/${person.slug}`,
     publicationSource,
   }))

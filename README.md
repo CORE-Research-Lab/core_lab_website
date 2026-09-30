@@ -32,7 +32,7 @@ Projects have their own page at `/projects`, listed top to bottom in the order t
    - `publications` – imported from `Papers/Projects/<slug>_papers.json`.
 2. Add a `projects.<slug>` block to `Papers/semantic-scholar.config.json` naming that output file and selecting the project's papers by DOI, Semantic Scholar paper ID, or exact title. The next sync writes the JSON.
 
-A member's institution comes from the end of their `position` ("role — Institution"). Set `institution` explicitly on the few whose position names none.
+Each member has a `role` and an `institution`, kept apart so a project page can list a collaborator by institution alone. Everywhere else shows them joined as "Role, Institution".
 
 ## Adding a Poster
 

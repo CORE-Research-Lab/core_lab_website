@@ -34,7 +34,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: person.name,
-    description: person.bio || `${person.name} — ${person.position}`,
+    description: person.bio || `${person.name}, ${person.position}`,
   }
 }
 

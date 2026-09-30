@@ -2,11 +2,7 @@ import arcImage from './assets/arc.png'
 import voiceexImage from './assets/voiceex.png'
 import arcPublications from '@/Papers/Projects/arc_papers.json'
 import voiceexPublications from '@/Papers/Projects/voiceex_papers.json'
-import {
-  getMemberInstitution,
-  isCollaborator,
-  membersBySlug,
-} from '@/data/members'
+import { isCollaborator, membersBySlug } from '@/data/members'
 
 export const projectsSection = {
   title: 'Projects',
@@ -99,7 +95,7 @@ const resolvePerson = (slug, projectName) => {
     link: person.link,
     image: person.image,
     position: person.position,
-    institution: getMemberInstitution(person),
+    institution: person.institution,
     isCollaborator: isCollaborator(person),
   }
 }

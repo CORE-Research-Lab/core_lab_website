@@ -84,15 +84,15 @@ const Papers = () => {
         <strong className='hidden font-semibold text-slate-800 sm:inline'>Author legend:</strong>
         <span>
           <strong className='text-brand'>Bold name</strong>
-          {' '}— current CORE Lab member
+          : current CORE Lab member
         </span>
         <span>
           <span className='text-brand underline underline-offset-2'>Underlined name</span>
-          {' '}— CORE Lab alumni or collaborator
+          : CORE Lab alumni or collaborator
         </span>
         <span>
           <sup className='font-semibold text-brand'>*</sup>
-          {' '}— equal contribution
+          : equal contribution
         </span>
       </aside>
 
