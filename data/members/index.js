@@ -58,6 +58,16 @@ import matiasPinaAguileraPhoto from './assets/matias_pina_aguilera_pfp.jpg'
 import jingchengLiangPhoto from './assets/jingcheng_liang_pfp.jpg'
 import khaylaSalimPhoto from './assets/khayla_salim_pfp.png'
 import kelvinLeungPhoto from './assets/kelvin_leung_pfp.jpg'
+import anaMayerPhoto from './assets/ana_mayer_pfp.png'
+import hongmingMeiPhoto from './assets/hongming_mei_pfp.jpg'
+import lukasOreopoulosPhoto from './assets/lukas_oreopoulos_pfp.png'
+import kaidenRaiPhoto from './assets/kaiden_rai_pfp.png'
+import zehaoFanPhoto from './assets/zehao_fan_pfp.webp'
+import boushraAlmazrouaPhoto from './assets/boushra_almazroua_pfp.jpg'
+import aadityaDhingraPhoto from './assets/aaditya_dhingra_pfp.jpg'
+import akhilChorariaPhoto from './assets/akhil_choraria_pfp.jpg'
+import yashikaJainPhoto from './assets/yashika_jain_pfp.png'
+import xiaojunLingPhoto from './assets/xiaojun_ling_pfp.png'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -541,6 +551,7 @@ export const currentUndergraduateStudents = [
     'Undergraduate Student',
     'University of Toronto',
     {
+      image: lukasOreopoulosPhoto,
       website: 'https://kangleelab.com/current-students',
       linkedin: 'https://www.linkedin.com/in/lukas-oreopoulos-a406982b5/',
     }
@@ -592,25 +603,37 @@ export const currentUndergraduateStudents = [
     'Ana Mayer',
     'ana_mayer',
     'Undergraduate Student',
-    'University of Toronto Mississauga'
+    'University of Toronto Mississauga',
+    {
+      image: anaMayerPhoto,
+    }
   ),
   basicProfile(
     'Hongming Mei',
     'hongming_mei',
     'Undergraduate Student',
-    'University of Toronto'
+    'University of Toronto',
+    {
+      image: hongmingMeiPhoto,
+    }
   ),
   basicProfile(
     'Zehao Fan',
     'zehao_fan',
     'Undergraduate Student',
-    'University of Toronto Mississauga'
+    'University of Toronto Mississauga',
+    {
+      image: zehaoFanPhoto,
+    }
   ),
   basicProfile(
     'Kaiden Rai',
     'kaiden_rai',
     'Undergraduate Student',
-    'University of Toronto Mississauga'
+    'University of Toronto Mississauga',
+    {
+      image: kaidenRaiPhoto,
+    }
   ),
 ]
 
@@ -658,6 +681,7 @@ export const formerGraduateStudents = [
     'Former M.Sc. Student (External Thesis Advisor)',
     'CORE Lab',
     {
+      image: xiaojunLingPhoto,
       bio: 'Xiaojun was an M.Sc. student advised externally by the CORE Lab for their thesis, under the primary supervision of Efthimia Aivaloglou at TU Delft.',
     }
   ),
@@ -710,6 +734,7 @@ export const formerVisitingResearchers = [
     'Former Visiting Researcher (DSI SUDS Scholar)',
     'CORE Lab',
     {
+      image: boushraAlmazrouaPhoto,
       currentPosition: "Incoming Ph.D. Student at King's College London",
       bio: 'Boushra was a visiting researcher with the CORE Lab and a DSI SUDS Scholar from King Abdullah University of Science and Technology (KAUST). She is an incoming Ph.D. student at King\'s College London.',
       linkedin: 'https://sa.linkedin.com/in/boushra-al-mazroua-35473b252',
@@ -782,6 +807,7 @@ export const formerUndergraduateStudents = [
     'Former Undergraduate Student',
     'CORE Lab',
     {
+      image: aadityaDhingraPhoto,
       currentPosition: 'Now Software Engineer at Mozilla',
       bio: 'Aaditya is a former CORE Lab undergraduate student and is now a Software Engineer at Mozilla.',
       linkedin: 'https://ca.linkedin.com/in/aaditya-dhingra',
@@ -793,6 +819,7 @@ export const formerUndergraduateStudents = [
     'Former Undergraduate Student',
     'CORE Lab',
     {
+      image: akhilChorariaPhoto,
       linkedin: 'https://ca.linkedin.com/in/akhilchoraria',
     }
   ),
@@ -837,6 +864,7 @@ export const formerUndergraduateStudents = [
     'Former Undergraduate Student',
     'CORE Lab',
     {
+      image: yashikaJainPhoto,
       linkedin: 'https://ca.linkedin.com/in/yashika-jain-1705',
     }
   ),
