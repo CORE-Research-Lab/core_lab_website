@@ -34,6 +34,14 @@ Projects have their own page at `/projects`, listed top to bottom in the order t
 
 Each member has a `role` and an `institution`, kept apart so a project page can list a collaborator by institution alone. Everywhere else shows them joined as "Role, Institution".
 
+## Updating Team Profiles
+
+Team profiles live in `data/members/index.js`. Add current undergraduate students to `currentUndergraduateStudents` and use their confirmed university for `institution`. Import a supplied portrait from `data/members/assets/`; profiles without a portrait use the default image.
+
+Leave `bio` empty (or omit it from `basicProfile` details) until there is specific information about the person. `getMemberBio` generates a default from their name, role, and institution for both the profile page and its metadata. For example: "Ana Mayer is an undergraduate student at the University of Toronto Mississauga working with the CORE Lab." Researchers, incoming graduate students, and alumni get wording appropriate to their role. Add a custom bio for individual studies, interests, or contributions; avoid copying the default into each profile.
+
+For alumni, maintain their current job or studies in `currentPosition`, which appears beneath their role on the profile page. Preserve personal bios that describe their background, career, or institutional connection, even when brief or when some details also appear in other profile fields. Use the default for missing bios and generic lab-membership statements.
+
 ## Adding a Poster
 
 Posters live in the *Poster Showcase* on the publications page, each with its own page at `/publications/<slug>` showing the poster, its abstract, and its citation. The venue is a free-text label on each poster, so a poster from any conference is added the same way.

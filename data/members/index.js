@@ -57,6 +57,7 @@ import jaidenBaynesPhoto from './assets/jaiden_baynes_pfp.jpg'
 import matiasPinaAguileraPhoto from './assets/matias_pina_aguilera_pfp.jpg'
 import jingchengLiangPhoto from './assets/jingcheng_liang_pfp.jpg'
 import khaylaSalimPhoto from './assets/khayla_salim_pfp.png'
+import kelvinLeungPhoto from './assets/kelvin_leung_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -73,6 +74,36 @@ export const COLLABORATOR_GROUP_ID = 'frequent-collaborators'
 export const isCollaborator = (person) =>
   person.groupId === COLLABORATOR_GROUP_ID ||
   person.parentGroupId === COLLABORATOR_GROUP_ID
+
+// Leave bio empty until there is something specific to say about the member.
+// Generate the fallback from current profile fields so it cannot go stale.
+export const getMemberBio = (person) => {
+  if (person.bio?.trim()) return person.bio.trim()
+
+  if (person.role?.startsWith('Former ')) {
+    // Lowercase title words while preserving degrees and acronyms (Ph.D., USRA).
+    const role = person.role.slice('Former '.length)
+      .replace(/\b[A-Z][a-z]+(?=\s|$|\))/g, word => word.toLowerCase())
+    return `${person.name} is a former CORE Lab ${role}.`
+  }
+
+  const institution = person.institution?.trim()
+  const affiliation = institution && institution !== 'CORE Lab'
+    ? ` at ${institution.startsWith('University ') ? 'the ' : ''}${institution}`
+    : ''
+
+  if (person.role?.startsWith('Undergraduate ')) {
+    const role = person.role.includes('Researcher') ? 'researcher' : 'student'
+    return `${person.name} is an undergraduate ${role}${affiliation} working with the CORE Lab.`
+  }
+
+  if (/M\.Eng\.|M\.Sc\.|Ph\.D\./.test(person.role || '')) {
+    const role = person.role.startsWith('Incoming ') ? 'an incoming' : 'a'
+    return `${person.name} is ${role} graduate student${affiliation} working with the CORE Lab.`
+  }
+
+  return `${person.name} works with the CORE Lab${affiliation}.`
+}
 
 const basicProfile = (name, slug, role, institution, details = {}) => ({
   name,
@@ -454,27 +485,22 @@ export const currentUndergraduateStudents = [
     'Caroline Pechenik',
     'caroline_pechenik',
     'Undergraduate Student',
-    'University of Toronto Mississauga',
-    {
-      bio: 'Caroline is an undergraduate student working with the CORE Lab.',
-    }
+    'University of Toronto Mississauga'
   ),
   basicProfile(
     'Emmanuel Deza',
     'emmanuel_deza',
     'Undergraduate Student',
-    'CORE Lab',
-    {
-      bio: 'Emmanuel is an undergraduate student working with the CORE Lab.',
-    }
+    'CORE Lab'
   ),
   basicProfile(
     'Kelvin Leung',
     'kelvin_leung',
     'Undergraduate Student',
-    'CORE Lab',
+    'University of Toronto',
     {
-      bio: 'Kelvin is an undergraduate student working with the CORE Lab on research and development in computing and education.',
+      image: kelvinLeungPhoto,
+      linkedin: 'https://www.linkedin.com/in/kelvin-leung-sure/',
     }
   ),
   basicProfile(
@@ -513,10 +539,10 @@ export const currentUndergraduateStudents = [
     'Lukas Oreopoulos',
     'lukas_oreopoulos',
     'Undergraduate Student',
-    'CORE Lab',
+    'University of Toronto',
     {
-      bio: 'Lukas is an undergraduate student working with the CORE Lab on research and development in computing and education.',
       website: 'https://kangleelab.com/current-students',
+      linkedin: 'https://www.linkedin.com/in/lukas-oreopoulos-a406982b5/',
     }
   ),
   basicProfile(
@@ -538,7 +564,6 @@ export const currentUndergraduateStudents = [
     'McMaster University',
     {
       image: chenheWuPhoto,
-      bio: 'Chenhe is an undergraduate researcher at McMaster University working with the CORE Lab.',
       linkedin: 'https://www.linkedin.com/in/chenhewu/',
     }
   ),
@@ -549,7 +574,6 @@ export const currentUndergraduateStudents = [
     'McMaster University',
     {
       image: jaidenBaynesPhoto,
-      bio: 'Jaiden is an undergraduate researcher at McMaster University working with the CORE Lab.',
       linkedin: 'https://www.linkedin.com/in/jaidenbaynes/',
     }
   ),
@@ -563,6 +587,30 @@ export const currentUndergraduateStudents = [
       bio: 'Khayla is a Computer Science student at McMaster University interested in artificial intelligence, software development, and exploring how AI can be used in education and learning.',
       linkedin: 'https://www.linkedin.com/in/khayla-salim-7b0b1a271/',
     }
+  ),
+  basicProfile(
+    'Ana Mayer',
+    'ana_mayer',
+    'Undergraduate Student',
+    'University of Toronto Mississauga'
+  ),
+  basicProfile(
+    'Hongming Mei',
+    'hongming_mei',
+    'Undergraduate Student',
+    'University of Toronto'
+  ),
+  basicProfile(
+    'Zehao Fan',
+    'zehao_fan',
+    'Undergraduate Student',
+    'University of Toronto Mississauga'
+  ),
+  basicProfile(
+    'Kaiden Rai',
+    'kaiden_rai',
+    'Undergraduate Student',
+    'University of Toronto Mississauga'
   ),
 ]
 
@@ -687,7 +735,6 @@ export const formerUndergraduateStudents = [
     'CORE Lab',
     {
       image: muniyaFallahPhoto,
-      bio: 'Muniya is a former CORE Lab undergraduate researcher.',
       linkedin: 'https://ca.linkedin.com/in/muniya-fallah-b641632a6',
     }
   ),
@@ -726,7 +773,6 @@ export const formerUndergraduateStudents = [
       currentPosition: 'Now M.Eng at U of T',
       image: zoeyZhangPhoto,
       publicationName: 'Zeling Zhang',
-      bio: 'Zeling is a former CORE Lab undergraduate researcher.',
       linkedin: 'https://www.linkedin.com/in/zoeyyyzhang/',
     }
   ),
@@ -747,7 +793,6 @@ export const formerUndergraduateStudents = [
     'Former Undergraduate Student',
     'CORE Lab',
     {
-      bio: 'Akhil is a former CORE Lab undergraduate student.',
       linkedin: 'https://ca.linkedin.com/in/akhilchoraria',
     }
   ),
@@ -760,7 +805,6 @@ export const formerUndergraduateStudents = [
       currentPosition: 'Now a Master Student in France',
       aliases: ['Franco Ortiz Luna'],
       image: francoPhoto,
-      bio: 'Franco is a former CORE Lab undergraduate researcher.',
       email: 'franco.ortiz@mail.utoronto.ca',
     }
   ),
@@ -771,7 +815,6 @@ export const formerUndergraduateStudents = [
     'CORE Lab',
     {
       image: maksymWoychyshynPhoto,
-      bio: 'Maksym is a former CORE Lab undergraduate researcher.',
       website: 'https://maksymw.com/',
       linkedin: 'https://ca.linkedin.com/in/maksym-woychyshyn-a14836197',
     }
@@ -794,7 +837,6 @@ export const formerUndergraduateStudents = [
     'Former Undergraduate Student',
     'CORE Lab',
     {
-      bio: 'Yashika is a former CORE Lab undergraduate student.',
       linkedin: 'https://ca.linkedin.com/in/yashika-jain-1705',
     }
   ),
@@ -804,7 +846,6 @@ export const formerUndergraduateStudents = [
     'Former Undergraduate Student',
     'CORE Lab',
     {
-      bio: 'Yousef is a former CORE Lab undergraduate student.',
       image: yousefBulbulia,
       linkedin: 'https://ca.linkedin.com/in/yousef-bulbulia',
     }
@@ -995,6 +1036,7 @@ export const externalStudentsIndustryCollaborators = [
 const withMemberLinks = (people, { publicationSource = false } = {}) =>
   people.map(person => ({
     ...person,
+    bio: getMemberBio(person),
     position: [person.role, person.institution].filter(Boolean).join(', '),
     link: `/team/${person.slug}`,
     publicationSource,
