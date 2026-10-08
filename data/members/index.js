@@ -381,9 +381,9 @@ export const currentGraduateStudents = [
     name: 'Amber Richardson',
     slug: 'amber_richardson',
     image: amberPhoto,
-    role: 'Incoming Ph.D. Student, Computing and Software',
+    role: 'Ph.D. Student, Computing and Software',
     institution: 'McMaster University',
-    bio: 'Amber is an incoming Ph.D. student in Computing and Software at McMaster University. Their research examines computing and machine-learning education, first-year writing, self-regulated learning, and student experiences with AI.',
+    bio: 'Amber is a Ph.D. student in Computing and Software at McMaster University. Their research examines computing and machine-learning education, first-year writing, self-regulated learning, and student experiences with AI.',
     website: '',
     googlescholar: 'https://scholar.google.ca/citations?user=nV2mdA0AAAAJ&hl=en',
     semanticScholarAuthorIds: ['2346187807'],
@@ -431,10 +431,10 @@ export const currentGraduateStudents = [
   basicProfile(
     'Deluckshan Murugesu',
     'deluckshan_murugesu',
-    'Incoming M.Eng. Student',
+    'M.Eng. Student',
     'McMaster University',
     {
-      bio: 'Deluckshan is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His project experience includes full-stack and AI development, including an AI-powered patient-education chatbot designed to help people prepare for ENT surgery.',
+      bio: 'Deluckshan is an M.Eng. student at McMaster University and a graduate researcher with the CORE Lab. His project experience includes full-stack and AI development, including an AI-powered patient-education chatbot designed to help people prepare for ENT surgery.',
       image: deluckshanMurugesu,
       linkedin: 'https://ca.linkedin.com/in/deluckshanmurugesu',
     }
@@ -442,11 +442,11 @@ export const currentGraduateStudents = [
   basicProfile(
     'Adam Kolodziejczak',
     'adam_kolodziejczak',
-    'Incoming M.Eng. Student',
+    'M.Eng. Student',
     'McMaster University',
     {
       image: adamKolodziejczakPhoto,
-      bio: 'Adam is an incoming M.Eng. student at McMaster University and a graduate researcher with the CORE Lab.',
+      bio: 'Adam is an M.Eng. student at McMaster University and a graduate researcher with the CORE Lab.',
       linkedin: 'https://ca.linkedin.com/in/adam-kolodziejczak-a8b1762b0',
     }
   ),
@@ -735,8 +735,8 @@ export const formerVisitingResearchers = [
     'CORE Lab',
     {
       image: boushraAlmazrouaPhoto,
-      currentPosition: "Incoming Ph.D. Student at King's College London",
-      bio: 'Boushra was a visiting researcher with the CORE Lab and a DSI SUDS Scholar from King Abdullah University of Science and Technology (KAUST). She is an incoming Ph.D. student at King\'s College London.',
+      currentPosition: "Ph.D. Student at King's College London",
+      bio: 'Boushra was a visiting researcher with the CORE Lab and a DSI SUDS Scholar from King Abdullah University of Science and Technology (KAUST). She is a Ph.D. student at King\'s College London.',
       linkedin: 'https://sa.linkedin.com/in/boushra-al-mazroua-35473b252',
     }
   ),
