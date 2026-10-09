@@ -67,7 +67,7 @@ import boushraAlmazrouaPhoto from './assets/boushra_almazroua_pfp.jpg'
 import aadityaDhingraPhoto from './assets/aaditya_dhingra_pfp.jpg'
 import akhilChorariaPhoto from './assets/akhil_choraria_pfp.jpg'
 import yashikaJainPhoto from './assets/yashika_jain_pfp.png'
-import xiaojunLingPhoto from './assets/xiaojun_ling_pfp.png'
+import xiaojunLingPhoto from './assets/xiaojun_ling_pfp.png' 
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
