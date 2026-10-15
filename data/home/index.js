@@ -112,9 +112,12 @@ export const institutionalSupportContent = {
 export const supportCallout = {
   title: 'Support our research',
   text: 'Interested in funding or donating to our research? Gifts and sponsorships help us train student researchers, run studies in real classrooms, and build tools that instructors everywhere can use. Reach out to Michael or Angela to talk about how you can help.',
+  // One email to both directors, with the subject filled in.
   contacts: [
-    { label: 'Email Michael Liut', href: 'mailto:michael.liut@utoronto.ca' },
-    { label: 'Email Angela Zavaleta Bernuy', href: 'mailto:zavaleta@mcmaster.ca' },
+    {
+      label: 'Contact us',
+      href: 'mailto:michael.liut@utoronto.ca,zavaleta@mcmaster.ca?subject=Supporting%20CORE%20Lab%20research',
+    },
   ],
 }
 
