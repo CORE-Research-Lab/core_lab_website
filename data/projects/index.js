@@ -41,7 +41,17 @@ const projectEntries = [
       { label: 'Paper (NBER Working Paper 35621)', href: 'https://doi.org/10.3386/w35621' },
       { label: 'Trial registration (AEARCTR-0018643)', href: 'https://www.socialscienceregistry.org/trials/18643' },
     ],
-    people: ['philip_oreopoulos', 'michael_liut'],
+    people: [
+      'philip_oreopoulos',
+      'michael_liut',
+      'rhett_amin',
+      'josh_barkovic',
+      'matt_wittmann',
+      'jingcheng_liang',
+      'zain_mustafa',
+      'ana_mayer',
+      'yuvaansh_kapila',
+    ],
     publications: numiPublications,
   },
   {
@@ -200,7 +210,15 @@ const projectEntries = [
     links: [
       { label: 'Paper (ITiCSE 2026)', href: 'https://doi.org/10.1145/3803400.3809330' },
     ],
-    people: ['franco_ortiz', 'harry_ye', 'michael_liut'],
+    people: [
+      'franco_ortiz',
+      'harry_ye',
+      'michael_liut',
+      'andrew_petersen',
+      'bogdan_simion',
+      'aayush_patel',
+      'kaiden_rai',
+    ],
     publications: mosaicPublications,
   },
   {
@@ -248,8 +266,22 @@ const projectEntries = [
     links: [
       { label: 'Paper (AIME 2026)', href: 'https://doi.org/10.1007/978-3-032-30813-9_19' },
     ],
-    people: ['nihal_haque', 'michael_liut'],
+    people: ['nihal_haque', 'michael_liut', 'marko_choi'],
     publications: medbotPublications,
+  },
+  {
+    slug: 'codewalkthrough',
+    name: 'CodeWalkthrough',
+    status: 'in-development',
+    tagline: 'Students explain their own code, by text or voice, until they show they understand what the assignment was meant to teach.',
+    summary:
+      'A conversational code walkthrough for large courses: students explain their submitted code and answer follow-up questions until they meet the instructor’s learning objectives.',
+    description: [
+      'Working code is not proof of understanding. In large programming courses, students can submit a correct assignment without being able to explain how it works, and generative AI has widened that gap. An oral code walkthrough reveals what a student actually understands, but no instructor can hold one with every student in a class of hundreds.',
+      'CodeWalkthrough brings the walkthrough to scale. Instructors list the intended learning objectives (ILOs) for an assignment and provide its files and details. Students upload their code and explain their understanding of the relevant topics by text or voice, with follow-up questions and conversation until they have demonstrated the full set of objectives.',
+      'The design draws on learning-sciences research and on the lab’s VoiceEx work on spoken self-explanation: productive friction that asks students to think before they are helped, adaptive supports such as hints, and prompts to reflect and self-explain. Each walkthrough ends with post-assessment questions, giving instructors and researchers a measure of what students learned.',
+    ],
+    people: ['angela_zavaleta_bernuy', 'michael_liut', 'khayla_salim', 'deluckshan_murugesu'],
   },
   {
     slug: 'request',
@@ -262,7 +294,13 @@ const projectEntries = [
       'Requirements elicitation is where software projects most often go wrong, and it depends on a skill that is rarely taught explicitly: asking good questions. Students read about open and closed questions, probing, and follow-up, but get few chances to practise with a stakeholder and almost no feedback on the questions themselves.',
       'ReQuest turns question asking into a skill learners can practise and be assessed on. Learners run an elicitation interview and receive formative feedback on their questions: type, coverage of the problem space, sequencing, and missed follow-ups. Repeated rounds give researchers fine-grained data on how novices’ questioning strategies develop.',
     ],
-    people: ['angela_zavaleta_bernuy', 'amber_richardson', 'caroline_pechenik'],
+    people: [
+      'angela_zavaleta_bernuy',
+      'amber_richardson',
+      'caroline_pechenik',
+      'valeria_osorio_ramirez',
+      'zezhu_sam_yu',
+    ],
   },
   {
     slug: 'amber',

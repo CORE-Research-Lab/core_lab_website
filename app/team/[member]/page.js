@@ -18,6 +18,33 @@ import { FaEnvelope, FaGlobe, FaLinkedin } from 'react-icons/fa'
 import { FaGoogleScholar } from 'react-icons/fa6'
 import PublicationList from '@/Components/Publications/PublicationList'
 import PageHeader from '@/Components/UI/PageHeader'
+
+// Bios are plain text, except that `[label](https://…)` becomes a link.
+const bioLinkPattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g
+
+const stripBioLinks = (text) => text?.replace(bioLinkPattern, '$1')
+
+const renderBioLine = (line) => {
+  // split() with two capture groups yields text, label, href, text, …
+  const parts = line.split(bioLinkPattern)
+
+  return parts.map((part, index) => {
+    if (index % 3 === 2) return null
+    if (index % 3 === 0) return part
+
+    return (
+      <a
+        key={index}
+        href={parts[index + 1]}
+        target='_blank'
+        rel='noopener noreferrer'
+        className='font-medium text-brand hover:underline'
+      >
+        {part}
+      </a>
+    )
+  })
+}
 import { SectionHeading } from '@/Components/UI/SectionHeading'
 
 export function generateStaticParams() {
@@ -34,7 +61,7 @@ export async function generateMetadata({ params }) {
 
   return {
     title: person.name,
-    description: person.bio || `${person.name}, ${person.position}`,
+    description: stripBioLinks(person.bio) || `${person.name}, ${person.position}`,
   }
 }
 
@@ -119,7 +146,7 @@ export default async function MemberPage({ params }) {
                 <p key={index} className='text-lg leading-8 [&:not(:first-child)]:mt-4'>
                   {paragraph.split('\n').map((line, lineIndex, lines) => (
                     <Fragment key={lineIndex}>
-                      {line}
+                      {renderBioLine(line)}
                       {lineIndex < lines.length - 1 && <br />}
                     </Fragment>
                   ))}

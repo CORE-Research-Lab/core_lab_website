@@ -68,6 +68,7 @@ import aadityaDhingraPhoto from './assets/aaditya_dhingra_pfp.jpg'
 import akhilChorariaPhoto from './assets/akhil_choraria_pfp.jpg'
 import yashikaJainPhoto from './assets/yashika_jain_pfp.png'
 import xiaojunLingPhoto from './assets/xiaojun_ling_pfp.png'
+import mattWittmannPhoto from './assets/matt_wittmann_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -466,19 +467,6 @@ export const currentUndergraduateStudents = [
     email: 'jessica.wen@mail.utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/jessica-wen1021/',
   },
-  {
-    name: 'Khushi Malik',
-    slug: 'khushi_malik',
-    image: khushiPhoto,
-    role: 'Undergraduate Researcher',
-    institution: 'University of Toronto Mississauga',
-    bio: 'Khushi is an undergraduate researcher at the University of Toronto Mississauga. Her work spans machine learning and computing education, including self-regulated learning, regression analysis, and interdisciplinary applications of machine-learning models.',
-    website: '',
-    googlescholar: 'https://scholar.google.com/citations?user=o8zvj34AAAAJ&hl=en',
-    semanticScholarAuthorIds: ['2337137118'],
-    email: 'khushi.malik@mail.utoronto.ca',
-    linkedin: 'https://www.linkedin.com/in/khushi-malik19/',
-  },
   basicProfile(
     'Uzima Malik',
     'uzima_malik',
@@ -674,6 +662,18 @@ export const softwareDevelopers = [
   ),
 ]
 
+export const formerSoftwareDevelopers = [
+  basicProfile(
+    'Matt Wittmann',
+    'matt_wittmann',
+    'Former Software Developer',
+    'CORE Lab',
+    {
+      image: mattWittmannPhoto,
+    }
+  ),
+]
+
 export const formerGraduateStudents = [
   basicProfile(
     'Xiaojun Ling',
@@ -743,6 +743,21 @@ export const formerVisitingResearchers = [
 ]
 
 export const formerUndergraduateStudents = [
+  basicProfile(
+    'Khushi Malik',
+    'khushi_malik',
+    'Former Undergraduate Researcher',
+    'CORE Lab',
+    {
+      currentPosition: 'Now a Master’s student in Biomedical Engineering at the University of Toronto',
+      image: khushiPhoto,
+      bio: 'Khushi Malik is a Master’s student in Biomedical Engineering at the University of Toronto, with the [MedCVR Lab](https://medcvr.utm.utoronto.ca/). Her current research focuses on ultrasound simulation for fetal surgical procedures, including ultrasound image synthesis, tissue deformation, and haptic feedback, to support surgeons. Her broader research experience spans machine learning and computing education, including self-regulated learning, student self-efficacy, and statistical modelling.',
+      googlescholar: 'https://scholar.google.com/citations?user=o8zvj34AAAAJ&hl=en',
+      semanticScholarAuthorIds: ['2337137118'],
+      email: 'khushi.malik@mail.utoronto.ca',
+      linkedin: 'https://www.linkedin.com/in/khushi-malik19/',
+    }
+  ),
   basicProfile(
     'Ali Syed Raza',
     'ali_syed_raza',
@@ -1129,6 +1144,11 @@ export const memberGroups = [
         id: 'former-undergraduate-students',
         title: 'Undergraduate Alumni',
         people: withMemberLinks(formerUndergraduateStudents),
+      },
+      {
+        id: 'former-staff',
+        title: 'Staff Alumni',
+        people: withMemberLinks(formerSoftwareDevelopers),
       },
     ],
   },
