@@ -75,7 +75,15 @@ const yearSpan = years => {
   return first === last ? `${first}` : `${first}–${String(last).slice(-2)}`
 }
 
-const YearBars = ({ years }) => {
+/** The publications page, filtered to one venue; the tail has no single venue to filter by. */
+const venueHref = venue =>
+  venue ? `/publications?venue=${encodeURIComponent(venue)}#papers` : '/publications#papers'
+
+/** One venue's papers from one year; the tail's bars filter by year alone. */
+const yearHref = (venue, year) =>
+  `/publications?${venue ? `venue=${encodeURIComponent(venue)}&` : ''}from=${year}&to=${year}#papers`
+
+const YearBars = ({ venue, years }) => {
   const counts = barYears.map(year => years.filter(paperYear => paperYear === year).length)
   const peak = Math.max(1, ...counts)
 
@@ -84,26 +92,46 @@ const YearBars = ({ years }) => {
     // axis spans the whole tile, so the readout can never be clipped the way
     // a tooltip above a narrow tile's bar was. The swap is instant: a fade
     // left two years' readouts overlapping while moving along the bars.
-    <div className='group/bars relative mt-auto pt-2'>
+    //
+    // The block sits above the tile's own link and lets clicks through
+    // everywhere except the bars, which link to their venue and year.
+    <div className='group/bars pointer-events-none relative mt-auto pt-2'>
       {/* Shorter on small tablets, where the wide layout's tiles are at
           their smallest. */}
       <div className='flex h-5 items-end md:h-7'>
-        {counts.map((count, index) => (
+        {counts.map((count, index) => {
+          const year = barYears[index]
           // No gap between columns: each one is the hover target for its year,
           // padded so the bars still read as separate.
-          <span key={barYears[index]} className='group/bar flex h-full flex-1 items-end px-[1.5px]'>
-            <span
-              className={`w-full rounded-[1px] bg-current transition-opacity ${
-                count ? 'opacity-75 group-hover/bar:opacity-100' : 'opacity-25 group-hover/bar:opacity-60'
-              }`}
-              // An empty year keeps a hairline so the run of years stays legible.
-              style={{ height: count ? `${Math.max(12, (count / peak) * 100)}%` : '2px' }}
-            />
-            <span className='pointer-events-none absolute inset-x-0 bottom-0 text-center text-[10px] font-semibold tabular-nums opacity-0 group-hover/bar:opacity-100'>
-              {barYears[index]} · {count} {count === 1 ? 'paper' : 'papers'}
-            </span>
-          </span>
-        ))}
+          const columnClassName = 'group/bar pointer-events-auto flex h-full flex-1 items-end px-[1.5px]'
+          const content = (
+            <>
+              <span
+                className={`w-full rounded-[1px] bg-current transition-opacity ${
+                  count ? 'opacity-75 group-hover/bar:opacity-100' : 'opacity-25 group-hover/bar:opacity-60'
+                }`}
+                // An empty year keeps a hairline so the run of years stays legible.
+                style={{ height: count ? `${Math.max(12, (count / peak) * 100)}%` : '2px' }}
+              />
+              <span className='pointer-events-none absolute inset-x-0 bottom-0 text-center text-[10px] font-semibold tabular-nums opacity-0 group-hover/bar:opacity-100'>
+                {year} · {count} {count === 1 ? 'paper' : 'papers'}
+              </span>
+            </>
+          )
+
+          // An empty year has no papers to filter to, so its column opens the
+          // whole venue, the same as the rest of the tile.
+          return (
+            <Link
+              key={year}
+              href={count ? yearHref(venue, year) : venueHref(venue)}
+              tabIndex={-1}
+              className={columnClassName}
+            >
+              {content}
+            </Link>
+          )
+        })}
       </div>
       <div className='mt-1 flex justify-between text-[10px] tabular-nums opacity-70 group-hover/bars:opacity-0'>
         <span>{barYears[0]}</span>
@@ -112,10 +140,6 @@ const YearBars = ({ years }) => {
     </div>
   )
 }
-
-/** The publications page, filtered to one venue; the tail has no single venue to filter by. */
-const venueHref = segment =>
-  segment.name ? `/publications?venue=${encodeURIComponent(segment.name)}#papers` : '/publications#papers'
 
 const researchOutputsLabel = count => `${count} research output${count === 1 ? '' : 's'}`
 
@@ -179,14 +203,17 @@ const VenueTreemap = ({ venues, total }) => (
                 {/* Out of the tab order like the tiles themselves: the list
                     below carries the same links for keyboards and screen
                     readers. */}
-                <Link
-                  href={venueHref(segment)}
-                  tabIndex={-1}
+                <div
                   className={`relative flex size-full flex-col overflow-hidden rounded-sm px-2 text-[11px] transition-[filter] hover:brightness-125 ${
                     isShort ? 'py-0.5 leading-[1.15] md:text-xs' : 'py-1 leading-tight sm:py-1.5 sm:text-xs'
                   }`}
                   style={{ backgroundColor: segment.fill, color: segment.ink }}
                 >
+                  {/* The whole tile opens its venue. A link cannot hold the
+                      bars' own links, so this one is a layer filling the
+                      tile; the name and years sit over it without catching
+                      clicks, and the bars sit above it. */}
+                  <Link href={venueHref(segment.name)} tabIndex={-1} className='absolute inset-0' />
                   {/* The count, the figure the tile's size stands for, is
                       pinned large in the top-right corner. Taking it out of
                       the flow keeps the rows below where they were, so a
@@ -195,7 +222,7 @@ const VenueTreemap = ({ venues, total }) => (
                       narrow for the name beside it gives the count its own
                       line instead, still at the right. */}
                   <span
-                    className={`font-bold leading-none tabular-nums ${
+                    className={`pointer-events-none font-bold leading-none tabular-nums ${
                       isStacked
                         ? 'mb-0.5 self-end'
                         : `absolute right-2 ${isShort ? 'top-0.5' : 'top-1 sm:top-1.5'}`
@@ -211,8 +238,8 @@ const VenueTreemap = ({ venues, total }) => (
                     {segment.label}
                   </span>
                   <span className='whitespace-nowrap tabular-nums opacity-75'>{yearSpan(segment.years)}</span>
-                  {hasBars && <YearBars years={segment.years} />}
-                </Link>
+                  {hasBars && <YearBars venue={segment.name} years={segment.years} />}
+                </div>
               </div>
             )
           })}
@@ -222,7 +249,7 @@ const VenueTreemap = ({ venues, total }) => (
     <ul className='sr-only'>
       {venues.map(venue => (
         <li key={venue.label}>
-          <Link href={venueHref(venue)}>
+          <Link href={venueHref(venue.name)}>
             {venue.label}: {researchOutputsLabel(venue.count)}, {yearSpan(venue.years)}
           </Link>
         </li>
