@@ -1,10 +1,13 @@
 import { heroContent } from '@/data/home'
 import { publicationsByYear } from '@/data/publications'
-import VenueTreemap from '@/Components/Home/VenueTreemap'
+import PublicationTreemap from '@/Components/Home/PublicationTreemap'
+import TreemapViews from '@/Components/Home/TreemapViews'
 import {
   flattenPublications,
   hasKnownPublicationYear,
+  summarisePublicationFields,
   summarisePublicationVenues,
+  OTHER_FIELD,
   PREPRINT_VENUE,
   UNLISTED_VENUE,
 } from '@/lib/publications.mjs'
@@ -23,17 +26,54 @@ const buckets = summarisePublicationVenues(publications)
 const venueTotal = buckets.reduce((total, bucket) => total + bucket.count, 0)
 const venueCount = buckets.filter(bucket => !bucket.synthetic).length
 
+const yearsOf = bucket => bucket.publications.map(publication => parseInt(publication.year, 10))
+
 const venues = buckets.map(bucket => ({
   // `name` is the bucket the publications filter understands; `label` is
   // only what the tile shows.
   name: bucket.name,
   label: bucketLabels[bucket.name] || bucket.name,
   count: bucket.count,
-  years: bucket.publications.map(publication => parseInt(publication.year, 10)),
+  years: yearsOf(bucket),
   // "Unlisted" is the absence of a venue, so it never earns a named tile no
   // matter how many records land in it.
   tail: bucket.name === UNLISTED_VENUE,
 }))
+
+// The same papers grouped by the field each venue belongs to. "Other" always
+// sits in the tail, along with any field too small for a tile of its own.
+// Field names run long, so a narrow tile shows the short form instead.
+const fieldShortLabels = {
+  'Computing Education': 'Computing Ed.',
+  'Human–Computer Interaction': 'HCI',
+  'Computer Science & AI': 'CS & AI',
+  'Learning Sciences': 'Learning Sci.',
+}
+
+const fields = summarisePublicationFields(publications).map(bucket => ({
+  name: bucket.name,
+  label: bucket.name,
+  shortLabel: fieldShortLabels[bucket.name],
+  count: bucket.count,
+  years: yearsOf(bucket),
+  tail: bucket.name === OTHER_FIELD,
+}))
+
+const treemapViews = [
+  {
+    key: 'venue',
+    label: 'Venue',
+    caption: `Tile area is each venue’s share of all ${venueTotal} publications, across ${venueCount} venues; bars show papers per year. Select a venue or a bar to see its papers.`,
+    content: <PublicationTreemap items={venues} total={venueTotal} filterKey='venue' tailLabel='Other venues' />,
+  },
+  {
+    key: 'field',
+    label: 'Field',
+    caption: `Tile area is each field’s share of all ${venueTotal} publications; bars show papers per year. Select a field or a bar to see its papers.`,
+    // Under 3% a field is too small to label well, so it joins Other.
+    content: <PublicationTreemap items={fields} total={venueTotal} filterKey='field' tailLabel='Other' minShare={0.03} />,
+  },
+]
 
 const PublicationHighlight = () => (
   <section className='page-shell pb-14 sm:pb-16' aria-label='Publications overview'>
@@ -53,17 +93,7 @@ const PublicationHighlight = () => (
       </div>
 
       <div className='mt-6 border-t border-brand-line pt-5'>
-        <div className='flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1'>
-          <h2 className='text-base font-semibold text-brand-dark'>
-            Where our research appears
-          </h2>
-          <p className='text-sm text-slate-500'>
-            Tile area is each venue&rsquo;s share of all {venueTotal} publications, across {venueCount} venues; bars show papers per year. Select a venue to see its papers.
-          </p>
-        </div>
-        <div className='mt-3'>
-          <VenueTreemap venues={venues} total={venueTotal} />
-        </div>
+        <TreemapViews title='Where our research appears' views={treemapViews} />
       </div>
     </div>
   </section>

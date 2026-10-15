@@ -13,16 +13,16 @@ const Field = ({ id, label, children, className = '' }) => (
 )
 
 /**
- * Venue and year-range filters for the papers list. The values live in the
- * URL (see Papers), so a filtered list can be linked to — the homepage venue
- * tiles do exactly that. Picking the same year for both ends filters to one
- * year.
+ * Venue, field, and year-range filters for the papers list. The values live
+ * in the URL (see Papers), so a filtered list can be linked to — the homepage
+ * treemap tiles do exactly that. Picking the same year for both ends filters
+ * to one year.
  */
-const PublicationFilters = ({ venues, years, venue, from, to, onChange, onClear }) => {
-  const isFiltered = Boolean(venue || from || to)
+const PublicationFilters = ({ venues, fields, years, venue, field, from, to, onChange, onClear }) => {
+  const isFiltered = Boolean(venue || field || from || to)
 
   return (
-    <div className='mt-4 grid gap-3 sm:grid-cols-[minmax(0,1fr)_8rem_8rem_auto] sm:items-end'>
+    <div className='mt-4 grid grid-cols-2 gap-3 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_7rem_7rem_auto] lg:items-end'>
       <Field id='publication-venue' label='Venue'>
         <select
           id='publication-venue'
@@ -32,6 +32,22 @@ const PublicationFilters = ({ venues, years, venue, from, to, onChange, onClear 
         >
           <option value=''>All venues</option>
           {venues.map(option => (
+            <option key={option.value} value={option.value}>
+              {option.label} ({option.count})
+            </option>
+          ))}
+        </select>
+      </Field>
+
+      <Field id='publication-field' label='Field'>
+        <select
+          id='publication-field'
+          value={field}
+          onChange={event => onChange({ field: event.target.value })}
+          className={selectClasses}
+        >
+          <option value=''>All fields</option>
+          {fields.map(option => (
             <option key={option.value} value={option.value}>
               {option.label} ({option.count})
             </option>
@@ -71,14 +87,14 @@ const PublicationFilters = ({ venues, years, venue, from, to, onChange, onClear 
         <button
           type='button'
           onClick={onClear}
-          className='inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50'
+          className='col-span-2 inline-flex items-center justify-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-2 text-sm font-medium text-slate-700 shadow-sm transition-colors hover:border-slate-400 hover:bg-slate-50 lg:col-span-1'
         >
           <HiOutlineX className='size-4' aria-hidden='true' />
           Clear filters
         </button>
       ) : (
         // Holds the column so the selects do not jump when the button appears.
-        <span className='hidden sm:block sm:w-[7.5rem]' aria-hidden='true' />
+        <span className='hidden lg:block lg:w-[7.5rem]' aria-hidden='true' />
       )}
     </div>
   )

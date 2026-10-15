@@ -15,7 +15,8 @@ import { squarifiedTreemap } from '@/lib/treemap.mjs'
 // `barsHeight` is the least tile height with room for the year bars,
 // `compactWidth` the width under which the count drops a size, and
 // `stackWidth` the width under which the count takes its own line because the
-// name has no room beside it.
+// name has no room beside it, and `fullLabelWidth` the width a tile needs to
+// show a long name in full rather than its `shortLabel`.
 const layouts = [
   {
     key: 'narrow',
@@ -25,6 +26,7 @@ const layouts = [
     barsHeight: 32,
     compactWidth: 30,
     stackWidth: 25,
+    fullLabelWidth: 45,
   },
   {
     key: 'wide',
@@ -34,6 +36,7 @@ const layouts = [
     barsHeight: 32,
     compactWidth: 15,
     stackWidth: 8,
+    fullLabelWidth: 30,
   },
 ]
 
@@ -75,15 +78,23 @@ const yearSpan = years => {
   return first === last ? `${first}` : `${first}–${String(last).slice(-2)}`
 }
 
-/** The publications page, filtered to one venue; the tail has no single venue to filter by. */
-const venueHref = venue =>
-  venue ? `/publications?venue=${encodeURIComponent(venue)}#papers` : '/publications#papers'
+/**
+ * The publications page filtered to one group (a venue or a field, named by
+ * `filterKey`), and optionally to one year. A tail pooling several groups has
+ * no single one to filter by, so its links filter by year alone.
+ */
+const filterHref = (filterKey, name, year) => {
+  const params = new URLSearchParams()
+  if (name) params.set(filterKey, name)
+  if (year) {
+    params.set('from', year)
+    params.set('to', year)
+  }
+  const query = params.toString()
+  return `/publications${query ? `?${query}` : ''}#papers`
+}
 
-/** One venue's papers from one year; the tail's bars filter by year alone. */
-const yearHref = (venue, year) =>
-  `/publications?${venue ? `venue=${encodeURIComponent(venue)}&` : ''}from=${year}&to=${year}#papers`
-
-const YearBars = ({ venue, years }) => {
+const YearBars = ({ filterKey, name, years }) => {
   const counts = barYears.map(year => years.filter(paperYear => paperYear === year).length)
   const peak = Math.max(1, ...counts)
 
@@ -94,7 +105,7 @@ const YearBars = ({ venue, years }) => {
     // left two years' readouts overlapping while moving along the bars.
     //
     // The block sits above the tile's own link and lets clicks through
-    // everywhere except the bars, which link to their venue and year.
+    // everywhere except the bars, which link to their group and year.
     <div className='group/bars pointer-events-none relative mt-auto pt-2'>
       {/* Shorter on small tablets, where the wide layout's tiles are at
           their smallest. */}
@@ -120,11 +131,11 @@ const YearBars = ({ venue, years }) => {
           )
 
           // An empty year has no papers to filter to, so its column opens the
-          // whole venue, the same as the rest of the tile.
+          // whole group, the same as the rest of the tile.
           return (
             <Link
               key={year}
-              href={count ? yearHref(venue, year) : venueHref(venue)}
+              href={filterHref(filterKey, name, count ? year : null)}
               tabIndex={-1}
               className={columnClassName}
             >
@@ -143,24 +154,37 @@ const YearBars = ({ venue, years }) => {
 
 const researchOutputsLabel = count => `${count} research output${count === 1 ? '' : 's'}`
 
-/** Top `namedVenues` get their own tile; everything else pools into the tail. */
-const buildSegments = (venues, total, namedVenues) => {
-  const named = venues.filter(venue => !venue.tail).slice(0, namedVenues)
-  const tailCount = total - named.reduce((sum, venue) => sum + venue.count, 0)
-  const tailYears = venues.filter(venue => !named.includes(venue)).flatMap(venue => venue.years)
+/**
+ * The top `namedCount` groups with at least `minShare` of the papers get their
+ * own tile; everything else pools into the tail. When the tail is exactly one
+ * group (the field view's own "Other"), it keeps that group's name so its
+ * links can filter to it.
+ */
+const buildSegments = (items, total, namedCount, minShare, tailLabel) => {
+  const named = items
+    .filter(item => !item.tail && item.count / total >= minShare)
+    .slice(0, namedCount)
+  const rest = items.filter(item => !named.includes(item))
+  const tailCount = rest.reduce((sum, item) => sum + item.count, 0)
+  const tailName = rest.length === 1 && rest[0].tail ? rest[0].name : null
 
   return [
-    ...named.map((venue, index) => ({ ...venue, ...venueRamp[index] })),
+    ...named.map((item, index) => ({ ...item, ...venueRamp[index] })),
     ...(tailCount > 0
-      ? [{ label: 'Other venues', name: null, count: tailCount, years: tailYears, ...tailStep }]
+      ? [{ label: tailLabel, name: tailName, count: tailCount, years: rest.flatMap(item => item.years), ...tailStep }]
       : []),
   ]
 }
 
-const VenueTreemap = ({ venues, total }) => (
+/**
+ * `items` are the groups to draw, largest first, as { name, label, shortLabel?,
+ * count, years, tail? }: venues, or the fields those venues belong to. `filterKey` is
+ * the publications filter a tile links to (`venue` or `field`).
+ */
+const PublicationTreemap = ({ items, total, filterKey, tailLabel, minShare = 0 }) => (
   <div>
     {layouts.map(layout => {
-      const segments = buildSegments(venues, total, layout.namedVenues)
+      const segments = buildSegments(items, total, layout.namedVenues, minShare, tailLabel)
       const tiles = squarifiedTreemap(
         segments.map(segment => segment.count),
         { aspect: layout.aspect }
@@ -185,7 +209,11 @@ const VenueTreemap = ({ venues, total }) => (
             // clear even the smaller one.
             const isCompact = isShort || tile.width < layout.compactWidth
             const isStacked = !isShort && tile.width < layout.stackWidth
+            // Small but not short: room for a wrapped name and its years
+            // only with the line height and padding trimmed a little.
+            const isTight = !isShort && (isStacked || tile.height < 26)
             const hasBars = segment.count / total >= barsShare && tile.height >= layout.barsHeight
+            const label = segment.shortLabel && tile.width < layout.fullLabelWidth ? segment.shortLabel : segment.label
 
             return (
               <div
@@ -205,15 +233,21 @@ const VenueTreemap = ({ venues, total }) => (
                     readers. */}
                 <div
                   className={`relative flex size-full flex-col overflow-hidden rounded-sm px-2 text-[11px] transition-[filter] hover:brightness-125 ${
-                    isShort ? 'py-0.5 leading-[1.15] md:text-xs' : 'py-1 leading-tight sm:py-1.5 sm:text-xs'
+                    isShort
+                      ? 'py-0.5 leading-[1.15] md:text-xs'
+                      : isTight
+                        ? 'py-1 leading-[1.15] sm:text-xs'
+                        : 'py-1 leading-tight sm:py-1.5 sm:text-xs'
                   }`}
                   style={{ backgroundColor: segment.fill, color: segment.ink }}
+                  // A shortened name keeps its full form a hover away.
+                  title={label === segment.label ? undefined : segment.label}
                 >
-                  {/* The whole tile opens its venue. A link cannot hold the
+                  {/* The whole tile opens its group. A link cannot hold the
                       bars' own links, so this one is a layer filling the
                       tile; the name and years sit over it without catching
                       clicks, and the bars sit above it. */}
-                  <Link href={venueHref(segment.name)} tabIndex={-1} className='absolute inset-0' />
+                  <Link href={filterHref(filterKey, segment.name)} tabIndex={-1} className='absolute inset-0' />
                   {/* The count, the figure the tile's size stands for, is
                       pinned large in the top-right corner. Taking it out of
                       the flow keeps the rows below where they were, so a
@@ -235,10 +269,10 @@ const VenueTreemap = ({ venues, total }) => (
                       isCompact && !isShort && !isStacked ? 'mb-1' : ''
                     }`}
                   >
-                    {segment.label}
+                    {label}
                   </span>
                   <span className='whitespace-nowrap tabular-nums opacity-75'>{yearSpan(segment.years)}</span>
-                  {hasBars && <YearBars venue={segment.name} years={segment.years} />}
+                  {hasBars && <YearBars filterKey={filterKey} name={segment.name} years={segment.years} />}
                 </div>
               </div>
             )
@@ -247,10 +281,10 @@ const VenueTreemap = ({ venues, total }) => (
       )
     })}
     <ul className='sr-only'>
-      {venues.map(venue => (
-        <li key={venue.label}>
-          <Link href={venueHref(venue.name)}>
-            {venue.label}: {researchOutputsLabel(venue.count)}, {yearSpan(venue.years)}
+      {items.map(item => (
+        <li key={item.label}>
+          <Link href={filterHref(filterKey, item.name)}>
+            {item.label}: {researchOutputsLabel(item.count)}, {yearSpan(item.years)}
           </Link>
         </li>
       ))}
@@ -258,4 +292,4 @@ const VenueTreemap = ({ venues, total }) => (
   </div>
 )
 
-export default VenueTreemap
+export default PublicationTreemap

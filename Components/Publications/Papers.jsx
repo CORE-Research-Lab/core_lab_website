@@ -6,9 +6,11 @@ import { publicationsByYear, publicationsPage } from '@/data/publications'
 import {
   flattenPublications,
   getPublicationAuthors,
+  getPublicationField,
   getPublicationVenueBucket,
   groupPublicationsByYear,
   hasKnownPublicationYear,
+  summarisePublicationFields,
   summarisePublicationVenues,
   PREPRINT_VENUE,
   UNLISTED_VENUE,
@@ -48,17 +50,28 @@ const venueOptions = summarisePublicationVenues(allPublications).map(bucket => (
 
 const venueOf = new Map(allPublications.map(publication => [publication, getPublicationVenueBucket(publication)]))
 
+// Fields group venues the same way the homepage's by-field view does.
+const fieldOptions = summarisePublicationFields(allPublications).map(bucket => ({
+  value: bucket.name,
+  label: bucket.name,
+  count: bucket.count,
+}))
+
+const fieldOf = new Map(allPublications.map(publication => [publication, getPublicationField(publication)]))
+
 const yearOptions = [...new Set(allPublications.map(publication => publication.year))].sort((a, b) => b - a)
 
 // Only values the lists actually offer are honoured, so a stale or hand-edited
 // link falls back to "all" rather than an empty list.
 const readFilters = params => {
   const venue = params.get('venue') || ''
+  const field = params.get('field') || ''
   const from = params.get('from') || ''
   const to = params.get('to') || ''
 
   return {
     venue: venueOptions.some(option => option.value === venue) ? venue : '',
+    field: fieldOptions.some(option => option.value === field) ? field : '',
     from: yearOptions.includes(from) ? from : '',
     to: yearOptions.includes(to) ? to : '',
   }
@@ -85,7 +98,10 @@ const Papers = () => {
     [pathname, router, searchParams]
   )
 
-  const clearFilters = useCallback(() => setFilters({ venue: '', from: '', to: '' }), [setFilters])
+  const clearFilters = useCallback(
+    () => setFilters({ venue: '', field: '', from: '', to: '' }),
+    [setFilters]
+  )
   const legendRef = useRef(null)
   const [legendHeight, setLegendHeight] = useState(0)
 
@@ -104,7 +120,7 @@ const Papers = () => {
     return () => observer.disconnect()
   }, [])
 
-  const { venue, from, to } = filters
+  const { venue, field, from, to } = filters
 
   const groupedFiltered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
@@ -116,16 +132,18 @@ const Papers = () => {
 
     const filtered = allPublications.filter(pub => {
       if (venue && venueOf.get(pub) !== venue) return false
+      if (field && fieldOf.get(pub) !== field) return false
       const year = Number(pub.year)
       if (year < lowest || year > highest) return false
       return !normalizedQuery || searchIndex.get(pub).includes(normalizedQuery)
     })
 
     return groupPublicationsByYear(filtered)
-  }, [query, venue, from, to])
+  }, [query, venue, field, from, to])
 
   const filterSummary = [
     venue && (venueLabels[venue] || venue),
+    field,
     from && to ? (from === to ? from : `${Math.min(from, to)}–${Math.max(from, to)}`) : from ? `${from} onward` : to ? `up to ${to}` : '',
   ].filter(Boolean).join(', ')
 
@@ -175,8 +193,10 @@ const Papers = () => {
       >
         <PublicationFilters
           venues={venueOptions}
+          fields={fieldOptions}
           years={yearOptions}
           venue={venue}
+          field={field}
           from={from}
           to={to}
           onChange={setFilters}

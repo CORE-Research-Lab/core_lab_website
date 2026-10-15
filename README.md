@@ -71,6 +71,18 @@ Publication metadata can be synced from Semantic Scholar:
 npm run sync:publications
 ```
 
+### Venues and fields
+
+The homepage's "Where our research appears" treemap groups papers by venue, or, with its toggle, by field (Computing Education, Human–Computer Interaction, and so on). The publications page filters by both. A paper's venue is recognised from its proceedings or journal name (`venueAcronyms` in `lib/publications.mjs`), and each venue belongs to a field (`venueFields` in the same file).
+
+New papers at venues already listed sort themselves. A paper at a venue that is not listed yet counts as **Other** until the venue is added, and the sync prints a warning naming it:
+
+```
+Warning: Venue "Journal of …" has no field, so it counts as Other. Add it to venueFields in lib/publications.mjs if it belongs to one.
+```
+
+Add the venue name exactly as the warning prints it to the right field in `venueFields`. A venue that really belongs in Other can be listed under `[OTHER_FIELD]`, which also stops the warning.
+
 Before running the sync, add `semanticScholarAuthorIds` to each director or current student who should act as a publication source in `data/members/index.js`. The team-group configuration marks those members with `publicationSource`; collaborator papers enter the archive only when they are coauthored with one of these source members.
 Set `SEMANTIC_SCHOLAR_KEY` in your local environment if you have an API key; the script will still run without one, but Semantic Scholar may rate-limit unauthenticated requests.
 

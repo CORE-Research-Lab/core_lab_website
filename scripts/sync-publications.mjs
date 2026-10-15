@@ -5,7 +5,9 @@ import path from 'node:path'
 import vm from 'node:vm'
 import {
   flattenPublications,
+  getPublicationVenueBucket,
   groupPublicationsByYear,
+  hasAssignedField,
   sortPublicationYearsDescending,
 } from '../lib/publications.mjs'
 
@@ -723,6 +725,18 @@ const main = async () => {
     if (projectConfig.output) {
       await writeGroupedOutput(projectConfig.output, result.selected)
     }
+  }
+
+  // A venue the field list does not know lands in the homepage's "Other"
+  // field. Name each one so it can be added to `venueFields` in
+  // lib/publications.mjs.
+  const venuesWithoutField = [...new Set(
+    allPublications
+      .filter(publication => !hasAssignedField(publication))
+      .map(getPublicationVenueBucket)
+  )]
+  for (const venue of venuesWithoutField) {
+    warnings.push(`Venue "${venue}" has no field, so it counts as Other. Add it to venueFields in lib/publications.mjs if it belongs to one.`)
   }
 
   for (const warning of warnings) {
