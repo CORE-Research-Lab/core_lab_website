@@ -1,15 +1,21 @@
 "use client"
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { usePathname, useRouter, useSearchParams } from 'next/navigation'
 import { publicationsByYear, publicationsPage } from '@/data/publications'
 import {
   flattenPublications,
   getPublicationAuthors,
+  getPublicationVenueBucket,
   groupPublicationsByYear,
   hasKnownPublicationYear,
+  summarisePublicationVenues,
+  PREPRINT_VENUE,
+  UNLISTED_VENUE,
 } from '@/lib/publications.mjs'
 import { SectionHeading } from '@/Components/UI/SectionHeading'
 import SearchBar from './SearchBar'
+import PublicationFilters from './PublicationFilters'
 import PublicationList from './PublicationList'
 
 const allPublications = flattenPublications(publicationsByYear).filter(hasKnownPublicationYear)
@@ -30,8 +36,56 @@ const searchIndex = new Map(
   ])
 )
 
+// The filter offers the same venue buckets the homepage treemap draws, so a
+// tile's link always lands on a venue the dropdown knows.
+const venueLabels = { [PREPRINT_VENUE]: 'Pre-print', [UNLISTED_VENUE]: 'Venue not listed' }
+
+const venueOptions = summarisePublicationVenues(allPublications).map(bucket => ({
+  value: bucket.name,
+  label: venueLabels[bucket.name] || bucket.name,
+  count: bucket.count,
+}))
+
+const venueOf = new Map(allPublications.map(publication => [publication, getPublicationVenueBucket(publication)]))
+
+const yearOptions = [...new Set(allPublications.map(publication => publication.year))].sort((a, b) => b - a)
+
+// Only values the lists actually offer are honoured, so a stale or hand-edited
+// link falls back to "all" rather than an empty list.
+const readFilters = params => {
+  const venue = params.get('venue') || ''
+  const from = params.get('from') || ''
+  const to = params.get('to') || ''
+
+  return {
+    venue: venueOptions.some(option => option.value === venue) ? venue : '',
+    from: yearOptions.includes(from) ? from : '',
+    to: yearOptions.includes(to) ? to : '',
+  }
+}
+
 const Papers = () => {
   const [query, setQuery] = useState('')
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  const filters = readFilters(searchParams)
+
+  // The URL is the filter state, so the back button and shared links work.
+  const setFilters = useCallback(
+    changes => {
+      const next = new URLSearchParams(searchParams)
+      for (const [key, value] of Object.entries(changes)) {
+        if (value) next.set(key, value)
+        else next.delete(key)
+      }
+      const queryString = next.toString()
+      router.replace(`${pathname}${queryString ? `?${queryString}` : ''}#papers`, { scroll: false })
+    },
+    [pathname, router, searchParams]
+  )
+
+  const clearFilters = useCallback(() => setFilters({ venue: '', from: '', to: '' }), [setFilters])
   const legendRef = useRef(null)
   const [legendHeight, setLegendHeight] = useState(0)
 
@@ -50,14 +104,30 @@ const Papers = () => {
     return () => observer.disconnect()
   }, [])
 
+  const { venue, from, to } = filters
+
   const groupedFiltered = useMemo(() => {
     const normalizedQuery = query.trim().toLowerCase()
-    const filtered = normalizedQuery
-      ? allPublications.filter(pub => searchIndex.get(pub).includes(normalizedQuery))
-      : allPublications
+    // Either end can be left open, and a reversed range still means the years
+    // between the two.
+    const [low, high] = [from, to].filter(Boolean).map(Number).sort((a, b) => a - b)
+    const lowest = from && to ? low : from ? Number(from) : -Infinity
+    const highest = from && to ? high : to ? Number(to) : Infinity
+
+    const filtered = allPublications.filter(pub => {
+      if (venue && venueOf.get(pub) !== venue) return false
+      const year = Number(pub.year)
+      if (year < lowest || year > highest) return false
+      return !normalizedQuery || searchIndex.get(pub).includes(normalizedQuery)
+    })
 
     return groupPublicationsByYear(filtered)
-  }, [query])
+  }, [query, venue, from, to])
+
+  const filterSummary = [
+    venue && (venueLabels[venue] || venue),
+    from && to ? (from === to ? from : `${Math.min(from, to)}–${Math.max(from, to)}`) : from ? `${from} onward` : to ? `up to ${to}` : '',
+  ].filter(Boolean).join(', ')
 
   const resultCount = useMemo(
     () => Object.values(groupedFiltered).reduce((total, list) => total + list.length, 0),
@@ -101,7 +171,18 @@ const Papers = () => {
         setQuery={setQuery}
         placeholder={publicationsPage.searchPlaceholder}
         resultCount={resultCount}
-      />
+        filterSummary={filterSummary}
+      >
+        <PublicationFilters
+          venues={venueOptions}
+          years={yearOptions}
+          venue={venue}
+          from={from}
+          to={to}
+          onChange={setFilters}
+          onClear={clearFilters}
+        />
+      </SearchBar>
 
       <PublicationList
         groupedItems={groupedFiltered}

@@ -1,6 +1,6 @@
 import { HiOutlineSearch, HiOutlineX } from 'react-icons/hi'
 
-const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount }) => {
+const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount, filterSummary, children }) => {
   return (
     <div className='mt-5'>
       <label htmlFor='publication-search' className='sr-only'>
@@ -30,10 +30,13 @@ const SearchBar = ({ query, setQuery, placeholder = 'Search', resultCount }) => 
           </button>
         )}
       </div>
-      <p className='mt-2 text-sm text-slate-500' aria-live='polite'>
+      {/* Extra controls, such as filters, sit between the box and the count. */}
+      {children}
+      <p className='mt-3 text-sm text-slate-500' aria-live='polite'>
         {query
           ? `${resultCount} ${resultCount === 1 ? 'result' : 'results'} for “${query}”`
           : `${resultCount} ${resultCount === 1 ? 'publication' : 'publications'}`}
+        {filterSummary && ` in ${filterSummary}`}
       </p>
     </div>
   )

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import Papers from '@/Components/Publications/Papers';
 import Posters from '@/Components/Publications/Posters';
 import PageHeader from '@/Components/UI/PageHeader';
@@ -25,7 +26,11 @@ export default function Publications() {
         <SectionNav sections={navSections} />
         <div className='min-w-0'>
           <Posters />
-          <Papers />
+          {/* Papers reads its filters from the URL, which needs a Suspense
+              boundary for the rest of the page to stay statically rendered. */}
+          <Suspense>
+            <Papers />
+          </Suspense>
         </div>
       </div>
     </>

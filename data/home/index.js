@@ -108,6 +108,16 @@ export const institutionalSupportContent = {
   sponsorNote: 'Our support spans national, international, and institutional programs: Canada’s NSERC Discovery Grants and Collaborative Research and Training Experience program (CREATE); the Learning Engineering Tools Competition; France’s ANR; and the University of Toronto’s Data Sciences Institute (DSI), Institute for the Study of University Pedagogy (ISUP), and Learning & Education Advancement Fund (LEAF), with additional support from McMaster University.',
 }
 
+// Closes the affiliations section, for prospective donors and funders.
+export const supportCallout = {
+  title: 'Support our research',
+  text: 'Interested in funding or donating to our research? Gifts and sponsorships help us train student researchers, run studies in real classrooms, and build tools that instructors everywhere can use. Reach out to Michael or Angela to talk about how you can help.',
+  contacts: [
+    { label: 'Email Michael Liut', href: 'mailto:michael.liut@utoronto.ca' },
+    { label: 'Email Angela Zavaleta Bernuy', href: 'mailto:zavaleta@mcmaster.ca' },
+  ],
+}
+
 // The photos themselves come from `public/photos/`; see the README there.
 export const photoCarouselContent = {
   title: 'Around the lab',

@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import { institutionalSupportContent } from '@/data/home'
+import { institutionalSupportContent, supportCallout } from '@/data/home'
 import { SectionHeading } from '@/Components/UI/SectionHeading'
 
 const OrganizationCard = ({ organization }) => (
@@ -71,6 +71,33 @@ const InstitutionalSupport = () => (
           </p>
         </section>
       </div>
+
+      <section
+        className='mt-6 flex flex-col gap-5 rounded-2xl border border-brand/15 bg-white p-5 shadow-sm sm:p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10'
+        aria-labelledby='support-our-research'
+      >
+        <div className='max-w-3xl'>
+          <h3 id='support-our-research' className='text-subsection font-semibold text-brand-dark'>
+            {supportCallout.title}
+          </h3>
+          <p className='mt-2 text-base leading-7 text-slate-700'>{supportCallout.text}</p>
+        </div>
+        <div className='flex shrink-0 flex-wrap gap-3'>
+          {supportCallout.contacts.map((contact, index) => (
+            <a
+              key={contact.href}
+              href={contact.href}
+              className={`inline-flex items-center justify-center rounded-lg px-5 py-2.5 text-sm font-semibold transition-colors ${
+                index === 0
+                  ? 'bg-brand text-white shadow-sm hover:bg-brand-dark'
+                  : 'border border-brand/25 bg-white text-brand hover:border-brand hover:bg-brand-soft'
+              }`}
+            >
+              {contact.label}
+            </a>
+          ))}
+        </div>
+      </section>
     </div>
   </section>
 )

@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import { squarifiedTreemap } from '@/lib/treemap.mjs'
 
 /**
@@ -35,12 +36,49 @@ const venueRamp = [
 // The tail is an aggregate rather than a venue, so it sits outside the ramp.
 const tailStep = { fill: '#94a3b8', ink: '#0f172a' }
 
-// Under this share a tile is too short for a second line, so its name and count
-// share one. Under `labelShare` it holds no text at all and the list below plus
-// the tooltip carry it — a guard for future data, since every tile on the board
-// today clears it.
-const stackedLabelShare = 0.05
-const labelShare = 0.02
+// From this share up a tile has room for the papers-per-year bars under its
+// label; smaller tiles show the label and years only.
+const barsShare = 0.08
+
+// The bars cover the same run of years in every tile, so a bar means the same
+// thing wherever it appears.
+const barYearCount = 8
+const lastBarYear = new Date().getFullYear()
+const barYears = Array.from({ length: barYearCount }, (_, index) => lastBarYear - barYearCount + 1 + index)
+
+const yearSpan = years => {
+  const first = Math.min(...years)
+  const last = Math.max(...years)
+  return first === last ? `${first}` : `${first}–${String(last).slice(-2)}`
+}
+
+const YearBars = ({ years }) => {
+  const counts = barYears.map(year => years.filter(paperYear => paperYear === year).length)
+  const peak = Math.max(1, ...counts)
+
+  return (
+    <div className='mt-auto pt-2'>
+      <div className='flex h-7 items-end gap-[3px]'>
+        {counts.map((count, index) => (
+          <span
+            key={barYears[index]}
+            className='flex-1 rounded-[1px] bg-current'
+            // An empty year keeps a hairline so the run of years stays legible.
+            style={{ height: count ? `${Math.max(12, (count / peak) * 100)}%` : '2px', opacity: count ? 0.75 : 0.25 }}
+          />
+        ))}
+      </div>
+      <div className='mt-1 flex justify-between text-[10px] tabular-nums opacity-70'>
+        <span>{barYears[0]}</span>
+        <span>{lastBarYear}</span>
+      </div>
+    </div>
+  )
+}
+
+/** The publications page, filtered to one venue; the tail has no single venue to filter by. */
+const venueHref = segment =>
+  segment.name ? `/publications?venue=${encodeURIComponent(segment.name)}#papers` : '/publications#papers'
 
 const researchOutputsLabel = count => `${count} research output${count === 1 ? '' : 's'}`
 
@@ -48,10 +86,13 @@ const researchOutputsLabel = count => `${count} research output${count === 1 ? '
 const buildSegments = (venues, total, namedVenues) => {
   const named = venues.filter(venue => !venue.tail).slice(0, namedVenues)
   const tailCount = total - named.reduce((sum, venue) => sum + venue.count, 0)
+  const tailYears = venues.filter(venue => !named.includes(venue)).flatMap(venue => venue.years)
 
   return [
     ...named.map((venue, index) => ({ ...venue, ...venueRamp[index] })),
-    ...(tailCount > 0 ? [{ label: 'Other venues', count: tailCount, ...tailStep }] : []),
+    ...(tailCount > 0
+      ? [{ label: 'Other venues', name: null, count: tailCount, years: tailYears, ...tailStep }]
+      : []),
   ]
 }
 
@@ -76,6 +117,9 @@ const VenueTreemap = ({ venues, total }) => (
           {tiles.map(tile => {
             const segment = segments[tile.index]
             const share = segment.count / total
+            // A short tile still fits its two lines once the padding and
+            // line height are trimmed.
+            const isShort = tile.height < 18
 
             return (
               <div
@@ -89,25 +133,26 @@ const VenueTreemap = ({ venues, total }) => (
                   width: `${tile.width}%`,
                   height: `${tile.height}%`,
                 }}
-                title={`${segment.label}: ${researchOutputsLabel(segment.count)}`}
+                title={`${segment.label}: ${researchOutputsLabel(segment.count)}, ${yearSpan(segment.years)}`}
               >
-                <div
-                  // The one-line tiles are the tightest fit on the board, so
-                  // they trade padding for the few pixels their label needs.
-                  className={`flex size-full overflow-hidden rounded-sm text-[11px] leading-tight sm:text-xs ${
-                    share >= stackedLabelShare
-                      ? 'flex-col px-2 py-1.5'
-                      : 'items-baseline gap-x-1 px-1.5 py-1'
+                {/* Out of the tab order like the tiles themselves: the list
+                    below carries the same links for keyboards and screen
+                    readers. */}
+                <Link
+                  href={venueHref(segment)}
+                  tabIndex={-1}
+                  className={`flex size-full flex-col overflow-hidden rounded-sm px-2 text-[11px] transition-[filter] hover:brightness-125 sm:text-xs ${
+                    isShort ? 'py-0.5 leading-[1.15]' : 'py-1 leading-tight sm:py-1.5'
                   }`}
                   style={{ backgroundColor: segment.fill, color: segment.ink }}
                 >
-                  {share >= labelShare && (
-                    <>
-                      <span className='font-semibold'>{segment.label}</span>
-                      <span className='tabular-nums'>{segment.count}</span>
-                    </>
-                  )}
-                </div>
+                  <span>
+                    <span className='font-semibold'>{segment.label}</span>{' '}
+                    <span className='tabular-nums'>{segment.count}</span>
+                  </span>
+                  <span className='whitespace-nowrap tabular-nums opacity-75'>{yearSpan(segment.years)}</span>
+                  {share >= barsShare && <YearBars years={segment.years} />}
+                </Link>
               </div>
             )
           })}
@@ -117,7 +162,9 @@ const VenueTreemap = ({ venues, total }) => (
     <ul className='sr-only'>
       {venues.map(venue => (
         <li key={venue.label}>
-          {venue.label}: {researchOutputsLabel(venue.count)}
+          <Link href={venueHref(venue)}>
+            {venue.label}: {researchOutputsLabel(venue.count)}, {yearSpan(venue.years)}
+          </Link>
         </li>
       ))}
     </ul>

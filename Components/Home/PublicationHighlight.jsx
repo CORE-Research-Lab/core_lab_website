@@ -24,8 +24,12 @@ const venueTotal = buckets.reduce((total, bucket) => total + bucket.count, 0)
 const venueCount = buckets.filter(bucket => !bucket.synthetic).length
 
 const venues = buckets.map(bucket => ({
+  // `name` is the bucket the publications filter understands; `label` is
+  // only what the tile shows.
+  name: bucket.name,
   label: bucketLabels[bucket.name] || bucket.name,
   count: bucket.count,
+  years: bucket.publications.map(publication => parseInt(publication.year, 10)),
   // "Unlisted" is the absence of a venue, so it never earns a named tile no
   // matter how many records land in it.
   tail: bucket.name === UNLISTED_VENUE,
@@ -54,7 +58,7 @@ const PublicationHighlight = () => (
             Where our research appears
           </h2>
           <p className='text-sm text-slate-500'>
-            Tile area is each venue&rsquo;s share of all {venueTotal} publications, across {venueCount} venues
+            Tile area is each venue&rsquo;s share of all {venueTotal} publications, across {venueCount} venues; bars show papers per year. Select a venue to see its papers.
           </p>
         </div>
         <div className='mt-3'>
