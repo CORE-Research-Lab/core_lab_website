@@ -73,7 +73,9 @@ const InstitutionalSupport = () => (
       </div>
 
       <section
-        className='mt-6 flex flex-col gap-5 rounded-2xl border border-brand/15 bg-white p-5 shadow-sm sm:p-6 lg:flex-row lg:items-center lg:justify-between lg:gap-10'
+        // The button follows the text rather than sitting at the card's far
+        // edge, where a wide screen left a gap the width of a column.
+        className='mt-6 flex flex-col gap-5 rounded-2xl border border-brand/15 bg-white p-5 shadow-sm sm:p-6 lg:flex-row lg:items-center lg:gap-10'
         aria-labelledby='support-our-research'
       >
         <div className='max-w-3xl'>
