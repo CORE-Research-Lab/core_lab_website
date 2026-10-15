@@ -9,9 +9,32 @@ import { squarifiedTreemap } from '@/lib/treemap.mjs'
  * are exact in both, and a venue keeps its colour across them because the ramp
  * is indexed by rank.
  */
+//
+// The size rules for a tile's contents are in percent of the board, so they
+// differ per layout: the same percentage is far fewer pixels on a phone.
+// `barsHeight` is the least tile height with room for the year bars,
+// `compactWidth` the width under which the count drops a size, and
+// `stackWidth` the width under which the count takes its own line because the
+// name has no room beside it.
 const layouts = [
-  { key: 'narrow', aspect: 1.1, namedVenues: 6, className: 'max-h-80 sm:hidden' },
-  { key: 'wide', aspect: 2.5, namedVenues: 8, className: 'hidden max-h-80 sm:block' },
+  {
+    key: 'narrow',
+    aspect: 1.1,
+    namedVenues: 6,
+    className: 'max-h-80 sm:hidden',
+    barsHeight: 32,
+    compactWidth: 30,
+    stackWidth: 25,
+  },
+  {
+    key: 'wide',
+    aspect: 2.5,
+    namedVenues: 8,
+    className: 'hidden max-h-80 sm:block',
+    barsHeight: 32,
+    compactWidth: 15,
+    stackWidth: 8,
+  },
 ]
 
 /**
@@ -36,8 +59,8 @@ const venueRamp = [
 // The tail is an aggregate rather than a venue, so it sits outside the ramp.
 const tailStep = { fill: '#94a3b8', ink: '#0f172a' }
 
-// From this share up a tile has room for the papers-per-year bars under its
-// label; smaller tiles show the label and years only.
+// Only venues with at least this share of the papers get year bars, and then
+// only where the layout leaves their tile tall enough (`barsHeight`).
 const barsShare = 0.08
 
 // The bars cover the same run of years in every tile, so a bar means the same
@@ -57,18 +80,32 @@ const YearBars = ({ years }) => {
   const peak = Math.max(1, ...counts)
 
   return (
-    <div className='mt-auto pt-2'>
-      <div className='flex h-7 items-end gap-[3px]'>
+    // Hovering a bar swaps the year axis underneath for that bar's count. The
+    // axis spans the whole tile, so the readout can never be clipped the way
+    // a tooltip above a narrow tile's bar was. The swap is instant: a fade
+    // left two years' readouts overlapping while moving along the bars.
+    <div className='group/bars relative mt-auto pt-2'>
+      {/* Shorter on small tablets, where the wide layout's tiles are at
+          their smallest. */}
+      <div className='flex h-5 items-end md:h-7'>
         {counts.map((count, index) => (
-          <span
-            key={barYears[index]}
-            className='flex-1 rounded-[1px] bg-current'
-            // An empty year keeps a hairline so the run of years stays legible.
-            style={{ height: count ? `${Math.max(12, (count / peak) * 100)}%` : '2px', opacity: count ? 0.75 : 0.25 }}
-          />
+          // No gap between columns: each one is the hover target for its year,
+          // padded so the bars still read as separate.
+          <span key={barYears[index]} className='group/bar flex h-full flex-1 items-end px-[1.5px]'>
+            <span
+              className={`w-full rounded-[1px] bg-current transition-opacity ${
+                count ? 'opacity-75 group-hover/bar:opacity-100' : 'opacity-25 group-hover/bar:opacity-60'
+              }`}
+              // An empty year keeps a hairline so the run of years stays legible.
+              style={{ height: count ? `${Math.max(12, (count / peak) * 100)}%` : '2px' }}
+            />
+            <span className='pointer-events-none absolute inset-x-0 bottom-0 text-center text-[10px] font-semibold tabular-nums opacity-0 group-hover/bar:opacity-100'>
+              {barYears[index]} · {count} {count === 1 ? 'paper' : 'papers'}
+            </span>
+          </span>
         ))}
       </div>
-      <div className='mt-1 flex justify-between text-[10px] tabular-nums opacity-70'>
+      <div className='mt-1 flex justify-between text-[10px] tabular-nums opacity-70 group-hover/bars:opacity-0'>
         <span>{barYears[0]}</span>
         <span>{lastBarYear}</span>
       </div>
@@ -116,10 +153,15 @@ const VenueTreemap = ({ venues, total }) => (
         >
           {tiles.map(tile => {
             const segment = segments[tile.index]
-            const share = segment.count / total
             // A short tile still fits its two lines once the padding and
             // line height are trimmed.
             const isShort = tile.height < 18
+            // A narrow tile has no room beside its years for the full-size
+            // count, and one tall enough drops its years a little lower to
+            // clear even the smaller one.
+            const isCompact = isShort || tile.width < layout.compactWidth
+            const isStacked = !isShort && tile.width < layout.stackWidth
+            const hasBars = segment.count / total >= barsShare && tile.height >= layout.barsHeight
 
             return (
               <div
@@ -133,7 +175,6 @@ const VenueTreemap = ({ venues, total }) => (
                   width: `${tile.width}%`,
                   height: `${tile.height}%`,
                 }}
-                title={`${segment.label}: ${researchOutputsLabel(segment.count)}, ${yearSpan(segment.years)}`}
               >
                 {/* Out of the tab order like the tiles themselves: the list
                     below carries the same links for keyboards and screen
@@ -141,17 +182,36 @@ const VenueTreemap = ({ venues, total }) => (
                 <Link
                   href={venueHref(segment)}
                   tabIndex={-1}
-                  className={`flex size-full flex-col overflow-hidden rounded-sm px-2 text-[11px] transition-[filter] hover:brightness-125 sm:text-xs ${
-                    isShort ? 'py-0.5 leading-[1.15]' : 'py-1 leading-tight sm:py-1.5'
+                  className={`relative flex size-full flex-col overflow-hidden rounded-sm px-2 text-[11px] transition-[filter] hover:brightness-125 ${
+                    isShort ? 'py-0.5 leading-[1.15] md:text-xs' : 'py-1 leading-tight sm:py-1.5 sm:text-xs'
                   }`}
                   style={{ backgroundColor: segment.fill, color: segment.ink }}
                 >
-                  <span>
-                    <span className='font-semibold'>{segment.label}</span>{' '}
-                    <span className='tabular-nums'>{segment.count}</span>
+                  {/* The count, the figure the tile's size stands for, is
+                      pinned large in the top-right corner. Taking it out of
+                      the flow keeps the rows below where they were, so a
+                      short tile still fits its name and years. The name is
+                      padded clear of it; the years sit below it. A tile too
+                      narrow for the name beside it gives the count its own
+                      line instead, still at the right. */}
+                  <span
+                    className={`font-bold leading-none tabular-nums ${
+                      isStacked
+                        ? 'mb-0.5 self-end'
+                        : `absolute right-2 ${isShort ? 'top-0.5' : 'top-1 sm:top-1.5'}`
+                    } ${isCompact ? 'text-sm sm:text-base' : 'text-base sm:text-xl'}`}
+                  >
+                    {segment.count}
+                  </span>
+                  <span
+                    className={`font-semibold ${isStacked ? '' : isCompact ? 'pr-6' : 'pr-8'} ${
+                      isCompact && !isShort && !isStacked ? 'mb-1' : ''
+                    }`}
+                  >
+                    {segment.label}
                   </span>
                   <span className='whitespace-nowrap tabular-nums opacity-75'>{yearSpan(segment.years)}</span>
-                  {share >= barsShare && <YearBars years={segment.years} />}
+                  {hasBars && <YearBars years={segment.years} />}
                 </Link>
               </div>
             )
