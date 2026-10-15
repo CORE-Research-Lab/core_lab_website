@@ -19,6 +19,7 @@ export const heroContent = {
   actions: [
     { label: 'Meet the team', href: '/team', variant: 'primary' },
     { label: 'See our publications', href: '/publications', variant: 'secondary' },
+    { label: 'See our projects', href: '/projects', variant: 'secondary' },
   ],
 }
 
@@ -39,6 +40,15 @@ export const aboutContent = {
     'Machine Learning',
     'Student Experience',
     'UI/UX'
+  ],
+}
+
+// Closes the About section, below the publications overview.
+export const labCultureContent = {
+  title: 'How we work',
+  paragraphs: [
+    'We aim for excellence and push the boundaries of our fields, and we believe that depends on an equitable lab. Every member, from first-year undergraduates to doctoral students, is trained in research methods, research ethics, and the tools we build with, and we revisit that training regularly as methods and expectations change.',
+    'The lab is structured so that no one works alone. Students are mentored by faculty and by more senior lab members, projects are run by small teams with clear roles, and credit is shared openly. Beyond our own universities, we work with industry partners and with international collaborators across Europe, Asia, and Oceania. That range of people and perspectives lets us take on questions that no single group could answer.',
   ],
 }
 
@@ -106,7 +116,7 @@ export const photoCarouselContent = {
 
 export const artworkSection = {
   title: 'Lab Artwork',
-  description: 'A small archive of artwork, office decorations, and visual notes made by lab members.',
+  description: 'A new, growing archive of artwork, office decorations, and visual notes made by lab members. This page is a work in progress, and more pieces will be added over time.',
   items: [
     {
       artist: 'Jess',

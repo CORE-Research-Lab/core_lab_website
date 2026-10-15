@@ -1,0 +1,29 @@
+{
+    "2026": [
+        {
+            "paperId": "64df6bb488b388687c1dd5b6850206db8070cc16",
+            "year": "2026",
+            "title": "Transforming Hospitals with Artificial Intelligence: Applications in Clinical Education and Patient Care",
+            "author": [
+                "Nihal Haque",
+                "Ervin Sejdic",
+                "Michael Liut",
+                "Roland Mollanji",
+                "Philkyung Shin",
+                "Duska Kennedy",
+                "Ghadir Ali"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1007/978-3-032-30813-9_19",
+            "doi": "10.1007/978-3-032-30813-9_19",
+            "url": "https://doi.org/10.1007/978-3-032-30813-9_19",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/64df6bb488b388687c1dd5b6850206db8070cc16",
+            "bibtex": "@Article{Haque2026TransformingHW,\n author = {Nihal Haque and Ervin Sejdic and Michael Liut and Roland Mollanji and Philkyung Shin and Duska Kennedy and Ghadir Ali},\n booktitle = {Conference on Artificial Intelligence in Medicine in Europe},\n pages = {101-105},\n title = {Transforming Hospitals with Artificial Intelligence: Applications in Clinical Education and Patient Care},\n year = {2026}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "booktitle": "Conference on Artificial Intelligence in Medicine in Europe",
+            "pages": "101-105"
+        }
+    ]
+}

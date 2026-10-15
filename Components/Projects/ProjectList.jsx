@@ -9,6 +9,12 @@ const countPeople = (project) => project.people.core.length + project.people.col
 
 const plural = (count, noun) => `${count} ${noun}${count === 1 ? '' : 's'}`
 
+// Active projects carry no label; the others say where they stand.
+const statusLabels = {
+  'in-development': 'In development',
+  past: 'Past project',
+}
+
 /**
  * Every project, top to bottom, in the order they are listed in the data.
  * One card per project: the image beside the copy from `lg` up, stacked below
@@ -19,24 +25,31 @@ const ProjectList = () => (
   <ul className='space-y-6'>
     {projects.map((project, index) => (
       <li key={project.slug}>
-        <article className='grid overflow-hidden rounded-xl border border-slate-200 bg-white lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)]'>
+        <article
+          className={`grid overflow-hidden rounded-xl border border-slate-200 bg-white ${
+            project.image ? 'lg:grid-cols-[minmax(0,24rem)_minmax(0,1fr)]' : ''
+          }`}
+        >
           {/* The image is a click target for mouse users only; the title and
               the button below already carry the link for keyboards and
-              screen readers, so this one stays out of the tab order. */}
-          <Link
-            href={project.link}
-            tabIndex={-1}
-            aria-hidden='true'
-            className='flex items-center justify-center bg-slate-50 p-4 sm:p-6 lg:border-r lg:border-slate-200'
-          >
-            <Image
-              src={project.image}
-              alt=''
-              priority={index === 0}
-              className='max-h-64 w-auto max-w-full object-contain'
-              sizes='(max-width: 1024px) 100vw, 384px'
-            />
-          </Link>
+              screen readers, so this one stays out of the tab order. A
+              project without an image yet gets a text-only card. */}
+          {project.image && (
+            <Link
+              href={project.link}
+              tabIndex={-1}
+              aria-hidden='true'
+              className='flex items-center justify-center bg-slate-50 p-4 sm:p-6 lg:border-r lg:border-slate-200'
+            >
+              <Image
+                src={project.image}
+                alt=''
+                priority={index === 0}
+                className='max-h-64 w-auto max-w-full object-contain'
+                sizes='(max-width: 1024px) 100vw, 384px'
+              />
+            </Link>
+          )}
 
           <div className='flex min-w-0 flex-col p-5 sm:p-6'>
             <div className='flex flex-wrap items-baseline gap-x-3 gap-y-1'>
@@ -45,9 +58,9 @@ const ProjectList = () => (
                   {project.name}
                 </Link>
               </h2>
-              {project.status === 'past' && (
+              {statusLabels[project.status] && (
                 <span className='text-sm text-slate-500'>
-                  Past project
+                  {statusLabels[project.status]}
                 </span>
               )}
             </div>

@@ -1,0 +1,30 @@
+{
+    "2026": [
+        {
+            "paperId": "cbe1fb98a7144b9c61ec919b01ee97cdd1fd0417",
+            "year": "2026",
+            "title": "Beyond One-Size-Fits-All Exercises: Personalizing Computer Science Worksheets with Large Language Models",
+            "author": [
+                "Franco Ortiz",
+                "Runlong Ye",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3803400.3809330",
+            "doi": "10.1145/3803400.3809330",
+            "url": "https://doi.org/10.1145/3803400.3809330",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/cbe1fb98a7144b9c61ec919b01ee97cdd1fd0417",
+            "abstract": "Motivation: Large Language Models (LLMs) have been widely applied to student-facing educational tools, this work explores their use in supporting instructors by presenting a practical adaptation of the Framework for Adaptive Content using Educational Technology (FACET) system to generate personalized instructional materials for an Introduction to Computer Programming (CS1) course. Method: We conducted a mixed-methods study with 409 first-year computer science (CS) students, focusing on regular expressions (RegEx). Students were assessed on their knowledge and motivation, classified into one of four learner profiles, and assigned either LLM-personalized (treatment) or standard non-adaptive (control) exercises. Personalized materials varied in scaffolding, instructional explicitness, and tone based on learner profiles grounded in Bloom's Taxonomy and Self-Determination Theory. Results: Quantitative analysis reveals that standard exercises resulted in task incompletion among low-knowledge learners, with approximately 25–30% incompletion, whereas personalized materials sustained near-universal completion (>99%) across all profiles. While high-performing students experienced ceiling effects, Low Knowledge/Low Motivation students achieved significantly higher correctness (+18.2%) with personalized support. Survey data indicate that students prioritize structural scaffolding (logical sequence, difficulty pacing) over motivational tone and perceive the adaptive tasks as equally challenging as standard exercises. Implications: These findings suggest that learner–profile–driven LLM personalization primarily serves as a retention scaffold, preventing task abandonment among at-risk students without diminishing the task's ''desirable difficulty''. The results demonstrate that instructor-facing LLM systems can effectively close engagement gaps in CS1 by tailoring instructional explicitness to student needs.",
+            "publicationDate": "2026-04-30",
+            "openAccessPdfUrl": "https://doi.org/10.1145/3803400.3809330",
+            "bibtex": "@Article{Ortiz2026BeyondOE,\n author = {Franco Ortiz and Runlong Ye and Michael Liut},\n booktitle = {Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1},\n journal = {Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1},\n title = {Beyond One-Size-Fits-All Exercises: Personalizing Computer Science Worksheets with Large Language Models},\n year = {2026}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Book",
+                "Conference",
+                "Review"
+            ],
+            "journal": "Proceedings of the 31st ACM Conference on Innovation and Technology in Computer Science Education V. 1"
+        }
+    ]
+}

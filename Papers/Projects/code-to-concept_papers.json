@@ -1,0 +1,163 @@
+{
+    "2026": [
+        {
+            "paperId": "19e6b61c1adda35ba7d5ef6d4f987191641462d0",
+            "year": "2026",
+            "title": "Code as Anchor, Memory and Metaphor as Support: Learner Experiences with Multi-View Visualizations",
+            "author": [
+                "Naaz Sibia",
+                "Jessica Wen",
+                "Amber Richardson",
+                "Yashika Jain",
+                "Khushi Malik",
+                "Bogdan Simion",
+                "Carolina Nobre",
+                "Angela M. Zavaleta Bernuy",
+                "Andrew Petersen",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.1145/3765964.3811662",
+            "doi": "10.1145/3765964.3811662",
+            "url": "https://doi.org/10.1145/3765964.3811662",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/19e6b61c1adda35ba7d5ef6d4f987191641462d0",
+            "abstract": "Program visualizations are widely used to support novice programmers, yet students often ignore or resist well-designed visual scaffolds. Research on multiple external representations (MERs) offers cognitive design principles for coordinating views, but less is known about what shapes learners'engagement with available representations. We conducted a within-subjects study with 19 undergraduates who had completed CS1 and CS2. Students completed think-aloud tasks, reflective interviews, and webcam-based gaze tracking while using a multi-representational probe with synchronized code, memory, and metaphor views, and Python Tutor, across scope, while loops, and linked lists. Gaze analysis showed that students spent nearly half their time focused on code despite available visual scaffolds. Students without prior experience anchored even more heavily in code and engaged minimally with metaphor views. Interviews identified three factors shaping selective engagement: agency, as students sought control over cognitive effort rather than simply having it reduced; representational fit, as identical designs differed in whether they felt helpful or overwhelming; and legitimacy, as some students avoided metaphorical scaffolds they perceived as childish or insufficiently rigorous for university-level work. These findings suggest that multi-representational tools in computing education require attention to affective and social factors alongside cognitive design. Practical considerations include positioning visualizations as verification instruments, offering toggleable abstraction levels, and framing tools to signal disciplinary legitimacy. More broadly, the themes help explain why cognitively sound visualization tools may fail to engage the students they are designed to help.",
+            "publicationDate": "2026-06-17",
+            "bibtex": "@Inproceedings{Sibia2026CodeAA,\n author = {Naaz Sibia and Jessica Wen and Amber Richardson and Yashika Jain and Khushi Malik and Bogdan Simion and Carolina Nobre and Angela M. Zavaleta Bernuy and Andrew Petersen and Michael Liut},\n title = {Code as Anchor, Memory and Metaphor as Support: Learner Experiences with Multi-View Visualizations},\n year = {2026}\n}",
+            "journal": "Proceedings of the 2026 ACM Conference on International Computing Education Research Vol. 1"
+        }
+    ],
+    "2025": [
+        {
+            "paperId": "01badb11729ad0a56b0d3f3e0ba6eba50a6f0efb",
+            "year": "2025",
+            "title": "From State to Structure: Towards Abstraction Support in CS2",
+            "author": [
+                "Naaz Sibia",
+                "Jessica Wen",
+                "Amber Richardson",
+                "Yashika Jain",
+                "Angela Zavaleta Bernuy",
+                "Bogdan Simion",
+                "Andrew Petersen",
+                "Carolina Nobre",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3769994.3769998",
+            "doi": "10.1145/3769994.3769998",
+            "url": "https://doi.org/10.1145/3769994.3769998",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/01badb11729ad0a56b0d3f3e0ba6eba50a6f0efb",
+            "abstract": "Motivation: CS2 students often struggle to connect low-level memory operations with high-level structural understanding, particularly with recursion and linked data structures. Visualizations can aid learning by making underlying relationships more visible and helping students track complex behavior. While such tools exist, most emphasize procedural flow without scaffolding abstraction. We explore whether multiple external representations (MERs), which are a well-established approach in other STEM fields that is underutilized in computing education, can support structural abstraction through synchronized, layered visualizations. Method: We used a tri-pane interface, grounded in Ainsworth’s DeFT framework, as a design probe. The system synchronized source code, memory diagrams, and abstract structural views. It was embedded into a 12-week CS2 course (n = 695) focused on recursive, reference-based structures. Students engaged with three MER-aligned activities during the semester. 440 completed an end-of-term survey, and 301 provided open-ended feedback. We analyzed perceived clarity, usability, and mental effort using validated scales and thematic coding. Results: Students described the MER visualizations as clear, intuitive, and helpful, especially for recursion and pointer-heavy logic. Many said the integration of views supported “seeing the bigger picture” and reduced reliance on rote tracing. Usability ratings were strong, mental effort was moderate, and non-native English speakers reported higher clarity than native speakers. Implications: As an initial exploration, these findings offer early empirical grounding for the further use of MERs in CS2. The work surfaces representational affordances, learner strategies, and design tensions that can inform future tools and evaluations of abstraction support in computing education.",
+            "publicationDate": "2025-11-10",
+            "openAccessPdfUrl": "https://doi.org/10.1145/3769994.3769998",
+            "bibtex": "@Book{Sibia2025FromST,\n author = {Naaz Sibia and Jessica Wen and Amber Richardson and Yashika Jain and Angela Zavaleta Bernuy and Bogdan Simion and Andrew Petersen and Carolina Nobre and Michael Liut},\n booktitle = {European Conference on Modelling and Simulation},\n journal = {Proceedings of the 25th Koli Calling International Conference on Computing Education Research},\n title = {From State to Structure: Towards Abstraction Support in CS2},\n year = {2025}\n}",
+            "publicationTypes": [
+                "Book",
+                "JournalArticle",
+                "Review"
+            ],
+            "journal": "Proceedings of the 25th Koli Calling International Conference on Computing Education Research"
+        },
+        {
+            "paperId": "da750cd847a57a325c4f787c6dcd7306a564c948",
+            "year": "2025",
+            "title": "From Code to Concept: Evaluating Multiple Coordinated Views in Introductory Programming",
+            "author": [
+                "Naaz Sibia",
+                "Valeria Ramirez Osorio",
+                "Jessica Wen",
+                "Rutwa Engineer",
+                "Angela M. Zavaleta Bernuy",
+                "Andrew Petersen",
+                "Michael Liut",
+                "Carolina Nobre"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.48550/arxiv.2509.26466",
+            "doi": "10.48550/arxiv.2509.26466",
+            "url": "https://doi.org/10.48550/arxiv.2509.26466",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/da750cd847a57a325c4f787c6dcd7306a564c948",
+            "abstract": "Novice programmers often struggle to understand how code executes and to form the abstract mental models necessary for effective problem-solving, challenges that are amplified in large, diverse introductory courses where students'backgrounds, language proficiencies, and prior experiences vary widely. This study examines whether interactive, multi-representational visualizations, combining synchronized code views, memory diagrams, and conceptual analogies, can help manage cognitive load and foster engagement more effectively than single-visual or text-only approaches. Over a 12-week deployment in a high-enrolment introductory Python course (N = 829), students who relied solely on text-based explanations reported significantly higher immediate mental effort than those using visual aids, although overall cognitive load did not differ significantly among conditions. The multi-representational approach consistently yielded higher engagement than both single-visual and text-only methods. Usage logs indicated that learners'interaction patterns varied with topic complexity, and predictive modelling suggested that early experiences of high cognitive load were associated with lower longer-term perceptions of clarity and helpfulness. Individual differences, including language proficiency and prior programming experience, moderated these patterns. By integrating multiple external representations with scaffolded support adapted to diverse learner profiles, our findings highlight design considerations for creating visualization tools that more effectively support novices learning to program.",
+            "publicationDate": "2025-09-30",
+            "bibtex": "@Article{Sibia2025FromCT,\n author = {Naaz Sibia and Valeria Ramirez Osorio and Jessica Wen and Rutwa Engineer and Angela M. Zavaleta Bernuy and Andrew Petersen and Michael Liut and Carolina Nobre},\n booktitle = {arXiv.org},\n journal = {ArXiv},\n title = {From Code to Concept: Evaluating Multiple Coordinated Views in Introductory Programming},\n volume = {abs/2509.26466},\n year = {2025}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "ArXiv",
+            "volume": "abs/2509.26466"
+        },
+        {
+            "paperId": "f6e1510fad295fc0e23078c4fded402b4b598814",
+            "year": "2025",
+            "title": "Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review",
+            "author": [
+                "Naaz Sibia",
+                "Michael Liut",
+                "Carolina Nobre"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.2312/eved.20251027",
+            "url": "https://doi.org/10.2312/eved.20251027",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/f6e1510fad295fc0e23078c4fded402b4b598814",
+            "bibtex": "@Inproceedings{Sibia2025ExploringTR,\n author = {Naaz Sibia and Michael Liut and Carolina Nobre},\n booktitle = {EuroVis 2025 - Education Papers},\n publisher = {The Eurographics Association},\n title = {Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review},\n year = {2025}\n}",
+            "publicationTypes": [
+                "Conference"
+            ],
+            "doi": "10.2312/eved.20251027",
+            "booktitle": "EuroVis 2025 - Education Papers",
+            "publisher": "The Eurographics Association"
+        }
+    ],
+    "2024": [
+        {
+            "paperId": "a5f07fcccb1dbdf370f2bd0dd3c18e748b90cb80",
+            "year": "2024",
+            "title": "Enhancing Novice Programmers? Understanding through Interactive Visualizations and Multiple Representations",
+            "author": [
+                "Naaz Sibia"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3699538.3699572",
+            "doi": "10.1145/3699538.3699572",
+            "url": "https://doi.org/10.1145/3699538.3699572",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/a5f07fcccb1dbdf370f2bd0dd3c18e748b90cb80",
+            "abstract": "This research explores the challenges novice students face in un- derstanding and tracing programs, particularly when lacking prior programming experience. Novices often struggle with ineffective tracing strategies and developing accurate mental models, which are crucial for advancing in programming. While visualization and sketching have been proposed as methods to improve these skills, their effectiveness remains mixed. In my Ph.D. I propose studying investigating the potential of interactive visualizations and sketching, grounded in multiple representations theory, to enhance learner engagement, reduce cognitive load, and support various levels of program comprehension. By examining how these tools can be integrated into programming education, particularly through formats that range from analogies to concrete code representations, this work aims to offer practical guidelines to make programming more accessible and intuitive, thereby addressing a critical gap in computing education",
+            "publicationDate": "2024-11-12",
+            "bibtex": "@Book{Sibia2024EnhancingNP,\n author = {Naaz Sibia},\n booktitle = {European Conference on Modelling and Simulation},\n journal = {Proceedings of the 24th Koli Calling International Conference on Computing Education Research},\n title = {Enhancing Novice Programmers? Understanding through Interactive Visualizations and Multiple Representations},\n year = {2024}\n}",
+            "publicationTypes": [
+                "Book",
+                "JournalArticle"
+            ],
+            "journal": "Proceedings of the 24th Koli Calling International Conference on Computing Education Research"
+        },
+        {
+            "paperId": "5098690f7796ebf364d53b3b2076b05534d2b330",
+            "year": "2024",
+            "title": "Exploring the Impact of Multiple Representations in Introductory Programming: A Pilot Study",
+            "author": [
+                "Naaz Sibia",
+                "Valeria Ramirez Osorio",
+                "Angela Zavaleta Bernuy",
+                "Efthimia Aivaloglou",
+                "Rutwa Engineer",
+                "Andrew Petersen",
+                "Michael Liut",
+                "Carolina Nobre"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3699538.3699587",
+            "doi": "10.1145/3699538.3699587",
+            "url": "https://doi.org/10.1145/3699538.3699587",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/5098690f7796ebf364d53b3b2076b05534d2b330",
+            "abstract": "This pilot study explores how visualization strategies, grounded in multiple representations theory, impact novice students’ engagement, and cognitive load during program tracing tasks. Students were were shown a visualization of the three-variable swap problem at the start of an introductory programming course (CS1) at a large public North American research-intensive university. We compared three conditions: interactive multiple representations, Python Tutor (a single-representation tool), and text-only methods. Preliminary results indicate that interactive multiple representations increase engagement for students with prior programming experience, while no significant differences were observed for students without prior experience. These findings suggest that while multiple representations may boost engagement, identifying how to effectively support students of all experience levels and reduce cognitive load requires further study.",
+            "publicationDate": "2024-11-12",
+            "bibtex": "@Article{Sibia2024ExploringTI,\n author = {Naaz Sibia and Valeria Ramirez Osorio and Angela Zavaleta Bernuy and Efthimia Aivaloglou and Rutwa Engineer and Andrew Petersen and Michael Liut and Carolina Nobre},\n booktitle = {European Conference on Modelling and Simulation},\n journal = {Proceedings of the 24th Koli Calling International Conference on Computing Education Research},\n title = {Exploring the Impact of Multiple Representations in Introductory Programming: A Pilot Study},\n year = {2024}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Book"
+            ],
+            "journal": "Proceedings of the 24th Koli Calling International Conference on Computing Education Research"
+        }
+    ]
+}

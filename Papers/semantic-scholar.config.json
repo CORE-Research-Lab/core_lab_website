@@ -37,6 +37,98 @@
                     "doi": "10.1145/3742413.3789079"
                 }
             ]
+        },
+        "numi": {
+            "output": "Papers/Projects/numi_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.3386/w35621"
+                }
+            ]
+        },
+        "quickta": {
+            "output": "Papers/Projects/quickta_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.1145/3687038"
+                },
+                {
+                    "doi": "10.1145/3657604.3662042"
+                },
+                {
+                    "doi": "10.1609/hcomp.v12i1.31597"
+                },
+                {
+                    "title": "A Preliminary Analysis of Students' Help Requests with an LLM-powered Chatbot when Completing CS1 Assignments"
+                },
+                {
+                    "doi": "10.1145/3641554.3701844"
+                },
+                {
+                    "doi": "10.1145/3649217.3653554"
+                },
+                {
+                    "title": "A Randomized Study Comparing the Effectiveness of an Untrained versus Trained Chatbot—with Access to Course Content—in an Introductory Mathematical Statistics Course"
+                }
+            ]
+        },
+        "medbot": {
+            "output": "Papers/Projects/medbot_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.1007/978-3-032-30813-9_19"
+                }
+            ]
+        },
+        "margin": {
+            "output": "Papers/Projects/margin_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.1007/978-3-032-29760-0_57"
+                }
+            ]
+        },
+        "code-to-concept": {
+            "output": "Papers/Projects/code-to-concept_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.1145/3765964.3811662"
+                },
+                {
+                    "doi": "10.1145/3769994.3769998"
+                },
+                {
+                    "doi": "10.48550/arxiv.2509.26466"
+                },
+                {
+                    "doi": "10.1145/3699538.3699587"
+                },
+                {
+                    "doi": "10.1145/3699538.3699572"
+                },
+                {
+                    "doi": "10.2312/eved.20251027"
+                }
+            ]
+        },
+        "sqam": {
+            "output": "Papers/Projects/sqam_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.1145/3488042.3489970"
+                },
+                {
+                    "doi": "10.1145/3803400.3809307"
+                }
+            ]
+        },
+        "mosaic": {
+            "output": "Papers/Projects/mosaic_papers.json",
+            "selectors": [
+                {
+                    "doi": "10.1145/3803400.3809330"
+                }
+            ]
         }
     }
 }

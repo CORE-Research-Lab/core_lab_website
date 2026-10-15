@@ -43,18 +43,20 @@ export default async function ProjectPage({ params }) {
       <div className='page-shell pb-16'>
         {/* The project image is the point of the page, so it gets the full
             column and as much height as the viewport can spare. */}
-        <figure className='mx-auto flex max-w-4xl items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6'>
-          <Image
-            src={project.image}
-            alt={project.imageAlt || ''}
-            aria-hidden={project.imageAlt ? undefined : 'true'}
-            priority
-            className='h-auto w-full object-contain'
-            sizes='(max-width: 896px) 100vw, 896px'
-          />
-        </figure>
+        {project.image && (
+          <figure className='mx-auto flex max-w-4xl items-center justify-center overflow-hidden rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-6'>
+            <Image
+              src={project.image}
+              alt={project.imageAlt || ''}
+              aria-hidden={project.imageAlt ? undefined : 'true'}
+              priority
+              className='h-auto w-full object-contain'
+              sizes='(max-width: 896px) 100vw, 896px'
+            />
+          </figure>
+        )}
 
-        <div className='mt-10 grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:items-start lg:gap-12'>
+        <div className={`${project.image ? 'mt-10' : 'mt-2'} grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:items-start lg:gap-12`}>
           <div className='min-w-0 max-w-5xl'>
             {project.description.map((paragraph) => (
               <p key={paragraph.slice(0, 40)} className='mt-4 text-lg leading-8 text-slate-700 first:mt-0'>

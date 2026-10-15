@@ -792,6 +792,24 @@
             "volume": "29"
         },
         {
+            "year": "2026",
+            "title": "A Randomized Study Comparing the Effectiveness of an Untrained versus Trained Chatbot—with Access to Course Content—in an Introductory Mathematical Statistics Course",
+            "author": [
+                "Jenny Yoojeong Oh",
+                "Michael Jongho Moon",
+                "Michael Liut",
+                "Marko Choi",
+                "Karen Huynh-Wong",
+                "Nathan Taback"
+            ],
+            "ENTRYTYPE": "misc",
+            "ID": "1807/154059",
+            "url": "https://hdl.handle.net/1807/154059",
+            "abstract": "A cluster-randomized study in a large introductory mathematical statistics course (N=432) at the University of Toronto tested whether augmenting a Llama 3.1 chatbot (QuickTA) with retrieval over course materials improved student performance relative to the same model without retrieval. Tutorial sections were randomly assigned to a RAG-trained chatbot with access to course materials or an untrained chatbot without course-specific retrieval. Treatment groups did not differ significantly in mean tutorial activity scores or perceived helpfulness. International students and students with lower final course grades were more likely to report finding the chatbot useful. Chatbot access may still offer targeted benefits for students who face additional barriers in statistics courses.",
+            "bibtex": "@Misc{Oh2026Randomized,\n author = {Jenny Yoojeong Oh and Michael Jongho Moon and Michael Liut and Marko Choi and Karen Huynh-Wong and Nathan Taback},\n title = {A Randomized Study Comparing the Effectiveness of an Untrained versus Trained Chatbot—with Access to Course Content—in an Introductory Mathematical Statistics Course},\n howpublished = {TSpace, University of Toronto},\n url = {https://hdl.handle.net/1807/154059},\n year = {2026}\n}",
+            "journal": "TSpace, University of Toronto"
+        },
+        {
             "paperId": "64df6bb488b388687c1dd5b6850206db8070cc16",
             "year": "2026",
             "title": "Transforming Hospitals with Artificial Intelligence: Applications in Clinical Education and Patient Care",

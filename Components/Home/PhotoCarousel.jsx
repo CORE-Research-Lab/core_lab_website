@@ -71,8 +71,9 @@ const PhotoCarousel = ({ title, description, photos }) => {
 
         {/* The frame: 4:3 on phones, 3:2 from tablets up, and never taller
             than 36rem on wide screens. Its height follows the screen width
-            alone, so the photos inside cannot change it. */}
-        <div className='relative mt-6 aspect-4/3 max-h-144 overflow-hidden rounded-xl border border-slate-200 bg-brand-soft/55 sm:aspect-3/2'>
+            alone, so the photos inside cannot change it. Once the height cap
+            kicks in the frame narrows to keep its shape, so it is centred. */}
+        <div className='relative mx-auto mt-6 aspect-4/3 max-h-144 overflow-hidden rounded-xl border border-slate-200 bg-brand-soft/55 sm:aspect-3/2'>
           <div className='absolute inset-0' ref={emblaRef}>
             <div className='flex h-full touch-pan-y'>
               {photos.map((photo, index) => (

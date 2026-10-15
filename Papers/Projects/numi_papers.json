@@ -1,0 +1,26 @@
+{
+    "2026": [
+        {
+            "paperId": "5a14477377177fe6e3cf1df7cacf2e1f74f62e36",
+            "year": "2026",
+            "title": "Making AI Tutoring Productive: Evidence from a Mastery-Based Math Practice Experiment",
+            "author": [
+                "Philip Oreopoulos",
+                "Michael Liut",
+                "Alp Sungu",
+                "Nina Low"
+            ],
+            "ENTRYTYPE": "misc",
+            "ID": "10.3386/w35621",
+            "doi": "10.3386/w35621",
+            "url": "https://doi.org/10.3386/w35621",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/5a14477377177fe6e3cf1df7cacf2e1f74f62e36",
+            "publicationDate": "2026-08-01",
+            "openAccessPdfUrl": "https://doi.org/10.3386/w35621",
+            "bibtex": "@Inproceedings{Oreopoulos2026MakingAT,\n author = {Philip Oreopoulos and Michael Liut and Alp Sungu and Nina Low},\n title = {Making AI Tutoring Productive: Evidence from a Mastery-Based Math Practice Experiment},\n year = {2026}\n}",
+            "publicationTypes": [
+                "CaseReport"
+            ]
+        }
+    ]
+}

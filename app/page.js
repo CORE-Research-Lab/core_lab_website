@@ -1,6 +1,7 @@
 import Hero from "@/Components/Hero/Hero";
 import About from "@/Components/About/About";
 import PublicationHighlight from "@/Components/Home/PublicationHighlight";
+import LabCulture from "@/Components/Home/LabCulture";
 import InstitutionalSupport from "@/Components/Home/InstitutionalSupport";
 import LabPhotos from "@/Components/Home/LabPhotos";
 
@@ -10,6 +11,7 @@ export default function Home() {
       <Hero/>
       <About/>
       <PublicationHighlight/>
+      <LabCulture/>
       <InstitutionalSupport/>
       <LabPhotos/>
     </>

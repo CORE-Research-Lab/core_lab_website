@@ -1,0 +1,193 @@
+{
+    "2026": [
+        {
+            "year": "2026",
+            "title": "A Randomized Study Comparing the Effectiveness of an Untrained versus Trained Chatbot—with Access to Course Content—in an Introductory Mathematical Statistics Course",
+            "author": [
+                "Jenny Yoojeong Oh",
+                "Michael Jongho Moon",
+                "Michael Liut",
+                "Marko Choi",
+                "Karen Huynh-Wong",
+                "Nathan Taback"
+            ],
+            "ENTRYTYPE": "misc",
+            "ID": "1807/154059",
+            "url": "https://hdl.handle.net/1807/154059",
+            "abstract": "A cluster-randomized study in a large introductory mathematical statistics course (N=432) at the University of Toronto tested whether augmenting a Llama 3.1 chatbot (QuickTA) with retrieval over course materials improved student performance relative to the same model without retrieval. Tutorial sections were randomly assigned to a RAG-trained chatbot with access to course materials or an untrained chatbot without course-specific retrieval. Treatment groups did not differ significantly in mean tutorial activity scores or perceived helpfulness. International students and students with lower final course grades were more likely to report finding the chatbot useful. Chatbot access may still offer targeted benefits for students who face additional barriers in statistics courses.",
+            "bibtex": "@Misc{Oh2026Randomized,\n author = {Jenny Yoojeong Oh and Michael Jongho Moon and Michael Liut and Marko Choi and Karen Huynh-Wong and Nathan Taback},\n title = {A Randomized Study Comparing the Effectiveness of an Untrained versus Trained Chatbot—with Access to Course Content—in an Introductory Mathematical Statistics Course},\n howpublished = {TSpace, University of Toronto},\n url = {https://hdl.handle.net/1807/154059},\n year = {2026}\n}",
+            "journal": "TSpace, University of Toronto"
+        }
+    ],
+    "2025": [
+        {
+            "paperId": "45c8340dfba7ec8d0b6c3e3bcd972993c7d6975d",
+            "year": "2025",
+            "title": "Integrating Small Language Models with Retrieval-Augmented Generation in Computing Education: Key Takeaways, Setup, and Practical Insights",
+            "author": [
+                "Zezhu Yu",
+                "Suqing Liu",
+                "Paul Denny",
+                "Andi Bergen",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3641554.3701844",
+            "doi": "10.1145/3641554.3701844",
+            "url": "https://doi.org/10.1145/3641554.3701844",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/45c8340dfba7ec8d0b6c3e3bcd972993c7d6975d",
+            "abstract": "Leveraging a Large Language Model (LLM) for personalized learning in computing education is promising, yet cloud-based LLMs pose risks around data security and privacy. To address these concerns, we developed and deployed a locally stored Small Language Model (SLM) utilizing Retrieval-Augmented Generation (RAG) methods to support computing students' learning. Previous work has demonstrated that SLMs can match or surpass popular LLMs (gpt-3.5-turbo and gpt-4-32k) in handling conversational data from a CS1 course. We deployed SLMs with RAG (SLM + RAG) in a large course with more than 250 active students, fielding nearly 2,000 student questions, while evaluating data privacy, scalability, and feasibility of local deployments. This paper provides a comprehensive guide for deploying SLM + RAG systems, detailing model selection, vector database choice, embedding methods, and pipeline frameworks. We share practical insights from our deployment, including scalability concerns, accuracy versus context length trade-offs, guardrails and hallucination reduction, as well as data privacy maintenance. We address the \"Impossible Triangle\" in RAG systems, which states that achieving high accuracy, short context length, and low time consumption simultaneously is not feasible. Furthermore, our novel RAG framework, Intelligence Concentration (IC), categorizes information into multiple layers of abstraction within Milvus collections mitigating trade-offs and enabling educational assistants to deliver more relevant and personalized responses to students quickly.",
+            "publicationDate": "2025-02-12",
+            "bibtex": "@Article{Yu2025IntegratingSL,\n author = {Zezhu Yu and Suqing Liu and Paul Denny and Andi Bergen and Michael Liut},\n booktitle = {Technical Symposium on Computer Science Education},\n journal = {Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 1},\n title = {Integrating Small Language Models with Retrieval-Augmented Generation in Computing Education: Key Takeaways, Setup, and Practical Insights},\n year = {2025}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Book",
+                "Conference"
+            ],
+            "journal": "Proceedings of the 56th ACM Technical Symposium on Computer Science Education V. 1"
+        }
+    ],
+    "2024": [
+        {
+            "paperId": "ce1b62160251d068eafbc7db7275a3ea4f2db58d",
+            "year": "2024",
+            "title": "Disclosures & Disclaimers: Investigating the Impact of Transparency Disclosures and Reliability Disclaimers on Learner-LLM Interactions",
+            "author": [
+                "Jessica Y. Bo",
+                "H. Kumar",
+                "Michael Liut",
+                "Ashton Anderson"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1609/hcomp.v12i1.31597",
+            "doi": "10.1609/hcomp.v12i1.31597",
+            "url": "https://doi.org/10.1609/hcomp.v12i1.31597",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/ce1b62160251d068eafbc7db7275a3ea4f2db58d",
+            "abstract": "Large Language Models (LLMs) are increasingly being used in educational settings to assist students with assignments and learning new concepts. For LLMs to be effective learning aids, students must develop an appropriate level of trust and reliance on these tools. Misaligned trust and reliance can lead to suboptimal learning outcomes and reduced LLM engagement. Despite their growing presence, there is a limited understanding of achieving optimal transparency and reliance calibration in the educational use of LLMs. In a 3x2 between-subjects experiment conducted in a university classroom setting, we tested the effect of two transparency disclosures (System Prompt and Goal Summary) and an in-conversation Reliability Disclaimer on a GPT-4-based chatbot tutor provided to students for an assignment. Our findings suggest that disclaimer messages included in the responses may effectively mitigate learners' overreliance on the LLM Tutor in the presence of incorrect advice. Disclosing System Prompt seemed to calibrate students’ confidence in their answers and reduce the occurrence of copy-pasting the exact assignment question to the LLM tutor. Student feedback indicated that they would like transparency framed in terms of performance-based metrics. Our work provides empirical insights on the design of transparency and reliability mechanisms for using LLMs in classrooms.",
+            "publicationDate": "2024-10-14",
+            "openAccessPdfUrl": "https://ojs.aaai.org/index.php/HCOMP/article/download/31597/33763",
+            "bibtex": "@Article{Bo2024DisclosuresD,\n author = {Jessica Y. Bo and H. Kumar and Michael Liut and Ashton Anderson},\n booktitle = {Proceedings of the AAAI Conference on Human Computation and Crowdsourcing},\n journal = {Proceedings of the AAAI Conference on Human Computation and Crowdsourcing},\n title = {Disclosures & Disclaimers: Investigating the Impact of Transparency Disclosures and Reliability Disclaimers on Learner-LLM Interactions},\n year = {2024}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Conference"
+            ],
+            "journal": "Proceedings of the AAAI Conference on Human Computation and Crowdsourcing"
+        },
+        {
+            "paperId": "5aabaf59808091eca1c6cba123ac2003017f4011",
+            "year": "2024",
+            "title": "Can Small Language Models With Retrieval-Augmented Generation Replace Large Language Models When Learning Computer Science?",
+            "author": [
+                "Suqing Liu",
+                "Zezhu Yu",
+                "Fei Huang",
+                "Yousef Bulbulia",
+                "Andi Bergen",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3649217.3653554",
+            "doi": "10.1145/3649217.3653554",
+            "url": "https://doi.org/10.1145/3649217.3653554",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/5aabaf59808091eca1c6cba123ac2003017f4011",
+            "abstract": "Leveraging Large Language Models (LLMs) for personalized learning and support is becoming a promising tool in computing education. AI Assistants can help students with programming, problem-solving, converse with them to clarify course content, explain error messages to help with debugging, and much more. However, using cloud-based LLMs poses risks around data security, privacy, but also control of the overarching system. To address these concerns, we created a locally-stored Small Language Model (SLM) that leverages different Retrieval-Augmented Generation (RAG) methods to support computing students' learning. We compare one SLM (neural-chat-7b-v3 - fine-tuned version of Mistral-7B-v0.1) against two popular LLMs (gpt-3.5-turbo and gpt-4-32k) to see the viability for computing educators to use in their course(s). We use conversations from a CS1 course (N = 1,260), providing students with an AI Assistant (using gpt-3.5-turbo) to help them learn content and support problem-solving while completing their Python programming assignment. In total, we had 269 students use the AI Assistant, with a total of 1,988 questions asked. Using this real conversational data, we re-ran student questions using our novel SLM (neural-chat-7b-v3 testing nine different RAG methods) and gpt-4-32k, then compared those results against the original gpt-3.5-turbo responses. Our findings indicate that using an SLM with RAG can perform similarly, if not better, than LLMs. This shows that it is possible for computing educators to use SLMs (with RAG) in their course(s) as a tool for scalable learning, supporting content understanding and problem-solving needs, while employing their own policies on data privacy and security.",
+            "publicationDate": "2024-07-03",
+            "bibtex": "@Book{Liu2024CanSL,\n author = {Suqing Liu and Zezhu Yu and Fei Huang and Yousef Bulbulia and Andi Bergen and Michael Liut},\n booktitle = {Annual Conference on Innovation and Technology in Computer Science Education},\n journal = {Proceedings of the 2024 on Innovation and Technology in Computer Science Education V. 1},\n title = {Can Small Language Models With Retrieval-Augmented Generation Replace Large Language Models When Learning Computer Science?},\n year = {2024}\n}",
+            "publicationTypes": [
+                "Book",
+                "JournalArticle",
+                "Conference"
+            ],
+            "journal": "Proceedings of the 2024 on Innovation and Technology in Computer Science Education V. 1"
+        },
+        {
+            "paperId": "4e24f909f0767072379d1726e3de072989b8ee23",
+            "year": "2024",
+            "title": "Supporting Self-Reflection at Scale with Large Language Models: Insights from Randomized Field Experiments in Classrooms",
+            "author": [
+                "Harsh Kumar",
+                "Ruiwei Xiao",
+                "Benjamin A. Lawson",
+                "Ilya Musabirov",
+                "Jiakai Shi",
+                "Xinyuan Wang",
+                "Huayin Luo",
+                "J. Williams",
+                "Anna N. Rafferty",
+                "John C. Stamper",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3657604.3662042",
+            "doi": "10.1145/3657604.3662042",
+            "url": "https://doi.org/10.1145/3657604.3662042",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/4e24f909f0767072379d1726e3de072989b8ee23",
+            "abstract": "Self-reflection on learning experiences constitutes a fundamental cognitive process, essential for consolidating knowledge and enhancing learning efficacy. However, traditional methods to facilitate reflection often face challenges in personalization, immediacy of feedback, engagement, and scalability. Integration of Large Language Models (LLMs) into the reflection process could mitigate these limitations. In this paper, we conducted two randomized field experiments in undergraduate computer science courses to investigate the potential of LLMs to help students engage in post-lesson reflection. In the first experiment (N=145), students completed a take-home assignment with the support of an LLM assistant; half of these students were then provided access to an LLM designed to facilitate self-reflection. The results indicated that the students assigned to LLM-guided reflection reported somewhat increased self-confidence compared to peers in a no-reflection control and a non-significant trend towards higher scores on a later assessment. Thematic analysis of students' interactions with the LLM showed that the LLM often affirmed the student's understanding, expanded on the student's reflection, and prompted additional reflection; these behaviors suggest ways LLM-interaction might facilitate reflection. In the second experiment (N=112), we evaluated the impact of LLM-guided self-reflection against other scalable reflection methods, such as questionnaire-based activities and review of key lecture slides, after assignment. Our findings suggest that the students in the questionnaire and LLM-based reflection groups performed equally well and better than those who were only exposed to lecture slides, according to their scores on a proctored exam two weeks later on the same subject matter. These results underscore the utility of LLM-guided reflection and questionnaire-based activities in improving learning outcomes. Our work highlights that focusing solely on the accuracy of LLMs can overlook their potential to enhance metacognitive skills through practices such as self-reflection. We discuss the implications of our research for the learning-at-scale community, highlighting the potential of LLMs to enhance learning experiences through personalized, engaging, and scalable reflection practices.",
+            "publicationDate": "2024-06-01",
+            "openAccessPdfUrl": "http://arxiv.org/pdf/2406.07571",
+            "bibtex": "@Article{Kumar2024SupportingSA,\n author = {Harsh Kumar and Ruiwei Xiao and Benjamin A. Lawson and Ilya Musabirov and Jiakai Shi and Xinyuan Wang and Huayin Luo and J. Williams and Anna N. Rafferty and John C. Stamper and Michael Liut},\n booktitle = {ACM Conference on Learning @ Scale},\n journal = {Proceedings of the Eleventh ACM Conference on Learning @ Scale},\n title = {Supporting Self-Reflection at Scale with Large Language Models: Insights from Randomized Field Experiments in Classrooms},\n year = {2024}\n}",
+            "publicationTypes": [
+                "JournalArticle",
+                "Book",
+                "Review"
+            ],
+            "journal": "Proceedings of the Eleventh ACM Conference on Learning @ Scale"
+        },
+        {
+            "paperId": "23c0345dccfd723cb7c7c54d593777847b6d1825",
+            "year": "2024",
+            "title": "A Preliminary Analysis of Students' Help Requests with an LLM-powered Chatbot when Completing CS1 Assignments",
+            "author": [
+                "Ruiwei Xiao",
+                "Xinying Hou",
+                "Harsh Kumar",
+                "Steven Moore",
+                "John C. Stamper",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "23c0345dccfd723cb7c7c54d593777847b6d1825",
+            "url": "https://ceur-ws.org/Vol-3796/CSEDM-24_paper_0046.pdf",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/23c0345dccfd723cb7c7c54d593777847b6d1825",
+            "bibtex": "@Inproceedings{Xiao2024APA,\n author = {Ruiwei Xiao and Xinying Hou and Harsh Kumar and Steven Moore and John C. Stamper and Michael Liut},\n booktitle = {Proceedings of the 8th Educational Data Mining in Computer Science Education Workshop (CSEDM 2024)},\n publisher = {CEUR-WS.org},\n title = {A Preliminary Analysis of Students' Help Requests with an LLM-powered Chatbot when Completing CS1 Assignments},\n volume = {3796},\n year = {2024}\n}",
+            "publicationTypes": [
+                "Conference"
+            ],
+            "booktitle": "Proceedings of the 8th Educational Data Mining in Computer Science Education Workshop (CSEDM 2024)",
+            "volume": "3796",
+            "publisher": "CEUR-WS.org"
+        }
+    ],
+    "2023": [
+        {
+            "paperId": "d9599d20713988e1409257c9ea7aafeb51a5658e",
+            "year": "2023",
+            "title": "Guiding Students in Using LLMs in Supported Learning Environments: Effects on Interaction Dynamics, Learner Performance, Confidence, and Trust",
+            "author": [
+                "Harsh Kumar",
+                "Ilya Musabirov",
+                "Mohi Reza",
+                "Jiakai Shi",
+                "Xinyuan Wang",
+                "J. Williams",
+                "A. Kuzminykh",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "article",
+            "ID": "10.1145/3687038",
+            "doi": "10.1145/3687038",
+            "url": "https://doi.org/10.1145/3687038",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/d9599d20713988e1409257c9ea7aafeb51a5658e",
+            "abstract": "Personalized chatbot-based teaching assistants can be crucial in addressing increasing classroom sizes, especially where direct teacher presence is limited. Large language models (LLMs) offer a promising avenue, with increasing research exploring their educational utility. However, the challenge lies not only in establishing the efficacy of LLMs but also in discerning the nuances of interaction between learners and these models, which impact learners' engagement and results. We conducted a formative study in an undergraduate computer science classroom (N=145) and a controlled experiment on Prolific (N=356) to explore the impact of four pedagogically informed guidance strategies on the learners' performance, confidence and trust in LLMs. Direct LLM answers marginally improved performance, while refining student solutions fostered trust. Structured guidance reduced random queries as well as instances of students copy-pasting assignment questions to the LLM. Our work highlights the role that teachers can play in shaping LLM-supported learning environments.",
+            "publicationDate": "2023-10-13",
+            "openAccessPdfUrl": "https://dl.acm.org/doi/pdf/10.1145/3687038",
+            "bibtex": "@Article{Kumar2023GuidingSI,\n author = {Harsh Kumar and Ilya Musabirov and Mohi Reza and Jiakai Shi and Xinyuan Wang and J. Williams and A. Kuzminykh and Michael Liut},\n booktitle = {Proc. ACM Hum. Comput. Interact.},\n journal = {Proceedings of the ACM on Human-Computer Interaction},\n pages = {1 - 30},\n title = {Guiding Students in Using LLMs in Supported Learning Environments: Effects on Interaction Dynamics, Learner Performance, Confidence, and Trust},\n volume = {8},\n year = {2023}\n}",
+            "publicationTypes": [
+                "JournalArticle"
+            ],
+            "journal": "Proceedings of the ACM on Human-Computer Interaction",
+            "volume": "8",
+            "pages": "1 - 30"
+        }
+    ]
+}

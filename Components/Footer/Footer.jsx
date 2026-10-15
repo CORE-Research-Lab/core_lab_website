@@ -9,6 +9,11 @@ const contactEmails = [
   'zavaleta@mcmaster.ca',
 ]
 
+const mapLinks = [
+  { label: 'UTM maps and directions', href: 'https://www.utm.utoronto.ca/visitors/maps-and-directions' },
+  { label: 'McMaster interactive map', href: 'https://discover.mcmaster.ca/map/' },
+]
+
 const footerLinks = navigationItems.filter((item) => item.href !== '#contactus')
 
 const Footer = () => {
@@ -64,14 +69,20 @@ const Footer = () => {
                 </li>
               ))}
             </ul>
-            <a
-              href='https://www.utm.utoronto.ca/visitors/maps-and-directions'
-              className='mt-5 inline-flex text-sm font-medium text-blue-200 transition hover:text-white hover:underline'
-              target='_blank'
-              rel='noreferrer'
-            >
-              UTM maps and directions
-            </a>
+            <ul className='mt-5 space-y-2 text-sm'>
+              {mapLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className='inline-flex font-medium text-blue-200 transition hover:text-white hover:underline'
+                    target='_blank'
+                    rel='noreferrer'
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
         </div>
 

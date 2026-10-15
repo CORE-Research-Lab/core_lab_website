@@ -1,0 +1,28 @@
+{
+    "2026": [
+        {
+            "paperId": "af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "year": "2026",
+            "title": "A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics",
+            "author": [
+                "Suqing Liu",
+                "Runlong Ye",
+                "Christopher Eaton",
+                "Bogdan Simion",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "10.1007/978-3-032-29760-0_57",
+            "doi": "10.1007/978-3-032-29760-0_57",
+            "url": "https://doi.org/10.1007/978-3-032-29760-0_57",
+            "semanticScholarUrl": "https://www.semanticscholar.org/paper/af4e9f97be5102722e9a9d6b751b5751036c895b",
+            "publicationDate": "2026-06-28",
+            "openAccessPdfUrl": "https://arxiv.org/pdf/2601.11541",
+            "bibtex": "@Inproceedings{Liu2026ACS,\n author = {Suqing Liu and Runlong Ye and Christopher Eaton and Bogdan Simion and Michael Liut},\n title = {A Comparative Study of Student Perspectives on Technical Writing Feedback Quality: Evaluating LLMs, SLMs, and Humans in Computer Science Topics},\n booktitle = {International Conference on Artificial Intelligence in Education},\n pages = {577--592},\n publisher = {Springer Nature Switzerland},\n address = {Cham},\n year = {2026}\n}",
+            "booktitle": "International Conference on Artificial Intelligence in Education",
+            "pages": "577-592",
+            "publisher": "Springer Nature Switzerland",
+            "address": "Cham"
+        }
+    ]
+}
