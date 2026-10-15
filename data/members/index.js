@@ -391,7 +391,7 @@ export const currentGraduateStudents = [
     linkedin: 'https://www.linkedin.com/in/j-amber-l-richardson/',
   },
   basicProfile(
-    'Valeria Osorio Ramirez',
+    'Valeria Ramirez Osorio',
     'valeria_osorio_ramirez',
     'M.Eng. Student',
     'McMaster University',
