@@ -12,9 +12,10 @@ export const metadata = {
 export default function ProjectsPage() {
   return (
     <>
-      <PageHeader title={projectsSection.title} />
-      <div className='page-shell pb-16'>
-        <div className='mb-8 max-w-4xl space-y-4 text-lg leading-8 text-slate-700'>
+      {/* The preamble sits in the header, so it is spaced from the title
+          the way every other page's intro is. */}
+      <PageHeader title={projectsSection.title}>
+        <div className='mt-3 max-w-4xl space-y-4 text-lg leading-8 text-slate-600'>
           {projectsSection.intro.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
@@ -28,6 +29,8 @@ export default function ProjectsPage() {
             </a>
           </p>
         </div>
+      </PageHeader>
+      <div className='page-shell pb-16'>
         <ProjectList />
         <OtherTools />
       </div>

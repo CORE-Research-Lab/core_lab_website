@@ -76,10 +76,11 @@ const ProjectList = () => (
                 {papers}<span className='sr-only'> {papers === 1 ? 'paper' : 'papers'}</span>
               </span>
 
-              <HiArrowRight
-                className='hidden size-4 self-center text-brand transition-colors md:block'
-                aria-hidden='true'
-              />
+              {/* Lined up with the first line of the row, like the name and
+                  the counts, rather than centred on a row that can wrap. */}
+              <span className='hidden text-brand md:inline-flex md:translate-y-0.5' aria-hidden='true'>
+                <HiArrowRight className='size-4' />
+              </span>
             </Link>
           </li>
         )
