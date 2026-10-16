@@ -15,7 +15,10 @@ export default function ProjectsPage() {
       {/* The preamble sits in the header, so it is spaced from the title
           the way every other page's intro is. */}
       <PageHeader title={projectsSection.title}>
-        <div className='mt-3 max-w-4xl space-y-4 text-lg leading-8 text-slate-600'>
+        {/* Two full paragraphs, so a reading line height rather than the
+            looser one a one-line page description gets. Full width, so the
+            text keeps the same right margin as the table below. */}
+        <div className='mt-3 space-y-3 text-lg leading-7 text-slate-600'>
           {projectsSection.intro.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
