@@ -3174,6 +3174,26 @@
             ],
             "journal": "ArXiv",
             "volume": "abs/2310.12324"
+        },
+        {
+            "year": "2023",
+            "title": "QuickTA: Exploring the Design Space of Using Large Language Models to Provide Support to Students",
+            "author": [
+                "Harsh Kumar",
+                "Ilya Musabirov",
+                "Joseph Jay Williams",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "ID": "1807/19ccce7d-quickta",
+            "url": "https://utoronto.scholaris.ca/items/19ccce7d-2cbc-4095-9a3c-da2038f68d80",
+            "abstract": "Pre-trained large language models (LLMs) show promise in providing support to students through dialogues. However, current research in LLM-based support has highlighted the need to involve different stakeholders (e.g., instructors, researchers, students) in the design and deployment of these interactions. Based on our formative interviews with students and the prior literature, we are designing a system for instructors to: (1) program LLMs according to the task, (2) provide support to students through a chat interface, and (3) collect student feedback and usage statistics to inform future deployments. In this work, we report on our ongoing development of the system, design considerations, possible use cases of the system, and the path to the deployment of the system for a database management course. We hope that other researchers could build on this work to design systems that enable human-AI collaboration when it comes to improving the learning outcomes of students.",
+            "bibtex": "@InProceedings{Kumar2023QuickTA,\n author = {Harsh Kumar and Ilya Musabirov and Joseph Jay Williams and Michael Liut},\n title = {QuickTA: Exploring the Design Space of Using Large Language Models to Provide Support to Students},\n booktitle = {Workshop on Partnerships for Co-Creating Educational Content at the Learning Analytics and Knowledge Conference (LAK '23)},\n address = {Arlington, TX, USA},\n publisher = {CEUR-WS.org},\n url = {https://utoronto.scholaris.ca/items/19ccce7d-2cbc-4095-9a3c-da2038f68d80},\n year = {2023}\n}",
+            "publicationTypes": [
+                "Conference"
+            ],
+            "booktitle": "Workshop on Partnerships for Co-Creating Educational Content at the Learning Analytics and Knowledge Conference (LAK '23)",
+            "publisher": "CEUR-WS.org"
         }
     ],
     "2022": [

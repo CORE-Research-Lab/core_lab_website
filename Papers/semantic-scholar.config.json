@@ -50,6 +50,9 @@
             "output": "Papers/Projects/quickta_papers.json",
             "selectors": [
                 {
+                    "title": "QuickTA: Exploring the Design Space of Using Large Language Models to Provide Support to Students"
+                },
+                {
                     "doi": "10.1145/3687038"
                 },
                 {

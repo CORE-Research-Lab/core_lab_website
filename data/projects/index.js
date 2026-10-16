@@ -74,8 +74,13 @@ const projectEntries = [
       'More than 15,000 post-secondary students have used QuickTA in different capacities, in courses spanning computer science, mathematics, statistics, chemistry, engineering, and writing. Across deployments in introductory databases and CS1 courses at the University of Toronto, 54% of students’ first queries were conceptual rather than solution-seeking. Brief guidance on how to use the tutor cut verbatim copy-pasting, trust in the tutor rose over the term, and guided reflection raised self-reported confidence, although exam-score differences were not statistically significant. In a cluster-randomized study in a 774-student mathematical statistics course, giving the tutor access to course materials did not change tutorial scores, but international students and students with lower final grades were more likely to find it useful.',
     ],
     links: [
+      { label: 'Paper (LAK 2023 workshop)', href: 'https://utoronto.scholaris.ca/items/19ccce7d-2cbc-4095-9a3c-da2038f68d80' },
       { label: 'Paper (CSCW 2024)', href: 'https://doi.org/10.1145/3687038' },
       { label: 'Paper (L@S 2024)', href: 'https://doi.org/10.1145/3657604.3662042' },
+      {
+        label: 'Feature: “Education is evolving in the age of AI” (U of T Magazine, 2023)',
+        href: 'https://www.utm.utoronto.ca/main-news/education-evolving-age-ai',
+      },
     ],
     people: [
       'michael_liut',
