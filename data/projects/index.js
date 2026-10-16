@@ -13,8 +13,15 @@ import { isCollaborator, membersBySlug } from '@/data/members'
 
 export const projectsSection = {
   title: 'Projects',
+  // For search results and link previews; the page itself opens with `intro`.
   description:
-    'Systems and studies the lab is building. Open one to see who works on it and what it has published.',
+    'Scalable, adaptive systems that use artificial intelligence to personalize learning, built and studied by the CORE Lab.',
+  // The page's preamble, shown under the title and above the project table.
+  intro: [
+    'This page highlights some of the systems and studies the CORE Lab is building! We build scalable, adaptive systems that use artificial intelligence to personalize learning and the student experience. Each one starts as a question about how people learn in computing, engineering, and other computationally driven fields, from asking good questions and writing clearly to explaining their own reasoning and mastering concepts. That question then becomes a tool deployed in real courses and studied at scale.',
+    'Our systems share one approach: ground every interaction in the learning sciences, adapt to the individual learner rather than the average one, and instrument everything so that teaching and research improve together. If one could help in a course you teach, or you want to study learning on a platform already in classrooms, we would love to hear from you!',
+  ],
+  contact: { label: 'Get in touch', href: 'mailto:corelab.utm@utoronto.ca' },
 }
 
 /**
@@ -31,7 +38,7 @@ const projectEntries = [
     status: 'active',
     tagline: 'Mastery learning for middle-school math, with an AI tutor that coaches through mistakes instead of giving answers.',
     summary:
-      'A lab-built practice platform studied with nearly 7,000 students in 20 schools: mastery requirements boosted practice, and the AI tutor improved recovery after errors.',
+      'A lab-built K–12 math practice platform studied with nearly 7,000 students in 20 schools: mastery requirements boosted practice, and the AI tutor improved recovery after errors.',
     description: [
       'Computer-assisted learning in mathematics works best when students persist to mastery and learn from their mistakes. Most platforms let students stop early, and general-purpose AI tutors tend to hand over answers, which recent large-scale studies show can hurt learning.',
       'NUMI delivers weekly, curriculum-aligned modules (a short video, exercises, an exit ticket, immediate feedback and worked solutions) with a mastery rule of three correct in a row and a guardrailed tutor beside every exercise. The tutor never gives the final answer. It offers a reasoning check to get started and, after a mistake, walks the student through the solution step by step, surfacing likely misconceptions. Student inputs are not stored by any external AI provider.',
@@ -60,11 +67,11 @@ const projectEntries = [
     status: 'active',
     tagline: 'An LLM teaching assistant that hints, checks understanding, and never hands over the answer, at any hour and at scale.',
     summary:
-      'Course-aware chat tutoring with pedagogical guardrails and guided reflection, deployed to more than a thousand students and studied in randomized field experiments.',
+      'Course-aware chat tutoring with pedagogical guardrails and guided reflection, used by more than 15,000 post-secondary students across six disciplines and studied in randomized field experiments.',
     description: [
       'One-to-one tutoring produces some of the largest learning gains known, and it has never been affordable at scale. In a course of a thousand students, help arrives late, unevenly, and mostly in office hours. Generic chatbots fill the gap by handing over answers.',
       'QuickTA is a course-aware conversational tutor built on large language models with pedagogical guardrails: it withholds complete solutions, stays on the assignment’s topic, and follows a hint-then-check structure drawn from worked-example and metacognitive-questioning research. After assignments it runs LLM-guided reflection to support self-regulated learning, and every interaction is logged for research. A campus-hosted version runs on small language models with retrieval-augmented generation, so student questions never leave university hardware.',
-      'Across deployments in introductory databases and CS1 courses at the University of Toronto, 54% of students’ first queries were conceptual rather than solution-seeking. Brief guidance on how to use the tutor cut verbatim copy-pasting, trust in the tutor rose over the term, and guided reflection raised self-reported confidence, although exam-score differences were not statistically significant. In a cluster-randomized study in a 774-student mathematical statistics course, giving the tutor access to course materials did not change tutorial scores, but international students and students with lower final grades were more likely to find it useful.',
+      'More than 15,000 post-secondary students have used QuickTA in different capacities, in courses spanning computer science, mathematics, statistics, chemistry, engineering, and writing. Across deployments in introductory databases and CS1 courses at the University of Toronto, 54% of students’ first queries were conceptual rather than solution-seeking. Brief guidance on how to use the tutor cut verbatim copy-pasting, trust in the tutor rose over the term, and guided reflection raised self-reported confidence, although exam-score differences were not statistically significant. In a cluster-randomized study in a 774-student mathematical statistics course, giving the tutor access to course materials did not change tutorial scores, but international students and students with lower final grades were more likely to find it useful.',
     ],
     links: [
       { label: 'Paper (CSCW 2024)', href: 'https://doi.org/10.1145/3687038' },
@@ -296,10 +303,10 @@ const projectEntries = [
     ],
     people: [
       'angela_zavaleta_bernuy',
-      'amber_richardson',
       'caroline_pechenik',
       'valeria_osorio_ramirez',
       'zezhu_sam_yu',
+      'rita_garcia',
     ],
   },
   {
