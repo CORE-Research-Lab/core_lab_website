@@ -1,16 +1,10 @@
 import Link from 'next/link'
 import { HiArrowRight } from 'react-icons/hi'
-import { projects } from '@/data/projects'
+import { projects, projectStatusLabels as statusLabels } from '@/data/projects'
 import { flattenPublications } from '@/lib/publications.mjs'
 
 const countPapers = (project) => flattenPublications(project.publications || {}).length
 const countPeople = (project) => project.people.core.length + project.people.collaborators.length
-
-// Active projects carry no label; the others say where they stand.
-const statusLabels = {
-  'in-development': 'In development',
-  past: 'Past project',
-}
 
 // Name, summary, people, papers, and the arrow, from `md` up. Below that each
 // row stacks, and the counts move under the summary.

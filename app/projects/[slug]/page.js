@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import { HiExternalLink } from 'react-icons/hi';
-import { projects, projectsBySlug } from '@/data/projects';
+import { HiExternalLink, HiOutlineMail } from 'react-icons/hi';
+import { projects, projectsBySlug, projectsSection } from '@/data/projects';
 import ProjectPeople from '@/Components/Projects/ProjectPeople';
 import PublicationList from '@/Components/Publications/PublicationList';
 import PageHeader from '@/Components/UI/PageHeader';
@@ -33,6 +33,10 @@ export default async function ProjectPage({ params }) {
     notFound();
   }
 
+  const inDevelopment = project.status === 'in-development';
+  const hasLinks = project.links?.length > 0;
+  const hasSidebar = inDevelopment || hasLinks;
+
   return (
     <>
       <PageHeader
@@ -56,7 +60,9 @@ export default async function ProjectPage({ params }) {
           </figure>
         )}
 
-        <div className={`${project.image ? 'mt-10' : 'mt-2'} grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)] lg:items-start lg:gap-12`}>
+        {/* Two columns only when there is something for the side column, so a
+            project without one does not leave an empty gutter beside its text. */}
+        <div className={`${project.image ? 'mt-10' : 'mt-2'} grid gap-8 lg:items-start lg:gap-12 ${hasSidebar ? 'lg:grid-cols-[minmax(0,1fr)_minmax(0,20rem)]' : ''}`}>
           <div className='min-w-0 max-w-5xl'>
             {project.description.map((paragraph) => (
               <p key={paragraph.slice(0, 40)} className='mt-4 text-lg leading-8 text-slate-700 first:mt-0'>
@@ -65,26 +71,55 @@ export default async function ProjectPage({ params }) {
             ))}
           </div>
 
-          {project.links?.length > 0 && (
+          {hasSidebar && (
             <aside className='rounded-xl border border-slate-200 bg-slate-50 p-5'>
-              <h2 className='text-base font-semibold text-brand-dark'>
-                Links
-              </h2>
-              <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>
-                {project.links.map((link) => (
-                  <li key={link.href}>
-                    <a
-                      href={link.href}
-                      target='_blank'
-                      rel='noopener noreferrer'
-                      className='flex items-center justify-between gap-2 py-3 text-sm font-semibold text-brand hover:underline'
-                    >
-                      {link.label}
-                      <HiExternalLink className='size-4 shrink-0' aria-hidden='true' />
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {inDevelopment && (
+                <section>
+                  <h2 className='text-base font-semibold text-brand-dark'>
+                    In development
+                  </h2>
+                  <p className='mt-2 text-sm leading-6 text-slate-600'>
+                    We are still building this project, so it has no papers yet.
+                    Results will appear here as it is studied and published. If
+                    it could help in a course you teach, we would love to hear
+                    from you.
+                  </p>
+                  <ul className='mt-3 border-y border-slate-200'>
+                    <li>
+                      <a
+                        href={projectsSection.contact.href}
+                        className='flex items-center justify-between gap-2 py-3 text-sm font-semibold text-brand hover:underline'
+                      >
+                        {projectsSection.contact.label}
+                        <HiOutlineMail className='size-4 shrink-0' aria-hidden='true' />
+                      </a>
+                    </li>
+                  </ul>
+                </section>
+              )}
+
+              {hasLinks && (
+                <section className={inDevelopment ? 'mt-6' : undefined}>
+                  <h2 className='text-base font-semibold text-brand-dark'>
+                    Links
+                  </h2>
+                  <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>
+                    {project.links.map((link) => (
+                      <li key={link.href}>
+                        <a
+                          href={link.href}
+                          target='_blank'
+                          rel='noopener noreferrer'
+                          className='flex items-center justify-between gap-2 py-3 text-sm font-semibold text-brand hover:underline'
+                        >
+                          {link.label}
+                          <HiExternalLink className='size-4 shrink-0' aria-hidden='true' />
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </section>
+              )}
             </aside>
           )}
         </div>

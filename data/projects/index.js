@@ -24,6 +24,13 @@ export const projectsSection = {
   contact: { label: 'Get in touch', href: 'mailto:corelab.utm@utoronto.ca' },
 }
 
+// Active projects carry no label; the others say where they stand, in the
+// project list and on the project's own page.
+export const projectStatusLabels = {
+  'in-development': 'In development',
+  past: 'Past project',
+}
+
 /**
  * A project names its people by team slug rather than by name, so a project
  * card links straight to the member page and can never drift from it. Papers
