@@ -327,6 +327,20 @@ const projectEntries = [
     ],
     people: ['angela_zavaleta_bernuy', 'amber_richardson'],
   },
+  {
+    slug: 'vis-pipeline',
+    name: 'Vis Pipeline',
+    status: 'in-development',
+    tagline: 'Generate many versions of a visualization, check each one against what the code actually does, and learn which version helps which learner.',
+    summary:
+      'Coding agents generate families of visualizations for programs, databases, and computer systems; each is verified against execution traces, and an adaptive policy chooses a design for each learner.',
+    description: [
+      'Visualizations of memory, query execution, and process scheduling are standard tools for understanding computation, yet each one is designed and evaluated on its own. The lab’s Code to Concept studies found that a single fixed design does not serve everyone: prior programming experience, spatial ability, and language background predicted outcomes more than the visualization did, and stronger students used the extra views as a productive challenge while struggling students ignored them. The open question is not whether a visualization works, but which representation, and how much effort it asks of the learner, works for whom.',
+      'Vis Pipeline treats that design space as something to generate and compare rather than build one tool at a time. A coding agent produces visualization variants for introductory programming, databases, and computer systems, varying how many views appear at once, how they are linked, whether learners predict the next state before it is revealed, and whether views fade from concrete to abstract over the term. Because a wrong diagram can mislead, a checker replays the execution trace and compares every rendered state (variable values, table rows, process states) with it; variants that fail are repaired or discarded before anyone sees them, and instructors review the analogies that no trace can check.',
+      'The variants will be deployed as practice activities in real courses, first with random assignment to map which designs help which learners, then with a contextual bandit that chooses a design for each learner from their behaviour and consented profile. The policy is constrained so it cannot widen the gap between less and more experienced learners. The pipeline, a benchmark of programs, queries, and system traces, and de-identified data will be released openly.',
+    ],
+    people: ['naaz_sibia', 'angela_zavaleta_bernuy', 'michael_liut'],
+  },
 ]
 
 export const otherToolsSection = {
