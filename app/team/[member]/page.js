@@ -120,6 +120,30 @@ export default async function MemberPage({ params }) {
     posterPublications.filter(matchesMember)
   )
 
+  const bioParagraphs = person.bio ? person.bio.split(/\n{2,}/) : []
+  // A bio of several paragraphs pushes the links below the fold, so they move
+  // under the photo instead. One-paragraph bios keep them under the text.
+  const linksBesidePhoto = bioParagraphs.length > 1
+
+  const contactLinks = (
+    <ul className={`flex flex-col items-start gap-2 border-t border-slate-200 pt-5 text-sm ${linksBesidePhoto ? 'mt-5' : 'mt-6'}`}>
+      {(person.websites || (person.website ? [person.website] : [])).map((site) => (
+        <ContactLink key={site} icon={FaGlobe} href={site} label='Website'>
+          {site}
+        </ContactLink>
+      ))}
+      <ContactLink icon={FaEnvelope} href={person.email ? `mailto:${person.email}` : ''} label='Email'>
+        {person.email}
+      </ContactLink>
+      <ContactLink icon={FaGoogleScholar} href={person.googlescholar} label='Google Scholar'>
+        Google Scholar
+      </ContactLink>
+      <ContactLink icon={FaLinkedin} href={person.linkedin} label='LinkedIn'>
+        LinkedIn
+      </ContactLink>
+    </ul>
+  )
+
   return (
     <>
       <PageHeader title={person.name}>
@@ -140,10 +164,11 @@ export default async function MemberPage({ params }) {
               className='aspect-square w-full max-w-xs rounded-xl border border-slate-200 bg-slate-50 object-cover object-center md:max-w-none'
               sizes='(max-width: 768px) 20rem, 224px'
             />
+            {linksBesidePhoto && contactLinks}
           </div>
           <div className='min-w-0 text-slate-700'>
-            {person.bio ? (
-              person.bio.split(/\n{2,}/).map((paragraph, index) => (
+            {bioParagraphs.length > 0 ? (
+              bioParagraphs.map((paragraph, index) => (
                 <p key={index} className='text-lg leading-8 [&:not(:first-child)]:mt-4'>
                   {paragraph.split('\n').map((line, lineIndex, lines) => (
                     <Fragment key={lineIndex}>
@@ -156,22 +181,7 @@ export default async function MemberPage({ params }) {
             ) : (
               <p className='text-lg leading-8'>Profile details will be added soon.</p>
             )}
-            <ul className='mt-6 flex flex-col items-start gap-2 border-t border-slate-200 pt-5 text-sm'>
-              {(person.websites || (person.website ? [person.website] : [])).map((site) => (
-                <ContactLink key={site} icon={FaGlobe} href={site} label='Website'>
-                  {site}
-                </ContactLink>
-              ))}
-              <ContactLink icon={FaEnvelope} href={person.email ? `mailto:${person.email}` : ''} label='Email'>
-                {person.email}
-              </ContactLink>
-              <ContactLink icon={FaGoogleScholar} href={person.googlescholar} label='Google Scholar'>
-                Google Scholar
-              </ContactLink>
-              <ContactLink icon={FaLinkedin} href={person.linkedin} label='LinkedIn'>
-                LinkedIn
-              </ContactLink>
-            </ul>
+            {!linksBesidePhoto && contactLinks}
           </div>
         </div>
 
