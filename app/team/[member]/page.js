@@ -61,7 +61,8 @@ export async function generateMetadata({ params }) {
 
   return {
     title: person.name,
-    description: stripBioLinks(person.bio) || `${person.name}, ${person.position}`,
+    // First paragraph only, so a long bio still makes a short link preview.
+    description: stripBioLinks(person.bio?.split(/\n{2,}/)[0]) || `${person.name}, ${person.position}`,
   }
 }
 
