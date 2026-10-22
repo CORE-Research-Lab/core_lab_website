@@ -5,7 +5,10 @@
     },
     "memberData": "data/members/index.js",
     "exclude": {
-        "paperIds": [],
+        "paperIds": [
+            "5ce491d31e8ab96c71322bcd5cdd637e2c64a602",
+            "ed85519b65646ed92fb66437f2b2693590a216dc"
+        ],
         "dois": [
             "10.1038/s44360-026-00112-2",
             "10.1016/j.oor.2024.100563"

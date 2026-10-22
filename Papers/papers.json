@@ -3965,19 +3965,6 @@
     ],
     "2018": [
         {
-            "paperId": "ed85519b65646ed92fb66437f2b2693590a216dc",
-            "year": "2018",
-            "title": "Chinese-American Landscape",
-            "author": [
-                "Jessica Wen"
-            ],
-            "ENTRYTYPE": "misc",
-            "ID": "ed85519b65646ed92fb66437f2b2693590a216dc",
-            "url": "https://www.semanticscholar.org/paper/ed85519b65646ed92fb66437f2b2693590a216dc",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/ed85519b65646ed92fb66437f2b2693590a216dc",
-            "bibtex": "@Inproceedings{Wen2018ChineseAmericanL,\n author = {Jessica Wen},\n title = {Chinese-American Landscape},\n year = {2018}\n}"
-        },
-        {
             "paperId": "8a6b268bbdf7ba55d1ec0a6b698a3a4625e37afe",
             "year": "2018",
             "title": "On Baier's Sort of Maximal Lyndon Substrings",
@@ -3996,22 +3983,6 @@
             ],
             "booktitle": "Prague Stringology Conference",
             "pages": "63-78"
-        }
-    ],
-    "2009": [
-        {
-            "paperId": "5ce491d31e8ab96c71322bcd5cdd637e2c64a602",
-            "year": "2009",
-            "title": "从《蒙马特遗书》中的书信/日记体叙述策略探讨台湾女同性恋族群主体之确立 = A study of the narrative strategies of epistolary and diary writing in Le Testament de Montmartre and its impact on the identity formation of Taiwan’s lesbian community",
-            "author": [
-                "Cheng-Lim Tan",
-                "Jessica Wen"
-            ],
-            "ENTRYTYPE": "misc",
-            "ID": "5ce491d31e8ab96c71322bcd5cdd637e2c64a602",
-            "url": "https://www.semanticscholar.org/paper/5ce491d31e8ab96c71322bcd5cdd637e2c64a602",
-            "semanticScholarUrl": "https://www.semanticscholar.org/paper/5ce491d31e8ab96c71322bcd5cdd637e2c64a602",
-            "bibtex": "@Inproceedings{Tan2009从蒙马特遗书中的书信日记体叙述策略探讨台湾女同性恋族群主体之确立A,\n author = {Cheng-Lim Tan and Jessica Wen},\n title = {从《蒙马特遗书》中的书信/日记体叙述策略探讨台湾女同性恋族群主体之确立 = A study of the narrative strategies of epistolary and diary writing in Le Testament de Montmartre and its impact on the identity formation of Taiwan’s lesbian community},\n year = {2009}\n}"
         }
     ]
 }
