@@ -489,7 +489,7 @@ export const currentUndergraduateStudents = [
     'Emmanuel Deza',
     'emmanuel_deza',
     'Undergraduate Student',
-    'CORE Lab'
+    'University of Toronto'
   ),
   basicProfile(
     'Kelvin Leung',
