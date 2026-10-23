@@ -1,5 +1,6 @@
 import arcImage from './assets/arc.png'
 import codeEvolverImage from './assets/codeevolver.png'
+import quicktaImage from './assets/quickta.png'
 import voiceexImage from './assets/voiceex.png'
 import arcPublications from '@/Papers/Projects/arc_papers.json'
 import voiceexPublications from '@/Papers/Projects/voiceex_papers.json'
@@ -81,6 +82,9 @@ const projectEntries = [
       'QuickTA is a course-aware conversational tutor built on large language models with pedagogical guardrails: it withholds complete solutions, stays on the assignment’s topic, and follows a hint-then-check structure drawn from worked-example and metacognitive-questioning research. After assignments it runs LLM-guided reflection to support self-regulated learning, and every interaction is logged for research. A campus-hosted version runs on small language models with retrieval-augmented generation, so student questions never leave university hardware.',
       'More than 15,000 post-secondary students have used QuickTA in different capacities, in courses spanning computer science, mathematics, statistics, chemistry, engineering, and writing. Across deployments in introductory databases and CS1 courses at the University of Toronto, 54% of students’ first queries were conceptual rather than solution-seeking. Brief guidance on how to use the tutor cut verbatim copy-pasting, trust in the tutor rose over the term, and guided reflection raised self-reported confidence, although exam-score differences were not statistically significant. In a cluster-randomized study in a 774-student mathematical statistics course, giving the tutor access to course materials did not change tutorial scores, but international students and students with lower final grades were more likely to find it useful.',
     ],
+    image: quicktaImage,
+    imageAlt:
+      'QuickTA chat: a student asks for a full SQL query and the tutor replies with a hint and a check question, beside its guardrails of hinting, checking understanding, reflecting, and running on campus.',
     links: [
       { label: 'Paper (LAK 2023 workshop)', href: 'https://utoronto.scholaris.ca/items/19ccce7d-2cbc-4095-9a3c-da2038f68d80' },
       { label: 'Paper (CSCW 2024)', href: 'https://doi.org/10.1145/3687038' },
@@ -119,7 +123,7 @@ const projectEntries = [
     ],
     image: voiceexImage,
     imageAlt:
-      'VoiceEx reflection interface with an audio prompt, voice recording controls, audio upload, and follow-up reflection questions.',
+      'VoiceEx reflection flow (listen to a prompt, explain by voice, answer a follow-up question) beside a chart showing the share of students choosing voice rising from 10% to 46%.',
     links: [
       {
         label: 'Paper (DIS 2024)',
