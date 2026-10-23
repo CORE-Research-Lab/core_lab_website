@@ -119,8 +119,9 @@ const projectEntries = [
     summary:
       'A voice-first reflection environment for studying how students explain their thinking, revisit difficult concepts, and respond to guided follow-up questions.',
     description: [
-      'VoiceEx supports self-explanation in flipped computing courses. Students can listen to a reflection prompt, record or upload a spoken response, and continue with guided follow-up questions that encourage them to examine how they approached a problem and where their understanding could improve.',
-      'The research behind VoiceEx compares voice and text as reflection media. Across field studies and interviews, students initially tended to prefer text, while voice responses were often longer and contained more topic-related language. Preference for voice increased with experience, revealing how social presence, confidence, cognitive load, and performance anxiety should shape the design of mixed-modality learning tools.',
+      'Explaining an idea in their own words deepens students’ understanding of it, but many students struggle to reflect or self-explain effectively. In flipped courses, where students prepare before class, the lab’s early work found that students who reflected on lecture concepts did better on the homework that covered them and on later assessments.',
+      'VoiceEx supports self-explanation in flipped computing courses. Students can listen to a reflection prompt, record or upload a spoken response, and continue with guided follow-up questions that encourage them to examine how they approached a problem and where their understanding could improve. It has been used by more than 5,000 students across 12 courses.',
+      'The research behind VoiceEx compares voice and text as reflection media. In a field study with 247 students, most initially preferred text, but voice responses were longer and contained more topic-related language, and among students given a choice, the share choosing voice rose from 10% to 46% over time. Interviews showed how social presence, confidence, cognitive load, and performance anxiety shape that choice, pointing toward tools that let students mix voice and text. A later study added LLM-guided follow-up that helps students find gaps in their explanations; women and non-native English speakers reported greater comfort with it and found it more valuable.',
     ],
     image: voiceexImage,
     imageAlt:
@@ -129,6 +130,10 @@ const projectEntries = [
       {
         label: 'Paper (DIS 2024)',
         href: 'https://doi.org/10.1145/3643834.3661596',
+      },
+      {
+        label: 'Paper (DataEd 2024)',
+        href: 'https://doi.org/10.1145/3663649.3664374',
       },
     ],
     people: [
