@@ -1,4 +1,5 @@
 import arcImage from './assets/arc.png'
+import codeEvolverImage from './assets/codeevolver.png'
 import voiceexImage from './assets/voiceex.png'
 import arcPublications from '@/Papers/Projects/arc_papers.json'
 import voiceexPublications from '@/Papers/Projects/voiceex_papers.json'
@@ -347,6 +348,23 @@ const projectEntries = [
       'The variants will be deployed as practice activities in real courses, first with random assignment to map which designs help which learners, then with a contextual bandit that chooses a design for each learner from their behaviour and consented profile. The policy is constrained so it cannot widen the gap between less and more experienced learners. The pipeline, a benchmark of programs, queries, and system traces, and de-identified data will be released openly.',
     ],
     people: ['naaz_sibia', 'angela_zavaleta_bernuy', 'michael_liut'],
+  },
+  {
+    slug: 'codeevolver',
+    name: 'CodeEvolver',
+    status: 'in-development',
+    tagline: 'Small, local models that find security flaws in code, cite the weakness they break, and suggest the fix.',
+    summary:
+      'A three-stage vulnerability review pipeline: a fine-tuned code classifier detects the flaw, retrieval grounds it in MITRE CWE guidance, and a small language model writes a report with line numbers and fixes.',
+    description: [
+      'Security flaws such as SQL injection are easy to write and easy to miss, especially for students and early-career developers. Static analysers flag patterns without explaining them, and general-purpose AI assistants can explain but require sending code to a third-party service and rarely ground their advice in an accepted standard.',
+      'CodeEvolver reviews a source file in three stages, using only small models that run on a single GPU. A GraphCodeBERT model, fine-tuned on labelled vulnerable and safe code, decides whether the file contains a given class of vulnerability. If it does, a retrieval-augmented generation step pulls the most relevant entries from a knowledge base of MITRE CWE records. Gemma 3 12B, quantised to 4-bit, then writes an HTML report: the line, the offending snippet, an explanation, and a suggested fix.',
+      'The team scraped 754 CWE and CVE vulnerability labels and grouped them into 10 families, from memory-bounds errors to injection and access-control flaws. The first classifier, trained on about 10,500 SQL-injection snippets, reached 0.999 F1 in five-fold cross-validation. Current work extends the classifiers to the remaining families, removes duplicate findings from reports, and benchmarks the pipeline against frontier language models.',
+    ],
+    image: codeEvolverImage,
+    imageAlt:
+      'CodeEvolver pipeline: a Java file with a SQL injection passes through detect, retrieve, and explain stages to produce a security report with a suggested fix.',
+    people: ['aaditya_dhingra', 'akhil_choraria', 'michael_liut'],
   },
 ]
 
