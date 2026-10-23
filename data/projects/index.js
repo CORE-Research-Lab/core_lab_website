@@ -87,13 +87,13 @@ const projectEntries = [
     imageAlt:
       'QuickTA chat: a student asks for a full SQL query and the tutor replies with a hint and a check question, beside its guardrails of hinting, checking understanding, reflecting, and running on campus.',
     links: [
-      { label: 'Paper (LAK 2023 workshop)', href: 'https://utoronto.scholaris.ca/items/19ccce7d-2cbc-4095-9a3c-da2038f68d80' },
-      { label: 'Paper (CSCW 2024)', href: 'https://doi.org/10.1145/3687038' },
-      { label: 'Paper (L@S 2024)', href: 'https://doi.org/10.1145/3657604.3662042' },
       {
         label: 'Feature: “Education is evolving in the age of AI” (U of T Magazine, 2023)',
         href: 'https://www.utm.utoronto.ca/main-news/education-evolving-age-ai',
       },
+      { label: 'Paper (CSCW 2024)', href: 'https://doi.org/10.1145/3687038' },
+      { label: 'Paper (L@S 2024)', href: 'https://doi.org/10.1145/3657604.3662042' },
+      { label: 'Paper (LAK 2023 workshop)', href: 'https://utoronto.scholaris.ca/items/19ccce7d-2cbc-4095-9a3c-da2038f68d80' },
     ],
     people: [
       'michael_liut',
@@ -267,8 +267,8 @@ const projectEntries = [
       'Weekly scaffolded schema and data exercises with immediate feedback now make data definition and manipulation a core, assessed part of a third-year database course. Across three offerings (669 students, 9,071 submissions), students needed fewer attempts on schema and data tasks than on queries, and early schema performance predicted later SQL performance.',
     ],
     links: [
-      { label: 'Paper (Koli Calling 2021)', href: 'https://doi.org/10.1145/3488042.3489970' },
       { label: 'Paper (ITiCSE 2026)', href: 'https://doi.org/10.1145/3803400.3809307' },
+      { label: 'Paper (Koli Calling 2021)', href: 'https://doi.org/10.1145/3488042.3489970' },
     ],
     people: [
       'naaz_sibia',
