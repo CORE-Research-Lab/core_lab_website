@@ -1,5 +1,6 @@
 import arcImage from './assets/arc.png'
 import codeEvolverImage from './assets/codeevolver.png'
+import codeToConceptImage from './assets/code-to-concept.png'
 import quicktaImage from './assets/quickta.png'
 import voiceexImage from './assets/voiceex.png'
 import arcPublications from '@/Papers/Projects/arc_papers.json'
@@ -153,6 +154,9 @@ const projectEntries = [
       'Code to Concept is an open-source web tool with three synchronized panes: the Python code, a diagram of variables and runtime memory, and an instructor-written metaphor, such as a conveyor belt for iteration or a relay race for linked lists. Shared stepping controls keep the views coordinated, and a CS2 variant swaps the metaphor for an abstract structural view aimed at recursion and linked data structures.',
       'In a 12-week randomized trial in a 1,080-student CS1 course (829 consenting), the multi-view tool produced higher end-of-term engagement than Python Tutor with no increase in cognitive load. Students reporting language barriers preferred multiple visuals, and eye-tracking showed code anchoring attention while memory views peaked on linked lists.',
     ],
+    image: codeToConceptImage,
+    imageAlt:
+      'Code to Concept views side by side: in CS1, code, memory, and a labelled-box metaphor update together as b is set to 6; in CS2, code, call-stack memory, and a tree diagram trace deleting 70 from a tree.',
     links: [
       { label: 'Code (GitHub)', href: 'https://github.com/CORE-Research-Lab/Interactive-Viz-IntroProgramming' },
       { label: 'Paper (ICER 2026)', href: 'https://doi.org/10.1145/3765964.3811662' },
