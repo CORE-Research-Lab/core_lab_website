@@ -17,14 +17,14 @@ export const metadata = {
     template: "%s | CORE Lab",
   },
   description: "Computing education research at the University of Toronto and partner institutions.",
-  // Every page shares with the CORE Lab card (app/opengraph-image.jsx) unless
-  // it names an image of its own through lib/socialMetadata.mjs.
+  // Every page shares the CORE Lab logo (app/opengraph-image.jsx), so a link
+  // preview looks the same wherever it points.
   openGraph: {
     siteName: "CORE Lab",
     type: "website",
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
   },
 };
 

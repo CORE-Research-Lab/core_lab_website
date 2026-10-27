@@ -18,7 +18,6 @@ import { FaEnvelope, FaGlobe, FaLinkedin } from 'react-icons/fa'
 import { FaGoogleScholar } from 'react-icons/fa6'
 import PublicationList from '@/Components/Publications/PublicationList'
 import PageHeader from '@/Components/UI/PageHeader'
-import { socialMetadata } from '@/lib/socialMetadata.mjs'
 
 // Bios are plain text, except that `[label](https://…)` becomes a link.
 const bioLinkPattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g
@@ -66,14 +65,6 @@ export async function generateMetadata({ params }) {
   return {
     title: person.name,
     description,
-    // The profile photo; someone without one shares the CORE Lab card.
-    ...socialMetadata({
-      title: `${person.name} | CORE Lab`,
-      description,
-      image: person.image,
-      imageAlt: person.name,
-      square: true,
-    }),
   }
 }
 
