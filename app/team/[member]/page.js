@@ -18,6 +18,7 @@ import { FaEnvelope, FaGlobe, FaLinkedin } from 'react-icons/fa'
 import { FaGoogleScholar } from 'react-icons/fa6'
 import PublicationList from '@/Components/Publications/PublicationList'
 import PageHeader from '@/Components/UI/PageHeader'
+import { socialMetadata } from '@/lib/socialMetadata.mjs'
 
 // Bios are plain text, except that `[label](https://…)` becomes a link.
 const bioLinkPattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g
@@ -59,10 +60,20 @@ export async function generateMetadata({ params }) {
     return { title: 'Member not found' }
   }
 
+  // First paragraph only, so a long bio still makes a short link preview.
+  const description = stripBioLinks(person.bio?.split(/\n{2,}/)[0]) || `${person.name}, ${person.position}`
+
   return {
     title: person.name,
-    // First paragraph only, so a long bio still makes a short link preview.
-    description: stripBioLinks(person.bio?.split(/\n{2,}/)[0]) || `${person.name}, ${person.position}`,
+    description,
+    // The profile photo; someone without one shares the CORE Lab card.
+    ...socialMetadata({
+      title: `${person.name} | CORE Lab`,
+      description,
+      image: person.image,
+      imageAlt: person.name,
+      square: true,
+    }),
   }
 }
 

@@ -10,11 +10,22 @@ const geistSans = Geist({
 });
 
 export const metadata = {
+  // Lets Next turn image paths into the absolute URLs link previews need.
+  metadataBase: new URL("https://computationalresearch.ca"),
   title: {
     default: "CORE Lab",
     template: "%s | CORE Lab",
   },
   description: "Computing education research at the University of Toronto and partner institutions.",
+  // Every page shares with the CORE Lab card (app/opengraph-image.jsx) unless
+  // it names an image of its own through lib/socialMetadata.mjs.
+  openGraph: {
+    siteName: "CORE Lab",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export const viewport = {

@@ -7,6 +7,7 @@ import ProjectPeople from '@/Components/Projects/ProjectPeople';
 import PublicationList from '@/Components/Publications/PublicationList';
 import PageHeader from '@/Components/UI/PageHeader';
 import { SectionHeading } from '@/Components/UI/SectionHeading';
+import { socialMetadata } from '@/lib/socialMetadata.mjs';
 
 export function generateStaticParams() {
   return projects.map((project) => ({ slug: project.slug }));
@@ -20,9 +21,18 @@ export async function generateMetadata({ params }) {
     return { title: 'Project not found' };
   }
 
+  const description = project.summary || project.tagline;
+
   return {
     title: project.name,
-    description: project.summary || project.tagline,
+    description,
+    // The project image; a project without one shares the CORE Lab card.
+    ...socialMetadata({
+      title: `${project.name} | CORE Lab`,
+      description,
+      image: project.image,
+      imageAlt: project.imageAlt || project.name,
+    }),
   };
 }
 

@@ -7,6 +7,7 @@ import PublicationCitation, { AuthorList } from '@/Components/Publications/Publi
 import { getPublicationAuthors } from '@/lib/publications.mjs';
 import PageHeader from '@/Components/UI/PageHeader';
 import { SectionHeading } from '@/Components/UI/SectionHeading';
+import { socialMetadata } from '@/lib/socialMetadata.mjs';
 
 export function generateStaticParams() {
   return posterItems.map((poster) => ({ doi: poster.slug }));
@@ -32,10 +33,19 @@ export async function generateMetadata({ params }) {
     return { title: 'Poster not found' };
   }
 
+  const description =
+    summarise(poster.publication?.abstract) || `${poster.conference} poster: ${poster.title}`;
+
   return {
     title: poster.title,
-    description:
-      summarise(poster.publication?.abstract) || `${poster.conference} poster: ${poster.title}`,
+    description,
+    // The poster itself.
+    ...socialMetadata({
+      title: `${poster.title} | CORE Lab`,
+      description,
+      image: poster.image,
+      imageAlt: `${poster.conference} poster: ${poster.title}`,
+    }),
   };
 }
 
