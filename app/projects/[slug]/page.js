@@ -1,6 +1,7 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { HiExternalLink, HiOutlineMail } from 'react-icons/hi';
+import { HiArrowRight, HiExternalLink, HiOutlineMail } from 'react-icons/hi';
 import { projects, projectsBySlug, projectsSection } from '@/data/projects';
 import ProjectPeople from '@/Components/Projects/ProjectPeople';
 import PublicationList from '@/Components/Publications/PublicationList';
@@ -35,7 +36,8 @@ export default async function ProjectPage({ params }) {
 
   const inDevelopment = project.status === 'in-development';
   const hasLinks = project.links?.length > 0;
-  const hasSidebar = inDevelopment || hasLinks;
+  const hasRelated = project.relatedProjects.length > 0;
+  const hasSidebar = inDevelopment || hasLinks || hasRelated;
   const hasSideColumn = Boolean(project.image) || hasSidebar;
 
   // The image column is wider than the links column so an infographic stays
@@ -143,6 +145,29 @@ export default async function ProjectPage({ params }) {
                               {link.label}
                               <HiExternalLink className='size-4 shrink-0' aria-hidden='true' />
                             </a>
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                  {hasRelated && (
+                    <section className={inDevelopment || hasLinks ? 'mt-6' : undefined}>
+                      <h2 className='text-base font-semibold text-brand-dark'>
+                        Related projects
+                      </h2>
+                      <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>
+                        {project.relatedProjects.map((related) => (
+                          <li key={related.slug}>
+                            <Link href={related.link} className='group block py-3'>
+                              <span className='flex items-center justify-between gap-2 text-sm font-semibold text-brand group-hover:underline'>
+                                {related.name}
+                                <HiArrowRight className='size-4 shrink-0' aria-hidden='true' />
+                              </span>
+                              <span className='mt-1 block text-xs leading-5 text-slate-600'>
+                                {related.tagline}
+                              </span>
+                            </Link>
                           </li>
                         ))}
                       </ul>

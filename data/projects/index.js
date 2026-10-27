@@ -69,6 +69,7 @@ const projectEntries = [
       'ana_mayer',
       'yuvaansh_kapila',
     ],
+    leads: ['philip_oreopoulos'],
     publications: numiPublications,
   },
   {
@@ -349,6 +350,23 @@ const projectEntries = [
     people: ['angela_zavaleta_bernuy', 'amber_richardson'],
   },
   {
+    slug: 'cul-sec',
+    name: 'Cul-Sec',
+    status: 'in-development',
+    tagline: 'Culture of Security-by-Design: seamlessly integrating security into software development.',
+    summary:
+      'Building security into software from the first design decision, starting with DevSecMLOps: security-by-design for trustworthy machine learning pipelines.',
+    description: [
+      'Most breaches trace back to decisions made long before deployment, and machine learning has widened the gap. ML pipelines face risks that traditional security practices were not built for, including data poisoning, adversarial manipulation, drift, and privacy leakage during data ingestion and training. Current practices either target single threats, lack traceability across the pipeline, or slow down the delivery they are meant to protect.',
+      'Cul-Sec is led and coordinated by Nan Messe at IRIT and Université Toulouse–Jean Jaurès, with funding from the French National Research Agency (ANR). It aims to make security-by-design a seamless part of how software is built. Its first strand, DevSecMLOps, embeds security requirements into machine learning workflows from data ingestion to deployment, continuously enforces and monitors them across every pipeline stage, and explores AI-driven automation of security checks and adversarial testing, so that security keeps pace with continuous delivery. The approach will be validated through industrial case studies.',
+    ],
+    // Separate projects with a shared thread; each page links to the other.
+    related: ['codeevolver'],
+    people: ['michael_liut', 'nan_messe', 'barthelemy_matakon'],
+    // Marked "Project lead" on their card and listed first in their group.
+    leads: ['nan_messe'],
+  },
+  {
     slug: 'vis-pipeline',
     name: 'Vis Pipeline',
     status: 'in-development',
@@ -506,7 +524,7 @@ export const otherTools = [
   },
 ]
 
-const resolvePerson = (slug, projectName) => {
+const resolvePerson = (slug, projectName, leads = []) => {
   const person = membersBySlug[slug]
 
   // Fail at build time rather than quietly dropping someone from a project.
@@ -524,12 +542,22 @@ const resolvePerson = (slug, projectName) => {
     position: person.position,
     institution: person.institution,
     isCollaborator: isCollaborator(person),
+    isLead: leads.includes(slug),
   }
 }
 
-/** CORE Lab members first, then external collaborators, each in listed order. */
+/** CORE Lab members first, then external collaborators, each with its leads first and otherwise in listed order. */
 const resolvePeople = (project) => {
-  const people = project.people.map(slug => resolvePerson(slug, project.name))
+  const unknownLead = (project.leads || []).find(slug => !project.people.includes(slug))
+  if (unknownLead) {
+    throw new Error(`Project "${project.name}" names "${unknownLead}" as a lead, but they are not in its people.`)
+  }
+
+  // A project's leads come first in their group; everyone else keeps the
+  // order they are listed in.
+  const people = project.people
+    .map(slug => resolvePerson(slug, project.name, project.leads))
+    .sort((a, b) => Number(b.isLead) - Number(a.isLead))
 
   return {
     core: people.filter(person => !person.isCollaborator),
@@ -537,9 +565,30 @@ const resolvePeople = (project) => {
   }
 }
 
+/**
+ * A project's `related` slugs, plus every project that lists it, so naming
+ * the connection on either side shows it on both pages. An unknown slug fails
+ * the build, like an unknown person does.
+ */
+const resolveRelated = (project) => {
+  const slugs = new Set([
+    ...(project.related || []),
+    ...projectEntries.filter(other => other.related?.includes(project.slug)).map(other => other.slug),
+  ])
+
+  return [...slugs].map(slug => {
+    const other = projectEntries.find(entry => entry.slug === slug)
+    if (!other) {
+      throw new Error(`Project "${project.name}" lists an unknown related project: "${slug}".`)
+    }
+    return { slug: other.slug, name: other.name, tagline: other.tagline, link: `/projects/${other.slug}` }
+  })
+}
+
 export const projects = projectEntries.map(project => ({
   ...project,
   people: resolvePeople(project),
+  relatedProjects: resolveRelated(project),
   link: `/projects/${project.slug}`,
 }))
 

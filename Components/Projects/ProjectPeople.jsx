@@ -31,6 +31,11 @@ const PeopleGroup = ({ id, title, people, showInstitution = false }) => {
                 <span className='block text-base font-semibold text-brand-dark group-hover:underline'>
                   {person.name}
                 </span>
+                {person.isLead && (
+                  <span className='mt-1 inline-block rounded-full bg-brand-soft px-2 py-0.5 text-xs font-semibold text-brand'>
+                    Project lead
+                  </span>
+                )}
                 {/* Positions run long enough to clip mid-title, so they wrap
                     rather than truncate — `h-full` keeps the row even. */}
                 <span className='mt-1 block text-sm leading-6 text-slate-600'>
