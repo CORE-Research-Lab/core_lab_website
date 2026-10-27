@@ -355,10 +355,10 @@ const projectEntries = [
     status: 'in-development',
     tagline: 'Culture of Security-by-Design: seamlessly integrating security into software development.',
     summary:
-      'Building security into software from the first design decision, starting with DevSecMLOps: security-by-design for trustworthy machine learning pipelines.',
+      'Building security into software from the first design decision, starting with SbDMLOps: security-by-design for trustworthy machine learning pipelines.',
     description: [
       'Most breaches trace back to decisions made long before deployment, and machine learning has widened the gap. ML pipelines face risks that traditional security practices were not built for, including data poisoning, adversarial manipulation, drift, and privacy leakage during data ingestion and training. Current practices either target single threats, lack traceability across the pipeline, or slow down the delivery they are meant to protect.',
-      'Cul-Sec is led and coordinated by Nan Messe at IRIT and Université Toulouse–Jean Jaurès, with funding from the French National Research Agency (ANR). It aims to make security-by-design a seamless part of how software is built. Its first strand, DevSecMLOps, embeds security requirements into machine learning workflows from data ingestion to deployment, continuously enforces and monitors them across every pipeline stage, and explores AI-driven automation of security checks and adversarial testing, so that security keeps pace with continuous delivery. The approach will be validated through industrial case studies.',
+      'Cul-Sec is led and coordinated by Nan Messe at IRIT and Université Toulouse–Jean Jaurès, with funding from the French National Research Agency (ANR). It aims to make security-by-design a seamless part of how software is built. Its first strand, SbDMLOps, embeds security requirements into machine learning workflows from data ingestion to deployment, continuously enforces and monitors them across every pipeline stage, and explores AI-driven automation of security checks and adversarial testing, so that security keeps pace with continuous delivery. The approach will be validated through industrial case studies.',
     ],
     // Separate projects with a shared thread; each page links to the other.
     related: ['codeevolver'],
