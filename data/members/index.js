@@ -69,6 +69,7 @@ import akhilChorariaPhoto from './assets/akhil_choraria_pfp.jpg'
 import yashikaJainPhoto from './assets/yashika_jain_pfp.png'
 import xiaojunLingPhoto from './assets/xiaojun_ling_pfp.png'
 import mattWittmannPhoto from './assets/matt_wittmann_pfp.jpg'
+import barthelemyMatakonPhoto from './assets/barthelemy_matakon_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -1036,12 +1037,12 @@ export const externalStudentsIndustryCollaborators = [
   basicProfile(
     'Sebastian Gürtl',
     'sebastian_gurtl',
-    'Researcher',
+    'Ph.D. Student',
     'Graz University of Technology',
     {
       aliases: ['Sebastian Gurtl'],
       image: sebastianGuertlPhoto,
-      bio: 'Sebastian Gürtl is a researcher at Graz University of Technology. His work connects information retrieval, human-computer interaction, natural-language and multimodal models, and the use of large language models to provide feedback and support learning in computing education.',
+      bio: 'Sebastian Gürtl is a Ph.D. student at Graz University of Technology. His work connects information retrieval, human-computer interaction, natural-language and multimodal models, and the use of large language models to provide feedback and support learning in computing education.',
       website: 'https://ima.or.at/en/biografie/sebastian_guertl/',
       email: 'sebastian.guertl@tugraz.at',
     }
@@ -1056,6 +1057,18 @@ export const externalStudentsIndustryCollaborators = [
       bio: 'Yuri Noviello is a Ph.D. candidate at Delft University of Technology. His research investigates artificial intelligence in computer science education, including natural-language processing methods for generating and evaluating learning materials.',
       website: 'https://www.wis.ewi.tudelft.nl/noviello',
       email: 'y.noviello@tudelft.nl',
+    }
+  ),
+  basicProfile(
+    'Barthélémy Matakon',
+    'barthelemy_matakon',
+    'Ph.D. Student, Université Toulouse–Jean Jaurès',
+    'IRIT',
+    {
+      // Papers may print the name without one or both accents.
+      aliases: ['Barthelemy Matakon', 'Barthélemy Matakon'],
+      image: barthelemyMatakonPhoto,
+      bio: 'Barthélémy Matakon is a Ph.D. researcher in Telecommunications and Computer Science at the Institut de Recherche en Informatique de Toulouse (IRIT), Toulouse, France. Research interests include cybersecurity, software security, machine learning security, MLOps, DevSecMLOps, security-by-design, and trustworthy artificial intelligence. Matakon received a Master’s degree in Cybersecurity and Cryptology from the University of Bamenda, Cameroon, and another in Mathematical Engineering from the University of Ngaoundere, Cameroon. Current research focuses on security-by-design approaches for securing machine learning operations pipelines and trustworthy AI systems. He is also a Cybersecurity Architect and Pentester.',
     }
   ),
   basicProfile(
