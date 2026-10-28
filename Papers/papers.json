@@ -2517,6 +2517,22 @@
             "booktitle": "Proceedings of the 8th Educational Data Mining in Computer Science Education Workshop (CSEDM 2024)",
             "volume": "3796",
             "publisher": "CEUR-WS.org"
+        },
+        {
+            "year": "2024",
+            "title": "Implementation of an Artificial Intelligence Chatbot for Training in Geriatric Medicine Core Competencies",
+            "author": [
+                "Angela Zavaleta Bernuy",
+                "Hammad Sheikh",
+                "Marko Choi",
+                "Harsh Kumar",
+                "Ashton Anderson",
+                "Nihal Haque",
+                "Michael Liut"
+            ],
+            "ENTRYTYPE": "inproceedings",
+            "booktitle": "North York General Hospital Teaching and Learning Week Showcase on Scholarship in Education",
+            "publicationDate": "2024-05-15"
         }
     ],
     "2023": [

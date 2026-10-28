@@ -66,5 +66,19 @@
             "Conference"
         ],
         "journal": "Proceedings of the 30th ACM Conference on Innovation and Technology in Computer Science Education V. 2"
+    },
+    {
+        "year": "2024",
+        "title": "Implementation of an Artificial Intelligence Chatbot for Training in Geriatric Medicine Core Competencies",
+        "author": [
+            "Angela Zavaleta Bernuy",
+            "Hammad Sheikh",
+            "Marko Choi",
+            "Harsh Kumar",
+            "Ashton Anderson",
+            "Nihal Haque",
+            "Michael Liut"
+        ],
+        "publicationDate": "2024-05-15"
     }
 ]

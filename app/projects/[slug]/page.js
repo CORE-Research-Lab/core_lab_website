@@ -2,8 +2,10 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { HiArrowRight, HiExternalLink, HiOutlineMail } from 'react-icons/hi';
+import { getPublicationAuthors } from '@/lib/publications.mjs';
 import { projects, projectsBySlug, projectsSection } from '@/data/projects';
 import ProjectPeople from '@/Components/Projects/ProjectPeople';
+import { AuthorList } from '@/Components/Publications/PublicationCitation';
 import PublicationList from '@/Components/Publications/PublicationList';
 import PageHeader from '@/Components/UI/PageHeader';
 import { SectionHeading } from '@/Components/UI/SectionHeading';
@@ -193,6 +195,48 @@ export default async function ProjectPage({ params }) {
             emptyText='Papers will appear here as the project publishes.'
           />
         </section>
+
+        {project.posters.length > 0 && (
+          <section className='mt-14'>
+            <SectionHeading id='posters'>Posters</SectionHeading>
+            <ul className='mt-5 grid gap-5 md:grid-cols-2'>
+              {project.posters.map((poster) => (
+                <li key={poster.slug}>
+                  <Link
+                    href={poster.link}
+                    className='group flex h-full flex-col overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition-[border-color,box-shadow] hover:border-brand/40 hover:shadow-md'
+                  >
+                    <div className='border-b border-slate-200 bg-slate-50 p-4'>
+                      <Image
+                        src={poster.image}
+                        alt=''
+                        className='h-auto w-full object-contain'
+                        sizes='(max-width: 768px) 100vw, 560px'
+                      />
+                    </div>
+                    <div className='p-5'>
+                      <p className='text-sm font-medium text-slate-600'>
+                        {poster.conference} poster
+                      </p>
+                      <h3 className='mt-2 text-lg font-semibold leading-7 text-brand-dark group-hover:underline'>
+                        {poster.title}
+                      </h3>
+                      {poster.publication && (
+                        <p className='mt-2 text-sm leading-6 text-slate-600'>
+                          <AuthorList
+                            authors={getPublicationAuthors(poster.publication)}
+                            coFirstAuthors={poster.publication.coFirstAuthors}
+                            linkMemberAuthors={false}
+                          />
+                        </p>
+                      )}
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
       </div>
     </>
   );

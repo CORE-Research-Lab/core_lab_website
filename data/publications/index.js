@@ -1,6 +1,7 @@
 import selfExplanationPoster from './assets/ITiCSE_p1.png'
 import timingPoster from './assets/ITiCSE_p2.png'
 import discussionBoardsPoster from './assets/EEFair2026_discussion_boards.png'
+import medbotPoster from './assets/NYGH2024_medbot.png'
 import rawPublicationsByYear from '@/Papers/papers.json'
 import posterPublications from '@/Papers/Posters/poster_papers.json'
 
@@ -75,6 +76,12 @@ export const posterItems = [
     conference: 'ITiCSE 2025',
     title: 'Self-Explanations: Does Timing Matter?',
     image: timingPoster,
+  },
+  {
+    slug: 'medbot-geriatric-medicine-chatbot',
+    conference: 'NYGH Teaching and Learning Week 2024',
+    title: 'Implementation of an Artificial Intelligence Chatbot for Training in Geriatric Medicine Core Competencies',
+    image: medbotPoster,
   },
 ].map(poster => ({
   ...poster,

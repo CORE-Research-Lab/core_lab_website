@@ -14,6 +14,7 @@ import mosaicPublications from '@/Papers/Projects/mosaic_papers.json'
 import sqamPublications from '@/Papers/Projects/sqam_papers.json'
 import medbotPublications from '@/Papers/Projects/medbot_papers.json'
 import { isCollaborator, membersBySlug } from '@/data/members'
+import { postersBySlug } from '@/data/publications'
 
 export const projectsSection = {
   title: 'Projects',
@@ -41,6 +42,8 @@ export const projectStatusLabels = {
  * come from `Papers/Projects/<slug>_papers.json`, which the publication sync
  * fills from the selectors in `Papers/semantic-scholar.config.json`.
  * `image` is optional: a project without one gets a text-only card.
+ * `posters` is optional too: poster slugs from `posterItems` in
+ * `data/publications`, listed under the project's papers.
  */
 const projectEntries = [
   {
@@ -296,7 +299,8 @@ const projectEntries = [
       'A voice-enabled simulated patient for medical learners, co-developed with clinicians, that scores each encounter against instructor rubrics and gives feedback.',
     description: [
       'Clinical interviewing (taking a history, reasoning toward a diagnosis, delivering difficult news) is learned through practice with patients, standardized actors, and OSCE-style assessment. Those opportunities are scarce, expensive, and arrive late, so learners get few repetitions and little immediate, specific feedback.',
-      'MedBot is an adaptive simulated patient. Learners interview it by text or voice, and each encounter is assessed against an instructor’s rubric with automated, criterion-level feedback. The first published case teaches recognition of falls and geriatric syndromes in older adults. Co-developed with Dr. Nihal Haque (Scarborough Health Network; Temerty Faculty of Medicine).',
+      'Some of the hardest conversations in clinical practice go beyond diagnosis: disclosing a serious or stigmatized diagnosis, discussing goals of care with an older adult and their family, or staying calm with a patient who is angry, frightened, or confused by dementia. These skills are central to OSCEs and to everyday care, yet they are among the hardest to rehearse, because a convincing practice partner has to react emotionally, and those reactions have to change with how the learner communicates.',
+      'MedBot is an adaptive simulated patient. Learners interview it by text or voice, and each encounter is assessed against an instructor’s rubric with automated, criterion-level feedback. The first published case teaches recognition of falls and geriatric syndromes in older adults. New cases in development extend MedBot to difficult conversations, with patients whose mood and openness shift in response to how the learner communicates. Co-developed with Dr. Nihal Haque (Scarborough Health Network; Temerty Faculty of Medicine).',
     ],
     image: medbotImage,
     imageAlt:
@@ -306,6 +310,7 @@ const projectEntries = [
     ],
     people: ['nihal_haque', 'michael_liut', 'marko_choi'],
     publications: medbotPublications,
+    posters: ['medbot-geriatric-medicine-chatbot'],
   },
   {
     slug: 'codewalkthrough',
@@ -589,10 +594,21 @@ const resolveRelated = (project) => {
   })
 }
 
+/** A project's `posters` slugs; an unknown slug fails the build. */
+const resolvePosters = (project) =>
+  (project.posters || []).map(slug => {
+    const poster = postersBySlug[slug]
+    if (!poster) {
+      throw new Error(`Project "${project.name}" lists an unknown poster: "${slug}". Add it to posterItems in data/publications or fix the slug.`)
+    }
+    return poster
+  })
+
 export const projects = projectEntries.map(project => ({
   ...project,
   people: resolvePeople(project),
   relatedProjects: resolveRelated(project),
+  posters: resolvePosters(project),
   link: `/projects/${project.slug}`,
 }))
 
