@@ -308,12 +308,12 @@ export const facultyIndustryPartners = [
   basicProfile(
     'Nihal Haque',
     'nihal_haque',
-    'Geriatrician, North York General Hospital; Adjunct Assistant Professor',
+    'Chief Medical Information Officer and Geriatrician, Scarborough Health Network; Assistant Professor',
     'University of Toronto',
     {
       image: nihalHaquePhoto,
-      bio: 'Nihal Haque is a geriatrician at North York General Hospital and an Adjunct Assistant Professor at the University of Toronto. His work brings human-centred AI into geriatric medicine and medical education, including tools for discharge summaries, delirium care, clinician AI literacy, and MedBot, a simulated-patient chatbot for clinical interviewing practice.',
-      website: 'https://deptmedicine.utoronto.ca/news/reimagining-geriatric-care-age-artificial-intelligence',
+      bio: 'Nihal Haque is the Chief Medical Information Officer (CMIO) and a practising geriatrician at Scarborough Health Network, and an Assistant Professor at the University of Toronto’s Temerty Faculty of Medicine. He is a faculty affiliate on the TCAIREM education committee, a fellow in the AMS-Fitzgerald Fellowship in AI & Human-Centred Leadership at the Dalla Lana School of Public Health, and teaches healthcare executives about practical AI through the Rotman School of Management. His research applies AI to delirium care, discharge summaries for frail older inpatients, and medical trainee education, including MedBot, a simulated-patient chatbot for clinical interviewing practice.',
+      website: 'https://deptmedicine.utoronto.ca/faculty/nihal-haque',
     }
   ),
   basicProfile(

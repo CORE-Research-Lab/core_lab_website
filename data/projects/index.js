@@ -1,6 +1,7 @@
 import arcImage from './assets/arc.png'
 import codeEvolverImage from './assets/codeevolver.png'
 import codeToConceptImage from './assets/code-to-concept.png'
+import medbotImage from './assets/medbot.png'
 import quicktaImage from './assets/quickta.png'
 import voiceexImage from './assets/voiceex.png'
 import arcPublications from '@/Papers/Projects/arc_papers.json'
@@ -295,8 +296,11 @@ const projectEntries = [
       'A voice-enabled simulated patient for medical learners, co-developed with clinicians, that scores each encounter against instructor rubrics and gives feedback.',
     description: [
       'Clinical interviewing (taking a history, reasoning toward a diagnosis, delivering difficult news) is learned through practice with patients, standardized actors, and OSCE-style assessment. Those opportunities are scarce, expensive, and arrive late, so learners get few repetitions and little immediate, specific feedback.',
-      'MedBot is an adaptive simulated patient. Learners interview it by text or voice, and each encounter is assessed against an instructor’s rubric with automated, criterion-level feedback. The first published case teaches recognition of falls and geriatric syndromes in older adults. Co-developed with Dr. Nihal Haque (North York General Hospital; Temerty Faculty of Medicine).',
+      'MedBot is an adaptive simulated patient. Learners interview it by text or voice, and each encounter is assessed against an instructor’s rubric with automated, criterion-level feedback. The first published case teaches recognition of falls and geriatric syndromes in older adults. Co-developed with Dr. Nihal Haque (Scarborough Health Network; Temerty Faculty of Medicine).',
     ],
+    image: medbotImage,
+    imageAlt:
+      'MedBot encounter: a learner interviews a guarded older patient about a recent fall, beside rubric feedback marking each criterion as met or partial.',
     links: [
       { label: 'Paper (AIME 2026)', href: 'https://doi.org/10.1007/978-3-032-30813-9_19' },
     ],
