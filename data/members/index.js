@@ -70,6 +70,7 @@ import yashikaJainPhoto from './assets/yashika_jain_pfp.png'
 import xiaojunLingPhoto from './assets/xiaojun_ling_pfp.png'
 import mattWittmannPhoto from './assets/matt_wittmann_pfp.jpg'
 import barthelemyMatakonPhoto from './assets/barthelemy_matakon_pfp.jpg'
+import afekAmiriPhoto from './assets/afek_amiri_pfp.jpg'
 
 export const normalizeMemberName = (name) => String(name || '').trim().toLowerCase()
 
@@ -392,6 +393,18 @@ export const currentGraduateStudents = [
     email: 'amber.richardson@mail.utoronto.ca',
     linkedin: 'https://www.linkedin.com/in/j-amber-l-richardson/',
   },
+  basicProfile(
+    'Barthélémy Matakon',
+    'barthelemy_matakon',
+    'Ph.D. Student, Université Toulouse',
+    'IRIT',
+    {
+      // Papers may print the name without one or both accents.
+      aliases: ['Barthelemy Matakon', 'Barthélemy Matakon'],
+      image: barthelemyMatakonPhoto,
+      bio: 'Barthélémy Matakon is a Ph.D. researcher in Telecommunications and Computer Science at the Institut de Recherche en Informatique de Toulouse (IRIT), Toulouse, France. Research interests include cybersecurity, software security, machine learning security, MLOps, DevSecMLOps, security-by-design, and trustworthy artificial intelligence. Matakon received a Master’s degree in Cybersecurity and Cryptology from the University of Bamenda, Cameroon, and another in Mathematical Engineering from the University of Ngaoundere, Cameroon. Current research focuses on security-by-design approaches for securing machine learning operations pipelines and trustworthy AI systems. He is also a Cybersecurity Architect and Pentester.',
+    }
+  ),
   basicProfile(
     'Valeria Ramirez Osorio',
     'valeria_osorio_ramirez',
@@ -1060,15 +1073,15 @@ export const externalStudentsIndustryCollaborators = [
     }
   ),
   basicProfile(
-    'Barthélémy Matakon',
-    'barthelemy_matakon',
-    'Ph.D. Student, Université Toulouse–Jean Jaurès',
+    'Afek Amiri',
+    'afek_amiri',
+    'Ph.D. Student, Université Toulouse',
     'IRIT',
     {
-      // Papers may print the name without one or both accents.
-      aliases: ['Barthelemy Matakon', 'Barthélemy Matakon'],
-      image: barthelemyMatakonPhoto,
-      bio: 'Barthélémy Matakon is a Ph.D. researcher in Telecommunications and Computer Science at the Institut de Recherche en Informatique de Toulouse (IRIT), Toulouse, France. Research interests include cybersecurity, software security, machine learning security, MLOps, DevSecMLOps, security-by-design, and trustworthy artificial intelligence. Matakon received a Master’s degree in Cybersecurity and Cryptology from the University of Bamenda, Cameroon, and another in Mathematical Engineering from the University of Ngaoundere, Cameroon. Current research focuses on security-by-design approaches for securing machine learning operations pipelines and trustworthy AI systems. He is also a Cybersecurity Architect and Pentester.',
+      image: afekAmiriPhoto,
+      bio: 'Afek is a Ph.D. student in security-by-design at the University of Toulouse. Her research spans AI4Security, Security4AI, Model-Driven Engineering, and Spec-Driven Development.',
+      website: 'https://github.com/AfekAmiri',
+      linkedin: 'https://www.linkedin.com/in/afek-amiri/',
     }
   ),
   basicProfile(
