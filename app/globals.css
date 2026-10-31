@@ -57,6 +57,22 @@ h3 {
   border-radius: 2px;
 }
 
+/* Footer easter egg: rubber ducks falling from the top of the viewport. */
+@keyframes duck-fall {
+  from {
+    transform: translate3d(0, 0, 0) rotate(0deg);
+  }
+  to {
+    transform: translate3d(var(--duck-drift), 115vh, 0) rotate(var(--duck-spin));
+  }
+}
+
+.duck-fall {
+  animation-name: duck-fall;
+  animation-timing-function: cubic-bezier(0.3, 0.1, 0.6, 1);
+  animation-fill-mode: both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto !important;

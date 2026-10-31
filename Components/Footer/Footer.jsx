@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { FaEnvelope, FaMapMarkerAlt } from 'react-icons/fa'
-import { navigationItems, siteBrand } from '@/data/navigation'
+import { navigationItems } from '@/data/navigation'
+import FooterEasterEgg from './FooterEasterEgg'
 
 const contactEmails = [
   'corelab.utm@utoronto.ca',
@@ -24,10 +24,7 @@ const Footer = () => {
       <div className='page-shell py-14'>
         <div className='grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.85fr]'>
           <section aria-labelledby='footer-lab'>
-            <Link href='/' className='inline-flex items-center gap-3'>
-              <Image src={siteBrand.logo} alt={`${siteBrand.name} logo`} width={52} height={52} />
-              <span id='footer-lab' className='text-xl font-semibold text-white'>{siteBrand.name}</span>
-            </Link>
+            <FooterEasterEgg />
             <p className='mt-4 max-w-sm text-sm leading-6 text-slate-300'>
               Computing education research across the University of Toronto and McMaster University.
             </p>
