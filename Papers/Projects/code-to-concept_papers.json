@@ -100,12 +100,12 @@
             "ID": "10.2312/eved.20251027",
             "url": "https://doi.org/10.2312/eved.20251027",
             "semanticScholarUrl": "https://www.semanticscholar.org/paper/f6e1510fad295fc0e23078c4fded402b4b598814",
-            "bibtex": "@Inproceedings{Sibia2025ExploringTR,\n author = {Naaz Sibia and Michael Liut and Carolina Nobre},\n booktitle = {EuroVis 2025 - Education Papers},\n publisher = {The Eurographics Association},\n title = {Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review},\n year = {2025}\n}",
+            "bibtex": "@Inproceedings{Sibia2025ExploringTR,\n author = {Naaz Sibia and Michael Liut and Carolina Nobre},\n booktitle = {Eurographics Conference on Visualization},\n publisher = {The Eurographics Association},\n title = {Exploring the Role of Visualization Tools in Enhancing Computing Education: A Systematic Literature Review},\n year = {2025}\n}",
             "publicationTypes": [
                 "Conference"
             ],
             "doi": "10.2312/eved.20251027",
-            "booktitle": "EuroVis 2025 - Education Papers",
+            "booktitle": "Eurographics Conference on Visualization",
             "publisher": "The Eurographics Association"
         }
     ],

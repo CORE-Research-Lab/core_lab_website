@@ -150,7 +150,7 @@ const ProjectTable = ({ rows }) => {
                   number in each column, with its noun kept for screen
                   readers. */}
               <span className='text-sm tabular-nums text-slate-500 md:hidden'>
-                {project.people} {project.people === 1 ? 'person' : 'people'} · {project.papers} {project.papers === 1 ? 'paper' : 'papers'}
+                {project.people} {project.people === 1 ? 'person' : 'people'}, {project.papers} {project.papers === 1 ? 'paper' : 'papers'}
               </span>
               <span className='hidden text-right text-sm tabular-nums text-slate-500 md:block'>
                 {project.people}<span className='sr-only'> {project.people === 1 ? 'person' : 'people'}</span>

@@ -125,7 +125,7 @@ const YearBars = ({ filterKey, name, years }) => {
                 style={{ height: count ? `${Math.max(12, (count / peak) * 100)}%` : '2px' }}
               />
               <span className='pointer-events-none absolute inset-x-0 bottom-0 text-center text-[10px] font-semibold tabular-nums opacity-0 group-hover/bar:opacity-100'>
-                {year} · {count} {count === 1 ? 'paper' : 'papers'}
+                {year}: {count} {count === 1 ? 'paper' : 'papers'}
               </span>
             </>
           )

@@ -22,6 +22,12 @@
         "output": "Papers/Posters/poster_papers.json",
         "selectors": [
             {
+                "title": "If an Agent Can Write Your Code, What Is Left for You to Learn? Asking, Reviewing, and Owning AI-Assisted Programming"
+            },
+            {
+                "title": "ReQuest: Chatbot-Based Simulations for Requirements Elicitation Training"
+            },
+            {
                 "title": "What Do Students Still Ask? Discussion Board Questions in Computer Science Courses Before and After AI"
             },
             {

@@ -1,5 +1,55 @@
 [
     {
+        "paperId": "00b369b6dd175e7c845dbc86462da8bf515b59f3",
+        "year": "2026",
+        "title": "If an Agent Can Write Your Code, What Is Left for You to Learn? Asking, Reviewing, and Owning AI-Assisted Programming",
+        "author": [
+            "Runlong Ye"
+        ],
+        "ENTRYTYPE": "article",
+        "ID": "10.1145/3856208.3856262",
+        "doi": "10.1145/3856208.3856262",
+        "url": "https://doi.org/10.1145/3856208.3856262",
+        "semanticScholarUrl": "https://www.semanticscholar.org/paper/00b369b6dd175e7c845dbc86462da8bf515b59f3",
+        "abstract": "When a coding agent can produce a program, its tests, and an explanation, the submission says little about what the student understands. My dissertation investigates how computing students can use AI while retaining the reasoning needed to learn programming. I take part in examining three practices: asking for tutoring that requires students to reason, reviewing generated code against expectations formed before seeing it, and owning the work by explaining AI assistance and their own decisions. In two prompting studies, including a randomized trial with 979 CS1 students, students’ tutoring prompts improved after instruction. In CodeCue, predicting program behaviour before seeing an agent’s changes made students feel better prepared, but did not measurably change how they reviewed. Our study on AI attribution found that what students think should be disclosed differs from what they would disclose themselves. The next phase connects these practices, beginning with a randomized attribution study and extending to repeated tasks with gradually reduced support. I will examine how students learn to direct coding agents, evaluate their work, and retain programming understanding that they can apply independently.",
+        "publicationDate": "2026-11-04",
+        "openAccessPdfUrl": "https://doi.org/10.1145/3856208.3856262",
+        "bibtex": "@Book{Ye2026IfAA,\n author = {Runlong Ye},\n booktitle = {Proceedings of the 26th Koli Calling International Conference on Computing Education Research},\n journal = {Proceedings of the 26th Koli Calling International Conference on Computing Education Research},\n title = {If an Agent Can Write Your Code, What Is Left for You to Learn? Asking, Reviewing, and Owning AI-Assisted Programming},\n year = {2026}\n}",
+        "publicationTypes": [
+            "Book",
+            "Conference",
+            "Review"
+        ],
+        "journal": "Proceedings of the 26th Koli Calling International Conference on Computing Education Research"
+    },
+    {
+        "paperId": "77357fa0db39eaee00a2e72f81655a155d524d94",
+        "year": "2026",
+        "title": "ReQuest: Chatbot-Based Simulations for Requirements Elicitation Training",
+        "author": [
+            "Valeria Ramirez Osorio",
+            "Caroline Pechenik",
+            "Ze-Zhu Yu",
+            "Rita Garcia",
+            "Ellie Lovellette",
+            "Angela M. Zavaleta Bernuy"
+        ],
+        "ENTRYTYPE": "article",
+        "ID": "10.1145/3856208.3856261",
+        "doi": "10.1145/3856208.3856261",
+        "url": "https://doi.org/10.1145/3856208.3856261",
+        "semanticScholarUrl": "https://www.semanticscholar.org/paper/77357fa0db39eaee00a2e72f81655a155d524d94",
+        "abstract": "Requirements elicitation is an essential but under-practiced professional skill in computing. Existing classroom activities often provide students with complete specifications, leaving few opportunities to practice communicating with stakeholders and uncovering ambiguous requirements. We present ReQuest, an educational chatbot that simulates a virtual stakeholder, allowing students to practice requirements elicitation through conversation. The system incorporates conversational AI, a stakeholder persona, and automated feedback to support realistic communication practice. We present the design of ReQuest and summarize findings from preliminary pilot evaluations involving focus groups and interviews, highlighting both the promise of the tool and future directions.",
+        "publicationDate": "2026-11-04",
+        "openAccessPdfUrl": "https://doi.org/10.1145/3856208.3856261",
+        "bibtex": "@Book{Osorio2026ReQuestCS,\n author = {Valeria Ramirez Osorio and Caroline Pechenik and Ze-Zhu Yu and Rita Garcia and Ellie Lovellette and Angela M. Zavaleta Bernuy},\n booktitle = {Proceedings of the 26th Koli Calling International Conference on Computing Education Research},\n journal = {Proceedings of the 26th Koli Calling International Conference on Computing Education Research},\n title = {ReQuest: Chatbot-Based Simulations for Requirements Elicitation Training},\n year = {2026}\n}",
+        "publicationTypes": [
+            "Book",
+            "Conference"
+        ],
+        "journal": "Proceedings of the 26th Koli Calling International Conference on Computing Education Research"
+    },
+    {
         "year": "2026",
         "title": "What Do Students Still Ask? Discussion Board Questions in Computer Science Courses Before and After AI",
         "author": [
@@ -79,6 +129,8 @@
             "Nihal Haque",
             "Michael Liut"
         ],
+        "ENTRYTYPE": "inproceedings",
+        "booktitle": "North York General Hospital Teaching and Learning Week Showcase on Scholarship in Education",
         "publicationDate": "2024-05-15"
     }
 ]
