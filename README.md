@@ -6,7 +6,8 @@ Showcases CORE research lab!
 - **/app** – Routes for the website (`/projects`, `/projects/<slug>`, `/publications`, `/publications/<slug>`, `/team`, `/artwork`)
 - **/Components** – Reusable components used across `/app`
 - **/data** – Curated site content and local image assets
-- **/public/photos** – Drop-in folder for the homepage photo carousel
+- **/data/publications/posters** – Every poster image, one file per poster
+- **/public/photos** – Drop-in folder for the homepage photo album
 - **/Papers** – Generated publication JSON plus Semantic Scholar sync configuration
 
 ## Tech Stack
@@ -46,7 +47,7 @@ For alumni, maintain their current job or studies in `currentPosition`, which ap
 
 Posters live in the *Poster Showcase* on the publications page, each with its own page at `/publications/<slug>` showing the poster, its abstract, and its citation. The venue is a free-text label on each poster, so a poster from any conference is added the same way.
 
-1. Save the poster image (PNG or JPG, the full-resolution export is fine) in `data/publications/assets/`.
+1. Save the poster image (PNG, JPG, or WebP; the full-resolution export is fine) in `data/publications/posters/`, named event, year, then topic, lowercase with hyphens (for example `iticse-2025-self-explanation-timing.png`). Every poster lives in this one folder.
 2. Add an entry to `posterItems` in `data/publications/index.js`: a `slug` for the URL, the `conference` label to show (for example `SIGCSE TS 2026`), the `title`, the imported `image`, and the `doi` if the paper has one (or an `eventUrl` for the venue's page if it has none).
 3. Give it a citation. Add a selector for the paper to `posters.selectors` in `Papers/semantic-scholar.config.json`, then run `npm run sync:publications` to write it into `Papers/Posters/poster_papers.json`.
    - **The paper is on Semantic Scholar** – select it by `doi` (or `paperId`). The sync fills in authors, venue, year, abstract, and BibTeX.
@@ -56,13 +57,15 @@ The website matches a poster to its citation by DOI, falling back to the exact t
 
 ## Adding Photos
 
-The homepage ends with a photo carousel fed straight from `public/photos/`. Drop JPG, PNG, WebP, or AVIF files in that folder and they appear on the next build (in `npm run dev`, on the next refresh). There is no data file to edit; the folder is read at build time in `lib/photos.mjs`. An empty folder hides the section.
+The homepage ends with a photo album fed straight from `public/photos/`. Drop JPG, PNG, WebP, or AVIF files in that folder and they appear on the next build (in `npm run dev`, on the next refresh). There is no data file to edit; the folder is read at build time in `lib/photos.mjs`. An empty folder hides the section.
 
-- Photos show in filename order, so number them to set the order (`01-retreat.jpg`, `02-sigcse.jpg`).
-- The filename becomes the alt text, with a leading number and any dashes or underscores dropped, so name files descriptively rather than `IMG_4821.jpg`.
+- Photos show in a random order, reshuffled on every visit.
+- The filename becomes the alt text and the handwritten caption under the print, with a leading number and any dashes or underscores dropped, so name files descriptively rather than `IMG_4821.jpg`.
 - Full-size originals are fine: Next resizes them on demand. iPhone HEIC files are skipped with a warning during the build, so export those as JPG first.
 
-The carousel shows one photo at a time in a frame sized by the screen width alone, with each photo fitted inside rather than cropped, so the page does not shift as the photos change.
+The album shows one photo per page: one page at a time on phones and tablets, an open two-page spread on wider screens. Pages turn with a paper curl (drag a corner, swipe, click a page, or use Previous and Next), and pressing a photo lifts it into a full-screen viewer. Each print is cut to its photo's shape, so nothing is cropped, and the book is sized by the screen width alone, so the page does not shift as the photos change.
+
+The page curl comes from [`@gullabs/flipbook-core`](https://github.com/gul-labs/flipbook), a maintained fork of StPageFlip, licensed MPL-2.0. It is used unmodified; its source is at that link.
 
 ## Updating Publications
 Publication metadata can be synced from Semantic Scholar:
@@ -118,9 +121,9 @@ npm run sync:publications -- --from-file Papers/papers.json --dry-run
 
 ## Homepage Venue Treemap
 
-The "Where we publish" treemap on the homepage is derived from `Papers/papers.json` at build time, so it updates on its own whenever publications are synced — tile areas, ranking, colours, and the totals beside it all come from the same list as the headline publication count.
+The "Where our research appears" treemap on the homepage is derived from `Papers/papers.json` at build time, so it updates on its own whenever publications are synced — tile areas, ranking, colours, and the totals beside it all come from the same list as the headline publication count.
 
 Two constants set how much it shows:
 
-- `venueRamp` in `Components/Home/VenueTreemap.jsx` caps how many venues can be named; everything else pools into *Other venues*. Its steps are a validated ordinal ramp (monotone lightness, a visible step between neighbours, and a label colour clearing 4.5:1 on each fill), and the light end already sits at the edge of what the card surface allows — adding a step means re-stepping the whole ramp, not appending one.
+- `venueRamp` in `Components/Home/PublicationTreemap.jsx` caps how many venues can be named; everything else pools into *Other venues*. Its steps are a validated ordinal ramp (monotone lightness, a visible step between neighbours, and a label colour clearing 4.5:1 on each fill), and the light end already sits at the edge of what the card surface allows — adding a step means re-stepping the whole ramp, not appending one.
 - `layouts` in the same file holds one squarified solve per breakpoint. A treemap is solved for a single aspect ratio and tile count, so phones name six venues and wider screens name eight; at phone width a 2.5% tile is about 44px across, too small to hold a label.

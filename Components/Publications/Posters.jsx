@@ -1,8 +1,6 @@
 "use client"
 
-import { useCallback, useEffect, useState } from 'react'
-import useEmblaCarousel from 'embla-carousel-react'
-import Autoplay from 'embla-carousel-autoplay'
+import { useRef, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { HiArrowRight, HiExternalLink } from 'react-icons/hi'
@@ -10,22 +8,23 @@ import { posterItems, publicationsPage } from '@/data/publications'
 import { getPublicationAuthors } from '@/lib/publications.mjs'
 import { AuthorList } from '@/Components/Publications/PublicationCitation'
 import { SectionHeading } from '@/Components/UI/SectionHeading'
-import {
-  CarouselArrows,
-  autoplayOptions,
-  prefersReducedMotion,
-  stepCarousel,
-} from '@/Components/UI/CarouselControls'
+import { TurnControls, useSwipe } from '@/Components/UI/TurnControls'
 
 const posters = posterItems
-const slideIntervalMs = 8000
+
+// Posters are never hung quite straight. A fixed sequence keeps each one's
+// tilt the same between server and browser renders.
+const tilts = ['-0.8deg', '0.6deg', '-0.4deg', '0.9deg', '-0.6deg']
+
+// The order the strips go on when a poster is taped up.
+const tapes = ['top-left', 'top-right', 'bottom-right', 'bottom-left']
 
 /**
  * The description for one poster. Every poster's panel is rendered and laid
- * over the same grid cell, with only the one on stage visible, so the card is
- * always as tall as the tallest panel and never changes size as they cycle.
+ * over the same grid cell, with only the one on the wall visible, so the card
+ * is always as tall as the tallest panel and never changes size between them.
  */
-const PosterPanel = ({ poster, onStage }) => {
+const PosterPanel = ({ poster, onWall }) => {
   const publication = poster.publication
   const authors = getPublicationAuthors(publication)
   // A poster with no DOI yet links out to its venue instead.
@@ -36,7 +35,11 @@ const PosterPanel = ({ poster, onStage }) => {
       : null
 
   return (
-    <div className={`col-start-1 row-start-1 p-5 sm:p-6 ${onStage ? '' : 'invisible'}`}>
+    <div
+      className={`col-start-1 row-start-1 p-5 transition-[opacity,visibility] duration-300 sm:p-6 ${
+        onWall ? 'opacity-100' : 'invisible opacity-0'
+      }`}
+    >
       <p className='text-sm font-medium text-slate-600'>
         {poster.conference} poster
       </p>
@@ -84,48 +87,38 @@ const PosterPanel = ({ poster, onStage }) => {
 }
 
 /**
- * The poster wall on the publications page. One poster hangs on the stage at a
- * time and the side panel describes it. Embla drives the stage, so swiping,
- * looping, and the header arrows all work; the panel just mirrors the selected
- * slide.
+ * The poster wall on the publications page. One poster hangs on the wall at a
+ * time, taped at the corners, and the side panel describes it. Changing
+ * posters crossfades one into the next in place rather than sliding along a
+ * track. Every poster is rendered in the same spot, so they are all loaded and
+ * the wall never changes size between them.
  */
 const Posters = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel(
-    { loop: true, align: 'start' },
-    [Autoplay(autoplayOptions(slideIntervalMs))]
-  )
   const [current, setCurrent] = useState(0)
+  const wallRef = useRef(null)
 
-  const previousSlide = useCallback(() => stepCarousel(emblaApi, -1), [emblaApi])
-  const nextSlide = useCallback(() => stepCarousel(emblaApi, 1), [emblaApi])
+  const show = (direction) => {
+    if (posters.length < 2) return
+    const next = (current + direction + posters.length) % posters.length
+    const swap = () => setCurrent(next)
+    // A hidden poster is loaded but not yet decoded. Decoding it first means
+    // the crossfade brings in the sheet itself, not a blank one for a frame.
+    const image = wallRef.current?.querySelectorAll('.poster-slot img')[next]
+    if (image?.complete) image.decode().then(swap, swap)
+    else swap()
+  }
 
-  useEffect(() => {
-    if (!emblaApi) return
+  const swipe = useSwipe({ onNext: () => show(1), onPrevious: () => show(-1) })
 
-    // One poster means nothing to advance through, and the OS reduce-motion
-    // setting means nothing should advance on its own either.
-    if (posters.length <= 1 || prefersReducedMotion()) emblaApi.plugins().autoplay?.stop()
-
-    const onSelect = () => setCurrent(emblaApi.selectedScrollSnap())
-
-    onSelect()
-    emblaApi.on('select', onSelect).on('reInit', onSelect)
-
-    return () => {
-      emblaApi.off('select', onSelect).off('reInit', onSelect)
-    }
-  }, [emblaApi])
+  const onKeyDown = (event) => {
+    if (event.key === 'ArrowRight') show(1)
+    if (event.key === 'ArrowLeft') show(-1)
+  }
 
   if (posters.length === 0) return null
 
-  const showControls = posters.length > 1
-
   return (
-    <section
-      className='pt-8'
-      aria-roledescription='carousel'
-      aria-label={publicationsPage.postersTitle}
-    >
+    <section className='pt-8' aria-label={publicationsPage.postersTitle} onKeyDown={onKeyDown}>
       <SectionHeading id='posters'>{publicationsPage.postersTitle}</SectionHeading>
 
       <p className='mt-5 max-w-4xl text-lg leading-8 text-slate-600'>
@@ -133,50 +126,78 @@ const Posters = () => {
       </p>
 
       <div className='mt-5 grid overflow-hidden rounded-xl border border-slate-200 bg-white lg:grid-cols-[minmax(0,1fr)_21rem]'>
-        {/* The stage. The carousel viewport fills whatever height the side
-            panel needs, so a portrait and a landscape poster share one frame
-            without the card changing size between them. */}
-        <div className='relative min-h-[clamp(16rem,48vh,28rem)] lg:min-h-[clamp(24rem,60vh,36rem)]'>
-          <div className='poster-wall absolute inset-0 overflow-hidden' ref={emblaRef}>
-            <div className='flex h-full touch-pan-y'>
-              {posters.map((poster, index) => (
-                <div
+        <div className='flex min-w-0 flex-col'>
+          {/* The wall. It fills whatever height the side panel needs, so a
+              portrait and a landscape poster share one frame without the card
+              changing size between them. */}
+          <div
+            ref={wallRef}
+            className='poster-wall relative min-h-[clamp(16rem,48vh,28rem)] grow touch-pan-y select-none overflow-hidden lg:min-h-[clamp(24rem,60vh,36rem)]'
+            {...swipe}
+          >
+            {posters.map((poster, index) => {
+              const onWall = index === current
+              // The posters either side load ahead, so a swap never fades in
+              // a blank sheet; hidden ones further away wait their turn.
+              const distance = Math.abs(index - current)
+              const isNear = Math.min(distance, posters.length - distance) <= 1
+
+              return (
+                // The outline sits inside the wall because the wall clips
+                // anything drawn outside it. The padding leaves room for the
+                // tape that overhangs each corner.
+                <Link
                   key={poster.slug}
-                  className='relative h-full min-w-0 flex-[0_0_100%]'
-                  role='group'
-                  aria-roledescription='slide'
-                  aria-label={`${index + 1} of ${posters.length}`}
+                  href={poster.link}
+                  aria-label={`View poster: ${poster.title}`}
+                  aria-hidden={onWall ? undefined : true}
+                  tabIndex={onWall ? undefined : -1}
+                  draggable={false}
+                  data-state={onWall ? 'on' : 'off'}
+                  className='poster-slot absolute inset-0 block p-8 focus-visible:-outline-offset-4 sm:p-12'
                 >
-                  {/* The outline sits inside the frame because the viewport
-                      clips anything drawn outside it. */}
-                  <Link
-                    href={poster.link}
-                    aria-label={`View poster: ${poster.title}`}
-                    className='absolute inset-0 block focus-visible:-outline-offset-4'
-                  >
-                    <Image
-                      src={poster.image}
-                      alt=''
-                      fill
-                      priority={index === 0}
-                      className='poster-paper object-contain p-5 sm:p-8'
-                      sizes='(max-width: 1024px) 100vw, 640px'
-                    />
-                  </Link>
-                </div>
-              ))}
-            </div>
+                  <span className='poster-fit grid size-full place-items-center'>
+                    <span
+                      className='taped-poster'
+                      style={{
+                        '--ratio': poster.image.width / poster.image.height,
+                        '--tilt': tilts[index % tilts.length],
+                      }}
+                    >
+                      <Image
+                        src={poster.image}
+                        alt=''
+                        fill
+                        priority={index === 0}
+                        loading={index === 0 ? undefined : isNear ? 'eager' : 'lazy'}
+                        className='object-cover'
+                        sizes='(max-width: 1024px) 90vw, 600px'
+                        draggable={false}
+                      />
+                      {tapes.map((tape, order) => (
+                        <span
+                          key={tape}
+                          className='poster-tape'
+                          data-tape={tape}
+                          style={{ '--tape-order': order }}
+                          aria-hidden='true'
+                        />
+                      ))}
+                    </span>
+                  </span>
+                </Link>
+              )
+            })}
           </div>
-          {showControls && (
-            <>
-              <CarouselArrows onPrevious={previousSlide} onNext={nextSlide} itemName='poster' />
-              <p
-                className='pointer-events-none absolute right-3 top-3 rounded-full bg-white/85 px-2.5 py-1 text-xs font-semibold tabular-nums text-slate-600 ring-1 ring-slate-900/10 backdrop-blur-sm'
-                aria-hidden='true'
-              >
-                {current + 1} / {posters.length}
-              </p>
-            </>
+
+          {posters.length > 1 && (
+            <TurnControls
+              className='border-t border-slate-200 py-2'
+              itemName='poster'
+              onPrevious={() => show(-1)}
+              onNext={() => show(1)}
+              label={`${current + 1} of ${posters.length}`}
+            />
           )}
         </div>
 
@@ -184,7 +205,7 @@ const Posters = () => {
             past the card edge on phones. */}
         <div className='grid min-w-0 border-t border-slate-200 lg:border-l lg:border-t-0'>
           {posters.map((poster, index) => (
-            <PosterPanel key={poster.slug} poster={poster} onStage={index === current} />
+            <PosterPanel key={poster.slug} poster={poster} onWall={index === current} />
           ))}
         </div>
       </div>

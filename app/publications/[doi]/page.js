@@ -66,7 +66,6 @@ export default async function PosterPage({ params }) {
       href: publication.semanticScholarUrl,
     },
     poster.eventUrl && { label: 'Event page', href: poster.eventUrl },
-    { label: 'Full-size poster', href: poster.image.src },
   ].filter(Boolean);
 
   return (
@@ -160,17 +159,21 @@ export default async function PosterPage({ params }) {
               )}
             </dl>
 
-            <h2 className={`${asideHeadingClass} mt-6`}>Links</h2>
-            <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>
-              {links.map((link) => (
-                <li key={link.href}>
-                  <a href={link.href} target='_blank' rel='noopener noreferrer' className={linkClass}>
-                    {link.label}
-                    <HiExternalLink className='size-4 shrink-0' aria-hidden='true' />
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {links.length > 0 && (
+              <>
+                <h2 className={`${asideHeadingClass} mt-6`}>Links</h2>
+                <ul className='mt-3 divide-y divide-slate-200 border-y border-slate-200'>
+                  {links.map((link) => (
+                    <li key={link.href}>
+                      <a href={link.href} target='_blank' rel='noopener noreferrer' className={linkClass}>
+                        {link.label}
+                        <HiExternalLink className='size-4 shrink-0' aria-hidden='true' />
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </aside>
         </div>
       </div>

@@ -122,7 +122,7 @@ export const supportCallout = {
 }
 
 // The photos themselves come from `public/photos/`; see the README there.
-export const photoCarouselContent = {
+export const photoAlbumContent = {
   title: 'Around the lab',
   description: 'Snapshots from lab events, conferences, and everyday life in the office.',
 }

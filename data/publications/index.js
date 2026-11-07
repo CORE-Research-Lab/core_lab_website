@@ -1,7 +1,9 @@
-import selfExplanationPoster from './assets/ITiCSE_p1.png'
-import timingPoster from './assets/ITiCSE_p2.png'
-import discussionBoardsPoster from './assets/EEFair2026_discussion_boards.png'
-import medbotPoster from './assets/NYGH2024_medbot.png'
+import selfExplanationPoster from './posters/iticse-2025-self-explanation-llms.png'
+import timingPoster from './posters/iticse-2025-self-explanation-timing.png'
+import discussionBoardsPoster from './posters/utm-ee-fair-2026-discussion-board-questions.png'
+import medbotPoster from './posters/nygh-2024-medbot-geriatric-medicine.png'
+import aiAssistedProgrammingPoster from './posters/koli-calling-2026-ai-assisted-programming.webp'
+import requestPoster from './posters/koli-calling-2026-request-requirements-elicitation.webp'
 import rawPublicationsByYear from '@/Papers/papers.json'
 import posterPublications from '@/Papers/Posters/poster_papers.json'
 
@@ -54,6 +56,18 @@ const findPosterPublication = poster =>
  * for the venue's page instead. See "Adding a Poster" in the README.
  */
 export const posterItems = [
+  {
+    slug: 'ai-assisted-programming-asking-reviewing-owning',
+    conference: 'Koli Calling 2026 Doctoral Consortium',
+    title: 'If an Agent Can Write Your Code, What Is Left for You to Learn? Asking, Reviewing, and Owning AI-Assisted Programming',
+    image: aiAssistedProgrammingPoster,
+  },
+  {
+    slug: 'request-requirements-elicitation-training',
+    conference: 'Koli Calling 2026',
+    title: 'ReQuest: Chatbot-Based Simulations for Requirements Elicitation Training',
+    image: requestPoster,
+  },
   {
     slug: 'what-do-students-still-ask',
     conference: 'UTM Experiential Education Fair 2026',

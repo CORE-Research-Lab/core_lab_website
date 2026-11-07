@@ -105,20 +105,323 @@ h3 {
   }
 }
 
-/* Posters hang on a "wall": a faint dot grid over the soft brand tint, so a
-   sheet reads as paper pinned up rather than an image dropped in a grey box. */
+/* Posters hang on a painted wall: warm off-white paint with a fine grain and
+   faint roller marks, lit from above so it dims a little toward the lower
+   corners. Both textures are inline SVG noise, so there is no image to load. */
 @utility poster-wall {
-  background-color: color-mix(in srgb, var(--color-brand-soft) 55%, white);
-  background-image: radial-gradient(var(--color-brand-line) 1px, transparent 1.5px);
-  background-size: 18px 18px;
+  background-color: #efece6;
+  background-image:
+    radial-gradient(130% 95% at 50% -12%, rgb(255 255 255 / 0.55), rgb(255 255 255 / 0) 62%),
+    radial-gradient(ellipse at 50% 40%, rgb(70 58 40 / 0) 58%, rgb(70 58 40 / 0.09)),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.26 0 0 0 0 0.2 0 0 0 0.11 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='560' height='560'%3E%3Cfilter id='m'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.004 0.018' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.3 0 0 0 0 0.26 0 0 0 0 0.2 0 0 0 0.09 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23m)'/%3E%3C/svg%3E");
+  background-size:
+    100% 100%,
+    100% 100%,
+    160px 160px,
+    560px 560px;
 }
 
 /* drop-shadow follows the sheet's own edges. A box-shadow would outline the
    letterboxed frame instead, which shows up as soon as a portrait poster sits
-   in a landscape stage. */
+   in a landscape stage. Paper flat on a wall casts a tight, neutral shadow. */
 @utility poster-paper {
-  filter: drop-shadow(0 1px 1px rgb(15 23 42 / 0.12))
-    drop-shadow(0 20px 28px rgb(11 58 114 / 0.22));
+  filter: drop-shadow(0 1px 1px rgb(40 32 20 / 0.2))
+    drop-shadow(0 4px 8px rgb(40 32 20 / 0.14));
+}
+
+/* Taped posters on the publications wall. Each sheet is cut to its own shape
+   (`--ratio`, width over height) inside a size container, hangs at a slight
+   `--tilt`, and is held by four strips of masking tape. Changing posters is a
+   short crossfade; the sheets themselves stay still. */
+@layer components {
+  .poster-slot {
+    transition:
+      opacity 280ms ease,
+      visibility 280ms;
+  }
+
+  .poster-slot[data-state='off'] {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+
+  .poster-fit {
+    container-type: size;
+  }
+
+  .taped-poster {
+    position: relative;
+    display: block;
+    width: min(100cqw, 100cqh * var(--ratio));
+    aspect-ratio: var(--ratio);
+    rotate: var(--tilt, 0deg);
+    background: #fff;
+    /* Flat against the wall: a hairline edge, a tight contact shadow, and a
+       short soft one below, all in the wall's own warm grey. */
+    box-shadow:
+      0 0 0 1px rgb(40 32 20 / 0.05),
+      0 1px 1.5px rgb(40 32 20 / 0.18),
+      0 4px 10px -3px rgb(40 32 20 / 0.18);
+  }
+
+  .poster-tape {
+    position: absolute;
+    width: 4.25rem;
+    height: 1.25rem;
+    background-color: rgb(232 223 199 / 0.8);
+    background-image: linear-gradient(
+      rgb(255 255 255 / 0.3),
+      rgb(255 255 255 / 0) 45%,
+      rgb(120 100 60 / 0.06)
+    );
+    /* Torn ends, so the strip reads as tape rather than a label. */
+    clip-path: polygon(
+      0 10%, 4% 0, 96% 0, 100% 14%, 97% 32%, 100% 52%, 96.5% 72%, 100% 90%,
+      96% 100%, 4% 100%, 0 88%, 3% 68%, 0 48%, 3.5% 28%
+    );
+  }
+
+  .poster-tape[data-tape='top-left'] {
+    top: 0;
+    left: 0;
+    translate: -45% -40%;
+    rotate: -41deg;
+  }
+
+  .poster-tape[data-tape='top-right'] {
+    top: 0;
+    right: 0;
+    translate: 45% -40%;
+    rotate: 37deg;
+  }
+
+  .poster-tape[data-tape='bottom-right'] {
+    bottom: 0;
+    right: 0;
+    translate: 45% 40%;
+    rotate: -35deg;
+  }
+
+  .poster-tape[data-tape='bottom-left'] {
+    bottom: 0;
+    left: 0;
+    translate: -45% 40%;
+    rotate: 43deg;
+  }
+
+  @media (width >= 40rem) {
+    .poster-tape {
+      width: 5.5rem;
+      height: 1.5rem;
+    }
+  }
+}
+
+/* The homepage photo album: a navy board for the cover, cream pages with a
+   few page edges showing underneath, shading where each page meets the spine,
+   and white-bordered prints held by photo corners. The page curl itself is
+   drawn by the flipbook engine; these style what is printed on the pages. */
+@layer components {
+  .album-cover {
+    background-color: var(--color-brand-dark);
+    background-image: linear-gradient(150deg, rgb(255 255 255 / 0.1), rgb(255 255 255 / 0) 40%);
+    box-shadow:
+      0 1px 2px rgb(15 23 42 / 0.2),
+      0 20px 40px -20px rgb(0 42 92 / 0.6);
+  }
+
+  .album-pages {
+    background-color: #fbf8f1;
+    box-shadow:
+      0 1px 0 #e6dece,
+      0 2px 0 #f6f1e6,
+      0 3px 0 #e1d8c5;
+  }
+
+  /* The flipbook pins a minimum width on its host so a page is never
+     narrower than its `minWidth` setting. On a phone that would push the book
+     past the screen edge; the frame around it already does the sizing. */
+  .album-host {
+    min-width: 0 !important;
+    min-height: 0 !important;
+  }
+
+  /* One page at a time is bound on its left edge. The open spread from `lg`
+     up has its spine down the middle, shaded on each page's inner edge. */
+  .album-leaf {
+    --album-vignette: radial-gradient(
+      ellipse at center,
+      rgb(120 100 60 / 0) 55%,
+      rgb(120 100 60 / 0.07)
+    );
+    --album-binding: linear-gradient(
+      to right,
+      rgb(60 45 20 / 0.16),
+      rgb(60 45 20 / 0.05) 1rem,
+      rgb(60 45 20 / 0) 2.5rem
+    );
+    background-image: var(--album-binding), var(--album-vignette);
+  }
+
+  @media (width >= 64rem) {
+    .album-leaf[data-side='left'] {
+      background-image:
+        linear-gradient(
+          to left,
+          rgb(60 45 20 / 0.18),
+          rgb(60 45 20 / 0.05) 1.25rem,
+          rgb(60 45 20 / 0) 3rem
+        ),
+        var(--album-vignette);
+    }
+
+    .album-leaf[data-side='right'] {
+      background-image:
+        linear-gradient(
+          to right,
+          rgb(60 45 20 / 0.18),
+          rgb(60 45 20 / 0.05) 1.25rem,
+          rgb(60 45 20 / 0) 3rem
+        ),
+        var(--album-vignette);
+    }
+  }
+
+  .album-fit {
+    container-type: size;
+  }
+
+  .photo-print {
+    --print-border: 0.5rem;
+    --caption-space: 4rem;
+    box-sizing: content-box;
+    flex: none;
+    padding: var(--print-border);
+    width: min(
+      100cqw - 2 * var(--print-border) - 1rem,
+      (100cqh - 2 * var(--print-border) - var(--caption-space)) * var(--ratio)
+    );
+    aspect-ratio: var(--ratio);
+    rotate: var(--tilt, 0deg);
+    background: #fff;
+    box-shadow:
+      0 1px 1px rgb(15 23 42 / 0.12),
+      0 8px 16px -8px rgb(60 45 20 / 0.4);
+    transition: box-shadow 160ms ease-out;
+  }
+
+  .photo-print:hover {
+    box-shadow:
+      0 1px 2px rgb(15 23 42 / 0.16),
+      0 12px 24px -8px rgb(60 45 20 / 0.5);
+  }
+
+  .photo-corner {
+    position: absolute;
+    width: 1.25rem;
+    height: 1.25rem;
+    background-image: linear-gradient(135deg, #1d3a63, var(--color-brand-dark));
+  }
+
+  .photo-corner[data-corner='top-left'] {
+    top: -3px;
+    left: -3px;
+    clip-path: polygon(0 0, 100% 0, 0 100%);
+  }
+
+  .photo-corner[data-corner='top-right'] {
+    top: -3px;
+    right: -3px;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+  }
+
+  .photo-corner[data-corner='bottom-right'] {
+    bottom: -3px;
+    right: -3px;
+    clip-path: polygon(100% 0, 100% 100%, 0 100%);
+  }
+
+  .photo-corner[data-corner='bottom-left'] {
+    bottom: -3px;
+    left: -3px;
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
+  }
+
+  @media (width >= 40rem) {
+    .photo-print {
+      --print-border: 0.75rem;
+    }
+
+    .photo-corner {
+      width: 1.75rem;
+      height: 1.75rem;
+    }
+  }
+
+  /* Looking at one photo up close: the print, bigger and straight, over the
+     dimmed page. The dialog fills the screen so a click anywhere around the
+     print puts it down. */
+  .photo-viewer {
+    position: fixed;
+    inset: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    max-width: none;
+    max-height: none;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #fff;
+  }
+
+  .photo-viewer::backdrop {
+    background: rgb(12 18 30 / 0.84);
+  }
+
+  .photo-viewer[open],
+  .photo-viewer[open]::backdrop {
+    animation: viewer-fade 220ms ease-out;
+  }
+
+  .viewer-print {
+    --print-border: 0.75rem;
+    box-sizing: content-box;
+    padding: var(--print-border);
+    width: min(
+      100vw - 2rem - 2 * var(--print-border),
+      (100dvh - 13rem - 2 * var(--print-border)) * var(--ratio),
+      68rem
+    );
+    aspect-ratio: var(--ratio);
+    background: #fff;
+    box-shadow: 0 30px 60px -24px rgb(0 0 0 / 0.65);
+  }
+}
+
+@keyframes viewer-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+/* The print's trip between page and viewer (see `morphPrint` in
+   PhotoAlbum.jsx). Slower than the default so it reads as being picked up. */
+::view-transition-group(album-print) {
+  animation-duration: 460ms;
+  animation-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+::view-transition-old(album-print),
+::view-transition-new(album-print) {
+  animation-duration: 460ms;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 280ms;
 }
 
 /* Sticky stack. The navbar is always pinned; below `lg` the section chip row
